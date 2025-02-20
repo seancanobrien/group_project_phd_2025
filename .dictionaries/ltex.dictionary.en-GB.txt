@@ -11,3 +11,7 @@ Pham
 Paolini
 posets
 McCammond
+simplices
+subchains
+superchain
+subposet
