@@ -1,1 +1,66 @@
-\section{Lorna's section}
+\section{Groups acting on $\mathbb{R}$-Trees}
+\subsection{Definition and Basic Examples}
+\begin{definition}
+    A metric space $(X,d)$ is an \textnormal{$\mathbb{R}$-tree} if for every pair of points $x,y\in X$ there is a unique geodesic from $x$ to $y$.
+\end{definition}
+
+The following follows immediately from the definition, and is sometimes used as an alternative characterisation:
+
+\begin{proposition}
+    A metric space is an $\mathbb{R}$-tree if and only if it is 0-hyperbolic.
+\end{proposition}
+
+We now give some simple examples of $\mathbb{R}$-trees.
+
+\begin{example}
+    Any tree $T$ with the metric that identifies each edge with the interval $[0,1]$ is an $\mathbb{R}$-tree.
+\end{example}
+
+\begin{example}
+    $\mathbb{R}^2$ with the \textit{Paris metric} is an $\mathbb{R}$-tree. This is the metric $d$ defined by\[d(x,y)=d_E(x,y)\]if $x$ and $y$ lie on the same line through the origin, and\[d(x,y)=d_E(x,0)+d_E(0,y)\] otherwise (here $d_E$ is the Euclidean metric on $\mathbb{R}^2$). 
+\end{example}
+
+\subsection{Group Actions}
+Isometries of $\mathbb{R}$-trees have a classification analogous to that of isometries of hyperbolic space. 
+\begin{definition}
+    Let $G$ be a group acting by isometries on an $\mathbb{R}$-tree $T$. The \textnormal{translation length} of $g\in G$ is \[\lVert g\rVert=\underset{x\in T}{\text{inf}}d(x,g(x)).\]
+    \begin{itemize}
+        \item If $\lVert g\rVert=0$, $g$ is \textnormal{elliptic},
+        \item If $\lVert g\rVert>0$, $g$ is \textnormal{hyperbolic}.
+    \end{itemize}
+\end{definition}
+
+It is sometimes useful to classify these isometries in terms of their invariant sets:
+\begin{definition}
+    Let $g$ be an isometry of an $\mathbb{R}$-tree $T$. Its \textnormal{characteristic set} is \[C_g = \{x\in T:d(x,g(x))=\lVert g \rVert\}.\]
+\end{definition}
+\begin{proposition}
+    Let $g$ be an isometry of an $\mathbb{R}$-tree $T$. Then $C_g$ is invariant under the action of $g$,is a closed, non-empty subtree of $T$, and
+    \begin{itemize}
+        \item if $g$ is elliptic, $C_g$ is the fixed by $g$,
+        \item if $g$ is hyperbolic, $C_g$ is isometric to $\mathbb{R}$, and is called the \textnormal{axis} of $g$. $g$ acts on its axis by translation by $\lVert g\rVert$.
+    \end{itemize}
+\end{proposition}
+\begin{proof}
+    In the elliptic case, $g$ clearly fixes $C_g$. 
+\end{proof}
+
+\subsection{Applications of $\mathbb{R}$-Trees}
+$\mathbb{R}$-trees have been used to prove many facts in geometric group theory. In this section we will discuss some of these, starting with some theorems about hyperbolic groups.
+
+\begin{theorem}
+    Let $G$ be a hyperbolic group such that Out$(G)$ is infinite. Then $G$ splits over a virtually cyclic subgroup.
+\end{theorem}
+
+\begin{definition}
+    A topological space $X$ is \textnormal{locally connected} at $x\in X$ if every open neighbourhood of $x$ contains a connected open neighbourhood of $x$. $X$ is locally connected if it is locally connected at all of its points.
+\end{definition}
+Note first that neither connected nor locally connected implies the other: the union of two disjoint intervals in $\mathbb{R}$ is locally connected but not connected, whereas the graph of $\sin(\frac{1}{x})$ is connected but not locally connected.
+
+\begin{theorem}
+    Let $G$ be a hyperbolic group. Then if $G$ has one end, its Gromov boundary $\partial G$ is connected and locally connected.
+\end{theorem}
+
+
+
+

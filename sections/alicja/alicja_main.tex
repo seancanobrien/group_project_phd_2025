@@ -1,1 +1,59 @@
-\section{Alicja's Section}
+\pagebreak %sI will take those out later, for now they will help me to write
+
+\section{Baumslag-Solitar groups and their generalisation}
+
+In this chapter we will explore a certain class of groups, which were initially introduced in \cite{BaSo62}. They have since served as examples and counterexamples of groups with different properties.
+
+\begin{definition}
+    A \emph{Baumslag-Solitar group $BS(m,n)$} is a group given by the presentation \[BS(m,n) = \langle \: a, t\:|\:t(a^m)t^{-1} = a^n \: \rangle .\]
+\end{definition}
+
+\begin{remark}
+    Note, that for $m = n = 1$, $BS(m,n) = \langle a,t \: | \: tat^{-1} = a \: \rangle \cong \Z \times \Z$. This case seems to be regarded as somehow seperate in the literature.
+\end{remark}
+
+The first property of these groups that we will consider, and the one that motivated Baumslag and Solitar in \cite{BaSo62}, is that of being (non-)Hopfian.
+
+\begin{definition}
+    A group $G$ is said to be \emph{Hopfian} if every epimorphism from $G$ to itself is injective. In other words, if $G/N \cong G$ implies $N = 1$. Otherwise, we say $G$ is \emph{non-Hopfian}.
+\end{definition}
+    
+Before we proceed, we should mention that examples of Hopfian groups include:
+\begin{enumerate}
+    \item simple groups;
+    \item $(\mathbb{Q},+)$;
+    \item finitely generated residually finite groups (by the theorem of Mal'cev), where we say that $G$ is residualy finite if for each $g \neq 1_G$ in $G$, there exists a finite group $F$ and a group homomorphism $\phi: G \to F$ such that $\phi(g) \neq 1_F$.
+    \item finitely generated free groups.
+\end{enumerate}
+
+Examples (1) - (3) were taken from \cite{CeSi23}. An interested reader can find proofs of (3) and (4) being Hopfian in \cite[~chapters I, IV]{LySch15}. 
+
+\begin{importantexample}\cite[page 514]{BrHa11}
+    The group $BS(2,3) = \langle a,t \: | \: t(a^2)t^{-1} = a^3\rangle $ is non-Hopfian. To see that, one considers $\phi: BS(2,3) \to BS(2,3)$ defined on generators as $a \mapsto a^2$, and $t \mapsto t$. Note, that $a = a^3a^{-2} = ta^2t^{-1}a^{-2}$, so $a$ is in the image of $\phi$. Therefore, $\phi$ is onto, but also $[a,tat^{-1}] = atat^{-1}a^{-1}ta^{-1}t^{-1}$ is mapped to identity by $\phi$, thus being an example of a nontrivial element in $ker(\phi)$.
+\end{importantexample}
+
+\subsection{Baumslag-Solitar groups as HNN extensions}
+
+In this subsection we will follow the definitions and conventions from \cite[pages 497-498]{BrHa11}.
+
+\begin{definition}
+\label{HNN}
+    Let $G$ be a group, $\phi: A_1 \to A_2$ an isomorphism between two subgroups $A_1$,$A_2$ of $G$. A \emph{HNN extension of G} associated to that data is the quotient of $G \ast \langle t \rangle$ by the smallest normal subgroup containing $\{a^{-1}t\phi(a)t^{-1} \: | \: a \in A_1 \}$. Thus, we can represent that extension by a relative presentation 
+    \[G \ast_\phi = ( G,t \: | \: t^{-1}at = \phi(a), \forall a \in A_1). \]
+\end{definition}
+
+\begin{remark}
+    If $A$ is an abstract group isomorphic to both $A_1$, $A_2$, then instead of $G \ast _\phi$ we may write $G \ast _A$. We refer to $G \ast _A$ as a 'HNN extension of $G$ over $A$'.
+\end{remark}
+
+\begin{example}
+    $BS(m,n)$ is a HNN extension of $\Z$ \textcolor{red}{why?}.
+\end{example}
+
+%HNN extensions are important because together with free products with amalgamation they form the building blocks of graphs of groups (in the sense of Bass and Serre).
+
+
+
+
+
+
