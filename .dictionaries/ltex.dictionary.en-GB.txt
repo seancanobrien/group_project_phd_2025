@@ -15,3 +15,7 @@ simplices
 subchains
 superchain
 subposet
+scwol
+barycentrically
+barycenter
+barycenters

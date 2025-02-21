@@ -1,21 +1,26 @@
 \subsection{Small categories without loops}
 
-We will first recall the standard construction of the geometric realisation $\Gamma(P)$ of a poset $P$.
+We will first recall the standard construction of the geometric realisation $\Abs{P}$ of a poset $P$.
 Given a poset $P$, a chain $C \subseteq P$ is a totally ordered subposet, i.e.~either $x \leq y$ or  $y \leq x$ for all  $x,y \in C$.
 We say $C$ is an $n$--chain if $n=\Abs{C}-1$.
-To construct $\Gamma(P)$, we first associate to each $n$--chain in $P$, an $n$--simplex $\Delta_{C}$.
+We denote the standard $k$--simplex as $\Delta^k$, where
+\[
+	\Delta^k \coloneq \Set{(x_0,\ldots, x_k) \in \R^{k+1} \given x_i \geq 0 \; \forall i \text{ and } x_0 + \cdots + x_k =1}
+	.\]
+
+To construct $\Abs{P}$, we first associate to each $n$--chain in $P$, an $n$--simplex $\Delta_{C}$.
 The elements of $C$ correspond to the vertices of $\Delta_{C}$.
 Such a $\Delta_C$, and all of its faces, are canonically oriented due to the ordering in $P$.
 Using this orientation, we glue simplices corresponding to subchains to a face of the higher dimensional simplex, which corresponds to the superchain.
 Specifically, let $C_1 \subset C_2$ be chains, with $C_1$ an $n$--chain.
 Let $f$ denote the orientation preserving isometry from (the closed) $\Delta_{C_1}$ to the relevant (closed) $n$--dimensional face of $\Delta_{C_2}$.
-We then glue $C_1$ to $C_2$ using  $f$.
+We then glue $\Delta_{C_1}$ to $\Delta_{C_2}$ using  $f$.
 Taking $\sim$ to be the transitive closure of the relation defined by all such $f$, for all chains and subchains of  $P$, we then have
 \[
-	\Gamma(P) \coloneq \left(\;\bigsqcup_{\substack{ C \subseteq P \\ \text{chain}}} \Delta_C \right)/\sim
+	\Abs{P} \coloneq \left(\;\bigsqcup_{\substack{ C \subseteq P \\ \text{chain}}} \Delta_C \right)/\sim
 	.\]
 
-See \cref{fig:example_poset_complex} for an example, where $\Gamma(P)$ is three solid tetrahedrons.
+See \cref{fig:example_poset_complex} for an example, where $\Abs{P}$ is three solid tetrahedrons.
 Two tetrahedrons, on the left half of the picture, share a face, and all three tetrahedrons share an edge, which is vertical and centred in the picture.
 
 % filled small circle
@@ -73,16 +78,16 @@ Two tetrahedrons, on the left half of the picture, share a face, and all three t
 			\draw[light] (bottom right) 	to 	  				(top);
 		\end{pgfonlayer}
 	\end{tikzpicture}
-	\caption{The diagram of a poset where $\leq$ is $\subseteq$ (left) and a picture of the corresponding complex $\Gamma(P)$ (right) with the original poset highlighted in black.}
+	\caption{The diagram of a poset where $\leq$ is $\subseteq$ (left) and a picture of the corresponding complex $\Abs{P}$ (right) with the original poset highlighted in black.}
 	\label{fig:example_poset_complex}
 \end{figure}
 
-Posets, and the construction $\Gamma(P)$, give a combinatorial description of certain simplicial complexes.
+Posets, and the construction $\Abs{P}$, give a combinatorial description of certain simplicial complexes.
 However, not all complexes can be realised by this construction.
-For instance, consider $S^1$ realised as two edges connected at their ends.
+For example, consider $S^1$ realised as two edges connected at their ends.
 This limitation is linked to the following observation.
 
-All the information of a poset $P$ is encoded exactly by the following category $\catc$.
+All the information of a poset $P$ is encoded exactly by the following category $\catc$:
 The objects of  $\catc$ are the elements of  $P$, and there is a morphism  $x \to y$ in  $\catc$ exactly when  $x \leq y$ in $P$.
 The category $\catc$ is \emph{thin}, meaning that for all  $x,y \in \ob(\catc)$, there is at most one morphism  $x \to y$.
 Bearing this in mind, with the aim of being able to construct $S^1$ in a combinatorial way, we give the following definition.
@@ -97,12 +102,11 @@ It also means that the only morphism $x \to x$ is $\id_x$.
 Conversely, if a small category satisfies both of these properties, then it is a scwol.
 
 With geometry in mind, we call the objects of a scwol $\catx$ \emph{vertices} and denote the set of vertices by $V(\catx)$.
-We call the morphisms of  $\catx$ \emph{edges} and denote the set of edges by $E(\catx)$.
+We call the non--identity morphisms of  $\catx$ \emph{edges} and denote the set of edges by $E(\catx)$.
 Given some $a \in E(\catx)$, we denote the initial (source) and terminal (target) vertices by $i(a)$ and $t(a)$ respectively.
 If two edges $b$ and $a$ satisfy $t(b)=i(a)$, then we say that $a$ and $b$ are composable and denote their composition $ab$, which is necessarily another edge in $E(\catx)$.
 We have that $i(ab) = i(b)$ and $t(ab) = t(a)$.
-
-We now work to construct a geometric realisation $\Delta(\catx)$ of a scwol $\catx$, such that if $\catx$ is thin, then $\Delta(\catx)$ matches $\Gamma(\catx)$, considering $\catx$ as a poset.
+We now work to construct a geometric realisation $\Abs{\catx}$ of a scwol $\catx$, such that if $\catx$ is thin, then $\Abs{\catx}$ matches the geometric realisation when considering $\catx$ as a poset.
 
 Let $E^{(n)}(\catx)$ denote the set of all $n$--tuples of composable edges in $\catx$,
 i.e.~if $(a_1, a_2, \ldots, a_n) \in E^{(n)}(\catx)$, then
@@ -112,17 +116,121 @@ i.e.~if $(a_1, a_2, \ldots, a_n) \in E^{(n)}(\catx)$, then
 	\end{tikzcd}
 \]
 is a composable set of edges in $\catx$.
+By convention, $E^{(0)}(\catx) = V(\catx)$.
+We define the following maps, $\partial_i \colon E^{(n)}(\catx) \to E^{(n-1)}(\catx)$ on composable tuples, where
+\begin{align*}
+	\partial_0(a_1,\ldots,a_n) & = (a_2,\ldots,a_n)                                          \\
+	\partial_i(a_1,\ldots,a_n) & = (a_1, \ldots, a_ia_{i+1}, \ldots, a_n) \quad 1 \leq i < k \\
+	\partial_n(a_1,\ldots,a_n) & = (a_1, \ldots, a_{n-1})
+	.\end{align*}
 
-We define the following \emph{face maps}, $\partial_i \colon E^{(n)}(\catx) \to E^{(n-1)}(\catx)$.
-\begin{eqnarray*}
-	\partial_0(a_1,\ldots,a_n) =& (a_2,\ldots,a_n) \\
-	\partial_i(a_1,\ldots,a_n) =& (a_1, \ldots, a_ia_{i+1}, \ldots, a_n) \\
-\end{eqnarray*}
+And maps, $d_i \colon \Delta^{k-1} \to \Delta^k$ on simplices, where
+\[
+	d_i(t_0, \ldots, t_{k-1}) = (t_0, \ldots, t_{i-1}, 0, t_i, \ldots, t_{k-1}) \quad 0 \leq i < k
+	.\]
 
 \begin{definition}
-	The nerve of a category is the set of
+	Given a scwol $\catx$, the geometric realisation, $\Abs{\catx}$ is a simplicial complex defined as
+	\[
+		\Abs{\catx} \coloneq \bigsqcup_k \left( \Delta^k \times E^{(k)}(\catx) \right) / \sim
+		.\]
+	Where $\sim$ is the transitive closure of the relations
+	\[
+		(d_i(x),t) \sim (x, \partial_i(t))
+	\]
+	across all tuples $t \in E^{(k)}(\catx)$.
 \end{definition}
-yo
+In this definition, we had to take more care than with the geometric realisation of a poset.
+This is because, in a poset, a composable tuple is completely determined by its vertices (the chain), so the combinatorial face maps always corresponded to taking subsets of those vertices.
+But in a scwol, we need to account for potentially multiple edges between two vertices, so we must enumerate simplices using edges, rather than vertices.
+
+For those interested, the above construction of $\Abs{\catx}$ corresponds to the standard geometric realisation of the nerve (which corresponds to the union of all of our $E^{(k)}(\catx)$) of $\catx$.
+See \cite{goerss_simplicial_2009}.
+
+\begin{example}
+	The following scwol has geometric realisation $S^1$, constructed by identifying the ends of two 1--simplices.
+	\begin{center}
+		\begin{tikzpicture}
+			\tikzstyle{every label}=[font=\footnotesize]
+			\tikzstyle{every node}=[font=\footnotesize]
+			\node[FSC] (base)	at (0,0)	{};
+			\node[FSC] (top)	at (0,1)	{};
+			\draw[arrow_me=stealth, bend left=90] (base) to (top);
+			\draw[arrow_me=stealth, bend right=90] (base) to (top);
+		\end{tikzpicture}
+	\end{center}
+\end{example}
+
+\begin{example}
+	Any polygon can be realised as the geometric realisation of a scwol $\catx$ in the following way:
+	Consider the polygon as a polygonal complex.
+	Make a vertex for at the centre of each polygon in the complex.
+	There is an edge from centres of polygons to centres of faces of that polygon.
+	The below picture shows the scwol from this construction applied to a square.
+	\begin{center}
+		\begin{tikzpicture}
+			\def\sqsize{2}
+			\tikzstyle{every label}=[font=\footnotesize]
+			\tikzstyle{every node}=[font=\footnotesize]
+			\node[FSC] (bl)	at (0,0)	{};
+			\node[FSC] (br)	at ($(bl)+(\sqsize,0)$)	{};
+			\node[FSC] (tl)	at ($(bl)+(0,\sqsize)$)	{};
+			\node[FSC] (tr)	at ($(tl)+(\sqsize,0)$)	{};
+
+			\node[FSC] (mblbr) at ($(bl)!0.5!(br)$) {};
+			\node[FSC] (mbltl) at ($(bl)!0.5!(tl)$) {};
+			\node[FSC] (mbrtr) at ($(br)!0.5!(tr)$) {};
+			\node[FSC] (mtltr) at ($(tl)!0.5!(tr)$) {};
+
+			\node[FSC] (center) at ($(bl)!0.5!(tr)$) {};
+
+			\draw[arrow_me=stealth] (center) to (bl);
+			\draw[arrow_me=stealth] (center) to (br);
+			\draw[arrow_me=stealth] (center) to (tl);
+			\draw[arrow_me=stealth] (center) to (tr);
+
+			\draw[arrow_me=stealth] (center) to (mblbr);
+			\draw[arrow_me=stealth] (center) to (mbltl);
+			\draw[arrow_me=stealth] (center) to (mtltr);
+			\draw[arrow_me=stealth] (center) to (mbrtr);
+
+			\draw[arrow_me=stealth] (mblbr) to (bl);
+			\draw[arrow_me=stealth] (mblbr) to (br);
+			\draw[arrow_me=stealth] (mbltl) to (bl);
+			\draw[arrow_me=stealth] (mbltl) to (tl);
+			\draw[arrow_me=stealth] (mbrtr) to (br);
+			\draw[arrow_me=stealth] (mbrtr) to (tr);
+			\draw[arrow_me=stealth] (mtltr) to (tl);
+			\draw[arrow_me=stealth] (mtltr) to (tr);
+		\end{tikzpicture}
+	\end{center}
+\end{example}
+
+\begin{example}
+	Following the same procedure as the previous example, the scwol associated to the complete graph on three vertices is given below.
+	\begin{center}
+		\begin{tikzpicture}
+			\def\trisize{1.5}
+			\tikzstyle{every label}=[font=\footnotesize]
+			\tikzstyle{every node}=[font=\footnotesize]
+
+			\node[FSC] (bl)	at (0,0)	{};
+			\node[FSC] (br)	at ($(bl)+(\trisize,0)$)	{};
+			\node[FSC] (top) at ($(bl)+(0.5*\trisize,0.833*\trisize)$)	{};
+
+			\node[FSC] (mblbr) at ($(bl)!0.5!(br)$) {};
+			\node[FSC] (mblt) at ($(bl)!0.5!(top)$) {};
+			\node[FSC] (mbrt) at ($(br)!0.5!(top)$) {};
+
+			\draw[arrow_me=stealth] (mblbr) to (bl);
+			\draw[arrow_me=stealth] (mblbr) to (br);
+			\draw[arrow_me=stealth] (mblt) to (bl);
+			\draw[arrow_me=stealth] (mblt) to (top);
+			\draw[arrow_me=stealth] (mbrt) to (br);
+			\draw[arrow_me=stealth] (mbrt) to (top);
+		\end{tikzpicture}
+	\end{center}
+\end{example}
 
 
 
