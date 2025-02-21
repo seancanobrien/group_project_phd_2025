@@ -60,7 +60,47 @@ In this subsection we will follow the definitions and conventions from \cite[pag
 %plan for this section - define G-trees and maybe how they connect to graphs of groups; then at some point you can do GBS trees
 %you should definitely try to work out how the BS trees abd graphs would look like  -  maybe try to look through trees by Serre
 
+For the preliminary definitions in this subsection we will follow \cite[chapter I, section 2]{Ser80}.
 
+\begin{definition}
+    A \emph{graph} $\Gamma$ consists of 
+    \begin{itemize}
+        \item a set $X = \:vert\:\Gamma$,
+        \item a set $Y = \:edge\:\Gamma$,
+        \item $Y \to  X \times X$ with $ y \mapsto (o(y), t(y))$, and 
+        \item $Y \to Y$ with $y \mapsto \overline{y}$
+    \end{itemize}
+     which satisfy the following condition: for each $y \in Y$ we have $\overline{\overline{y}} = y$, $\overline{y} \neq y$ and $o(y) = t(\overline{y})$.
+\end{definition}
 
+We call elements of $X$ \emph{vertices}, and elements of $Y$ \emph{(oriented) edges}. Given $y \in Y$, the edge $\overline{y}$ is said to be the \emph{inverse edge}. Note, that we can define a morphism of graphs by mapping vertices to vertices, and mapping an edge between two vertices to an edge between their images.
+
+Another notion that we can associate to a graph $\Gamma$ is that of orientation. That is, an \emph{orientation} of $\Gamma$ is a subset $Y_+$ of $Y$ such that $Y$ is a disjoint union of $Y_+$ and $\overline{Y_+}$. We can then define, up to isomorphism, an \emph{oriented graph}, by giving the two sets $X$ and $Y_+$ with a map $Y_+ \to X \times X$. The set of edges $Y$ is the disjoint union we described before.
+
+%Using the concept of the oriented graph, we are able to define the following.
+
+%\begin{definition}
+%    Let $G$ be a group, $S$ a subset of $G$. Let $\Gamma(G,S)$ denote the oriented graph which has $G$ as its vertices, $(G \times S) = (edge\: \Gamma)_+$ as its orientation with $o(g,s) = g$ and $t(g,s) = gs$ for each edge $(g,s) \in G \times S$.
+%\end{definition}
+
+%Note that the action of $G$ by left multiplication on $\Gamma(G,S)$ preserves orientation and is free on both vertices and edges.
+
+We are almost ready to define trees, which is a class of graphs that will be important later. The only thing we need, is the definition of a circuit.
+
+\begin{definition}
+    For an integer $n \ge 1$, $Circ_n$ is an oriented graph with $X = \{0,1, \ldots , n-1 \}$ and edges $Y_+ = \{ y \:| \: (o(y),(t(y)) = (i,i+1), \: i\in \{0,1,\ldots,n-1\} $ where $(n-1, (n-1) + 1)$ is set to $(n-1,0)\}$. A \emph{circuit} (of length $n$) in a graph is any subgraph isomorphic to $Circ_n$.
+\end{definition}
+
+\begin{definition} 
+    A tree is a connected non-empty graph with no circuits.
+\end{definition}
+
+\begin{definition}
+    A graph of groups $(G,T)$ consists of a graph $T$, a group $G_p$ for each $p \in vert\:T$, and a group $G_y$ for each $y \in edge\: T$, together with a monomorphism $G_y \to G_{t(y)}$ (denoted $a \mapsto a^y$). In addition, it is required that $G_y = G_{\overline{y}}$.
+\end{definition}
+
+If in the above definition $T$ is a tree, then we call $(G,T)$ a tree of groups.
+
+\textcolor{red}{What is the connection between G-trees and graphs of groups? - look at Serre I.5.4}
 
 
