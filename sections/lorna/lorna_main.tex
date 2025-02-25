@@ -1,4 +1,6 @@
 \section{Groups acting on $\mathbb{R}$-Trees}
+
+In this section we will discuss a class metric spaces called $\mathbb{R}$-trees, which admit interesting group actions. These actions arise in proofs across the field of geometric group theory, in areas from hyperbolic groups to \textcolor{red}{something else??}. We will give an introduction to these spaces and the groups which act on them, followed by an overview of some of their applications. We will mostly follow the exposition from \cite{Bestvina_trees}.
 \subsection{Definition and Basic Examples}
 \begin{definition}
     A metric space $(X,d)$ is an \textnormal{$\mathbb{R}$-tree} if for every pair of points $x,y\in X$ there is a unique geodesic from $x$ to $y$.
@@ -13,7 +15,7 @@ The following follows immediately from the definition, and is sometimes used as 
 We now give some simple examples of $\mathbb{R}$-trees.
 
 \begin{example}
-    Any tree $T$ with the metric that identifies each edge with the interval $[0,1]$ is an $\mathbb{R}$-tree.
+    Any tree $T$ with the metric defined by identifying each edge with the interval $[0,1]$ is an $\mathbb{R}$-tree.
 \end{example}
 
 \begin{example}
@@ -30,28 +32,128 @@ Isometries of $\mathbb{R}$-trees have a classification analogous to that of isom
     \end{itemize}
 \end{definition}
 
-It is sometimes useful to classify these isometries in terms of their invariant sets:
+It is often useful to classify these isometries in terms of their invariant sets.
 \begin{definition}
     Let $g$ be an isometry of an $\mathbb{R}$-tree $T$. Its \textnormal{characteristic set} is \[C_g = \{x\in T:d(x,g(x))=\lVert g \rVert\}.\]
 \end{definition}
+The proof of the following follows the same argument as the proof outline given in \cite{CullerMorgan}.
 \begin{proposition}
-    Let $g$ be an isometry of an $\mathbb{R}$-tree $T$. Then $C_g$ is invariant under the action of $g$,is a closed, non-empty subtree of $T$, and
+    Let $g$ be an isometry of an $\mathbb{R}$-tree $T$. Then $C_g$ is invariant under the action of $g$ and is a closed, non-empty subtree of $T$. Also,
     \begin{itemize}
-        \item if $g$ is elliptic, $C_g$ is the fixed by $g$,
+        \item if $g$ is elliptic, $C_g$ is fixed by $g$,
         \item if $g$ is hyperbolic, $C_g$ is isometric to $\mathbb{R}$, and is called the \textnormal{axis} of $g$. $g$ acts on its axis by translation by $\lVert g\rVert$.
     \end{itemize}
 \end{proposition}
 \begin{proof}
-    In the elliptic case, $g$ clearly fixes $C_g$. 
+    In the elliptic case, $g$ clearly fixes $C_g$. We will show later that in this case $G_g$ is non-empty, (i.e. $g$ has a fixed point). Since $g$ is an isometry, if it fixes two points $x$ and $y\in T$, it must also fix the unique geodesic between them, so $C_g$ is connected. Similarly, if it fixes every point on a geodesic it must also fix the endpoints. Hence $C_g$ is a closed subtree as required.
+
+    Now suppose $g$ is hyperbolic. In particular it has no fixed points. Consider a point $x\in T$. There is a unique arc $\alpha$ from $x$ to $g(x)$, with subarcs $\alpha \cap g(\alpha)$ and $\alpha \cap g^{-1}(\alpha)$. Let $m$ be the midpoint of $\alpha$ and suppose that $m\in \alpha \cap g(\alpha)$. Then $g(m)$ is a point in $\alpha$ which is $\frac{\ell(\alpha)}{2}$ away from $g(x)$, so we have $g(m)=m$, a contradiction to the hyperbolicity of $g$. A similar argument gives $m\notin \alpha \cap g^{-1}(\alpha)$. Denote by $\beta$, the subarc of $\alpha$ connecting $g(\alpha)$ to $g^{-1}(\alpha)$. Since in particular $m\in \beta$, we know that $\beta$ has positive length. If a point $p$ has $p\in \beta\cap g(\beta)$, $p$ must be an endpoint of $\beta$, since \[\beta\cap\g(\beta)\subseteq\alpha\cap\g(\alpha)\subseteq g(\alpha)\] and $\beta\cap\g(\alpha)$ is a single point. Similarly the only point where $\beta$ meets $g^{-1}(\beta)$ is at its other endpoint. Repeating this argument inductively shows that \[C=\underset{n\in\mathbb{Z}}{\bigcup}g^n(\beta)\] is an arc in $T$ which is isometric to $\mathbb{R}$. In particular this is a closed subtree, and $g$ acts on it by translation by $\ell(\beta)$, so it is also invariant under the action of $g$. To show that $C=C_g$, note that for any point $y\in T$, $y$ has a closest point in $C$, denoted $c$. We have $d(y,c)=d(g(y),g(c))$ (so $g$ is 'moved along' $C$ by the same amount as $c$), which implies that \[d(y,g(y))=d(y,c)+\ell(\beta)+d(g(c),g(y))=\ell(\beta)+2d(y,C).\] This means that $C=C_g$ and $\lVert g\rVert=\ell(\beta)$.
+
+    Finally, since we have shown that if $g$ has no fixed points in $T$, then $\lVert g\rVert>0$, we can say that an elliptic element necessarily has a fixed point, and so $C_g$ is also non-empty in that case.
 \end{proof}
 
+We will mostly be concerned with \textit{non-trivial} group actions:
+\begin{definition}
+    The action of a group $G$ on an $\mathbb{R}$-tree by isometries is \textnormal{non-trivial} if no point in $T$ is fixed by every element of $G$.
+\end{definition}
+
+\subsection{Band Complexes}
+Actions of groups on $\mathbb{R}-trees$ are usually studied through band complexes. The majority of this section follows \cite{Wilton}.
+
+We start with a series of definitions.
+\begin{definition}
+    A \textnormal{band} is a space $B=b\times I$ where $b$ is a closed interval. A band is equipped with a \textnormal{dual map} $\delta_B$ which is the reflection of $B$ in the line $(b,\frac{1}{2}$. $b$ and $\delta_B(b)$ are called \textnormal{bases} of $B$, and any subset of the form $\{x\}\times I$ is called a \textnormal{leaf} of $B$.
+\end{definition}
+\textcolor{red}{picture}
+
+\begin{definition}
+    Let $\Gamma$ be a metric graph and $\mathcal{B}$ be a finite collection of bands. For each base $b$ of a band $B\in \mathcal{B}$ let $f_b:b\rightarrow\Gamma$ be an isometry such that $b$ is mapped into an edge of $\Gamma$ ($f_b(b)$ may be the whole edge or just part of it). A \textnormal{union of bands} is a space \[Y=\Gamma\cup\underset{B\in\mathcal{B}}{\bigsqcup}B/b \sim f_b(b).\] 
+\end{definition}
+\textcolor{red}{picture!}
+
+\begin{definition}
+    A measure $\mu$ on a metric space $X$ is \textnormal{transverse} to a measurable subset $S\subset X$ if 
+    \begin{itemize}
+        \item There is some compact subset $K$ of $V$ such that $0<\mu(K)<\infty$, and
+        \item $\mu(v+S)=0$ for all $v\in V$.
+    \end{itemize}
+\end{definition}
+
+\begin{lemma}\label{Ymeasure}
+    Let $Y$ be a union of bands. Then there is a measure on $Y$ which is transverse to the leaves of the bands in $Y$.
+\end{lemma}
+\begin{proof}
+     Let $\alpha$ be a path in a band $B$ with base $b$. $\alpha$ is \textit{transversal} if the projection of the image of $\alpha$ onto $b$ is injective, and its image is \textit{vertical} if it is contained in a single leaf. Define a measure $\mu$ on $Y$ as follows: If $\alpha$ is transverse, set $\mu(\alpha)=\ell(\alpha)$, and if the image of $\alpha$ is vertical, set $\mu(\alpha)=0$. Now for any path $\alpha:I\rightarrow V$, divide $I$ into intervals $I_j$ such that $\alpha\vert_{I_j}$ is either transversal or has vertical image. Then set \[\mu(\alpha)=\underset{j}\sum\alpha\vert_{I_j}.\] Then $\mu$ is clearly positive on any transversal path, but 0 on each of the leaves, as required.
+\end{proof}
+
+
+\begin{definition}
+    Let $Y$ be a union of bands over a metric graph $\Gamma$. A \textnormal{band complex} $X$ is a relative CW 2-complex based on $Y$ such that:
+    \begin{itemize}
+        \item The 1-cells of $X$ are contained in $\Gamma$,
+        \item The 2-cells meet $\Gamma$ at discrete sets, and
+        \item The 2-cells intersect the bands along vertical sets.
+    \end{itemize}
+\end{definition}
+
+\begin{lemma}
+    Let $X$ be a band complex. Then $X$ admits a transverse measure. 
+\end{lemma}
+\begin{proof}
+    As in the proof of \ref{Ymeasure}, a path $\alpha:I\rightarrow X$ can be divided up into subpaths $I_j$. Each of these subpaths is either transversal or vertical as before, or its image is contained in the closure of $X\backslash Y$. In the last case, define $\mu(\alpha\vert_{I_j})=0$.
+\end{proof}
+
+Let $X$ be a band complex. The leaves of $X$ are again defined as equivalence classes of points, here $x$ and $y$ are equivalent if there is a path of measure 0 from $x$ to $y$. 
+
+Two points $\tilde{x}$ and $\tilde{y}$ in the universal cover $\tilde{X}$ of $X$ are in the same leaf if there is a path from $\tilde{x}$ to $\tilde{y}$ which projects to a path of measure 0 in $X$. 
+
+\begin{definition}
+    Let $G$ be a finitely generated group acting on an $\mathbb{R}$-tree $T$. A \textnormal{resolution} of the action is a band complex $X$ with $G$ as its fundamental group, and a $G$-equivariant map \[f:\tilde(X)\rightarrow T\] such that 
+    \begin{itemize}
+        \item The image of a leaf of $\tilde(X)$ is a point, and
+        \item each base can be broken into finitely many subintervals whose lifts $f$ embed isometrically into $T$.
+    \end{itemize}
+\end{definition}
+\textcolor{red}{picture!!!!}
+
+
+\begin{theorem}
+    Let $G$ be a finitely presented group acting on an $\mathbb{R}$-tree $T$. Then the action has a resolution.
+\end{theorem}
+See \cite{Wilton} for the proof of this. The idea is that since $G$ is finitely presented there is a simplicial 2-complex $X$ with fundamental group $G$. A band complex structure on $X$ satisfying the required conditions can then be constructed.
+
+In unpublished work in around 1991, Rips introduced an algorithm for determining certain properties of a group $G$ on an $\mathbb{R}$-tree from a resolving band complex for the action. This is now known as the \textit{Rips Machine}. We will give an outline of the process, followed by an idea of the consequences. More detailed descriptions are given in \cite{Wilton} and \cite{Bestvina_trees}.
+
+Firstly, there are six moves $M0-M5$ on a band complex $X$ (based on a union of bands $Y$) which transform it into a band complex which resolves the same action but is minimal in some sense. These are:
+\begin{itemize}
+    \item $(M0)$: Attach a 2-cell to $X$ along a loop which is null-homotopic in $X$ but vertical in $Y\cup X^{(1)}$,
+    \item $(M1)$: Add an annulus $B$ to $X$ along a subarc of the base graph $\Gamma$, then attach a 2-cell along a leaf of $B$,
+    \item $(M2)$: Split a band $B$ down a leaf, and `fill in' the gap with a 2-cell,
+    \item $(M3)$: Split a point not in any bases into a union of 1-cells,
+    \item $(M4)$: `Slide' a band $B$ along another band $C$ such that its base moves from one base of $C$ to the other,
+    \item $(M5)$: `Collapse' a band from a certain kind of subarc of a base.
+\end{itemize}
+
+The Rips Machine starts by repeatedly applying these moves to transform a connected component of a band complex $X$ into a minimal form. It then applies an infinite sequence of two `processes', and depending on which sequence is applied, information about the group can be determined. The following is Theorem 5.1 in \cite{Bestvina_trees}:
+
+\begin{theorem}
+    \textbf{Rips' theorem:} Let $G$ be a finitely generated torsion free group acting by isometries on an $\mathbb{R}$-tree $T$. Then applying the Rips Machine to a resolving band complex $X$ for the action, a band complex $X'$ is obtained which can be split into disjoint components $X'_i$ such that each $X'_i$ is of one of the following types:
+    \begin{itemize}
+        \item \textnormal{Simplicial} - Every leaf of the underlying union of bands of $X'_i$ is compact,
+        \item \textnormal{Surface type} - $X'_i$ is a compact surface with negative Euler characteristic,
+        \item \textnormal{Toral type} - $X'_i$ is the 2-skeleton of the torus,
+        \item \textnormal{Thin type} - $X'_i$ is not of one of the above types.
+    \end{itemize}
+\end{theorem}
+
 \subsection{Applications of $\mathbb{R}$-Trees}
-$\mathbb{R}$-trees have been used to prove many facts in geometric group theory. In this section we will discuss some of these, starting with some theorems about hyperbolic groups.
+$\mathbb{R}$-trees appear in many areas of geometric group theory. In this section we will discuss some of these, starting with some applications to hyperbolic groups.
 
 \begin{theorem}
     Let $G$ be a hyperbolic group such that Out$(G)$ is infinite. Then $G$ splits over a virtually cyclic subgroup.
 \end{theorem}
 
+We finish with another application to hyperbolic groups.
 \begin{definition}
     A topological space $X$ is \textnormal{locally connected} at $x\in X$ if every open neighbourhood of $x$ contains a connected open neighbourhood of $x$. $X$ is locally connected if it is locally connected at all of its points.
 \end{definition}
@@ -60,6 +162,8 @@ Note first that neither connected nor locally connected implies the other: the u
 \begin{theorem}
     Let $G$ be a hyperbolic group. Then if $G$ has one end, its Gromov boundary $\partial G$ is connected and locally connected.
 \end{theorem}
+
+The proof of this can be found in \textcolor{red}{???}. See the next section for more about ends of groups.
 
 
 

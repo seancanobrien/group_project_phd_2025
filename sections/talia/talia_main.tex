@@ -1,39 +1,186 @@
-\newpage % I will remove this at the end (just find it easier to focus this way while it's a work-in-progress)
+\newpage % I will remove this at the end! (just find it easier to focus this way while it's a work-in-progress)
 \section{Talia's section}
 
 % Keep in mind Matt's recent feedback: (1) try to make links to wider topics in GGT to allow readers other avenues of interest, (2) clearly (and proudly!) state when a result is your own
 
-\subsection{Introduction}
+We finally reach the topic of ends of groups. In this chapter, we explore the relationship between the number of ends of a finitely generated group and the algebraic structure of these groups as amalgams and HNN-extensions. (For the definition of an HNN-extension, refer to Definition~\ref{HNN}.) An important result in this area is Stallings’ Structure Theorem \cite[p.~4]{S71}, which classifies finitely generated groups with more than one end:
 
-% I'm not sure on the wording of this, but for now I'll get some ideas down and refine them later
-We finally reach the topic of ends of groups. In this chapter, we explore the relationship between the number of ends of a finitely generated group and the algebraic structure of these groups as amalgams and HNN-extensions. An important result in this area is Stallings’ Structure Theorem, which classifies finitely generated groups with more than one end:
-
-\begin{theorem}[Stallings' Structure Theorem]
-A finitely generated group with more than one end is either:
+\begin{theorem}[Stallings' Structure Theorem] % Is (1) necessary or is (1) already included in (2) and (3)?
+\label{SST}
+A finitely generated group \(G\) with more than one end falls into one of the following cases:
     \begin{enumerate}
-        \item virtually infinite cyclic, or
-        \item splits as a non-trivial free product over a finite subgroup, or
-        \item can be written as an HNN-extension over a finite subgroup.
+        \item \(G\) is virtually infinite cyclic, i.e. contains an infinite cyclic subgroup of finite index. (In this case, \(G\) has exactly two ends).
+        \item \(G\) can be written as a non-trivial free product over a finite subgroup. (In this case, \(G\) is torsion-free and has infinitely many ends).
+        \item can be written as an HNN-extension over a finite subgroup. (In this case, \(G\) has torsion and has infinitely many ends).
     \end{enumerate}
 \end{theorem}
 
+The main aim of this section is to prove Stallings' Theorem.  Here we follow the method of Kr{\"o}n's paper \cite{K10} using a construction of \emph{structure cuts}. Originally introduced by Dunwoody in \cite{D79}, these are automorphism invariant tree-decompositions of graphs based on the principle of removing finitely many edges. % Put this last bit in my own words
+Following the proof, we introduce the cohomological definition of an end of a group and conclude with a discussion of related results in this context. % Edit this once finished. Mention accessibility?
 
-Here we follow the method of Kr{\"o}n's paper \cite{K10} to prove Stallings' Theorem using a construction of \emph{structure cuts}. Originally introduced by Dunwoody in \cite{D79}, these are automorphism invariant tree-decompositions of graphs based on the principle of removing finitely many edges. % Put this last bit in my own words
-We then introduce the cohomological definition of an end of a group, and discuss related results in this context. % Edit this once finished. Mention accessibility?
+\subsection{Preliminaries on ends}
+% There's a lot that could be unpacked here - come back to this at the end and work out how much detail to give in the preliminary section
+Throughout we assume all groups are finitely generated. In this preliminary section, we follow \cite[p.~144--148]{bridson_haefliger_metric_1999} to introduce ends of a group and summarise some of their properties. To allow more time to proving the structure theorem (Theorem~\ref{SST}), several results in this section are taken as a black box.
 
-\subsection{Structure trees}
- 
+Loosely speaking, ends are objects which describe the connected components of a topological space at infinity. In the context of ends of a group, these connected components arise from a Cayley graph of the group under a choice of finite generating set. 
 
-\begin{definition}
-    
+\textcolor{cyan}{It would be nice to have a little intuitive picture here.}
+
+There are many definitions of ends, and for locally finite graphs (graphs in which all vertices have finite degree), all definitions are equivalent. We start with a definition of ends of a graph.
+
+\begin{definition}[Proper map]
+    Let \(X, Y\) be topological spaces. A map \(f : X \to Y\) is \emph{proper} if for any compact set \(K \subset Y\), the pre-image \(f^{-1}(K) \subset X\) is compact.
+\end{definition}
+
+\begin{definition}[Ray]
+\label{ray}
+    A \emph{ray} in a topological space \(X\) is a proper continuous map \(r : [0,\infty) \to X\).
+\end{definition}
+
+% Which notation am I using for Cayley graph? Decide between curly C or Cay(G,S) for consistency
+
+Ends of a space \(X\) are defined using a notion of convergence of rays in \(X\). 
+
+\begin{definition}[Convergence of rays] 
+\label{endsofgraph}
+    Let \(X\) be a topological space. If \(r_1, r_2 : [0,\infty) \to \mathcal{C}\) are rays, then \(r_1\) and \(r_2\) are said to \emph{converge in the same direction} if for every compact \(C \subset X\) there exists \(N \in \mathbb{N}\) such that \(r_1[N,1)\) and \(r_2[N,1)\) are contained in the same path component of \(X \setminus C\).
 \end{definition}
 
 \begin{proposition}
-Let \(G\) be an infinite finitely generated group with generating set \(S\).
-The group \(G\) has more than one end if and only if there is a subset \(C\) of \(G\) such that \(C\) and \(G \setminus C\) are infinite and \(Cg \setminus C\) is finite, for all \(g \in G\).
+    Let \(X\) be a topological space, and \(R\) be the set of rays in \(X\). Then convergence of rays in the same direction in \(X\) is an equivalence relation on the set of rays \(R\).
 \end{proposition}
+
+\begin{proof}
+    Reflexivity and symmetry are straightforward. Transitivity follows by the fact that containment of sets is transitive.
+\end{proof}
+
+After showing that convergence in the same direction defines an equivalence relation on the set of rays, we can define ends to be the equivalence classes under this relation.
+\begin{definition}
+    An \emph{end} of \(X\) is an equivalence class under the relation of convergence of rays.  
+\end{definition}
+
+\begin{definition}[Set of ends]
+    The ends of a topological space \(X\) is \(\mathrm{Ends}(X)\). The set of ends of a group is defined by the set of ends of the corresponding Cayley graph, and \(R\) is the set of rays in \(\mathrm{Cay}(G,S))\):
+    \[
+        \mathrm{Ends}((G,S)) := \mathrm{Ends}(\mathrm{Cay}(G,S)) = R/\sim.
+    \]
+    Here \(r_1 \sim r_2\) if \(r_1\) and \(r_2\) converge to the same end.
+\end{definition}
+
+Moreover, \(\mathrm{Ends}(X)\) is a topological space, where a subset \(B \subset \mathrm{Ends}(X)\) is closed if all convergent sequences of ends in \(X\) have a limit point which is also in \(\mathrm{Ends}(X)\). For a formal definition of convergence of ends, see \cite[p.~144]{bridson_haefliger_metric_1999}.
+
+\begin{comment}
+Let \(E(r)\) be the equivalence class of \(r \in R\). For a sequence of rays \(\{r_n\}_{n \in \mathbb{N}} \in R\), convergence \(E(r_n) \to E(r)\) as \(n\) tends to infinity is defined by the following condition: for every compact set \(C \in X\), there exists a sequence of integers \(N_n\) such that \(r_n[N_n, \infty]\) and \(r[N_n, \infty]\) lie in the same path component of \(X \setminus C\) whenever \(n\) is sufficiently large. A subset \(B \subset \mathrm{Ends}(X)\) is defined to be closed if the following holds: if \(E(r_n) \in B\) for all \(n \in \mathbb{N}\), then \(E(r_n) \to E(r)\) implies \(E(r) \in B\).
+\end{comment}
+
+\begin{definition}[Number of ends]
+    The number of ends of a topological space \(X\) is 
+    \[
+        e(X) := |\mathrm{Ends}(X)|.
+    \]
+\end{definition}
+
+The same notation extends to the number of ends of a group, which we denote by \(e((G,S))\). 
+A very useful result is that the number of ends is invariant under quasi-isometry, making ends an interesting object to study. 
+
+\begin{theorem}[Number of ends is a QI invariant]
+    Let \(G_1,G_2\) be groups with finite generating sets \(S_1,S_2\) respectively. If there exists a quasi-isometry \(f: (G_1, S_1) \to (G_2,S_2)\), then \(e((G_1,S_1)) = e((G_2,S_2))\).
+\end{theorem}
+
+\begin{proof}
+    See Bridson-Haefliger \cite[p.~145]{bridson_haefliger_metric_1999}.
+\end{proof}
+
+\begin{corollary}
+    The number of ends of a group is independent of the choice of finite generating set.
+\end{corollary}
+
+We can therefore denote the number of ends of a group by \(e(G)\). For this project, we will take the following theorem on the candidates for the number of ends of a group as a black box.
+\begin{theorem}[Freudenthal-Hopf Theorem]
+\label{FH}
+    Every finitely generated group has either zero, one, two, or infinitely many ends.
+\end{theorem}
+
+\begin{proof}
+    See Bridson-Haefliger \cite[p.~146--147]{bridson_haefliger_metric_1999}.
+\end{proof}
+
+\begin{corollary}
+    Finite groups have no ends. Equivalently, if \(G\) is an infinite finitely generated group, \(G\) has either one, two or infinitely many ends.
+\end{corollary}
+
+\begin{proof} % Roughly - will change if definition of ends changes
+    All Cayley graphs \(\mathcal{C}\) of a finite group \(G\) are finite. Hence, it suffices to show that a bounded topological space \(X\) has no ends. For this we must show that there exists a compact \(C\) such that \(X \setminus C\) is empty. For this we can take \(C\) to be \(\bar{X}\), the closure of \(X\). Therefore, \(G\) has no ends.
+\end{proof}
+
+The following is a useful criterion to determine whether an infinite finitely generated group is one-ended or has more than one end.
+\begin{proposition} 
+Let \(G\) be an infinite finitely generated group and let \(S\) be a  finite generating set.
+The Cayley graph of \(G\) with respect to \(S\) has more than one end if and only if there is a subset \(C\) of \(G\) such that:
+    (a) \(C\) and \(G \setminus C\) are infinite, and
+    (b) for all \(g \in G\), \(Cg \setminus C\) is finite.
+\end{proposition}
+
+\begin{proof}
+    \textcolor{red}{TBC}
+\end{proof}
+
+% This definition should go somewhere...
+A group \(G\) is said to \emph{split} over a subgroup \(H\) if \(G\) is a non-trivial free product with amalgamation over \(H\) or \(G\) is an HNN-extension of a group over \(H\). 
+
+\subsection{Structure cuts}
+
+In this section, we follow \cite{K10}. Throughout \(\Gamma = (V,E)\) is an undirected, simple graph.
+
+\begin{definition}[Edge boundary]
+    Let \(C,D \subset X\). We denote the set of edges with one vertex in \(C\) and the other vertex in \(D\) by the set \(\delta(C,D)\). The \emph{edge boundary} of a subset \(C\) is defined by the set \(\delta(C, \stcomp{C})\).
+\end{definition}
+
+In a graph \(\Gamma\), we take a \emph{ray} to be an infinite path with no backtracking. More formally, a ray is an infinite sequence of vertices such that each consecutive pair are endpoints of an edge in \(E\) and each vertex in \(V\) appears at most once in the sequence. (It can be shown that this is equivalent to Definition~\ref{ray}. % Why?)
+
+\begin{definition}[Separation of rays, edge ends]
+Two rays are said to be \emph{separated} by a set of edges if this set separates a pair of infinite subpaths, one from each of the rays. We call two rays \emph{equivalent} if they cannot be separated by a finite set of edges.
+\end{definition}
+
+We define ends similarly to Definition~\ref{endsofgraph}, now taking the equivalence relation to be equivalence as defined above. % Why can we do this?
+
+\begin{definition}[Cut]
+ A \emph{cut} is a set of vertices \(C\) with finite edge boundary such that \(C\) and \(\stcomp{C}\) are both connected and contain a ray.
+\end{definition}
+
+\begin{proposition}
+     If a cut contains a ray \(R\), then it contains all rays which are equivalent to \(R\).
+\end{proposition}
+
+\begin{proof}
+    Let \(C\) be a cut containing \(R\). Suppose \(R'\) is a ray equivalent to \(R\) such that \(R'\) is not contained in \(C\).
+    Since \(R\) and \(R'\) are equivalent, there is no finite set of edges which separates \(R\) and \(R'\). For a contradiction, it suffices to show the existence of such a set. For this we take the edge boundary \(\delta(C,\stcomp{C})\) - it is finite (since \(C\) is a cut) and separates \(R\) and \(R'\) (since \(R'\) is not contained in \(C\)). 
+\end{proof}
+
+We say an edge cut \(C\) is \emph{minimal} if the size of the edge boundary \(\delta(C, \stcomp{C})\) is minimal over all edge cuts.
+\begin{lemma}
+     If \(\Gamma\) is connected and has more than one edge end then there is a minimal edge cut.
+\end{lemma}
 
 \begin{proof}
     
 \end{proof}
+
+\begin{lemma}
+    Let \(C\) and \(D\) be minimal cuts. If \(C \cup D\) and \(\stcomp{C} \cap \stcomp{D}\) are cuts then
+they are minimal cuts.
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{proof}[Proof of Stallings' Structure Theorem]
+    Consider a finitely generated group \(G\) which splits over some finite subgroup \(A\).
+\end{proof}
+
+There is no similar classification for one-ended groups. Using Bass-Serre theory, Stalling's result gives the following useful corollary. % Talk about how Bass-Serre theory links to this result
+\begin{corollary}
+    A finitely generated group with more than one end has a non-trivial action on a tree with finite edge stabilisers.
+\end{corollary}
 \newpage % I will remove this at the end
