@@ -116,6 +116,7 @@ i.e.~if $(a_1, a_2, \ldots, a_n) \in E^{(n)}(\catx)$, then
 	\end{tikzcd}
 \]
 is a composable set of edges in $\catx$.
+Since all the $a_i$ are in $E(\catx)$, none are identity morphisms.
 By convention, $E^{(0)}(\catx) = V(\catx)$.
 We define the following maps, $\partial_i \colon E^{(n)}(\catx) \to E^{(n-1)}(\catx)$ on composable tuples, where
 \begin{align*}
@@ -146,6 +147,8 @@ But in a scwol, we need to account for potentially multiple edges between two ve
 
 For those interested, the above construction of $\Abs{\catx}$ corresponds to the standard geometric realisation of the nerve (which corresponds to the union of all of our $E^{(k)}(\catx)$) of $\catx$.
 See \cite{goerss_simplicial_2009}.
+
+Given a scwol $\catx$, the dimension of  $\catx $ is the dimension of $\Abs{\catx}$, this is the largest  $k$ such that  $E^{(k)}(\catx) \neq \emptyset$.
 
 \begin{example}
 	The following scwol has geometric realisation $S^1$, constructed by identifying the ends of two 1--simplices.
@@ -230,9 +233,63 @@ See \cite{goerss_simplicial_2009}.
 			\draw[arrow_me=stealth] (mbrt) to (top);
 		\end{tikzpicture}
 	\end{center}
+	\label{eg:K3_scwol}
 \end{example}
 
+\begin{definition}
+	Morphisms of scwols are exactly functors $F \colon \catx \to \caty$ where the source and target categories are scwols..
+	We say that a morphism of scwols $F \colon \catx \to \caty$ is a non-degenerate if $F$ maps $E(\catx)$ to  $E(\caty)$, and for all $v \in V(\catx)$, the restriction of  $F$ to $\Set{a \in E(\catx) \given i(a) = v}$ is a bijection on that set of edges.
+\end{definition}
 
 
+The requirement that $E(\catx)$ maps to $E(\caty)$ means that non-identity morphisms must be mapped to non-identity morphisms.
+A morphism of scwols $F$ induces a map on the geometric realisations, we denote this $\Abs{F}$.
+This acts on each simplex $\Delta$ by the linear map determined by the image of the vertices of $\Delta$.
+Non-degenerate maps are important because they do not reduce the length of compositions of non-identity maps, thus they preserve dimension.
+The importance of the condition that the restriction of  $F$ to $\Set{a \in E(\catx) \given i(a) = v}$ is a bijection on that set of edges will become apparent when we begin to define complexes of groups.
+
+(Non-degenerate) automorphisms of a scwols are (non-degenerate) invertible morphisms $F \colon \catx \to \catx$.
+
+\begin{definition}
+	An action of a group $G$ on a scwol $\catx$ is a homomorphism from $G$ to the group of non-degenerate automorphisms of $\catx$ such that the following two requirements are met.
+	\begin{enumerate}
+		\item For all $a \in E(\catx)$ and $g \in G$, we have  $g \cdot i(a) \neq t(a)$.
+		\item For all $a \in E(\catx)$ and $g \in G$, if  $g\cdot i(a)=i(a)$, then  $g\cdot a = a$.
+	\end{enumerate}
+	\label{def:action_of_groups_on_scwols}
+\end{definition}
+
+If $\catx$ is finite dimensional, then the first condition is guaranteed.
+For example, in the following scwol, if $\sigma$ was mapped to  $\tau$, then $\tau$ is mapped to $\mu$ and there is nowhere for $a$ to map to.
+
+\begin{center}
+	\begin{tikzpicture}
+		\def\size{0.9}
+		\tikzstyle{every label}=[font=\footnotesize]
+		\tikzstyle{every node}=[font=\footnotesize]
+
+		\node[FSC, label=right:{$\sigma$}] (bot) at (0,0)		{};
+		\node[FSC, label=right:{$\tau$}] (mid) at ($(bot)+(0,\size)$)	{};
+		\node[FSC, label=right:{$\mu$}] (top) at ($(mid)+(0,\size)$)	{};
+
+		\draw[arrow_me=stealth] (bot) to node[right] {$b$} (mid);
+		\draw[arrow_me=stealth] (mid) to node[right] {$a$} (top);
+		\draw[arrow_me=stealth, bend left=90] (bot) to node[left] {$ab$} (top);
+	\end{tikzpicture}
+\end{center}
+
+However, if we consider the action of the group $\Z$ on the poset $\Z$, we see that  the first condition is not vacuous.
+
+For each $g \in G$, denote the induced action on  $\Abs{\catx}$ as $\Abs{g}$.
+The second condition means that if for some $\sigma \in V(\catx)$, we have $g \cdot \sigma = \sigma$, then $\Abs{g}$ fixes pointwise any $k$-simplex corresponding to a composable tuple $(a_1,  \ldots, a_k)$ with $i(a_1)=\sigma$.
+This in particular implies that if $\Abs{g}$ fixes a simplex setwise, then it also fixes it pointwise.
+This is important because we want to be able to quotient by this group action and for the quotient map to be simplicial on $\Abs{X}$.
+
+Given a scwol $\catx$, a group $G$, and an action as defined in \cref{def:action_of_groups_on_scwols}, we can define the quotient scwol $G \backslash \catx$ in the following way.
+The vertices of $G\backslash \catx$ are $G\backslash V(\catx)$, similarly the edges of $G \backslash \catx$ are $G\backslash E(\catx)$.
+Let $p \colon \catx \to G \backslash \catx$ be the quotient map.
+We make $G \backslash \catx$ in to a scwol by defining $i(p(a)) \coloneq p(i(a))$, $t(p(a)) \coloneq p(t(a))$, and where defined, $p(b)p(a)\coloneq p(ba)$.
+Condition (1) of \cref{def:action_of_groups_on_scwols} ensures that a quotient  of a scwol is also a scwol.
+Condition (2) ensures that $p$ is a non-degenerate morphism of scwols.
 
 

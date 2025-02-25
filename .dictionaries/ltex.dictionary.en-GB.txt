@@ -19,3 +19,8 @@ scwol
 barycentrically
 barycenter
 barycenters
+scwols
+Serre
+Gersten
+Haefliger
+Corson
