@@ -153,18 +153,39 @@ The next construction will be based on \cite[pages 23-24]{GoPaXi24}, cross-refer
     The Bass-Serre tree $\Tilde{X}$ of $\mathbb{X}$ is constructed as follows:
     \begin{itemize}
         \item it has vertices $vert \: \Tilde{X} = \{\pi/G_x\:|\: x \in vert\:Y\}$, and
-        \item its edges are $edge \: \Tilde{X}_+ = \{\pi/G_y \: | \: y \in edge \:Y_+ \}$ and $edge \: \Tilde{X}_- = \{\pi/G_y \: | \: y \in edge \:Y_- \}$ , where
-        \item for each $gG_y \in edge \: \Tilde{X}_+$, $o(gG_y)) = gG_{o(y)}$ and $t(gG_y) = gg_yG_{t(y)}$; for each $gG_y \in edge \: \Tilde{X}_-$, $o(gG_y)) = gg_y^{-1}G_{o(y)}$ and $t(gG_y) = gG_{t(y)}$.
+        \item its edges are $edge \: \Tilde{X}_+ = \{\pi/G_y \: | \: y \in edge \:Y_+ \}$, where
+        \item for each $gG_y \in edge \: \Tilde{X}_+$, $o(gG_y)) = gG_{o(y)}$ and $t(gG_y) = gg_yG_{t(y)}$.
     \end{itemize}
 \end{construction}
 
 Having stated the construction, two questions should come to mind, namely - why is this a connected graph and moreover, a tree. Instead of addressing those, we will see what this construction gives for $BS(m,n)$, and hopefully believe the resulting graph is indeed a tree.
 
-\begin{example}
-    To construct the Bass-Serre tree of $BS(m,n) = \langle b,t \: | \: tb^mt^{-1} = b^n \rangle$, we will use its graph of groups $\mathbb{X}$, which was described in \ref{BS graph}. Recall that $\mathbb{X}$ is a loop, i.e. has only one vertex, with vertex group $G_x = \Z = \langle b\rangle$, and an edge attached to said vertex, with edge group $G_y = m\Z = \langle b^m \rangle$. Thus, vertices of $\Tilde{X}$ are cosets $g\Z$, and edges are $g(m\Z)$, with $g \in BS(m,n)$. Finally, for each edge $g(m\Z)$, if we assume it is in $edge \: \Tilde{X}_+$, $o(g(m\Z)) = g\Z$ and $t(g(m\Z)) = gt(m\Z)$.
-    The resulting graph is depicted in figure .
-\end{example}
 
-\textcolor{red}{insert figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale = 0.35]{sections/alicja/Tree of BS(m,n).jpeg}
+    \caption{Bass-Serre tree for $BS(m,n)$}
+    \label{BS tree}
+\end{figure}
+
+
+\begin{importantexample}
+    To construct the Bass-Serre tree of the Baumslag-Solitar group $BS(m,n) = \langle b,t \: | \: tb^mt^{-1} = b^n \rangle$, we will use its graph of groups $\mathbb{X}$, which was described in \ref{BS graph}. Recall that $\mathbb{X}$ is a loop, i.e. has only one vertex, with vertex group $G_x = \Z = \langle b\rangle$, and an edge attached to said vertex, with edge group $G_y = m\Z$. Thus, vertices of $\Tilde{X}$ are cosets $g\Z$, and edges are $g(m\Z)$, with $g \in BS(m,n)$. Finally, for each edge $g(m\Z)$, if we assume it is in $edge \: \Tilde{X}_+$, $o(g(m\Z)) = g\Z$ and $t(g(m\Z)) = gt(m\Z)$.
+    The resulting graph is depicted in \ref{BS tree}.
+    The following are worth noting:
+    \begin{enumerate}
+        \item because of the relation $tb^mt^{-1} = b^n$, we get that $tb^m = b^nt$ and $b^mt^{-1} = t^{-1}b^n$. Thus $b^nt\Z = tb^m\Z = t\Z$ are all the same coset, and if $0 \le f <n$, then $b^ft\Z \neq t\Z$. This is because, if they were equal, it would mean that we have a relation $b^f = tb^lt^{-1}$ for some $l \in \Z$, which is not true. Similarly, $b^mt^{-1}\Z = t^{-1}b^n\Z = t^{-1}\Z$ and for all $0 \le f <m$, then $b^ft^{-1}\Z \neq t^{-1}\Z$.
+        This explains why the described vertices appear as adjacent to the vertex labelled by $\Z$ in the figure.
+        \item As $BS(m,n)$ acts on $\Tilde{X}$ by automorphisms, and above we saw that the coset $\Z$ corresponds to a vertex of valence $n+m$, all vertices will have that valence. 
+        \item One of the concerns that the reader could have, would be, what if $m < n$, so we have an edge labelled by $b^mG_y$ when $G_y = m\Z$. It is however important to note, that $m\Z = \langle b^m \rangle$ via the homomorphism that identifies it with its copy inside of $\Z$, so at the level of edges we do not have $b^mG_y = G_y$. \textcolor{red}{this doesn't seem right... check the construction later}
+    \end{enumerate}
+\end{importantexample}
+
+We have discussed the graph with fundamental group $BS(m,n)$, as well as, the tree associated to it. We can now go on to generalise Baumslag-Solitar groups.
+
+\subsection{Generalised Baumslag-Solitar groups}
+
+
+
 
 
