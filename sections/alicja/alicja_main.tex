@@ -141,9 +141,9 @@ We will now see the graph of groups for HNN extensions, and thus Baumslag-Solita
     \label{loopHNN}
 \end{figure}
 
-\begin{importantexample}[\ref{HNN graph} for BS groups] In this example we will use multiplicative notation when talking about $\Z = \langle b \rangle$. 
+\begin{importantexample}[\ref{HNN graph} for BS groups] \label{BS graph} In this example we will use multiplicative notation when talking about $\Z = \langle b \rangle$. 
 
-We let $Y$ be a graph with vertex group $G_p = \Z$, and edge group $G_y = m\Z$. We set the monomorphism $a \mapsto a^y$ to be $(b^m)^k \mapsto (b^m)^k$, and this identifies $m\Z$ with its copy living inside $\Z$. We let the other morphism be $\phi: m\Z \to \Z$, $(b^m)^k \mapsto (b^n)^k$. Note, that $\phi$ is actually mapping $m\Z$ into $n\Z$ inside $\Z$. Using that observation, the fundamental group of $Y$ is $\Z \ast _\phi$, which by \ref{BS as HNN} is the group $BS(m,n)$.
+We let $Y$ be a graph with vertex group $G_p = \Z$, and edge group $G_y = m\Z$. We set the monomorphism $a \mapsto a^y$ to be $(b^m)^k \mapsto (b^m)^k$, and this identifies $m\Z$ with its copy living inside $\Z$. We let the other morphism be $\phi: m\Z \to \Z$, $(b^m)^k \mapsto (b^n)^k$. Note, that $\phi$ is actually mapping $m\Z$ into $n\Z$ inside $\Z$. Using that observation, the fundamental group of $Y$ is $\Z \ast _\phi$, which by \ref{BS as HNN} is the group $BS(m,n)$. Finally, note that $g_y$ mentioned in \ref{HNN graph} is equal to $t$ in this case.
 \end{importantexample}
 
 The next construction will be based on \cite[pages 23-24]{GoPaXi24}, cross-referenced with \cite{BajoHNN} where less general case is provided.
@@ -153,16 +153,18 @@ The next construction will be based on \cite[pages 23-24]{GoPaXi24}, cross-refer
     The Bass-Serre tree $\Tilde{X}$ of $\mathbb{X}$ is constructed as follows:
     \begin{itemize}
         \item it has vertices $vert \: \Tilde{X} = \{\pi/G_x\:|\: x \in vert\:Y\}$, and
-        \item its edges are $edge \: \Tilde{X} = \{\pi/G_y \: | \: y \in edge \:Y \}$, where
-        \item for each $gG_y$, $o(gG_y)) = gG_{o(y)}$ and $t(gG_y) = gyG_{t(y)}$.
+        \item its edges are $edge \: \Tilde{X}_+ = \{\pi/G_y \: | \: y \in edge \:Y_+ \}$ and $edge \: \Tilde{X}_- = \{\pi/G_y \: | \: y \in edge \:Y_- \}$ , where
+        \item for each $gG_y \in edge \: \Tilde{X}_+$, $o(gG_y)) = gG_{o(y)}$ and $t(gG_y) = gg_yG_{t(y)}$; for each $gG_y \in edge \: \Tilde{X}_-$, $o(gG_y)) = gg_y^{-1}G_{o(y)}$ and $t(gG_y) = gG_{t(y)}$.
     \end{itemize}
 \end{construction}
 
 Having stated the construction, two questions should come to mind, namely - why is this a connected graph and moreover, a tree. Instead of addressing those, we will see what this construction gives for $BS(m,n)$, and hopefully believe the resulting graph is indeed a tree.
 
 \begin{example}
-    To construct the Bass-Serre tree of $BS(m,n)$ \textcolor{red}{continue this}
+    To construct the Bass-Serre tree of $BS(m,n) = \langle b,t \: | \: tb^mt^{-1} = b^n \rangle$, we will use its graph of groups $\mathbb{X}$, which was described in \ref{BS graph}. Recall that $\mathbb{X}$ is a loop, i.e. has only one vertex, with vertex group $G_x = \Z = \langle b\rangle$, and an edge attached to said vertex, with edge group $G_y = m\Z = \langle b^m \rangle$. Thus, vertices of $\Tilde{X}$ are cosets $g\Z$, and edges are $g(m\Z)$, with $g \in BS(m,n)$. Finally, for each edge $g(m\Z)$, if we assume it is in $edge \: \Tilde{X}_+$, $o(g(m\Z)) = g\Z$ and $t(g(m\Z)) = gt(m\Z)$.
+    The resulting graph is depicted in figure .
 \end{example}
 
+\textcolor{red}{insert figure}
 
 
