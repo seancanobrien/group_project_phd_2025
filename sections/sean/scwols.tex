@@ -1,14 +1,14 @@
 \subsection{Small categories without loops}
 
-We will first recall the standard construction of the geometric realisation $\Abs{P}$ of a poset $P$.
+We will first recall the standard construction of the geometric realisation $\abs{P}$ of a poset $P$.
 Given a poset $P$, a chain $C \subseteq P$ is a totally ordered subposet, i.e.~either $x \leq y$ or  $y \leq x$ for all  $x,y \in C$.
-We say $C$ is an $n$--chain if $n=\Abs{C}-1$.
+We say $C$ is an $n$--chain if $n=\abs{C}-1$.
 We denote the standard $k$--simplex as $\Delta^k$, where
 \[
 	\Delta^k \coloneq \Set{(x_0,\ldots, x_k) \in \R^{k+1} \given x_i \geq 0 \; \forall i \text{ and } x_0 + \cdots + x_k =1}
 	.\]
 
-To construct $\Abs{P}$, we first associate to each $n$--chain in $P$, an $n$--simplex $\Delta_{C}$.
+To construct $\abs{P}$, we first associate to each $n$--chain in $P$, an $n$--simplex $\Delta_{C}$.
 The elements of $C$ correspond to the vertices of $\Delta_{C}$.
 Such a $\Delta_C$, and all of its faces, are canonically oriented due to the ordering in $P$.
 Using this orientation, we glue simplices corresponding to subchains to a face of the higher dimensional simplex, which corresponds to the superchain.
@@ -17,10 +17,10 @@ Let $f$ denote the orientation preserving isometry from (the closed) $\Delta_{C_
 We then glue $\Delta_{C_1}$ to $\Delta_{C_2}$ using  $f$.
 Taking $\sim$ to be the transitive closure of the relation defined by all such $f$, for all chains and subchains of  $P$, we then have
 \[
-	\Abs{P} \coloneq \left(\;\bigsqcup_{\substack{ C \subseteq P \\ \text{chain}}} \Delta_C \right)/\sim
+	\abs{P} \coloneq \left(\;\bigsqcup_{\substack{ C \subseteq P \\ \text{chain}}} \Delta_C \right)/\sim
 	.\]
 
-See \cref{fig:example_poset_complex} for an example, where $\Abs{P}$ is three solid tetrahedrons.
+See \cref{fig:example_poset_complex} for an example, where $\abs{P}$ is three solid tetrahedrons.
 Two tetrahedrons, on the left half of the picture, share a face, and all three tetrahedrons share an edge, which is vertical and centred in the picture.
 
 % filled small circle
@@ -78,11 +78,11 @@ Two tetrahedrons, on the left half of the picture, share a face, and all three t
 			\draw[light] (bottom right) 	to 	  				(top);
 		\end{pgfonlayer}
 	\end{tikzpicture}
-	\caption{The diagram of a poset where $\leq$ is $\subseteq$ (left) and a picture of the corresponding complex $\Abs{P}$ (right) with the original poset highlighted in black.}
+	\caption{The diagram of a poset where $\leq$ is $\subseteq$ (left) and a picture of the corresponding complex $\abs{P}$ (right) with the original poset highlighted in black.}
 	\label{fig:example_poset_complex}
 \end{figure}
 
-Posets, and the construction $\Abs{P}$, give a combinatorial description of certain simplicial complexes.
+Posets, and the construction $\abs{P}$, give a combinatorial description of certain simplicial complexes.
 However, not all complexes can be realised by this construction.
 For example, consider $S^1$ realised as two edges connected at their ends.
 This limitation is linked to the following observation.
@@ -106,7 +106,7 @@ We call the non--identity morphisms of  $\catx$ \emph{edges} and denote the set 
 Given some $a \in E(\catx)$, we denote the initial (source) and terminal (target) vertices by $i(a)$ and $t(a)$ respectively.
 If two edges $b$ and $a$ satisfy $t(b)=i(a)$, then we say that $a$ and $b$ are composable and denote their composition $ab$, which is necessarily another edge in $E(\catx)$.
 We have that $i(ab) = i(b)$ and $t(ab) = t(a)$.
-We now work to construct a geometric realisation $\Abs{\catx}$ of a scwol $\catx$, such that if $\catx$ is thin, then $\Abs{\catx}$ matches the geometric realisation when considering $\catx$ as a poset.
+We now work to construct a geometric realisation $\abs{\catx}$ of a scwol $\catx$, such that if $\catx$ is thin, then $\abs{\catx}$ matches the geometric realisation when considering $\catx$ as a poset.
 
 Let $E^{(n)}(\catx)$ denote the set of all $n$--tuples of composable edges in $\catx$,
 i.e.~if $(a_1, a_2, \ldots, a_n) \in E^{(n)}(\catx)$, then
@@ -131,9 +131,9 @@ And maps, $d_i \colon \Delta^{k-1} \to \Delta^k$ on simplices, where
 	.\]
 
 \begin{definition}
-	Given a scwol $\catx$, the geometric realisation, $\Abs{\catx}$ is a simplicial complex defined as
+	Given a scwol $\catx$, the geometric realisation, $\abs{\catx}$ is a simplicial complex defined as
 	\[
-		\Abs{\catx} \coloneq \bigsqcup_k \left( \Delta^k \times E^{(k)}(\catx) \right) / \sim
+		\abs{\catx} \coloneq \bigsqcup_k \left( \Delta^k \times E^{(k)}(\catx) \right) / \sim
 		.\]
 	Where $\sim$ is the transitive closure of the relations
 	\[
@@ -145,10 +145,10 @@ In this definition, we had to take more care than with the geometric realisation
 This is because, in a poset, a composable tuple is completely determined by its vertices (the chain), so the combinatorial face maps always corresponded to taking subsets of those vertices.
 But in a scwol, we need to account for potentially multiple edges between two vertices, so we must enumerate simplices using edges, rather than vertices.
 
-For those interested, the above construction of $\Abs{\catx}$ corresponds to the standard geometric realisation of the nerve (which corresponds to the union of all of our $E^{(k)}(\catx)$) of $\catx$.
+For those interested, the above construction of $\abs{\catx}$ corresponds to the standard geometric realisation of the nerve (which corresponds to the union of all of our $E^{(k)}(\catx)$) of $\catx$.
 See \cite{goerss_simplicial_2009}.
 
-Given a scwol $\catx$, the dimension of  $\catx $ is the dimension of $\Abs{\catx}$, this is the largest  $k$ such that  $E^{(k)}(\catx) \neq \emptyset$.
+Given a scwol $\catx$, the dimension of  $\catx $ is the dimension of $\abs{\catx}$, this is the largest  $k$ such that  $E^{(k)}(\catx) \neq \emptyset$.
 
 \begin{example}
 	The following scwol has geometric realisation $S^1$, constructed by identifying the ends of two 1--simplices.
@@ -207,6 +207,7 @@ Given a scwol $\catx$, the dimension of  $\catx $ is the dimension of $\Abs{\cat
 			\draw[arrow_me=stealth] (mtltr) to (tr);
 		\end{tikzpicture}
 	\end{center}
+	\label{eg:scwol_for_square}
 \end{example}
 
 \begin{example}
@@ -243,15 +244,17 @@ Given a scwol $\catx$, the dimension of  $\catx $ is the dimension of $\Abs{\cat
 
 
 The requirement that $E(\catx)$ maps to $E(\caty)$ means that non-identity morphisms must be mapped to non-identity morphisms.
-A morphism of scwols $F$ induces a map on the geometric realisations, we denote this $\Abs{F}$.
+A morphism of scwols $F$ induces a map on the geometric realisations, we denote this $\abs{F}$.
 This acts on each simplex $\Delta$ by the linear map determined by the image of the vertices of $\Delta$.
 Non-degenerate maps are important because they do not reduce the length of compositions of non-identity maps, thus they preserve dimension.
-The importance of the condition that the restriction of  $F$ to $\Set{a \in E(\catx) \given i(a) = v}$ is a bijection on that set of edges will become apparent when we begin to define complexes of groups.
+The importance of the second condition is that if a group acts by non-degenerate morphisms, then the stabiliser of $i(a)$ is contained in the stabiliser of $a$, which is contained in the stabiliser of $t(a)$ by virtue of $F$  being a functor.
+In this way, this condition guarantees that stabilisers respect the category structure.
+The importance of this will become apparent when we define complexes of groups.
 
 (Non-degenerate) automorphisms of a scwols are (non-degenerate) invertible morphisms $F \colon \catx \to \catx$.
 
 \begin{definition}
-	An action of a group $G$ on a scwol $\catx$ is a homomorphism from $G$ to the group of non-degenerate automorphisms of $\catx$ such that the following two requirements are met.
+	An action of a group $G$ on a scwol $\catx$ is a homomorphism from $G$ to the group of non-degenerate automorphisms of $\catx$ such that the following two conditions are met.
 	\begin{enumerate}
 		\item For all $a \in E(\catx)$ and $g \in G$, we have  $g \cdot i(a) \neq t(a)$.
 		\item For all $a \in E(\catx)$ and $g \in G$, if  $g\cdot i(a)=i(a)$, then  $g\cdot a = a$.
@@ -280,10 +283,13 @@ For example, in the following scwol, if $\sigma$ was mapped to  $\tau$, then $\t
 
 However, if we consider the action of the group $\Z$ on the poset $\Z$, we see that  the first condition is not vacuous.
 
-For each $g \in G$, denote the induced action on  $\Abs{\catx}$ as $\Abs{g}$.
-The second condition means that if for some $\sigma \in V(\catx)$, we have $g \cdot \sigma = \sigma$, then $\Abs{g}$ fixes pointwise any $k$-simplex corresponding to a composable tuple $(a_1,  \ldots, a_k)$ with $i(a_1)=\sigma$.
-This in particular implies that if $\Abs{g}$ fixes a simplex setwise, then it also fixes it pointwise.
-This is important because we want to be able to quotient by this group action and for the quotient map to be simplicial on $\Abs{X}$.
+For each $g \in G$, denote the induced action on  $\abs{\catx}$ as $\abs{g}$.
+The second condition means that if for some $\sigma \in V(\catx)$, we have $g \cdot \sigma = \sigma$, then $\abs{g}$ fixes pointwise any $k$-simplex corresponding to a composable tuple $(a_1,  \ldots, a_k)$ with $i(a_1)=\sigma$.
+This in particular implies that if $\abs{g}$ fixes a simplex setwise, then it also fixes it pointwise.
+This is important because we want to be able to quotient by this group action and for the quotient map to be simplicial on $\abs{X}$.
+Note that these restrictions mean that many group actions that geometrically look like rotations about a point, or reflections, are not possible.
+For instance, there is no non-trivial group action on the scwol given in \cref{eg:scwol_for_square}.
+However, there is an action of the cyclic group of order 3 on the scwol given in \cref{eg:K3_scwol}.
 
 Given a scwol $\catx$, a group $G$, and an action as defined in \cref{def:action_of_groups_on_scwols}, we can define the quotient scwol $G \backslash \catx$ in the following way.
 The vertices of $G\backslash \catx$ are $G\backslash V(\catx)$, similarly the edges of $G \backslash \catx$ are $G\backslash E(\catx)$.
