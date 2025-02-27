@@ -271,13 +271,13 @@ For example, in the following scwol, if $\sigma$ was mapped to  $\tau$, then $\t
 		\tikzstyle{every label}=[font=\footnotesize]
 		\tikzstyle{every node}=[font=\footnotesize]
 
-		\node[FSC, label=right:{$\sigma$}] (bot) at (0,0)		{};
-		\node[FSC, label=right:{$\tau$}] (mid) at ($(bot)+(0,\size)$)	{};
-		\node[FSC, label=right:{$\mu$}] (top) at ($(mid)+(0,\size)$)	{};
+		\node[FSC, label=below:{$\sigma$}] (l) at (0,0)		{};
+		\node[FSC, label=below:{$\tau$}] (m) at ($(l)+(\size,0)$)	{};
+		\node[FSC, label=below:{$\mu$}] (r) at ($(m)+(\size,0)$)	{};
 
-		\draw[arrow_me=stealth] (bot) to node[right] {$b$} (mid);
-		\draw[arrow_me=stealth] (mid) to node[right] {$a$} (top);
-		\draw[arrow_me=stealth, bend left=90] (bot) to node[left] {$ab$} (top);
+		\draw[arrow_me=stealth] (l) to node[below] {$b$} (m);
+		\draw[arrow_me=stealth] (m) to node[below] {$a$} (r);
+		\draw[arrow_me=stealth, bend left=90] (l) to node[above] {$ab$} (r);
 	\end{tikzpicture}
 \end{center}
 

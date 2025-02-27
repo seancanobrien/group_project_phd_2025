@@ -71,7 +71,7 @@ Had we chosen different representatives $s^\prime(\sigma)$, the resulting  subgr
 We now check that, if $g \in G_{i(a)}$, then  $\phi_a(g) \in G_{t(a)}$ as required.
 Observe that $h_a^{-1} \cdot s(t(a)) = t(\tilde{a})$ by construction.
 Then, because $g \in \stab(i(\tilde{a}))$, and because  $g$ acts non-degenerately,  $g \in \stab(t(\tilde{a}))$.
-So  $gh^{-1} \cdot s(t(a)) = t(\tilde{a})$, so $\phi_a(g) \cdot s(t(a)) = s(t(a))$ and  $\phi_a(g) \in G_{t(a)}$.
+So  $gh_a^{-1} \cdot s(t(a)) = t(\tilde{a})$, so $\phi_a(g) \cdot s(t(a)) = s(t(a))$ and  $\phi_a(g) \in G_{t(a)}$.
 We see that $h_a^{-1}$ is exactly the correct element to conjugate by to account for the (sometimes inevitable) fact that the section $s$ is discontinuous and maps in to multiple fundamental domains of $\catx$.
 
 In the context above, given a well-chosen $h_a$ and some $h \in G_{i(a)}$, we see that $h^\prime_a = h_ah$, would also serve the function of $h_a$.
@@ -99,8 +99,132 @@ This is shown in the diagram below.
 	\end{tikzpicture}
 \end{center}
 
+\begin{example}
+	Consider the polyhedral complex consisting of two squares sharing an edge, this is realised as a scwol $\catx$, shown in the following diagram.
 
+	\begin{center}
+		\begin{tikzpicture}
+			\def\sqsize{2}
+			\tikzstyle{every label}=[font=\footnotesize]
+			\tikzstyle{every node}=[font=\footnotesize]
 
-Consider the polyhedral complex consisting of three
+			% First square nodes
+			\node[FSC] (bl)	at (0,0)	{};
+			\node[FSC, fill=red] (br)	at ($(bl)+(\sqsize,0)$)	{};
+			\node[FSC] (tl)	at ($(bl)+(0,\sqsize)$)	{};
+			\node[FSC, fill=red] (tr)	at ($(tl)+(\sqsize,0)$)	{};
+
+			\node[FSC] (mblbr) at ($(bl)!0.5!(br)$) {};
+			\node[FSC] (mbltl) at ($(bl)!0.5!(tl)$) {};
+			\node[FSC, fill=red] (mbrtr) at ($(br)!0.5!(tr)$) {};
+			\node[FSC] (mtltr) at ($(tl)!0.5!(tr)$) {};
+
+			\node[FSC] (center) at ($(bl)!0.5!(tr)$) {};
+
+			% Second square nodes (mirrored to the right)
+			\node[FSC] (br2)	at ($(br)+(\sqsize,0)$)	{};
+			\node[FSC] (tr2)	at ($(tr)+(\sqsize,0)$)	{};
+
+			\node[FSC] (mbrbr2) at ($(br)!0.5!(br2)$) {};
+			\node[FSC] (mtrtr2) at ($(tr)!0.5!(tr2)$) {};
+			\node[FSC] (mbr2tr2) at ($(br2)!0.5!(tr2)$) {};
+
+			\node[FSC] (center2) at ($(br)!0.5!(tr2)$) {};
+
+			% Arrows for first square
+			\draw[arrow_me=stealth] (center) to (bl);
+			\draw[arrow_me=stealth] (center) to (br);
+			\draw[arrow_me=stealth] (center) to (tl);
+			\draw[arrow_me=stealth] (center) to (tr);
+
+			\draw[arrow_me=stealth] (center) to (mblbr);
+			\draw[arrow_me=stealth] (center) to (mbltl);
+			\draw[arrow_me=stealth] (center) to (mtltr);
+			\draw[arrow_me=stealth] (center) to (mbrtr);
+
+			\draw[arrow_me=stealth] (mblbr) to (bl);
+			\draw[arrow_me=stealth] (mblbr) to (br);
+			\draw[arrow_me=stealth] (mbltl) to (bl);
+			\draw[arrow_me=stealth] (mbltl) to (tl);
+			\draw[arrow_me=stealth, red] (mbrtr) to (br);
+			\draw[arrow_me=stealth, red] (mbrtr) to (tr);
+			\draw[arrow_me=stealth] (mtltr) to (tl);
+			\draw[arrow_me=stealth] (mtltr) to (tr);
+
+			% Arrows for second square
+			\draw[arrow_me=stealth] (center2) to (br);
+			\draw[arrow_me=stealth] (center2) to (br2);
+			\draw[arrow_me=stealth] (center2) to (tr);
+			\draw[arrow_me=stealth] (center2) to (tr2);
+
+			\draw[arrow_me=stealth] (center2) to (mbrbr2);
+			\draw[arrow_me=stealth] (center2) to (mbrtr);
+			\draw[arrow_me=stealth] (center2) to (mtrtr2);
+			\draw[arrow_me=stealth] (center2) to (mbr2tr2);
+
+			\draw[arrow_me=stealth] (mbrbr2) to (br);
+			\draw[arrow_me=stealth] (mbrbr2) to (br2);
+			\draw[arrow_me=stealth] (mtrtr2) to (tr);
+			\draw[arrow_me=stealth] (mtrtr2) to (tr2);
+			\draw[arrow_me=stealth] (mbr2tr2) to (br2);
+			\draw[arrow_me=stealth] (mbr2tr2) to (tr2);
+		\end{tikzpicture}
+	\end{center}
+
+	There is an action of $G = \Z / 2\Z}$ on this scwol by reflecting in the line realised by the subscwol highlighted in red.
+	The quotient scwol $\caty = G \backslash \catx$ is shown below.
+	\begin{center}
+		\begin{tikzpicture}
+			\def\sqsize{2}
+			\tikzstyle{every label}=[font=\footnotesize]
+			\tikzstyle{every node}=[font=\footnotesize]
+
+			% First square nodes
+			\node[FSC] (bl)	at (0,0)	{};
+			\node[FSC, fill=red] (br)	at ($(bl)+(\sqsize,0)$)	{};
+			\node[FSC] (tl)	at ($(bl)+(0,\sqsize)$)	{};
+			\node[FSC, fill=red] (tr)	at ($(tl)+(\sqsize,0)$)	{};
+
+			\node[FSC] (mblbr) at ($(bl)!0.5!(br)$) {};
+			\node[FSC] (mbltl) at ($(bl)!0.5!(tl)$) {};
+			\node[FSC, fill=red] (mbrtr) at ($(br)!0.5!(tr)$) {};
+			\node[FSC] (mtltr) at ($(tl)!0.5!(tr)$) {};
+
+			\node[FSC] (center) at ($(bl)!0.5!(tr)$) {};
+
+			% Arrows for first square
+			\draw[arrow_me=stealth] (center) to (bl);
+			\draw[arrow_me=stealth] (center) to (br);
+			\draw[arrow_me=stealth] (center) to (tl);
+			\draw[arrow_me=stealth] (center) to (tr);
+
+			\draw[arrow_me=stealth] (center) to (mblbr);
+			\draw[arrow_me=stealth] (center) to (mbltl);
+			\draw[arrow_me=stealth] (center) to (mtltr);
+			\draw[arrow_me=stealth] (center) to (mbrtr);
+
+			\draw[arrow_me=stealth] (mblbr) to (bl);
+			\draw[arrow_me=stealth] (mblbr) to (br);
+			\draw[arrow_me=stealth] (mbltl) to (bl);
+			\draw[arrow_me=stealth] (mbltl) to (tl);
+			\draw[arrow_me=stealth, red] (mbrtr) to (br);
+			\draw[arrow_me=stealth, red] (mbrtr) to (tr);
+			\draw[arrow_me=stealth] (mtltr) to (tl);
+			\draw[arrow_me=stealth] (mtltr) to (tr);
+
+		\end{tikzpicture}
+	\end{center}
+	In the resulting complex of groups $G(\caty)$, the local groups of the red vertices are $G$ and the other local groups are trivial.
+	All the injective homomorphisms are determined by these groups and all the twisting elements are trivial.
+\end{example}
+
+Given any polyhedral complex, we could construct such an example as above.
+In this context, the geometric requirements on the action are as follows.
+\begin{enumerate}
+	\item The action respects the cell structure and acts by homeomorphisms when restricted to cells.
+	\item If an open cell is fixed setwise, then it is fixed pointwise.
+\end{enumerate}
+Given these two conditions, the quotient scwol realises the quotient polyhedral complex (which is again a polyhedral complex, thanks to condition (2)).
+The stabiliser of a cell is automatically a subgroup of the stabilisers of each of its faces, and we get a complex of groups in this way.
 
 
