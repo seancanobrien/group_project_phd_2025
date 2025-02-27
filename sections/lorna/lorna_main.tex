@@ -18,11 +18,22 @@ We now give some simple examples of $\mathbb{R}$-trees.
     Any tree $T$ with the metric defined by identifying each edge with the interval $[0,1]$ is an $\mathbb{R}$-tree.
 \end{example}
 
-\begin{example}
-    $\mathbb{R}^2$ with the \textit{Paris metric} is an $\mathbb{R}$-tree. This is the metric $d$ defined by\[d(x,y)=d_E(x,y)\]if $x$ and $y$ lie on the same line through the origin, and\[d(x,y)=d_E(x,0)+d_E(0,y)\] otherwise (here $d_E$ is the Euclidean metric on $\mathbb{R}^2$). 
+\begin{example}\label{Paris}
+    $\mathbb{R}^2$ with the \textit{Paris metric} is an $\mathbb{R}$-tree. This is the metric $d$ defined by\[d(x,y)=d_E(x,y)\]if $x$ and $y$ lie on the same line through the origin, and\[d(x,y)=d_E(x,0)+d_E(0,y)\] otherwise (here $d_E$ is the Euclidean metric on $\mathbb{R}^2$). It can be thought of as train lines in France which all go through Paris.
+\end{example}
+
+\begin{example}\label{xtrains}
+    We can define a similar metric on $\mathbb{R}^2$ to that given in Example \ref{Paris} above by treating the $x$-axis and every vertical line as our train lines. Now the geodesic between two points must go \textit{via.} the $x$-axis. Note that there is no underlying simplicial graph for this $\mathbb{R}$-tree, so in particular we have shown that $\mathbb{R}$-trees are slightly more general than simplicial trees with metrics.
 \end{example}
 
 \subsection{Group Actions}
+Bass-Serre Theory gives a convenient way to study groups actiong on simplicial trees:
+\begin{theorem}
+    \textbf{The Fundamental Theorem of Bass-Serre Theory/Structure Theorem:} \textcolor{red}{Already in Alicja's section...}
+\end{theorem}
+
+However, this fails in general for $\mathbb{R}$-trees. For example, let $X$ be the $\mathbb{R}$-tree described in Example \ref{xtrains}, and let $G$ be the trivial group acting on $X$. Then the quotient $G\backslash X$ is $X$, which is not a simplicial tree, and so Bass-Serre Theory fails for general $\mathbb{R}$-trees (\cite{Levit_rtrees} gives construction which aims to generalise to $\mathbb{R}$-trees). Instead, group actions in $\mathbb{R}$-trees are usually studied in other ways.
+
 Isometries of $\mathbb{R}$-trees have a classification analogous to that of isometries of hyperbolic space. 
 \begin{definition}
     Let $G$ be a group acting by isometries on an $\mathbb{R}$-tree $T$. The \textnormal{translation length} of $g\in G$ is \[\lVert g\rVert=\underset{x\in T}{\text{inf}}d(x,g(x)).\]
@@ -47,7 +58,7 @@ The proof of the following follows the same argument as the proof outline given 
 \begin{proof}
     In the elliptic case, $g$ clearly fixes $C_g$. We will show later that in this case $G_g$ is non-empty, (i.e. $g$ has a fixed point). Since $g$ is an isometry, if it fixes two points $x$ and $y\in T$, it must also fix the unique geodesic between them, so $C_g$ is connected. Similarly, if it fixes every point on a geodesic it must also fix the endpoints. Hence $C_g$ is a closed subtree as required.
 
-    Now suppose $g$ is hyperbolic. In particular it has no fixed points. Consider a point $x\in T$. There is a unique arc $\alpha$ from $x$ to $g(x)$, with subarcs $\alpha \cap g(\alpha)$ and $\alpha \cap g^{-1}(\alpha)$. Let $m$ be the midpoint of $\alpha$ and suppose that $m\in \alpha \cap g(\alpha)$. Then $g(m)$ is a point in $\alpha$ which is $\frac{\ell(\alpha)}{2}$ away from $g(x)$, so we have $g(m)=m$, a contradiction to the hyperbolicity of $g$. A similar argument gives $m\notin \alpha \cap g^{-1}(\alpha)$. Denote by $\beta$, the subarc of $\alpha$ connecting $g(\alpha)$ to $g^{-1}(\alpha)$. Since in particular $m\in \beta$, we know that $\beta$ has positive length. If a point $p$ has $p\in \beta\cap g(\beta)$, $p$ must be an endpoint of $\beta$, since \[\beta\cap g(\beta)\subseteq\alpha\cap\g(\alpha)\subseteq g(\alpha)\] and $\beta\cap\g(\alpha)$ is a single point. Similarly the only point where $\beta$ meets $g^{-1}(\beta)$ is at its other endpoint. Repeating this argument inductively shows that \[C=\underset{n\in\mathbb{Z}}{\bigcup}g^n(\beta)\] is an arc in $T$ which is isometric to $\mathbb{R}$. In particular this is a closed subtree, and $g$ acts on it by translation by $\ell(\beta)$, so it is also invariant under the action of $g$. To show that $C=C_g$, note that for any point $y\in T$, $y$ has a closest point in $C$, denoted $c$. We have $d(y,c)=d(g(y),g(c))$ (so $g$ is 'moved along' $C$ by the same amount as $c$), which implies that \[d(y,g(y))=d(y,c)+\ell(\beta)+d(g(c),g(y))=\ell(\beta)+2d(y,C).\] This means that $C=C_g$ and $\lVert g\rVert=\ell(\beta)$.
+    Now suppose $g$ is hyperbolic. In particular it has no fixed points. Consider a point $x\in T$. There is a unique arc $\alpha$ from $x$ to $g(x)$, with subarcs $\alpha \cap g(\alpha)$ and $\alpha \cap g^{-1}(\alpha)$. Let $m$ be the midpoint of $\alpha$ and suppose that $m\in \alpha \cap g(\alpha)$. Then $g(m)$ is a point in $\alpha$ which is $\frac{\ell(\alpha)}{2}$ away from $g(x)$, so we have $g(m)=m$, a contradiction to the hyperbolicity of $g$. A similar argument gives $m\notin \alpha \cap g^{-1}(\alpha)$. Denote by $\beta$, the subarc of $\alpha$ connecting $g(\alpha)$ to $g^{-1}(\alpha)$. Since in particular $m\in \beta$, we know that $\beta$ has positive length. If a point $p$ has $p\in \beta\cap g(\beta)$, $p$ must be an endpoint of $\beta$, since \[\beta\cap g(\beta)\subseteq\alpha\cap g(\alpha)\subseteq g(\alpha)\] and $\beta\cap\g(\alpha)$ is a single point. Similarly the only point where $\beta$ meets $g^{-1}(\beta)$ is at its other endpoint. Repeating this argument inductively shows that \[C=\underset{n\in\mathbb{Z}}{\bigcup}g^n(\beta)\] is an arc in $T$ which is isometric to $\mathbb{R}$. In particular this is a closed subtree, and $g$ acts on it by translation by $\ell(\beta)$, so it is also invariant under the action of $g$. To show that $C=C_g$, note that for any point $y\in T$, $y$ has a closest point in $C$, denoted $c$. We have $d(y,c)=d(g(y),g(c))$ (so $g$ is 'moved along' $C$ by the same amount as $c$), which implies that \[d(y,g(y))=d(y,c)+\ell(\beta)+d(g(c),g(y))=\ell(\beta)+2d(y,C).\] This means that $C=C_g$ and $\lVert g\rVert=\ell(\beta)$.
 
     Finally, since we have shown that if $g$ has no fixed points in $T$, then $\lVert g\rVert>0$, we can say that an elliptic element necessarily has a fixed point, and so $C_g$ is also non-empty in that case.
 \end{proof}
