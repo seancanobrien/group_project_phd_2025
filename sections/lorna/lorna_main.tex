@@ -158,8 +158,8 @@ The Rips Machine starts by repeatedly applying these moves to transform a connec
 \end{theorem}
 
 This theorem allows us to classify finitely presented groups which act `nicely' on $\mathbb{R}$-trees.
-\begin{theorem}
-    Let $G$ be a finitely generated torsion free group acting non-trivially by isometries on an $\mathbb{R}$-tree $T$. Suppose also that all arc stabilizers are trivial. Then one of the following holds:
+\begin{theorem}\label{rtreesclassification}
+    Let $G$ be a finitely generated torsion-free group acting non-trivially by isometries on an $\mathbb{R}$-tree $T$. Suppose also that all arc stabilizers are trivial. Then one of the following holds:
     \begin{enumerate}
         \item $G$ is the fundamental group of a 2-complex $X$ which contains a compact surface $S$ of negative Euler characterisic,
         \item $G$ is a free abelian group,
@@ -178,8 +178,23 @@ This theorem allows us to classify finitely presented groups which act `nicely' 
     Finally, if $X'$ has a simplicial component $X'_i$, an $\mathbb{R}$-tree \textit{dual} to $X'_i$ can be constructed, on which $G$ acts. Bass-Serre theory can then be used to show that $G$ splits as a non-trivial free product.
 \end{proof}
 
+The next theorem tells us what happens in the slightly more general case of groups acting freely on $\mathbb{R}$-trees.
+\begin{definition}
+    A group $G$ is a \textnormal{closed surface group} if it is the fundamental group of a closed surface. For example the groups in case (1) of the previous theorem are closed surface groups.
+\end{definition}
+\begin{definition}
+    A group $G$ is \textnormal{freely indecomposable} if it is nontrivial and cannot be expressed as a free product of nontrivial groups.
+\end{definition}
+
+\begin{theorem}
+    Let $G$ be a finitely presented group acting freely by isometries on an $\mathbb{R}$-tree $T$. Then $G$ is the free product of free abelian groups and closed surface groups.
+\end{theorem}
+\begin{proof}
+    $G$ can be written as the free product of a free group and a number of freely indecomposable factors. It can be shown that each of these factors satisfies the conditions of Theorem \ref{rtreesclassification}, and by assumption neither possibility (2) nor (3) holds, so each freely indecomposable factor must be a closed surface group. 
+\end{proof}
+
 \subsection{Applications of $\mathbb{R}$-Trees}
-$\mathbb{R}$-trees appear in many areas of geometric group theory. In this section we will discuss some of these, starting with some applications to hyperbolic groups.
+Now that we have a good understanding of groups which act (freely) on $\mathbb{R}$-trees, we can use this to understand any group which can be shown to act in this way. In this section we will discuss some of these applications, starting with some to hyperbolic groups.
 
 \begin{theorem}
     Let $G$ be a hyperbolic group such that Out$(G)$ is infinite. Then $G$ splits over a virtually cyclic subgroup.
