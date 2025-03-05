@@ -8,7 +8,7 @@ We will first give the abstract definition of a complex of groups, then, to moti
 Given a group $G$, let $\ad(g) \colon G \to G$ denote conjugation, $\ad(g)(h) = g^{-1}hg$.
 
 \begin{definition}
-	Given a scwol $\catx$, A complex of groups $G(\catx)$ over $\catx$ consists of the following data.
+	Given a scwol $\catx$, A complex of groups $G(\catx)$ = $(G_\sigma, \phi_a, g_{a,b})$ over $\catx$ consists of the following data.
 	\begin{enumerate}
 		\item A group $G_\sigma$ for each $\sigma \in V(\catx)$.
 		\item An injective homomorphism $\phi_a \colon G_{i(a)} \to G_{t(a)}$ for each $a \in E(\catx)$.
@@ -25,6 +25,7 @@ Given a group $G$, let $\ad(g) \colon G \to G$ denote conjugation, $\ad(g)(h) = 
 	\label{def:complex_of_groups}
 \end{definition}
 
+In this notation, the $G$ in $G(\catx)$ is not associated to any specific group, just that the structure of a complex of groups has been associated to the scwol $\catx$.
 Note that compatibility condition (1) is vacuous if the dimension of $\catx$ is less than 2.
 Compatibility condition (2) is vacuous if the dimension of  $\catx$ is less than 3.
 Compatibility condition (1) states that, up to conjugation by a twisting element, we can compose homomorphisms along composable edges in the obvious way.
@@ -61,8 +62,9 @@ See REF for more details.
 	However, there is no guarantee that $t(\tilde{a}) = s(t(a))$.
 	Choose some $h_a \in G$ such that $h_a \cdot t(\tilde{a}) = s(t(a))$.
 	Do this for every edge in $E(\caty)$.
-	We define the edge homomorphisms of $G(\caty)$ as $\phi_a \coloneq \ad(h_a^{-1})$.
-	We define the twisting elements of $G(\caty)$ as $g_{a,b} \coloneq h_ah_bh_{ab}^{-1}$.
+	We define the edge homomorphisms of $G(\caty)$ to be $\phi_a \coloneq \ad(h_a^{-1})$.
+	We define the twisting elements of $G(\caty)$ to be $g_{a,b} \coloneq h_ah_bh_{ab}^{-1}$.
+	\label{def:complex_of_groups_from_action}
 \end{definition}
 
 There is a choice involved in defining the section $s$.
@@ -227,4 +229,94 @@ In this context, the geometric requirements on the action are as follows.
 Given these two conditions, the quotient scwol realises the quotient polyhedral complex (which is again a polyhedral complex, thanks to condition (2)).
 The stabiliser of a cell is automatically a subgroup of the stabilisers of each of its faces, and we get a complex of groups in this way.
 
+\begin{definition}
+	Let $\catx$ and $\catx^\prime$ be two scwols, and let $G(\catx) = (G_\sigma, \phi_a, g_{a,b})$ and  $G(\catx^\prime) = (G^\prime_\sigma, \phi^\prime_a, g^\prime_{a,b})$ be two complexes of groups, neither of which are necessarily associated to a group action.
+	Given a possibly degenerate morphism of scwols $f \colon \catx \to \catx^\prime$, a morphism of complexes of groups over $f$ is some $\psi  \colon G(\catx) \to G(\catx^\prime)$ which consists of the following data:
+	\begin{enumerate}
+		\item A homomorphism $\psi_\sigma \colon G_\sigma \to G_{f(\sigma)}$ for all $\sigma \in V(\catx) $.
+		\item An element $\theta \in G_{t(f(a))}$ for all $a \in E(\catx)$ such that:
+		      \begin{enumerate}[(i)]
+			      \item $\ad(\theta_a)\phi'_{f(a)}\psi_{i(a)}=\psi_{t(a)}\phi_a$ for all $a \in E(\catx)$.
+			      \item $\psi_{t(a)}(g_{a,b}) = \theta_a\phi_{f(a)}(\theta_b)g_{f(a),f(b)}\theta_{ab}^{-1}$ for all $(b,a) \in E^{(2)}(\catx)$.
+		      \end{enumerate}
+	\end{enumerate}
+	We say $\phi$ over $f$ is an isomorphism if $f$ is an isomorphism of scwols and each $\phi_\sigma$ is an isomorphism.
+	\label{def:morhpism_of_complexes_of_groups}
+\end{definition}
 
+Condition (i) says that the square of an edge $a$ commutes up to conjugation by a chosen element $\theta_a$, i.e.~in the following diagram, $\psi_\tau \phi_a = \ad(\theta_a) \phi^\prime_{f(a)} \psi_\sigma$.
+\begin{equation}
+	\begin{tikzcd}
+		G_\sigma \ar[d, "\psi_\sigma"] \ar[r, "\phi_a"] & G_\tau \ar[d, "\psi_\tau"]\\
+		G^\prime_{f(\sigma)} \ar[r, "\phi^\prime_{f(a)}"] & G^\prime_{f(\tau)}
+	\end{tikzcd}
+	\label{eq:commuativity_sq_cx_morphism}
+\end{equation}
+
+
+To understand condition (i), we should bear in mind the discussion following \cref{def:complex_of_groups_from_action}.
+We only require squares like \eqref{eq:commuativity_sq_cx_morphism} to commute up to some conjugation because when defining our homomorphisms $\phi_a$ in \cref{def:complex_of_groups_from_action}, there was an ambiguity up to such a conjugation, which could only be resolved by an arbitrary choice.
+
+Condition (ii) says that, bearing in mind how squares like \eqref{eq:commuativity_sq_cx_morphism} commute, in the following diagram, we should have $\phi^\prime_{f(ab)}\psi_\sigma  = \phi^\prime_{f(a)f(b)}\psi_\sigma$.
+\begin{equation}
+	\begin{tikzcd}
+		G_\sigma \ar[d, "\psi_\sigma"] \ar[r, "\phi_b"] \ar[rr, bend left, "\phi_{ab}"] & G_\tau \ar[d, "\psi_\tau"] \ar[r, "\phi_a"] & G_\nu \ar[d, "\psi_\nu"]\\
+		G^\prime_{f(\sigma)} \ar[rr, bend right, "\phi^\prime_{f(a)f(b)}"'] \ar[rr, bend right=90, "\phi^\prime_{f(ab)}"'] \ar[r, "\phi^\prime_{f(b)}"] & G^\prime_{f(\tau)} \ar[r, "\phi^\prime_{f(a)}"] & G^\prime_{f(\nu)}
+	\end{tikzcd}
+	\label{eq:commutativity_double_sq_cx_morphism}
+\end{equation}
+
+We will go through the computation that shows this.
+If we apply condition (i) to the composition $\psi_\nu \phi_{ab}$, we get $\psi_\nu\phi_{ab} = \ad(\theta_{ab})\phi^\prime_{f(ab)}\psi_\sigma$.
+Since $G(\catx)$ is a complex of groups, we have $\ad(g_{a,b})\phi_{ab} = \phi_a\phi_b$.
+Putting these together, we get
+\begin{align*}
+	\ad(\psi_\nu(g_{a,b})\theta_{ab})\phi^\prime_{f(ab)}\psi_\sigma
+	 & = \ad(\psi_\nu(g_{a,b}))\psi_\nu\phi_{ab} \\
+	 & = \psi_\nu\ad(g_{a,b})\phi_{a,b}          \\
+	 & = \psi_\nu\phi_a\phi_b
+	.
+\end{align*}
+Then, applying the condition (i) twice
+\begin{align*}
+	\psi_\nu\phi_a\phi_b
+	= \ad(\theta_a)\phi^\prime_{f(a)}\psi_\tau\phi_b
+	 & = \ad(\theta_a)\phi^\prime_{f(a)}\ad(\theta_b)\phi^\prime_{f(b)}\psi_\sigma                \\
+	 & = \ad(\theta_a\phi^\prime_{f(a)}(\theta_b))\phi^\prime_{f(a)}\phi^\prime_{f(b)}\psi_\sigma
+	.
+\end{align*}
+Then, since $G(\catx^\prime)$ is a complex of groups, we have $\ad(g^\prime_{f(a),f(b)})\phi^\prime_{f(a)f(b)} = \phi^\prime_{f(b)}\phi^\prime_{f(a)}$.
+All together, we have
+\begin{align*}
+	\ad(\psi_\nu(g_{a,b})\theta_{ab})\phi^\prime_{f(ab)}\psi_\sigma = \ad(\theta_a\phi^\prime_{f(a)}(\theta_b)g^\prime_{f(a),f(b)})\phi^\prime_{f(a)f(b)}\psi_\sigma
+	.
+\end{align*}
+Thus, condition (ii) guarantees $\psi_\nu(g_{a,b})\theta_{ab} = \theta_a\phi^\prime_{f(a)}(\theta_b)g^\prime_{f(a),f(b)}$ and thus $\phi^\prime_{f(ab)}\psi_\sigma = \phi^\prime_{f(a)f(b)}\psi_\sigma$.
+Condition (ii) ensures that $\psi_\nu\phi_{ab}$ unambiguously commutes in the following diagram, thus we only need to define one $\theta_{ab}$.
+
+\begin{equation*}
+	\begin{tikzcd}
+		G_\sigma \ar[d, "\psi_\sigma"] \ar[rr, "\phi_{ab}"] & &  G_\nu \ar[d, "\psi_\nu"]\\
+		G^\prime_{f(\sigma)} \ar[rr, bend right, "\phi^\prime_{f(a)f(b)}"'] \ar[rr, bend left, "\phi^\prime_{f(ab)}"'] & & G^\prime_{f(\nu)}
+	\end{tikzcd}
+\end{equation*}
+
+\begin{definition}
+	A complex of groups is called \emph{developable} if it is isomorphic to a complex of groups emerging from an action of a group on a scwol, as in \cref{def:action_of_groups_on_scwols}.
+\end{definition}
+
+We also emphasise the following important morphism of complexes of groups.
+A group $G$ can be realised as a complex of groups over the trivial scwol, consisting of one vertex and zero (non-identity) edges.
+In this way, the following definition is a specific case of \cref{def:morhpism_of_complexes_of_groups}.
+
+\begin{definition}
+	A morphism from a complex of groups $G(\catx) = (G_\sigma, \phi_a, g_{a,b})$ to a group $G$ consists of the following data.
+	\begin{enumerate}
+		\item A homomorphism $\psi \colon G_\sigma \to G$ for all $\sigma \in V(G(\catx))$.
+		\item An element $\theta_a \in G$ for all $a \in E(G(\catx))$ such that:
+		      \begin{enumerate}[(i)]
+			      \item $\psi_{t(a)}\phi_a = \ad(\theta_a)\psi_{i(a)}$
+			      \item $\psi_{t(a)}(g_{a,b}) = \theta_a\theta_b\theta_{ab}^{-1}$.
+		      \end{enumerate}
+	\end{enumerate}
+\end{definition}
