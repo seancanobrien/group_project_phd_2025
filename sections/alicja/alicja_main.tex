@@ -34,18 +34,6 @@ Examples (1) - (3) were taken from \cite{CeSi23}. An interested reader can find 
     The group $BS(2,3) = \langle a,t \: | \: t(a^2)t^{-1} = a^3\rangle $ is non-Hopfian. To see that, one considers $\phi: BS(2,3) \to BS(2,3)$ defined on generators as $a \mapsto a^2$, and $t \mapsto t$. Note, that $a = a^3a^{-2} = ta^2t^{-1}a^{-2}$, so $a$ is in the image of $\phi$. Therefore, $\phi$ is onto, but also $[a,tat^{-1}] = atat^{-1}a^{-1}ta^{-1}t^{-1}$ is mapped to identity by $\phi$, thus being an example of a nontrivial element in $ker(\phi)$.
 \end{importantexample}
 
-The next consideration that should come to mind is which of the groups $BS(m,n)$ are isomorphic, and what are the conditions on $m,n$ for it to happen. The answer is known for this family of groups, and can be found in \cite{Mol91} as the following theorem.
-
-\begin{theorem}
-    The groups BS(m,n) and BS(p,q) are isomorphic if and only if for a suitable $\epsilon \in \{-1,1\}$ either $m = p\epsilon$ and $n = q\epsilon$, or $m = q\epsilon$ and $n = p\epsilon$.
-\end{theorem}
-
-We will omit the proof in the interest of time, and instead go on to talk about how the behaviour of $BS(m,n)$ changes depending on $m,n$.
-
-\subsubsection{Properties depending on $m,n$}
-\textcolor{red}{write a subsection about how properties of $BS(m,n)$ depend on what $m,n$ one has}
-\textcolor{red}{writing about exponential growth could be interesting}
-
 \subsubsection{Baumslag-Solitar groups as HNN extensions}
 
 In this subsection we will follow the definitions and conventions from \cite[pages 497-498]{BrHa11}.
@@ -66,9 +54,57 @@ In this subsection we will follow the definitions and conventions from \cite[pag
 
 %One of the reasons that HNN extensions are important is because together with free products with amalgamation they form the building blocks of graphs of groups (in the sense of Bass and Serre).
 
+\subsubsection{Isomorphiscm problem}
+The next consideration that should come to mind is which of the groups $BS(m,n)$ are isomorphic, and what are the conditions on $m,n$ for it to happen. The answer is known for this family of groups, and can be found in \cite{Mol91} as the following theorem.
+
+\begin{theorem} \label{BSisom}
+    The groups BS(m,n) and BS(p,q) are isomorphic if and only if for a suitable $\epsilon \in \{-1,1\}$ either $m = p\epsilon$ and $n = q\epsilon$, or $m = q\epsilon$ and $n = p\epsilon$.
+\end{theorem}
+
+We will omit the proof in the interest of time, and instead go on to talk about how the behaviour of $BS(m,n)$ changes depending on $m,n$.
+
+\subsubsection{Properties depending on $m,n$}
+We will begin by briefly coming back to the notion of Hopficity, as well as, residual finiteness. Following the exposition in \cite[III.21]{Ha00}, and the results in \cite{CoLe83} we can state:
+
+\begin{theorem}
+    Consider the group $G = BS(m,n) = \langle a,t \: | \: ta^mt^{-1} = a^n \rangle$. Then the assertions below are true:
+    \begin{itemize}
+        \item if either $m$ or $n$ is in $\{-1,1\}$ or if $|m| = |n|$, then $G$ is residually finite and therefore Hopfian;
+        \item otherwise $G$ is not residually finite. Moreover, $G$ is Hopfian if and only if $m$, $n$ have the same set of prime divisors. 
+    \end{itemize}
+\end{theorem}
+
+\begin{remark}
+    In the theorem above we are not stating the result as introduced in \cite{BaSo62}, that is because it incorrectly stated that $BS(m,n)$ is Hopfian when $m$ or $n$ divides the other, even if their sets of prime divisors are not the same. The correction was made in the paper \cite{Me72} by Meskin.
+\end{remark}
+
+Departing from being Hopfian, it is important to mention that groups $BS(1,n)$ are widely referred to in the literature as \emph{the solvable Baumslag-Solitar groups} - see e.g. \cite{BoDePu2018}, \cite{FaMo98} or \cite{Gr96}. Indeed, the following holds:
+
+\begin{proposition}\label{solv}
+    The group $BS(m,n)$ is solvable if $1 \in \{|m|,|n|\}$.
+\end{proposition} 
+
+\begin{remark}
+    Before we give a sketch of a proof for the result above, let us recall what it means for a group to be solvable (or soluble). The classical definition is that a group $G$ is \emph{soluble} if it has a finite subnormal series $G = G_0 \ge G_1 \ge \ldots \ge G_r =1$ with each factor group $G_i/G_{i+1}$ abelian. By subnormal series we mean a series of subgroups of $G$, each satisfying $G_i \unlhd G_{i+1}$.
+\end{remark}
+
+\begin{proof}[Sketch proof of \ref{solv}]
+    First, suppose $1 \in \{|m|,|n|\}$. Note, that thanks to \ref{BSisom} we can without loss of generality consider $m = 1$. Then $G = BS(1,n) = \langle a,t \: | \: tat^{-1} = a^n \rangle$, and according to \cite{Gi79}, for $n \neq 0$ $\langle a,t \: | \: tat^{-1} = a^n \rangle \cong \Z[\frac{1}{n}]\rtimes \langle t \rangle$ where $t$ acts by multiplication by $n$. Note, that if $G = BS(1,0)$, then $G = \langle a,t \: | \: tat^{-1} = 1 \rangle = \langle a,t \: | \: a = 1 \rangle = \langle t \rangle \cong \Z$. As $\Z$ is abelian, it is soluble (just consider subnormal series $\Z \ge 1$). Thus we only consider $n \neq 0$, and note that, for a semidirect product $G = H \rtimes K$, $G/H \cong K$. Thus we get a subnormal series $BS(1,n) \cong \Z[\frac{1}{n}]\rtimes \langle t \rangle \ge \Z[\frac{1}{n}] \ge 1$ with abelian factors.
+\end{proof}
+
+\begin{remark}
+    The converse of the proposition \ref{solv} is also supposed to be true. However, because we omit the proof of the convers statement, the result was stated only one way.
+\end{remark}
+
+%\subsubsection{Growth of $BS(m,n)$}
+
+%This will be the final property that we will consider before looking at trees.
+
+%\textcolor{red}{writing about exponential growth could be interesting}
+
+
+
 \subsection{Graphs of groups and $G$-trees}
-%plan for this section - define G-trees and maybe how they connect to graphs of groups;
-%you should definitely try to work out how the BS trees abd graphs would look like  -  maybe try to look through trees by Serre
 
 For the discussion in this subsection we will follow \cite[chapter I]{Ser80}.
 
@@ -133,7 +169,17 @@ A more precise way to formulate this definition is to consider $\Gamma$ being a 
     Let $T$ be a maximal tree of $Y$. The \emph{fundamental group} $\pi_1(G,Y,T)$ of $(G,Y)$ at $T$ is the quotient of $F(G,Y)$ by the normal subgroup generated by the elements $y \in edge\:T$.
 \end{definition}
 
-\cite[section I.5.4]{Ser80} includes a result that gives a connection between a $G$-tree and a certain graph of groups. That is, for a $G$-tree $X$, $G$ can be identified with a fundamental group $\pi_1(G,Y,T)$ of a graph of groups $(G,Y)$, where $Y = G\setminus X$.  Note, that sometimes the discussed $G$-tree is called the \emph{Bass-Serre tree} of $(G,Y)$.
+\cite[section I.5.4]{Ser80} includes a result, that gives a connection between a $G$-tree and a certain graph of groups. That is, for a $G$-tree $X$, $G$ can be identified with a fundamental group $\pi_1(G,Y,T)$ of a graph of groups $(G,Y)$, where $Y = G\setminus X$.  Note, that sometimes the discussed $G$-tree is called the \emph{Bass-Serre tree} of $(G,Y)$.
+
+We will state the theorem as it appears in \cite[Corollary 7.45]{Ba}. The statement in \cite[Section I.5.4, Theorem 13]{Ser80} contains more technical details, but at a price of having to set up notation that will not be of use for the reminder of this chapter.
+
+\begin{theorem}\label{structuretheorem}
+   The natural action of the fundamental group of a graph of groups on its universal cover is a non-inversive action of a group of a tree, and conversely every non-inversive action of a group $G$ on a tree $X$ is isomorphic to the action of the fundamental group of $G\setminus X$ on its universal cover; in particular, $G \cong \pi_1( G\setminus X)$.
+\end{theorem}
+
+\begin{remark}
+    The construction of the universal cover of a graph of groups mentioned in the theorem above is given in \ref{universalcover}.
+\end{remark}
 
 We will now see the graph of groups for HNN extensions, and thus Baumslag-Solitar groups. Afterwards we will state the construction of the Bass-Serre tree given a graph of groups, and use it to find the Bass-Serre tree of $BS(m,n)$.
 
@@ -158,7 +204,7 @@ We let $Y$ be a graph with vertex group $G_p = \Z$, and edge group $G_y = m\Z$. 
 
 The next construction will be based on \cite[pages 23-24]{GoPaXi24}, cross-referenced with \cite{Wil} and \cite{BajoHNN}, where in the latter the less general case is discussed.
 
-\begin{construction}
+\begin{construction} \label{universalcover}
     Let $\mathbb{X} = (G,Y)$ be a graph of groups, with underlying graph $Y$ and fundamental group $\pi = \pi_1(G,Y,T)$, where $T$ is a maximal tree of $Y$.
     The Bass-Serre tree $\Tilde{X}$ of $\mathbb{X}$ is constructed as follows:
     \begin{itemize}
@@ -244,13 +290,21 @@ The following theorem of Whyte classifies graphs of $\Z$, thus by the above rema
     \end{enumerate}
 \end{theorem}
 
+\begin{corollary}
+    All the groups $BS(m,n)$ with $1 < m <n$ are quasi-isometric to each other.
+\end{corollary}
+
 \begin{remark}
     Recall that a map $f: X \to Y$ between two metric spaces is called a quasi-isometry if there exist constants $\lambda \ge 1$, $c \ge 0$ and $K$ such that:
     \begin{enumerate}
         \item $\frac{1}{\lambda}d_X(x,x') - c \le d_Y(f(x),f(x')) \le \lambda d_X(x,x') + c$ (q-i embedding), and
         \item $\forall y \in Y$ $ \exists x \in X$ with $d(y,f(x)) \le K$ (quasi-surjectivity).
     \end{enumerate}
+    We can think of a finitely generated group $G$ as a metric space, as given a generating set $S$ of $G$, we can consider the word metric $d_S$. Recall, that $d_S(g,h) = l_S(g^{-1}h) = \{length \; of \; a\;shortest \; word \; representing \; g^{-1}h \; in \; S\cup S^{-1} \}$. It is a fact that if $S$, $T$ are both finite generating sets for $G$, then $(G,d_S)$ and $(G,d_T)$ are quasi-isometric. We say that two finitely generated groups $G$, $H$ are \emph{quasi-isometric} if there exists a quasi-isometry $f: (G,d_S) \to (H,d_T)$ where $S$, $T$ are generating sets of $G$, $H$, respectively.
 \end{remark}
 
-\textcolor{red}{write up what is a quasi isometry and what are quasi isometric groups}
+
+
+
+
 

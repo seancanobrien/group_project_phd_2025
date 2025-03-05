@@ -3,51 +3,52 @@
 
 % Keep in mind Matt's recent feedback: (1) try to make links to wider topics in GGT to allow readers other avenues of interest, (2) clearly (and proudly!) state when a result is your own
 
-We finally reach the topic of ends of groups. In this chapter, we explore the relationship between the number of ends of a finitely generated group and the algebraic structure of these groups as amalgams and HNN-extensions. (For the definition of an HNN-extension, refer to Definition~\ref{HNN}.) An important result in this area is Stallings’ Structure Theorem \cite[p.~4]{S71}, which classifies finitely generated groups with more than one end:
+We finally reach the topic of ends of groups. In this chapter, we explore the relationship between the number of ends of a finitely generated group and the algebraic structure of these groups as amalgams and HNN-extensions. An important result in this area is Stallings’ Structure Theorem \cite[p.~4]{S71}, which classifies finitely generated groups with more than one end:
 
-\begin{theorem}[Stallings' Structure Theorem] % Is (1) necessary or is (1) already included in (2) and (3)?
+\begin{theorem}[Stallings' Structure Theorem] 
+% Is (1) necessary or is (1) already included in (2) and (3)?
 \label{SST}
-A finitely generated group \(G\) with more than one end falls into one of the following cases:
+A finitely generated group \(G\) has more than one end if and only if:
     \begin{enumerate}
-        \item \(G\) is virtually infinite cyclic, i.e. contains an infinite cyclic subgroup of finite index. (In this case, \(G\) has exactly two ends).
-        \item \(G\) can be written as a non-trivial free product over a finite subgroup. (In this case, \(G\) is torsion-free and has infinitely many ends).
-        \item can be written as an HNN-extension over a finite subgroup. (In this case, \(G\) has torsion and has infinitely many ends).
+        \item \(G\) is virtually infinite cyclic, i.e. contains an infinite cyclic subgroup of finite index, or
+        \item \(G\) can be written as a non-trivial free product over a finite subgroup, or
+        \item \(G\) can be written as an HNN-extension over a finite subgroup. 
     \end{enumerate}
 \end{theorem}
 
-The main aim of this section is to prove Stallings' Theorem.  Here we follow the method of Kr{\"o}n's paper \cite{K10} using a construction of \emph{structure cuts}. Originally introduced by Dunwoody in \cite{D79}, these are automorphism invariant tree-decompositions of graphs based on the principle of removing finitely many edges. % Put this last bit in my own words
-Following the proof, we introduce the cohomological definition of an end of a group and conclude with a discussion of related results in this context. % Edit this once finished. Mention accessibility?
+The main aim of this section is to prove Stallings' Theorem, which we do in two stages. First, we introduce some theory necessary to prove the backward implication, which is the easier of the two steps. We then follow the method of Kr{\"o}n's paper \cite{K10} to prove the longer forward implication. 
+Following the proof, we introduce the cohomological definition of an end of a group and conclude with a discussion of related results in this context. % Edit this once finished. Mention a\stcomp{C}essibility?
 
 \subsection{Preliminaries on ends}
 % There's a lot that could be unpacked here - come back to this at the end and work out how much detail to give in the preliminary section
-Throughout we assume all groups are finitely generated. In this preliminary section, we follow \cite[p.~144--148]{bridson_haefliger_metric_1999} to introduce ends of a group and summarise some of their properties. To allow more time to proving the structure theorem (Theorem~\ref{SST}), several results in this section are taken as a black box.
+Throughout we assume all groups are finitely generated. In this preliminary section, we follow \cite[p.~144--148]{bridson_haefliger_metric_1999} to introduce ends of a group and summarise some of their properties. 
 
-Loosely speaking, ends are objects which describe the connected components of a topological space at infinity. In the context of ends of a group, these connected components arise from a Cayley graph of the group under a choice of finite generating set. 
+Loosely speaking, ends are objects which describe the connected components of a topological space at infinity. In the context of ends of a group, these connected components arise from a Cayley graph of the group under a choice of finite generating set. \textcolor{cyan}{It would be nice to have a little intuitive picture here.} 
 
-\textcolor{cyan}{It would be nice to have a little intuitive picture here.}
-
-There are many definitions of ends, and for locally finite graphs (graphs in which all vertices have finite degree), all definitions are equivalent. We start with a definition of ends of a graph.
-
+Before defining ends of a group, we introduce some necessary terminology.
 \begin{definition}[Proper map]
-    Let \(X, Y\) be topological spaces. A map \(f : X \to Y\) is \emph{proper} if for any compact set \(K \subset Y\), the pre-image \(f^{-1}(K) \subset X\) is compact.
+    Let \(X, Y\) be topological spaces. A map \(f : X \to Y\) is \textbf{proper} if for any compact set \(K \subset Y\), the pre-image \(f^{-1}(K) \subset X\) is compact.
 \end{definition}
 
 \begin{definition}[Ray]
 \label{ray}
-    A \emph{ray} in a topological space \(X\) is a proper continuous map \(r : [0,\infty) \to X\).
+    A \textbf{ray} in a topological space \(X\) is a proper continuous map \(r : [0,\infty) \to X\).
 \end{definition}
 
-% Which notation am I using for Cayley graph? Decide between curly C or Cay(G,S) for consistency
+\begin{example}
+    A useful example is to consider what rays in \(X = \mathbb{R}^2\) look like. 
 
-Ends of a space \(X\) are defined using a notion of convergence of rays in \(X\). 
+    Here, \(K \subset \mathbb{R}^2 \) compact is equivalent to \(K\) closed and bounded, and all pre-images of \(K\) are of the form \(V \cap [0,\infty)\), where \(V\) is closed in \(\mathbb{R}\). Rays therefore cannot be ``trapped'' inside a bounded region in the plane, otherwise we could take this region to be our compact set \(K\), and the pre-image of \(K\) under \(f:[0,\infty) \to \mathbb{R}\) would fail to be compact.
+\end{example}
+
+This idea generalises to all topological spaces \(X\) and therefore it makes sense to characterise rays by a ``point at infinity''. We will formalise this idea to define ends. To do this, ends of a space \(X\) are defined using a notion of convergence of rays in \(X\). 
 
 \begin{definition}[Convergence of rays] 
-\label{endsofgraph}
-    Let \(X\) be a topological space. If \(r_1, r_2 : [0,\infty) \to \mathcal{C}\) are rays, then \(r_1\) and \(r_2\) are said to \emph{converge in the same direction} if for every compact \(C \subset X\) there exists \(N \in \mathbb{N}\) such that \(r_1[N,1)\) and \(r_2[N,1)\) are contained in the same path component of \(X \setminus C\).
+    Let \(X\) be a topological space. If \(r_1, r_2 : [0,\infty) \to \mathcal{C}\) are rays, then \(r_1\) and \(r_2\) are said to \textbf{converge} if for every compact \(C \subset X\) there exists \(N \in \mathbb{N}\) such that \(r_1[N,1)\) and \(r_2[N,1)\) are contained in the same path component of \(X \setminus C\).
 \end{definition}
 
 \begin{proposition}
-    Let \(X\) be a topological space, and \(R\) be the set of rays in \(X\). Then convergence of rays in the same direction in \(X\) is an equivalence relation on the set of rays \(R\).
+    Let \(X\) be a topological space, and \(R\) be the set of rays in \(X\). Then convergence of rays in \(X\) is an equivalence relation on the set of rays \(R\).
 \end{proposition}
 
 \begin{proof}
@@ -55,19 +56,26 @@ Ends of a space \(X\) are defined using a notion of convergence of rays in \(X\)
 \end{proof}
 
 After showing that convergence in the same direction defines an equivalence relation on the set of rays, we can define ends to be the equivalence classes under this relation.
-\begin{definition}
-    An \emph{end} of \(X\) is an equivalence class under the relation of convergence of rays.  
+\begin{definition}[Ends of a topological space]
+\label{endsofgraph}
+    An \textbf{end} of \(X\) is an equivalence class under the relation of convergence of rays.  
 \end{definition}
 
-\begin{definition}[Set of ends]
-    The ends of a topological space \(X\) is \(\mathrm{Ends}(X)\). The set of ends of a group is defined by the set of ends of the corresponding Cayley graph, and \(R\) is the set of rays in \(\mathrm{Cay}(G,S))\):
+\begin{remark}
+    There are alternative definitions of ends (see \textcolor{cyan}{add citation}), and for locally finite graphs (graphs in which all vertices have finite degree), all definitions are equivalent.
+\end{remark}
+
+\begin{definition}[Set of ends of a group]
+    The ends of a topological space \(X\) is \(\mathrm{Ends}(X)\). The set of ends of a group is defined by the set of ends of the corresponding Cayley graph, where \(R\) is the set of rays in \(\mathrm{Cay}(G,S))\):
     \[
         \mathrm{Ends}((G,S)) := \mathrm{Ends}(\mathrm{Cay}(G,S)) = R/\sim.
     \]
     Here \(r_1 \sim r_2\) if \(r_1\) and \(r_2\) converge to the same end.
 \end{definition}
 
-Moreover, \(\mathrm{Ends}(X)\) is a topological space, where a subset \(B \subset \mathrm{Ends}(X)\) is closed if all convergent sequences of ends in \(X\) have a limit point which is also in \(\mathrm{Ends}(X)\). For a formal definition of convergence of ends, see \cite[p.~144]{bridson_haefliger_metric_1999}.
+\begin{remark}
+    Moreover, \(\mathrm{Ends}(X)\) is a topological space, where a subset \(B \subset \mathrm{Ends}(X)\) is closed if all convergent sequences of ends in \(X\) have a limit point which is also in \(\mathrm{Ends}(X)\). For a formal definition of convergence of ends, see \cite[p.~144]{bridson_haefliger_metric_1999}.
+\end{remark}
 
 \begin{comment}
 Let \(E(r)\) be the equivalence class of \(r \in R\). For a sequence of rays \(\{r_n\}_{n \in \mathbb{N}} \in R\), convergence \(E(r_n) \to E(r)\) as \(n\) tends to infinity is defined by the following condition: for every compact set \(C \in X\), there exists a sequence of integers \(N_n\) such that \(r_n[N_n, \infty]\) and \(r[N_n, \infty]\) lie in the same path component of \(X \setminus C\) whenever \(n\) is sufficiently large. A subset \(B \subset \mathrm{Ends}(X)\) is defined to be closed if the following holds: if \(E(r_n) \in B\) for all \(n \in \mathbb{N}\), then \(E(r_n) \to E(r)\) implies \(E(r) \in B\).
@@ -80,7 +88,8 @@ Let \(E(r)\) be the equivalence class of \(r \in R\). For a sequence of rays \(\
     \]
 \end{definition}
 
-The same notation extends to the number of ends of a group, which we denote by \(e((G,S))\). 
+The number of ends may be infinite, in which case we write \(e(X) = \infty\). The same notation extends to the number of ends of a group, which we denote by \(e((G,S))\). 
+
 A very useful result is that the number of ends is invariant under quasi-isometry, making ends an interesting object to study. 
 
 \begin{theorem}[Number of ends is a QI invariant]
@@ -88,14 +97,27 @@ A very useful result is that the number of ends is invariant under quasi-isometr
 \end{theorem}
 
 \begin{proof}
-    See Bridson-Haefliger \cite[p.~145]{bridson_haefliger_metric_1999}.
+    To allow more time to proving the structure theorem (Theorem~\ref{SST}), this is taken as a black box. For a proof, see Bridson-Haefliger \cite[p.~145]{bridson_haefliger_metric_1999}.
 \end{proof}
 
 \begin{corollary}
     The number of ends of a group is independent of the choice of finite generating set.
 \end{corollary}
 
-We can therefore denote the number of ends of a group by \(e(G)\). For this project, we will take the following theorem on the candidates for the number of ends of a group as a black box.
+We can therefore denote the number of ends of a group by \(e(G)\). 
+
+\begin{example}
+    Some examples of the number of ends of groups are as follows. These can all be visualised by their Cayley graphs, for some choice of finite generating set.
+    \begin{itemize}
+        \item \(e(\mathbb{Z}\)
+        \item \(e(\mathbb{Z}) = 2\)
+        \item \(e(\mathbb{Z}^2) = 1\)
+        \item \(e(F_2) = \infty\)
+        \item \(e(PSL(2,\mathbb{Z}) = \infty\)
+        \item 
+    \end{itemize}
+\end{example}
+
 \begin{theorem}[Freudenthal-Hopf Theorem]
 \label{FH}
     Every finitely generated group has either zero, one, two, or infinitely many ends.
@@ -113,71 +135,185 @@ We can therefore denote the number of ends of a group by \(e(G)\). For this proj
     All Cayley graphs \(\mathcal{C}\) of a finite group \(G\) are finite. Hence, it suffices to show that a bounded topological space \(X\) has no ends. For this we must show that there exists a compact \(C\) such that \(X \setminus C\) is empty. For this we can take \(C\) to be \(\bar{X}\), the closure of \(X\). Therefore, \(G\) has no ends.
 \end{proof}
 
-The following is a useful criterion to determine whether an infinite finitely generated group is one-ended or has more than one end.
+Now that we have introduced some background on ends, we focus on proving the backward implication of our main result, Stallings' Structure Theorem (Theorem~\ref{SST}). To do this, we use the following useful criterion to determine whether an infinite finitely generated group is one-ended.
 \begin{proposition} 
 Let \(G\) be an infinite finitely generated group and let \(S\) be a  finite generating set.
-The Cayley graph of \(G\) with respect to \(S\) has more than one end if and only if there is a subset \(C\) of \(G\) such that:
-    (a) \(C\) and \(G \setminus C\) are infinite, and
-    (b) for all \(g \in G\), \(Cg \setminus C\) is finite.
+The Cayley graph of \(G\) with respect to \(S\) has more than one end if and only if there is a subset \(A\) of \(G\) such that:
+    (a) \(A\) and \(G \setminus A\) are infinite, and
+    (b) for all \(g \in G\), \(Ag \setminus A\) is finite.
 \end{proposition}
 
 \begin{proof}
-    \textcolor{red}{TBC}
+
 \end{proof}
 
-% This definition should go somewhere...
-A group \(G\) is said to \emph{split} over a subgroup \(H\) if \(G\) is a non-trivial free product with amalgamation over \(H\) or \(G\) is an HNN-extension of a group over \(H\). 
 
-\subsection{Structure cuts}
+ \begin{definition}[Amalgamated free product]
+     Let \(G,H\) be groups and \(A_1 < G\), \(A_2 < H\) be isomorphic subgroups. The amalgamated product with isomorphism \(\phi: A_1 \to A_2\) is 
+     \[
+     G *_A H = \langle G,H \mid a = \phi(a), a \in A_1 \rangle .
+     \]
+ \end{definition}
 
-In this section, we follow \cite{K10}. Throughout \(\Gamma = (V,E)\) is an undirected, simple graph.
+ \textcolor{cyan}{Talk about normal forms}
+
+For the definition of an HNN-extension, we recall Definition~\ref{HNN}.
+
+ \begin{definition}[HNN extension]
+     Let $G$ be a group, $\phi: A_1 \to A_2$ an isomorphism between two subgroups $A_1$,$A_2$ of $G$. An \emph{HNN extension of G} associated to that data is the quotient of $G \ast \langle t \rangle$ by the smallest normal subgroup containing $\{a^{-1}t\phi(a)t^{-1} \: | \: a \in A_1 \}$. Thus, we can represent that extension by a relative presentation 
+    \[G \ast_\phi = \langle G,t \: | \: t^{-1}at = \phi(a), \forall a \in A_1 \rangle. \]
+ \end{definition}
+
+\begin{definition}[Splitting]
+    A group \(G\) is said to \textbf{split} over a subgroup \(H\) if \(G\) is a non-trivial free product with amalgamation over \(H\) or \(G\) is an HNN-extension of a group over \(H\). 
+\end{definition}
+
+\begin{theorem}
+    Let \(G\) be finitely generated group which splits over some finite subgroup \(H\). Then \(G\) has more than one end.
+\end{theorem}
+
+\begin{proof}
+    We have two cases, either \(G\) splits with as an amalgamated free product over \(H\), or \(G\) is an HNN-extension of a group over \(H\). We consider each of these cases in turn.
+
+    Suppose first that \(G\) is an amalgamated product over \(H\), i.e. there exists \(A,B\) such that \(G = A *_H B\).
+
+    % I don't understand this proof yet...
+\end{proof}
+
+\subsection{Cutting up graphs}
+
+In this section we follow \cite{K10}. Throughout, we take \(\Gamma\) to be a simple, undirected graph, with vertex set \(V(\Gamma)\) and edge set \(E(\Gamma)\).
 
 \begin{definition}[Edge boundary]
-    Let \(C,D \subset X\). We denote the set of edges with one vertex in \(C\) and the other vertex in \(D\) by the set \(\delta(C,D)\). The \emph{edge boundary} of a subset \(C\) is defined by the set \(\delta(C, \stcomp{C})\).
+    Let \(C,D \subset V(\Gamma)\). We denote the set of edges with one vertex in \(C\) and the other vertex in \(D\) by the set \(\delta(C,D)\). The \textbf{boundary} of a subset \(C\) is defined by the set \(\delta C = \delta(C, \stcomp{C})\).
 \end{definition}
 
-In a graph \(\Gamma\), we take a \emph{ray} to be an infinite path with no backtracking. More formally, a ray is an infinite sequence of vertices such that each consecutive pair are endpoints of an edge in \(E\) and each vertex in \(V\) appears at most once in the sequence. (It can be shown that this is equivalent to Definition~\ref{ray}. % Why?)
+In a graph \(\Gamma\), we take a \textbf{ray} to be an infinite path with no backtracking. More formally, a ray is an infinite sequence of vertices such that each consecutive pair are endpoints of an edge in \(E(\Gamma)\) and each vertex in \(V(\Gamma)\) appears at most once in the sequence.\footnote{This is equivalent to Definition~\ref{ray} where the topological space \(X\) is a graph.}
 
 \begin{definition}[Separation of rays, edge ends]
-Two rays are said to be \emph{separated} by a set of edges if this set separates a pair of infinite subpaths, one from each of the rays. We call two rays \emph{equivalent} if they cannot be separated by a finite set of edges.
+Two rays are said to be \textbf{separated} by a set of edges if this set of edges separates a pair of infinite subpaths, one from each of the rays. We call two rays \textbf{equivalent} if they cannot be separated by a finite set of edges.
 \end{definition}
 
-We define ends similarly to Definition~\ref{endsofgraph}, now taking the equivalence relation to be equivalence as defined above. % Why can we do this?
+Ends are then defined similarly to Definition~\ref{endsofgraph}, taking the equivalence relation to be equivalence as defined above. % Why can we do this?
 
+\begin{definition}[End of a graph]
+    An \textbf{end} of \(X\) is an equivalence class under the relation of equivalence of rays.  
+\end{definition}
+
+An important notion in this section is a \emph{cut}.
 \begin{definition}[Cut]
- A \emph{cut} is a set of vertices \(C\) with finite edge boundary such that \(C\) and \(\stcomp{C}\) are both connected and contain a ray.
+ A \textbf{cut} is a set of vertices \(C\) with finite edge boundary such that \(C\) and \(\stcomp{C}\) are both connected as subgraphs of \(\Gamma\) and contain (the vertices of) a ray.
 \end{definition}
 
 \begin{proposition}
+    \label{prop:ray}
      If a cut contains a ray \(R\), then it contains all rays which are equivalent to \(R\).
 \end{proposition}
 
 \begin{proof}
     Let \(C\) be a cut containing \(R\). Suppose \(R'\) is a ray equivalent to \(R\) such that \(R'\) is not contained in \(C\).
-    Since \(R\) and \(R'\) are equivalent, there is no finite set of edges which separates \(R\) and \(R'\). For a contradiction, it suffices to show the existence of such a set. For this we take the edge boundary \(\delta(C,\stcomp{C})\) - it is finite (since \(C\) is a cut) and separates \(R\) and \(R'\) (since \(R'\) is not contained in \(C\)). 
+    Since \(R\) and \(R'\) are equivalent, there is no finite set of edges which separates \(R\) and \(R'\). For a contradiction, it suffices to show the existence of such a set. For this we take the edge boundary \(\delta C\) - it is finite (since \(C\) is a cut) and separates \(R\) and \(R'\) (since \(R'\) is not contained in \(C\)). 
 \end{proof}
 
-We say an edge cut \(C\) is \emph{minimal} if the size of the edge boundary \(\delta(C, \stcomp{C})\) is minimal over all edge cuts.
+\begin{definition}[Minimal cut]
+    A cut \(C\) is \textbf{minimal} if 
+    \(|\delta C| = \inf_{C' \subset V(\Gamma)}{|\delta C'|}\), or in other words,
+    the cardinality of the edge boundary \(\delta C\) is minimal over all cuts.
+\end{definition}
 \begin{lemma}
-     If \(\Gamma\) is connected and has more than one edge end then there is a minimal edge cut.
+     If \(\Gamma\) is connected and has more than one end then there is a minimal cut.
 \end{lemma}
 
 \begin{proof}
-    
+    If \(\Gamma\) has a single end, then by Proposition~\ref{prop:ray}, \(\Gamma\) does not admit any cut. Suppose otherwise, and that \(\Gamma\) admits a cut \(C\). Then \(C\) would contain a ray and by the proposition all equivalent rays. In this case, all rays are equivalent, and hence it is not possible that both \(C\) and \(\stcomp{C}\) contain a ray.
+
+    Next, suppose \(\Gamma\) has more than one end. It suffices to show that there exists a cut, since if there exists at least one cut, then there is a minimal cut by well-ordering. As \(\Gamma\) has more than one end, then there exist rays \(R, R'\) which are not equivalent. Let \(C\) consist of the vertex set of \(R\). Then, \(C\) contains the ray \(R\), and \(\stcomp{C}\) contains the ray \(R'\). 
+    It remains to show that \(|\delta(C)|\) is finite, and that \(C\) and \(\stcomp{C}\) are connected.
+    \textcolor{cyan}{Need to show edge boundary finite, and cut is connected.}
 \end{proof}
 
 \begin{lemma}
-    Let \(C\) and \(D\) be minimal cuts. If \(C \cup D\) and \(\stcomp{C} \cap \stcomp{D}\) are cuts then
+    Let \(C\) and \(D\) be minimal cuts. If \(C \cap D\) and \(\stcomp{C} \cap \stcomp{D}\) are cuts then
 they are minimal cuts.
 \end{lemma}
 
 \begin{proof}
+    Let \(\kappa>0\) be the cardinality of a minimal cut. As \(C, D\) are minimal by assumption, \(\kappa = |\delta C| = |\delta D|\).
+    We aim to show \(\kappa = |\delta(C \cap D)| = |\delta(\stcomp{C} \cap \stcomp{D})|\).
+    The diagram below relates the edge boundaries of these four sets (which we call \textbf{corners}) and can be used to make the following calculation.
+    \textcolor{cyan}{Insert picture.}
+
     
+    Let 
+    \begin{align*}
+        a &= |\delta(C \cap D, \stcomp{C} \cap D)|, & d &= |\delta(\stcomp{C} \cap D, \stcomp{C} \cap \stcomp{D})|, \\
+        b &= |\delta(C \cap D, C \cap \stcomp{D})|, & e &= |\delta(C \cap D, \stcomp{C} \cap \stcomp{D})|, \\
+        c &= |\delta(C \cap \stcomp{D}, \stcomp{C} \cap \stcomp{D})|, & f &= |\delta(C \cap \stcomp{D}, \stcomp{C} \cap D)|.
+    \end{align*}
+
+    Then, 
+    \begin{align*}
+    \kappa &= |\delta(C)| \\
+           &= |\delta(C, \stcomp{C})| \\
+           &= |\delta(C, \stcomp{C} \cap D)| + |\delta(C, \stcomp{C} \cap \stcomp{D})| \\
+           &= |\delta(C \cap D, \stcomp{C} \cap D)| + |\delta(C \cap \stcomp{D}, \stcomp{C} \cap D)| \\
+           &\quad + |\delta(C \cap D, \stcomp{C} \cap \stcomp{D})| + |\delta(C \cap \stcomp{D}, \stcomp{C} \cap \stcomp{D})| \\
+           &= a + f + e + c. \tag{1} \label{myeq1} \\
+    \intertext{This corresponds exactly to the edges in the diagram emanating from \(C \cap D\) and \(C \cap \stcomp{D}\). Similarly,}
+    \kappa &= |\delta(D)| = b + f + e + d. \tag{2} \label{myeq2}
+    \intertext{By (\ref{myeq1}) and (\ref{myeq2}),}
+        2\kappa &= a + b + c + d + 2e + 2f. \tag{3} \label{myeq3}
+    \intertext{The sets \(C \cap D\) and \(\stcomp{C} \cap \stcomp{D}\) contain an end, %go over this part
+    so \(\delta(C \cap D) = a + e + b \geq \kappa\) and \(\delta(\stcomp{C} \cap \stcomp{D}) = c+e+d \geq \kappa\). It follows that the sum \(a+b+c+d+2e \geq 2\kappa\). By comparison with (\ref{myeq3}), we have that \(f = 0\). Finally,}
+    \kappa &= a + e + b = c + e + d.
+    \intertext{Therefore, \(\delta(C \cap D)\) and \(\delta(\stcomp{C} \cap \stcomp{D})\) are minimal as required.} 
+\end{align*}       
 \end{proof}
+
+\subsection{Nested cuts}
+Here we continue to follow \cite{K10}, and expand upon this notion of cuts. At the end of this section, we make the link between cuts and Bass-Serre theory. % Do we?
+
+Recall the four sets \(C \cap D, \stcomp{C} \cap D, C \cap \stcomp{D}, \stcomp{C} \cap \stcomp{D}\) which we referred to as \textbf{corners} of \(C\) and \(D\). \textcolor{cyan}{Figure number} We say that sets on diagonal corners of the diagram are \textbf{opposite}.
+
+\begin{definition}[Nested]
+    Sets of vertices \(C, D \subset V(\Gamma)\) are \textbf{nested} if one or more of the following conditions hold:
+    \begin{enumerate}
+        \item \(C \subset D\)
+        \item \(\stcomp{C} \subset D\)
+        \item \(C \subset \stcomp{D}\)
+        \item \(\stcomp{C} \subset \stcomp{D}\).
+    \end{enumerate}
+    Sets \(C,D\) are said to be \textbf{non-nested} if they are not nested.
+\end{definition}
+
+\begin{lemma}
+    Let \(C, D, E\) be sets of vertices and let \(C\) and \(D\) be non-nested. 
+    \begin{enumerate}[(i)]
+    \item If \(E\) is non-nested with two opposite corners of \(C\) and \(D\), then \(E\) is non-nested with both \(C\) and \(D\). 
+    \item If \(E\) is non-nested with some corner of \(C\) and \(D\), then \(E\) is either non-nested with \(C\) or non-nested with \(D\).
+    \end{enumerate}
+\end{lemma}
+
+\begin{definition}[Minimal non-nested cuts]
+    Let \(C\) be a cut and let \(M(C)\) be the set of minimal cuts which are not nested with \(C\). Let \(m(C) = |M(C)|\) be the cardinality of this set. 
+\end{definition}
+
+\begin{lemma}
+    Optimally nested cuts are nested with all other optimally nested cuts.
+\end{lemma}
+
+\subsection{To be sorted}
+
+% This definition should go somewhere...
+
 
 \begin{proof}[Proof of Stallings' Structure Theorem]
     Consider a finitely generated group \(G\) which splits over some finite subgroup \(A\).
 \end{proof}
+
+\begin{corollary}
+    Furthermore, (1) corresponds to the case in which \(G\) has exactly two ends, and (2) and (3) relate to the cases where \(G\) has infinitely many ends and is torsion-free and has torsion respectively. 
+\end{corollary}
 
 There is no similar classification for one-ended groups. Using Bass-Serre theory, Stalling's result gives the following useful corollary. % Talk about how Bass-Serre theory links to this result
 \begin{corollary}

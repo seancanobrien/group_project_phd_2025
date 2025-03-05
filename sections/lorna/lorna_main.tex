@@ -27,12 +27,7 @@ We now give some simple examples of $\mathbb{R}$-trees.
 \end{example}
 
 \subsection{Group Actions}
-Bass-Serre Theory gives a convenient way to study groups actiong on simplicial trees:
-\begin{theorem}
-    \textbf{The Fundamental Theorem of Bass-Serre Theory/Structure Theorem:} \textcolor{red}{Already in Alicja's section...}
-\end{theorem}
-
-However, this fails in general for $\mathbb{R}$-trees. For example, let $X$ be the $\mathbb{R}$-tree described in Example \ref{xtrains}, and let $G$ be the trivial group acting on $X$. Then the quotient $G\backslash X$ is $X$, which is not a simplicial tree, and so Bass-Serre Theory fails for general $\mathbb{R}$-trees (\cite{Levit_rtrees} gives construction which aims to generalise to $\mathbb{R}$-trees). Instead, group actions in $\mathbb{R}$-trees are usually studied in other ways.
+Bass-Serre Theory gives a convenient way to study groups acting on simplicial trees; in particular Theorem \ref{structuretheorem} says that a group $G$ acting on a tree $X$ can be viewed as the fundamental group of $G\backslash X$. However, this fails in general for $\mathbb{R}$-trees. For example, let $X$ be the $\mathbb{R}$-tree described in Example \ref{xtrains}, and let $G$ be the trivial group acting on $X$. Then the quotient $G\backslash X$ is $X$, which is not a simplicial tree. \cite{Levit_rtrees} gives construction which aims to generalise to $\mathbb{R}$-trees. Here we instead study group actions on $\mathbb{R}$-trees using other methods.
 
 Isometries of $\mathbb{R}$-trees have a classification analogous to that of isometries of hyperbolic space. 
 \begin{definition}
@@ -41,6 +36,7 @@ Isometries of $\mathbb{R}$-trees have a classification analogous to that of isom
         \item If $\lVert g\rVert=0$, $g$ is \textnormal{elliptic},
         \item If $\lVert g\rVert>0$, $g$ is \textnormal{hyperbolic}.
     \end{itemize}
+    The function $l:G\rightarrow\mathbb{R}$ given by $l(g)=\lVert g\rVert$ is called the \textnormal{length function} associated to the action.
 \end{definition}
 
 It is often useful to classify these isometries in terms of their invariant sets.
@@ -67,6 +63,46 @@ We will mostly be concerned with \textit{non-trivial} group actions:
 \begin{definition}
     The action of a group $G$ on an $\mathbb{R}$-tree by isometries is \textnormal{non-trivial} if no point in $T$ is fixed by every element of $G$.
 \end{definition}
+
+Also of interest are \textit{stable} actions:
+\begin{definition}
+    The action of a group $G$ on an $\mathbb{R}$-tree by isometries is \textnormal{minimal} if it has no proper $G$-invariant subtree.
+\end{definition}
+
+\begin{definition}
+    Let $G$ be a group acting by isometries on an $\mathbb{R}$-tree $T$. A  non-degenerate subtree $S$ of $T$ (i.e. a subtree which is non-empty and not a single point) is \textnormal{stable} if for every subtree $S'\subset S$, \[\text{Fix}(S')=\text{Fix}(S)\] where Fix($S$) denotes the pointwise stabiliser of $S$. The action of $G$ is \textnormal{stable} if it is non-trivial, minimal, and every non-degenerate tree $T$ has a stable subtree.
+\end{definition}
+
+An important example of when $\mathbb{R}$-trees arise is as limits of hyperbolic metric spaces. To find a limit of spaces, we first need to define an underlying metric. This subsection is covered in more detail in \cite{BridsonSwarup}
+
+\begin{definition}
+    An $\epsilon$\textnormal{-approximation} between two metric spaces $X$ and $Y$ is a set $R\subseteq X\times Y$ such that:
+    \begin{itemize}
+        \item Every point in $X$ any $Y$ appears in some element of $R$, and
+        \item If $(x,y),(x',y')\in R$ then \[\lvert d_X(x,x')-d_Y(y,y')\rvert<\epsilon.\]
+    \end{itemize}
+    If there exists an $\epsilon$-approximation between $X$ and $Y$, write $X\sim_\epsilon Y$. The \textnormal{Hausdorff-Gromov distance} between $X$ and $Y$ is \[D_H(X,Y)=\inf\{\epsilon:X\sim_\epsilon Y\}\] (and is infinite if no such $\epsilon$ exists).
+\end{definition}
+
+\begin{theorem}\label{limittrees}
+    Let $X_i$ be a sequence of compact metric spaces such that $X_i\rightarrow X$ in the Hausdorff-Gromov metric.
+    \begin{enumerate}
+        \item If every $X_i$ is a geodesic metric space then so is $X$,
+        \item If $X_i$ is $\delta_i$-hyperbolic for each $i$, and $\delta_i\rightarrow 0$, then $X$ is an $\mathbb{R}$-tree. 
+    \end{enumerate}
+\end{theorem}
+
+The proof (in \cite{Bestvina2}) is by simple hyperbolic geometry.
+%probably not worth proving here :(
+% \begin{proof}
+%     See \cite{} for the proof of (1).
+
+%     To prove (2), we first want to show that for every $x,y\in X$ there is a unique geodesic from $x$ to $y$. By (1) we know that there is at least one geodesic; denote this $[x,y]$, and suppose there is also some other geodesic. Let $z$ be the midpoint of this second geodesic, so we have a triangle with vertices $x,y$ and $z$. In the $X_i$ we have triangles which converge to this triangle, say with vertices $x_i,y_i$ and $z_i$. In this triangle in $X_i$, let $y_i'$ and $x_i'$ be the points on the edges $[x_i,z_i]$ and $[z_i,y_i]$ respectively which are at equal distance from $z_i$, and such that the remaining length of these edges sums to $d(x_i,y_i)$. Let $z_i'$ be the point on $[x_i,y_i]$ which divides it into this sum (see Figure \textcolor{red}{picture}). Then we have $d(x_i,z_i')=d(x_i,y_i')$, $d(y_i,z_i')=d(y_i,x_i')$, and $d(z_i,x_i')=d(z_i,y_i')$. Now $d(x_i',y_i'), d(y_i',z_i')$ and $d(x_i',z_i')$ are all less than $6\delta_i$:
+
+%     To show this for $d(y_i',z_i')$, first suppose there is some $t\in[x_i,z_i]$ such that $d(y_i',t)<\delta$, so \[d(x_i,t)+d(t,z_i')=d(x_i,z_i')=d(x_i,y_i')\leq d(x_i,t)+\delta\] and this is true in the case where $z_i'$ is $\delta$-close to $[x_i,y_i]$ by the same argument. Otherwise, there are $t_{y_i'}$ and $t_{z_i'}$ on $[y_i,z_i]$ such that $d(y_i',t_{y_i'}),\;d(z_i',t_{z_i'})<\delta.$ SO \textcolor{red}{finish this}
+
+    
+% \end{proof}
 
 \subsection{Band Complexes and the Rips Machine}
 Actions of groups on $\mathbb{R}-trees$ are usually studied through band complexes. The majority of this section follows \cite{Wilton}.
@@ -193,12 +229,34 @@ The next theorem tells us what happens in the slightly more general case of grou
     $G$ can be written as the free product of a free group and a number of freely indecomposable factors. It can be shown that each of these factors satisfies the conditions of Theorem \ref{rtreesclassification}, and by assumption neither possibility (2) nor (3) holds, so each freely indecomposable factor must be a closed surface group. 
 \end{proof}
 
+Finally, we see the case of stable actions. The proof of the following theorem can be found in \cite{Bestvina2}.
+
+\begin{theorem}\label{stable}
+    Let $G$ be a finitely presented group with a stable action on an $\mathbb{R}$-tree $T$. Then either
+    \begin{itemize}
+        \item $G$ splits over an $E$-by-cyclic extension where $E$ fixes some arc of $T$, or
+        \item $T$ is a line, and $G$ splits over an extension of the kernel of the action by a free abelian group.
+    \end{itemize}
+\end{theorem}
+
 \subsection{Applications of $\mathbb{R}$-Trees}
 Now that we have a good understanding of groups which act (freely) on $\mathbb{R}$-trees, we can use this to understand any group which can be shown to act in this way. In this section we will discuss some of these applications, starting with some to hyperbolic groups.
 
 \begin{theorem}
     Let $G$ be a hyperbolic group such that Out$(G)$ is infinite. Then $G$ splits over a virtually cyclic subgroup.
 \end{theorem}
+
+\begin{proof} (sketch)
+    Since Out$(G)$ is infinite, we can find an infinite sequence of pairwise non-conjugate automorphisms $f_i$. Define an action $\rho_i$ of $G$ on its Cayley graph by $\rho_i(g)=f_i(g)$. It is easily seen that this is an action by isometries. Theorem \ref{limittrees} can then be used to show that there is a limit $\mathbb{R}$-tree on which $G$ acts by isometries. It can then be shown that this action is stable, and the theorem follows by Theorem \ref{stable}. See \cite{BridsonSwarup} for a more detailed proof
+\end{proof}
+
+$\mathbb{R}$-trees are also instrumental in the study of Culler and Vogtmann's \textit{Outer Space}. We give a brief overview of this subject. For more detail see section 2 of \cite{Shalen}.
+
+\begin{definition}
+    Polyhedral action
+\end{definition}
+
+Let $\mathcal{L}$
 
 We finish with another application to hyperbolic groups.
 \begin{definition}
