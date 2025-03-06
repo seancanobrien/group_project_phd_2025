@@ -12,18 +12,24 @@ A finitely generated group \(G\) has more than one end if and only if:
     \begin{enumerate}
         \item \(G\) is virtually infinite cyclic, i.e. contains an infinite cyclic subgroup of finite index, or
         \item \(G\) can be written as a non-trivial free product over a finite subgroup, or
-        \item \(G\) can be written as an HNN-extension over a finite subgroup. 
+        \item \(G\) can be written as a HNN-extension over a finite subgroup. 
     \end{enumerate}
 \end{theorem}
 
 The main aim of this section is to prove Stallings' Theorem, which we do in two stages. First, we introduce some theory necessary to prove the backward implication, which is the easier of the two steps. We then follow the method of Kr{\"o}n's paper \cite{K10} to prove the longer forward implication. 
 Following the proof, we introduce the cohomological definition of an end of a group and conclude with a discussion of related results in this context. % Edit this once finished. Mention a\stcomp{C}essibility?
 
-\subsection{Preliminaries on ends}
+\subsection{Background on ends}
 % There's a lot that could be unpacked here - come back to this at the end and work out how much detail to give in the preliminary section
-Throughout we assume all groups are finitely generated. In this preliminary section, we follow \cite[p.~144--148]{bridson_haefliger_metric_1999} to introduce ends of a group and summarise some of their properties. 
+Throughout we assume all groups are finitely generated. In this preliminary section, we follow Bridson and Haefliger \cite[p.~144--148]{bridson_haefliger_metric_1999} to introduce ends of a group and summarise some of their properties. 
 
-Loosely speaking, ends are objects which describe the connected components of a topological space at infinity. In the context of ends of a group, these connected components arise from a Cayley graph of the group under a choice of finite generating set. \textcolor{cyan}{It would be nice to have a little intuitive picture here.} 
+Loosely speaking, ends are objects which describe the connected components of a topological space at infinity. In the context of ends of a group, these connected components arise from a Cayley graph of the group under a choice of finite generating set. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=3.5cm]{example-image} 
+\caption{\textcolor{cyan}{It would be nice to have a little intuitive picture here.} }
+\end{figure}
 
 Before defining ends of a group, we introduce some necessary terminology.
 \begin{definition}[Proper map]
@@ -38,10 +44,10 @@ Before defining ends of a group, we introduce some necessary terminology.
 \begin{example}
     A useful example is to consider what rays in \(X = \mathbb{R}^2\) look like. 
 
-    Here, \(K \subset \mathbb{R}^2 \) compact is equivalent to \(K\) closed and bounded, and all pre-images of \(K\) are of the form \(V \cap [0,\infty)\), where \(V\) is closed in \(\mathbb{R}\). Rays therefore cannot be ``trapped'' inside a bounded region in the plane, otherwise we could take this region to be our compact set \(K\), and the pre-image of \(K\) under \(f:[0,\infty) \to \mathbb{R}\) would fail to be compact.
+    Here, \(K \subset \mathbb{R}^2 \) compact is equivalent to \(K\) closed and bounded, and all pre-images of \(K\) are of the form \(V \cap [0,\infty)\), where \(V\) is closed in \(\mathbb{R}\). Rays therefore cannot be ``trapped'' inside a bounded region in the plane for all time \(t \in [0,\infty)\), otherwise we could take this region to be our compact set \(K\), and the pre-image of \(K\) under \(f:[0,\infty) \to \mathbb{R}\) would fail to be compact.
 \end{example}
 
-This idea generalises to all topological spaces \(X\) and therefore it makes sense to characterise rays by a ``point at infinity''. We will formalise this idea to define ends. To do this, ends of a space \(X\) are defined using a notion of convergence of rays in \(X\). 
+This idea holds for all topological spaces \(X\) \textcolor{cyan}{Is this true?}, and therefore we can construct a characterisation of rays by a ``point at infinity''. We formalise this in order to define ends. To do this, we use a notion of convergence of rays in \(X\). 
 
 \begin{definition}[Convergence of rays] 
     Let \(X\) be a topological space. If \(r_1, r_2 : [0,\infty) \to \mathcal{C}\) are rays, then \(r_1\) and \(r_2\) are said to \textbf{converge} if for every compact \(C \subset X\) there exists \(N \in \mathbb{N}\) such that \(r_1[N,1)\) and \(r_2[N,1)\) are contained in the same path component of \(X \setminus C\).
@@ -58,19 +64,19 @@ This idea generalises to all topological spaces \(X\) and therefore it makes sen
 After showing that convergence in the same direction defines an equivalence relation on the set of rays, we can define ends to be the equivalence classes under this relation.
 \begin{definition}[Ends of a topological space]
 \label{endsofgraph}
-    An \textbf{end} of \(X\) is an equivalence class under the relation of convergence of rays.  
+    An \textbf{end} of \(X\) is an equivalence class under the relation of convergence of rays. The set of ends of \(X\) is written as \(\mathrm{Ends}(X)\).
 \end{definition}
 
 \begin{remark}
-    There are alternative definitions of ends (see \textcolor{cyan}{add citation}), and for locally finite graphs (graphs in which all vertices have finite degree), all definitions are equivalent.
+    There are alternative definitions of ends, in particular there is a definition in terms of taking the complement of a sequence of balls of increasing radius around a chosen basepoint (see Meier's book, \cite[p.~208]{M08}). For locally finite graphs (graphs in which all vertices have finite degree), it turns out that all definitions of ends are equivalent.
 \end{remark}
 
 \begin{definition}[Set of ends of a group]
-    The ends of a topological space \(X\) is \(\mathrm{Ends}(X)\). The set of ends of a group is defined by the set of ends of the corresponding Cayley graph, where \(R\) is the set of rays in \(\mathrm{Cay}(G,S))\):
+     The set of ends of a group is defined by the set of ends of the corresponding Cayley graph, where \(R\) is the set of rays in \(\mathrm{Cay}(G,S))\):
     \[
         \mathrm{Ends}((G,S)) := \mathrm{Ends}(\mathrm{Cay}(G,S)) = R/\sim.
     \]
-    Here \(r_1 \sim r_2\) if \(r_1\) and \(r_2\) converge to the same end.
+    Here \(r_1 \sim r_2\) if \(r_1\) and \(r_2\) converge in \(\mathrm{Cay}(G,S))\).
 \end{definition}
 
 \begin{remark}
@@ -88,7 +94,7 @@ Let \(E(r)\) be the equivalence class of \(r \in R\). For a sequence of rays \(\
     \]
 \end{definition}
 
-The number of ends may be infinite, in which case we write \(e(X) = \infty\). The same notation extends to the number of ends of a group, which we denote by \(e((G,S))\). 
+The number of ends may be infinite, in which case we write \(e(X) = \infty\). The same notation extends to the number of ends of a finitely generated group (where \(S\) is a finite generating set) which we denote by \(e((G,S))\). 
 
 A very useful result is that the number of ends is invariant under quasi-isometry, making ends an interesting object to study. 
 
@@ -107,16 +113,27 @@ A very useful result is that the number of ends is invariant under quasi-isometr
 We can therefore denote the number of ends of a group by \(e(G)\). 
 
 \begin{example}
-    Some examples of the number of ends of groups are as follows. These can all be visualised by their Cayley graphs, for some choice of finite generating set.
+    Some examples of the number of ends of groups are as follows. These can all be visualised by their Cayley graphs, for an arbitrary choice of finite generating set.
+    \begin{multicols}{2}
     \begin{itemize}
         \item \(e(\mathbb{Z}/n\mathbb{Z}) = 0\) for all \(n \in \mathbb{N}\)
-        \item \(e(\mathbb{Z}) = 2\)
+        \item \(e(D_n) = 0\) for all \(n \in \mathbb{N}\)
         \item \(e(\mathbb{Z}^2) = 1\)
-        \item \(e(F_2) = \infty\)
-        \item \(e(PSL(2,\mathbb{Z}) = \infty\)
-        \item 
+        \item \(e(\mathbb{Z}) = 2\)
     \end{itemize}
+    
+        \columnbreak
+        
+    \begin{itemize}
+        \item \(e(\mathbb{Z}/2\mathbb{Z} * \mathbb{Z}/2\mathbb{Z}) = e(D_{\infty}) = 2\)
+        \item \(e(F_2) = \infty\)
+        \item \(e(\mathbb{Z}^2 * \mathbb{Z}) = \infty\)
+        \item \(e(PSL(2,\mathbb{Z})) = \infty\)
+    \end{itemize}
+    \end{multicols}
 \end{example}
+
+In fact, the options for the number of ends of a group in the examples above are the only possibilities.
 
 \begin{theorem}[Freudenthal-Hopf Theorem]
 \label{FH}
@@ -132,63 +149,88 @@ We can therefore denote the number of ends of a group by \(e(G)\).
 \end{corollary}
 
 \begin{proof} % Roughly - will change if definition of ends changes
-    All Cayley graphs \(\mathcal{C}\) of a finite group \(G\) are finite. Hence, it suffices to show that a bounded topological space \(X\) has no ends. For this we must show that there exists a compact \(C\) such that \(X \setminus C\) is empty. For this we can take \(C\) to be \(\bar{X}\), the closure of \(X\). Therefore, \(G\) has no ends.
+    All Cayley graphs of a finite group \(G\) with respect to a finite generating set \(S\) are finite, and therefore bounded. Take the compact set \(K \in X = \mathrm{Cay}(G,S)\) to be the whole set \(X\). Then \(X \setminus K\) is empty and thus there are no convergent rays in \(X\). Hence, there are no ends.
 \end{proof}
 
-Now that we have introduced some background on ends, we focus on proving the backward implication of our main result, Stallings' Structure Theorem (Theorem~\ref{SST}). To do this, we use the following useful criterion to determine whether an infinite finitely generated group is one-ended.
-\begin{proposition} 
-Let \(G\) be an infinite finitely generated group and let \(S\) be a  finite generating set.
-The Cayley graph of \(G\) with respect to \(S\) has more than one end if and only if there is a subset \(A\) of \(G\) such that:
-    (a) \(A\) and \(G \setminus A\) are infinite, and
-    (b) for all \(g \in G\), \(Ag \setminus A\) is finite.
-\end{proposition}
-
-\begin{proof}
-
-\end{proof}
-
+\subsection{Splittings of groups}
+Now that we have introduced some background on ends, we focus on proving the backward implication of our main result, Stallings' Structure Theorem (Theorem~\ref{SST}). This is proved using algebraic results about groups and their splittings as amalagams and HNN-extensions. We define these splittings below.
 
  \begin{definition}[Amalgamated free product]
      Let \(G,H\) be groups and \(A_1 < G\), \(A_2 < H\) be isomorphic subgroups. The amalgamated product with isomorphism \(\phi: A_1 \to A_2\) is 
      \[
      G *_A H = \langle G,H \mid a = \phi(a), a \in A_1 \rangle .
      \]
+     Groups that can be written as amalgamated free products are called \textbf{amalgams}.
  \end{definition}
 
- \textcolor{cyan}{Talk about normal forms}
+Every element in an amalgam \(G *_A H\) can be uniquely expressed in a normal form. 
 
-For the definition of an HNN-extension, we recall Definition~\ref{HNN}.
+\begin{definition}[Normal form for amalgams]
+    A \textbf{normal form} for \(G *_A H\) is a sequence \((x_1, y_1, \dots,x_n, y_n, a)\), where \(x_i\) is a coset representative of a non-trivial left coset in \(G/A\), and \(y_i\) is a coset representative of a non-trivial left coset in \(H/A\).
+\end{definition}
+
+For the definition of a HNN-extension, we recall Definition~\ref{HNN}.
 
  \begin{definition}[HNN extension]
      Let $G$ be a group, $\phi: A_1 \to A_2$ an isomorphism between two subgroups $A_1$,$A_2$ of $G$. An \emph{HNN extension of G} associated to that data is the quotient of $G \ast \langle t \rangle$ by the smallest normal subgroup containing $\{a^{-1}t\phi(a)t^{-1} \: | \: a \in A_1 \}$. Thus, we can represent that extension by a relative presentation 
-    \[G \ast_\phi = \langle G,t \: | \: t^{-1}at = \phi(a), \forall a \in A_1 \rangle. \]
+    \[G \ast_\phi^{A_1} = \langle G,t \: | \: t^{-1}at = \phi(a), \forall a \in A_1 \rangle. \]
  \end{definition}
 
-\begin{definition}[Splitting]
-    A group \(G\) is said to \textbf{split} over a subgroup \(H\) if \(G\) is a non-trivial free product with amalgamation over \(H\) or \(G\) is an HNN-extension of a group over \(H\). 
+Elements of groups which can be written as a HNN-extension can also be uniquely expressed in a normal form.
+
+\begin{definition}[Normal form for HNN-extensions]
+    A \textbf{normal form} for \(G \ast_\phi^{A_1}\) is a sequence \((x_0, t^{\epsilon_0}, x_1, t^{\epsilon_1}, \dots, x_n, t^{\epsilon_n}, g)\) where \(g\) is an arbitrary element of \(G\), \(\epsilon_i \in \{-1, 1\}\), and the following two conditions hold. First, we require this sequence to be reduced, i.e. there is no consecutive subsequence \(t^{-\epsilon}, 1, t^{\epsilon}\). Second, if \(\epsilon_i =1\) then \(x_i \in B\) and if \(\epsilon_i = -1\) then \(x_i \in A\).
 \end{definition}
 
+The fact that HNN-extensions can be expressed uniquely in this normal forms is known as \emph{Britton's lemma}. For a proof of this result, as well as the analogous result for amalgams, we cite \cite[p.7--8]{K10}.
+
+\begin{definition}[Splitting]
+    A group \(G\) is said to \textbf{split} over a subgroup \(H\) if \(G\) is a non-trivial free product with amalgamation over \(H\) or \(G\) is a HNN-extension of a group over \(H\). 
+\end{definition}
+
+ Now that we have defined amalgams, HNN-extensions and their normal forms, we return to our objective to prove Stallings' structure theorem. To prove the backward implication, we use the following criterion to determine whether an infinite finitely generated group is one-ended.
+ 
+\begin{proposition} 
+\label{prop:criterion}
+Let \(G\) be an infinite finitely generated group and let \(S\) be a  finite generating set.
+The Cayley graph of \(G\) with respect to \(S\) has more than one end if and only if there is a subset \(V\) of \(G\) such that:
+    (a) \(V\) and \(G \setminus V\) are infinite, and
+    (b) for all \(g \in G\), \(Vg \setminus V\) is finite.
+\end{proposition}
+
+\begin{proof}
+\textcolor{cyan}{TBC}
+\end{proof}
+
 \begin{theorem}
-    Let \(G\) be finitely generated group which splits over some finite subgroup \(H\). Then \(G\) has more than one end.
+    Let \(G\) be an infinite finitely generated group which splits over some finite subgroup \(H\). Then \(G\) has more than one end.
 \end{theorem}
 
 \begin{proof}
-    We have two cases, either \(G\) splits with as an amalgamated free product over \(H\), or \(G\) is an HNN-extension of a group over \(H\). We consider each of these cases in turn.
+    We have two cases, either \(G\) splits with as an amalgamated free product over \(H\), or \(G\) is a HNN-extension of a group over \(H\). We prove the result where \(G\) is an amalgam, since the HNN case is very similar.
 
-    Suppose first that \(G\) is an amalgamated product over \(H\), i.e. there exists \(A,B\) such that \(G = A *_H B\).
-
-    % I don't understand this proof yet...
+    Let \(G\) be an amalgamated product over \(H\), i.e. there exists \(A,B\) such that \(G = A *_H B\).
+    Let \(S\) be a finite generating set, where each of the generators is in \(A\) or \(B\). \textcolor{cyan}{What is the significance of this condition?} We consider two sets of vertices in \(\mathrm{Cay}(G,S)\).
+    \begin{enumerate}
+        \item The set of vertices \(V_1\) whose normal form starts with a non-trivial left coset representative of \(A/H\).
+        \item The set of vertices \(V_2\) whose normal form starts with a non-trivial left coset representative of \(B/H\).
+    \end{enumerate}
+    Using the fact that every element of \(G\) can be expressed uniquely as a normal form, these two sets are disjoint, and the elements of \(H\) lie outside of both \(V_1\) and \(V_2\). Note that \(V_1, V_2\) are infinite and \(H\) is finite, so taking \(V=V_1\) (or equivalently, \(V=V_2\)) satisfies the conditions of Proposition~\ref{prop:criterion}. Hence, \(\mathrm{Cay}(G,S)\) has more than one end.
 \end{proof}
 
 \subsection{Cutting up graphs}
 
-In this section we follow \cite{K10}. Throughout, we take \(\Gamma\) to be a simple, undirected graph, with vertex set \(V(\Gamma)\) and edge set \(E(\Gamma)\).
+Our aim now is the following: Given a finitely generated group with multiple ends, construct a decomposition of this group as a splitting. The method of Kr{\"o}n in \cite{K10} involves ``cutting up'' the Cayley graphs for these groups in a clever way. Throughout, we take \(\Gamma\) to be a simple, undirected graph, with vertex set \(V(\Gamma)\) and edge set \(E(\Gamma)\).
 
 \begin{definition}[Edge boundary]
     Let \(C,D \subset V(\Gamma)\). We denote the set of edges with one vertex in \(C\) and the other vertex in \(D\) by the set \(\delta(C,D)\). The \textbf{boundary} of a subset \(C\) is defined by the set \(\delta C = \delta(C, \stcomp{C})\).
 \end{definition}
 
-In a graph \(\Gamma\), we take a \textbf{ray} to be an infinite path with no backtracking. More formally, a ray is an infinite sequence of vertices such that each consecutive pair are endpoints of an edge in \(E(\Gamma)\) and each vertex in \(V(\Gamma)\) appears at most once in the sequence.\footnote{This is equivalent to Definition~\ref{ray} where the topological space \(X\) is a graph.}
+In a graph \(\Gamma\), we take a \textbf{ray} to be an infinite path with no backtracking. More formally, a ray is an infinite sequence of vertices such that each consecutive pair are endpoints of an edge in \(E(\Gamma)\) and each vertex in \(V(\Gamma)\) appears at most once in the sequence.
+
+\begin{remark}
+\textcolor{cyan}{Potential concern: This is NOT an equivalent definition of Definition~\ref{ray} where the topological space \(X\) is a graph. It seems like this is stronger, as backtracking is disallowed?}
+\end{remark}
 
 \begin{definition}[Separation of rays, edge ends]
 Two rays are said to be \textbf{separated} by a set of edges if this set of edges separates a pair of infinite subpaths, one from each of the rays. We call two rays \textbf{equivalent} if they cannot be separated by a finite set of edges.
@@ -302,7 +344,7 @@ Recall the four sets \(C \cap D, \stcomp{C} \cap D, C \cap \stcomp{D}, \stcomp{C
     Optimally nested cuts are nested with all other optimally nested cuts.
 \end{lemma}
 
-\subsection{To be sorted}
+\subsection{To be sorted (big proof and conclusions)}
 
 % This definition should go somewhere...
 
@@ -315,7 +357,9 @@ Recall the four sets \(C \cap D, \stcomp{C} \cap D, C \cap \stcomp{D}, \stcomp{C
     Furthermore, (1) corresponds to the case in which \(G\) has exactly two ends, and (2) and (3) relate to the cases where \(G\) has infinitely many ends and is torsion-free and has torsion respectively. 
 \end{corollary}
 
-There is no similar classification for one-ended groups. Using Bass-Serre theory, Stalling's result gives the following useful corollary. % Talk about how Bass-Serre theory links to this result
+There is no similar classification for one-ended groups. From this we can take-away the following conclusion - most groups are one-ended (as the groups which are not fall into these very specific classes).
+
+Using Bass-Serre theory, Stalling's result gives the following useful corollary. % Talk about how Bass-Serre theory links to this result
 \begin{corollary}
     A finitely generated group with more than one end has a non-trivial action on a tree with finite edge stabilisers.
 \end{corollary}

@@ -1,6 +1,6 @@
 \section{Groups acting on $\mathbb{R}$-Trees}
 
-In this section we will discuss a class metric spaces called $\mathbb{R}$-trees, which admit interesting group actions. These actions arise in proofs across the field of geometric group theory, in areas from hyperbolic groups to \textcolor{red}{something else??}. We will give an introduction to these spaces and the groups which act on them, followed by an overview of some of their applications. We will mostly follow the exposition from \cite{Bestvina_trees}.
+In this section we will discuss a class metric spaces called $\mathbb{R}$-trees, which admit interesting group actions. These actions arise in proofs across the field of geometric group theory, in areas from hyperbolic groups to \textcolor{red}{something else??}. We will give an introduction to these spaces and the groups which act on them, followed by an overview of some of their applications. We also aim to highlight different ways in which Bass-Serre theory fails for $\mathbb{R}$-trees. Much of this section follows \cite{Bestvina_trees}.
 \subsection{Definition and Basic Examples}
 \begin{definition}
     A metric space $(X,d)$ is an \textnormal{$\mathbb{R}$-tree} if for every pair of points $x,y\in X$ there is a unique geodesic from $x$ to $y$.
@@ -36,7 +36,6 @@ Isometries of $\mathbb{R}$-trees have a classification analogous to that of isom
         \item If $\lVert g\rVert=0$, $g$ is \textnormal{elliptic},
         \item If $\lVert g\rVert>0$, $g$ is \textnormal{hyperbolic}.
     \end{itemize}
-    The function $l:G\rightarrow\mathbb{R}$ given by $l(g)=\lVert g\rVert$ is called the \textnormal{length function} associated to the action.
 \end{definition}
 
 It is often useful to classify these isometries in terms of their invariant sets.
@@ -54,7 +53,7 @@ The proof of the following follows the same argument as the proof outline given 
 \begin{proof}
     In the elliptic case, $g$ clearly fixes $C_g$. We will show later that in this case $G_g$ is non-empty, (i.e. $g$ has a fixed point). Since $g$ is an isometry, if it fixes two points $x$ and $y\in T$, it must also fix the unique geodesic between them, so $C_g$ is connected. Similarly, if it fixes every point on a geodesic it must also fix the endpoints. Hence $C_g$ is a closed subtree as required.
 
-    Now suppose $g$ is hyperbolic. In particular it has no fixed points. Consider a point $x\in T$. There is a unique arc $\alpha$ from $x$ to $g(x)$, with subarcs $\alpha \cap g(\alpha)$ and $\alpha \cap g^{-1}(\alpha)$. Let $m$ be the midpoint of $\alpha$ and suppose that $m\in \alpha \cap g(\alpha)$. Then $g(m)$ is a point in $\alpha$ which is $\frac{\ell(\alpha)}{2}$ away from $g(x)$, so we have $g(m)=m$, a contradiction to the hyperbolicity of $g$. A similar argument gives $m\notin \alpha \cap g^{-1}(\alpha)$. Denote by $\beta$, the subarc of $\alpha$ connecting $g(\alpha)$ to $g^{-1}(\alpha)$. Since in particular $m\in \beta$, we know that $\beta$ has positive length. If a point $p$ has $p\in \beta\cap g(\beta)$, $p$ must be an endpoint of $\beta$, since \[\beta\cap g(\beta)\subseteq\alpha\cap g(\alpha)\subseteq g(\alpha)\] and $\beta\cap\g(\alpha)$ is a single point. Similarly the only point where $\beta$ meets $g^{-1}(\beta)$ is at its other endpoint. Repeating this argument inductively shows that \[C=\underset{n\in\mathbb{Z}}{\bigcup}g^n(\beta)\] is an arc in $T$ which is isometric to $\mathbb{R}$. In particular this is a closed subtree, and $g$ acts on it by translation by $\ell(\beta)$, so it is also invariant under the action of $g$. To show that $C=C_g$, note that for any point $y\in T$, $y$ has a closest point in $C$, denoted $c$. We have $d(y,c)=d(g(y),g(c))$ (so $g$ is 'moved along' $C$ by the same amount as $c$), which implies that \[d(y,g(y))=d(y,c)+\ell(\beta)+d(g(c),g(y))=\ell(\beta)+2d(y,C).\] This means that $C=C_g$ and $\lVert g\rVert=\ell(\beta)$.
+    Now suppose $g$ is hyperbolic. In particular it has no fixed points. Consider a point $x\in T$. There is a unique arc $\alpha$ from $x$ to $g(x)$, with subarcs $\alpha \cap g(\alpha)$ and $\alpha \cap g^{-1}(\alpha)$. Let $m$ be the midpoint of $\alpha$ and suppose that $m\in \alpha \cap g(\alpha)$. Then $g(m)$ is a point in $\alpha$ which is $\frac{\ell(\alpha)}{2}$ away from $g(x)$, so we have $g(m)=m$, a contradiction to the hyperbolicity of $g$. A similar argument gives $m\notin \alpha \cap g^{-1}(\alpha)$. Denote by $\beta$, the subarc of $\alpha$ connecting $g(\alpha)$ to $g^{-1}(\alpha)$. Since in particular $m\in \beta$, we know that $\beta$ has positive length. If a point $p$ has $p\in \beta \cap g(\beta)$, $p$ must be an endpoint of $\beta$, since \[\beta\cap g(\beta)\subseteq\alpha\cap g(\alpha)\subseteq g(\alpha)\] and $\beta\cap g(\alpha)$ is a single point. Similarly the only point where $\beta$ meets $g^{-1}(\beta)$ is at its other endpoint. Repeating this argument inductively shows that \[C=\underset{n\in\mathbb{Z}}{\bigcup}g^n(\beta)\] is an arc in $T$ which is isometric to $\mathbb{R}$. In particular this is a closed subtree, and $g$ acts on it by translation by $\ell(\beta)$, so it is also invariant under the action of $g$. To show that $C=C_g$, note that for any point $y\in T$, $y$ has a closest point in $C$, denoted $c$. We have $d(y,c)=d(g(y),g(c))$ (so $g$ is 'moved along' $C$ by the same amount as $c$), which implies that \[d(y,g(y))=d(y,c)+\ell(\beta)+d(g(c),g(y))=\ell(\beta)+2d(y,C).\] This means that $C=C_g$ and $\lVert g\rVert=\ell(\beta)$.
 
     Finally, since we have shown that if $g$ has no fixed points in $T$, then $\lVert g\rVert>0$, we can say that an elliptic element necessarily has a fixed point, and so $C_g$ is also non-empty in that case.
 \end{proof}
@@ -247,16 +246,22 @@ Now that we have a good understanding of groups which act (freely) on $\mathbb{R
 \end{theorem}
 
 \begin{proof} (sketch)
-    Since Out$(G)$ is infinite, we can find an infinite sequence of pairwise non-conjugate automorphisms $f_i$. Define an action $\rho_i$ of $G$ on its Cayley graph by $\rho_i(g)=f_i(g)$. It is easily seen that this is an action by isometries. Theorem \ref{limittrees} can then be used to show that there is a limit $\mathbb{R}$-tree on which $G$ acts by isometries. It can then be shown that this action is stable, and the theorem follows by Theorem \ref{stable}. See \cite{BridsonSwarup} for a more detailed proof
+    Since Out$(G)$ is infinite, we can find an infinite sequence of pairwise non-conjugate automorphisms $f_i$. Define an action $\rho_i$ of $G$ on its Cayley graph by $\rho_i(g)=f_i(g)$. It is easily seen that this is an action by isometries. Theorem \ref{limittrees} can then be used to show that there is a limit $\mathbb{R}$-tree on which $G$ acts by isometries. It can then be shown that this action is stable, and the theorem follows by Theorem \ref{stable}. See \cite{BridsonSwarup} for a more detailed proof.
 \end{proof}
 
 $\mathbb{R}$-trees are also instrumental in the study of Culler and Vogtmann's \textit{Outer Space}. We give a brief overview of this subject. For more detail see section 2 of \cite{Shalen}.
 
 \begin{definition}
-    Polyhedral action
+    The action of a group $G$ on an $\mathbb{R}$-tree is \textnormal{polyhedral} if it is topologically equivalent to a simplicial action.
+\end{definition}
+\begin{definition}
+    For a group acting by isometries on an $\mathbb{R}$-tree, the function $l:G\rightarrow\mathbb{R}$ given by $l(g)=\lVert g\rVert$ is called the \textnormal{length function} associated to the action.
 \end{definition}
 
-Let $\mathcal{L}(G)$ denote the set of all 
+Let $\mathcal{L}(G)$ denote the set of all length functions for non-trivial actions of $G$ on $\mathbb{R}$-trees. Quotienting out by the obvious action of $\mathbb{R}$ gives the space $\mathcal{PL}(G)$ of \textit{projectivised length functions}. Let $F_n$ be the free group on $n$ generators, and $Y_n\subseteq \mathcal{PL}(F_n)$ the set of projectivised length functions defined by polyhedral actions. The space $Y_n$ is known as \textit{outer space}, as it admits a `nice' action of Out$(F_n)$. 
+
+There is a theorem in Bass-Serre theory which states that a group is free if and only if it acts freely on a simplicial tree. The theory of outer space can be used to study free actions of free groups on $\mathbb{R}$-trees. In the $n=2$ case, it has been shown that the only free actions of $F_2$ on $\mathbb{R}$-trees are polyhedral, i.e. their length functions are in $Y_2$. For every $n\geq 3$ however, one can show that the set $\bar{Y}_n\backslash Y_n$ (where $\bar{Y}_n$ denotes the closure of $Y_n$ in $\mathcal{PL}(F_n)$) contains free actions. Therefore there are free actions of $F_n$ on $\mathbb{R}$-trees which are not polyhedral, sometimes referred to as \textit{exotic} actions. This demonstrates another key difference between simplicial trees and the slightly more general class of $\mathbb{R}$-trees.
+
 
 We finish with another application to hyperbolic groups.
 \begin{definition}
