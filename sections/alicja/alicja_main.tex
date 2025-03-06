@@ -142,15 +142,15 @@ We are almost ready to define trees, which is a class of graphs that will be imp
 \end{definition}
 
 \begin{definition}\label{grpgraph}
-    A graph of groups $(G,T)$ consists of a graph $T$, a group $G_p$ for each $p \in vert\:T$, and a group $G_y$ for each $y \in edge\: T$, together with a monomorphism $G_y \to G_{t(y)}$ (denoted $a \mapsto a^y$). In addition, it is required that $G_y = G_{\overline{y}}$.
+    A graph of groups $(G,\Gamma)$ consists of a graph $\Gamma$, a group $G_p$ for each $p \in vert\:\Gamma$, and a group $G_y$ for each $y \in edge \: \Gamma$, together with a monomorphism $G_y \to G_{t(y)}$ (denoted $a \mapsto a^y$). In addition, it is required that $G_y = G_{\overline{y}}$.
 \end{definition}
 
-If in the above definition $T$ is a tree, then we call $(G,T)$ a tree of groups.
+If in the above definition $\Gamma$ is a tree, then we call $(G,\Gamma)$ a tree of groups.
 
 Another notion is one of a $G$-tree. We will connect it to the concept of a tree of groups at the end of this subsection.
 
 \begin{definition}
-    Let $G$ be a group, and $X$ a graph on which it acts. An \emph{inversion} is a pair $g \in G$, $y$ edge of $X$, such that $gy = \overline{y}$. If there is no such pair, we say that $G$ acts \emph{without inversion}. 
+    Let $G$ be a group, and $\Gamma$ a graph on which it acts. An \emph{inversion} is a pair $g \in G$, $y$ edge of $\Gamma$, such that $gy = \overline{y}$. If there is no such pair, we say that $G$ acts \emph{without inversion}. 
 \end{definition}
 
 Note, that saying that $G$ acts without inversion on $X$ is exactly the same as saying that the $G$-action preserves the orientation of $X$.
@@ -270,6 +270,28 @@ Let us start by looking at some examples of $GBS$ groups.
 
 Having seen the two examples which get quoted most often in the literature as first examples of $GBS$ groups, we can now consider a collection of results about this class of groups.
 
+\subsubsection{Elementary $GBS$ groups}
+Firstly, note that, as $GBS$ graphs $\Gamma$ have all edge and vertex groups infinite cyclic, we can choose their generators. Then, the inclusion maps of edge groups into vertex groups become multiplications by non-zero integers. Thus, we can endow an oriented edge $e$ with a label $\lambda_e \in \Z \setminus \{0\}$ describing the inclusion of $G_e$ into $G_{o(e)}$. A pair of opposite edges $\epsilon = (e,\overline{e})$ is a non-oriented edge, and it can be endowed with a label $(\lambda_e,\lambda_{\overline{e}})$. Note, that this construction can be applied to both loops and segments of a graph $\Gamma$.
+
+In \cite{Le07} Levitt makes the following distinction.
+
+\begin{remark}
+    The elementary $GBS$ groups $G$, with $\Gamma$ being a graph of groups with $\pi_1(\Gamma) = G$ are:
+    \begin{itemize}
+        \item $\Z$ with $\Gamma$ = point,
+        \item $\Z^2$ with $\Gamma$ = $(1,1)$-loop,
+        \item Klein bottle group $\langle x,t \: | \: txt^{-1} = x^{-1} \rangle = \langle a,b \: | \: a^2 = b^2\rangle$ with either $\Gamma$ = $(1,-1)$-loop or $(2,2)$-segment.
+    \end{itemize}
+    The feature that the above have in common is that the Bass-Serre tree $T$ associated to each of them is either a point or a line.
+\end{remark}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.15]{sections/alicja/Elementary graphs.jpeg}
+    \caption{Graphs with elementary $GBS$ fundamental groups}
+    \label{elementarygraphs}
+\end{figure}
+
 \subsubsection{Properties of $GBS$ groups developed in \cite{For03}} This paper concerns JSJ decompositions and their uniqueness for finitely presented groups, and uses $GBS$ trees as examples. Thus, the paper reviews some properties of $GBS$ groups.
 
 Firstly, we will state some definitions for the situation when we have any $G$-tree.
@@ -283,6 +305,9 @@ Firstly, we will state some definitions for the situation when we have any $G$-t
     As shown in \cite[Proposition 24]{Ser80} if $\gamma$ is hyperbolic, then there is a $\gamma$-invariant path (or line) in $X$, on which $\gamma$ acts by translation. We call this path an \emph{axis} of $\gamma$.
 \end{remark}
 
+\begin{lemma} (\cite[2.5]{For03}, \cite[2.1]{Le07} combined)
+    Let $X$ be a $G$-tree. If $\gamma \in G$ is hyperbolic then its commensurator stabilises its axis. If $X$ is a $GBS$ tree 
+\end{lemma}
 
 \textcolor{red}{currently writing this}
 

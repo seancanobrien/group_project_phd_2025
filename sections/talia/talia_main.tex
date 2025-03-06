@@ -1,5 +1,5 @@
 \newpage % I will remove this at the end! (just find it easier to focus this way while it's a work-in-progress)
-\section{Talia's section}
+\section{Ends of groups}
 
 % Keep in mind Matt's recent feedback: (1) try to make links to wider topics in GGT to allow readers other avenues of interest, (2) clearly (and proudly!) state when a result is your own
 
@@ -50,7 +50,7 @@ Before defining ends of a group, we introduce some necessary terminology.
 This idea holds for all topological spaces \(X\) \textcolor{cyan}{Is this true?}, and therefore we can construct a characterisation of rays by a ``point at infinity''. We formalise this in order to define ends. To do this, we use a notion of convergence of rays in \(X\). 
 
 \begin{definition}[Convergence of rays] 
-    Let \(X\) be a topological space. If \(r_1, r_2 : [0,\infty) \to \mathcal{C}\) are rays, then \(r_1\) and \(r_2\) are said to \textbf{converge} if for every compact \(C \subset X\) there exists \(N \in \mathbb{N}\) such that \(r_1[N,1)\) and \(r_2[N,1)\) are contained in the same path component of \(X \setminus C\).
+    Let \(X\) be a topological space. If \(r_1, r_2 : [0,\infty) \to \mathcal{C}\) are rays, then \(r_1\) and \(r_2\) are said to \textbf{converge} if for every compact \(K \subset X\) there exists \(N \in \mathbb{N}\) such that \(r_1[N,1)\) and \(r_2[N,1)\) are contained in the same path component of \(X \setminus K\).
 \end{definition}
 
 \begin{proposition}
@@ -68,7 +68,7 @@ After showing that convergence in the same direction defines an equivalence rela
 \end{definition}
 
 \begin{remark}
-    There are alternative definitions of ends, in particular there is a definition in terms of taking the complement of a sequence of balls of increasing radius around a chosen basepoint (see Meier's book, \cite[p.~208]{M08}). For locally finite graphs (graphs in which all vertices have finite degree), it turns out that all definitions of ends are equivalent.
+    There are alternative definitions of ends, in particular there is a definition in terms of taking a nested sequence of connected components out to infinity. This is achieved by taking the a sequence of balls of increasing radius around a chosen basepoint, and selecting a connected component in the complement of each ball, if one exists (see Meier's book, \cite[p.~208]{M08}). From this we can see more clearly how to understand ends as connected components. For locally finite graphs (graphs in which all vertices have finite degree), it turns out that all definitions of ends are equivalent.
 \end{remark}
 
 \begin{definition}[Set of ends of a group]
@@ -94,9 +94,7 @@ Let \(E(r)\) be the equivalence class of \(r \in R\). For a sequence of rays \(\
     \]
 \end{definition}
 
-The number of ends may be infinite, in which case we write \(e(X) = \infty\). The same notation extends to the number of ends of a finitely generated group (where \(S\) is a finite generating set) which we denote by \(e((G,S))\). 
-
-A very useful result is that the number of ends is invariant under quasi-isometry, making ends an interesting object to study. 
+The number of ends may be infinite, in which case we write \(e(X) = \infty\). The same notation extends to the number of ends of a finitely generated group (where \(S\) is a finite generating set) which we denote by \(e((G,S))\). A very useful result is that the number of ends is invariant under quasi-isometry, which is one of the main reasons that ends are an interesting object to study. 
 
 \begin{theorem}[Number of ends is a QI invariant]
     Let \(G_1,G_2\) be groups with finite generating sets \(S_1,S_2\) respectively. If there exists a quasi-isometry \(f: (G_1, S_1) \to (G_2,S_2)\), then \(e((G_1,S_1)) = e((G_2,S_2))\).
@@ -113,7 +111,7 @@ A very useful result is that the number of ends is invariant under quasi-isometr
 We can therefore denote the number of ends of a group by \(e(G)\). 
 
 \begin{example}
-    Some examples of the number of ends of groups are as follows. These can all be visualised by their Cayley graphs, for an arbitrary choice of finite generating set.
+    Some examples of the number of ends of groups are as follows. These can all be visualised by their Cayley graphs, for an arbitrary choice of finite generating set. (We can take the most obvious choice of finite generating set for each, for example \(S = \{-1,1\}\) for \(G = \mathbb{Z}\).)
     \begin{multicols}{2}
     \begin{itemize}
         \item \(e(\mathbb{Z}/n\mathbb{Z}) = 0\) for all \(n \in \mathbb{N}\)
@@ -141,7 +139,7 @@ In fact, the options for the number of ends of a group in the examples above are
 \end{theorem}
 
 \begin{proof}
-    See Bridson-Haefliger \cite[p.~146--147]{bridson_haefliger_metric_1999}.
+    \textcolor{cyan}{Try an illustrative sketch proof} See Bridson-Haefliger \cite[p.~146--147]{bridson_haefliger_metric_1999}.
 \end{proof}
 
 \begin{corollary}
@@ -220,7 +218,7 @@ The Cayley graph of \(G\) with respect to \(S\) has more than one end if and onl
 
 \subsection{Cutting up graphs}
 
-Our aim now is the following: Given a finitely generated group with multiple ends, construct a decomposition of this group as a splitting. The method of Kr{\"o}n in \cite{K10} involves ``cutting up'' the Cayley graphs for these groups in a clever way. Throughout, we take \(\Gamma\) to be a simple, undirected graph, with vertex set \(V(\Gamma)\) and edge set \(E(\Gamma)\).
+Given a finitely generated group with multiple ends, we would now like to construct a decomposition of this group as a splitting. The method of Kr{\"o}n in \cite{K10} involves ``cutting up'' the Cayley graphs for these groups in a clever way. Throughout, we take \(\Gamma\) to be a simple, undirected graph, with vertex set \(V(\Gamma)\) and edge set \(E(\Gamma)\).
 
 \begin{definition}[Edge boundary]
     Let \(C,D \subset V(\Gamma)\). We denote the set of edges with one vertex in \(C\) and the other vertex in \(D\) by the set \(\delta(C,D)\). The \textbf{boundary} of a subset \(C\) is defined by the set \(\delta C = \delta(C, \stcomp{C})\).
@@ -285,7 +283,12 @@ they are minimal cuts.
     The diagram below relates the edge boundaries of these four sets (which we call \textbf{corners}) and can be used to make the following calculation.
     \textcolor{cyan}{Insert picture.}
 
-    
+    \begin{figure}[h]
+    \centering
+    \includegraphics[height=3.5cm]{example-image} 
+    \caption{\textcolor{cyan}{Caption goes here}}
+    \end{figure}
+
     Let 
     \begin{align*}
         a &= |\delta(C \cap D, \stcomp{C} \cap D)|, & d &= |\delta(\stcomp{C} \cap D, \stcomp{C} \cap \stcomp{D})|, \\
@@ -294,28 +297,29 @@ they are minimal cuts.
     \end{align*}
 
     Then, 
+
     \begin{align*}
     \kappa &= |\delta(C)| \\
            &= |\delta(C, \stcomp{C})| \\
            &= |\delta(C, \stcomp{C} \cap D)| + |\delta(C, \stcomp{C} \cap \stcomp{D})| \\
            &= |\delta(C \cap D, \stcomp{C} \cap D)| + |\delta(C \cap \stcomp{D}, \stcomp{C} \cap D)| \\
            &\quad + |\delta(C \cap D, \stcomp{C} \cap \stcomp{D})| + |\delta(C \cap \stcomp{D}, \stcomp{C} \cap \stcomp{D})| \\
-           &= a + f + e + c. \tag{1} \label{myeq1} \\
+           &= a + f + e + c. && \text{(1)} \\
     \intertext{This corresponds exactly to the edges in the diagram emanating from \(C \cap D\) and \(C \cap \stcomp{D}\). Similarly,}
-    \kappa &= |\delta(D)| = b + f + e + d. \tag{2} \label{myeq2}
-    \intertext{By (\ref{myeq1}) and (\ref{myeq2}),}
-        2\kappa &= a + b + c + d + 2e + 2f. \tag{3} \label{myeq3}
+    \kappa &= |\delta(D)| = b + f + e + d. && \text{(2)} 
+    \intertext{By (1) and (2),}
+        2\kappa &= a + b + c + d + 2e + 2f. && \text{(3)} 
     \intertext{The sets \(C \cap D\) and \(\stcomp{C} \cap \stcomp{D}\) contain an end, %go over this part
-    so \(\delta(C \cap D) = a + e + b \geq \kappa\) and \(\delta(\stcomp{C} \cap \stcomp{D}) = c+e+d \geq \kappa\). It follows that the sum \(a+b+c+d+2e \geq 2\kappa\). By comparison with (\ref{myeq3}), we have that \(f = 0\). Finally,}
+    so \(\delta(C \cap D) = a + e + b \geq \kappa\) and \(\delta(\stcomp{C} \cap \stcomp{D}) = c+e+d \geq \kappa\). It follows that the sum \(a+b+c+d+2e \geq 2\kappa\). By comparison with (3), we have that \(f = 0\). Finally,}
     \kappa &= a + e + b = c + e + d.
     \intertext{Therefore, \(\delta(C \cap D)\) and \(\delta(\stcomp{C} \cap \stcomp{D})\) are minimal as required.} 
-\end{align*}       
+\end{align*}    
 \end{proof}
 
 \subsection{Nested cuts}
 Here we continue to follow \cite{K10}, and expand upon this notion of cuts. At the end of this section, we make the link between cuts and Bass-Serre theory. % Do we?
 
-Recall the four sets \(C \cap D, \stcomp{C} \cap D, C \cap \stcomp{D}, \stcomp{C} \cap \stcomp{D}\) which we referred to as \textbf{corners} of \(C\) and \(D\). \textcolor{cyan}{Figure number} We say that sets on diagonal corners of the diagram are \textbf{opposite}.
+Recall the four sets \(C \cap D, \stcomp{C} \cap D, C \cap \stcomp{D}, \stcomp{C} \cap \stcomp{D}\) which we referred to as \textbf{corners} of \(C\) and \(D\). \textcolor{cyan}{Figure number?} We say that sets on diagonal corners of the diagram are \textbf{opposite}.
 
 \begin{definition}[Nested]
     Sets of vertices \(C, D \subset V(\Gamma)\) are \textbf{nested} if one or more of the following conditions hold:
