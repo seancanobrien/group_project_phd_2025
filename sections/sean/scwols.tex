@@ -87,13 +87,13 @@ However, not all complexes can be realised by this construction.
 For example, consider $S^1$ realised as two edges connected at their ends.
 This limitation is linked to the following observation.
 
-All the information of a poset $P$ is encoded exactly by the following category $\catc$:
-The objects of  $\catc$ are the elements of  $P$, and there is a morphism  $x \to y$ in  $\catc$ exactly when  $x \leq y$ in $P$.
-The category $\catc$ is \emph{thin}, meaning that for all  $x,y \in \ob(\catc)$, there is at most one morphism  $x \to y$.
+All the information of a poset $P$ is encoded exactly by the following category $\calc$:
+The objects of  $\calc$ are the elements of  $P$, and there is a morphism  $x \to y$ in  $\calc$ exactly when  $x \leq y$ in $P$.
+The category $\calc$ is \emph{thin}, meaning that for all  $x,y \in \ob(\calc)$, there is at most one morphism  $x \to y$.
 Bearing this in mind, with the aim of being able to construct $S^1$ in a combinatorial way, we give the following definition.
 
 \begin{definition}
-	A small category without loops (abbreviated scwol), is a small category $\catx$ such that for all composable morphisms $x_1 \to x_2 \to \cdots \to x_n$, if $x_1=x_n$, then $x_1=x_i$ for all $i$, and each morphism is $\id_{x_1}$.
+	A small category without loops (abbreviated scwol), is a small category $\calx$ such that for all composable morphisms $x_1 \to x_2 \to \cdots \to x_n$, if $x_1=x_n$, then $x_1=x_i$ for all $i$, and each morphism is $\id_{x_1}$.
 	\label{def:scwol}
 \end{definition}
 
@@ -101,24 +101,24 @@ Note that this definition means that no two distinct objects are isomorphic.
 It also means that the only morphism $x \to x$ is $\id_x$.
 Conversely, if a small category satisfies both of these properties, then it is a scwol.
 
-With geometry in mind, we call the objects of a scwol $\catx$ \emph{vertices} and denote the set of vertices by $V(\catx)$.
-We call the non--identity morphisms of  $\catx$ \emph{edges} and denote the set of edges by $E(\catx)$.
-Given some $a \in E(\catx)$, we denote the initial (source) and terminal (target) vertices by $i(a)$ and $t(a)$ respectively.
-If two edges $b$ and $a$ satisfy $t(b)=i(a)$, then we say that $a$ and $b$ are composable and denote their composition $ab$, which is necessarily another edge in $E(\catx)$.
+With geometry in mind, we call the objects of a scwol $\calx$ \emph{vertices} and denote the set of vertices by $V(\calx)$.
+We call the non--identity morphisms of  $\calx$ \emph{edges} and denote the set of edges by $E(\calx)$.
+Given some $a \in E(\calx)$, we denote the initial (source) and terminal (target) vertices by $i(a)$ and $t(a)$ respectively.
+If two edges $b$ and $a$ satisfy $t(b)=i(a)$, then we say that $a$ and $b$ are composable and denote their composition $ab$, which is necessarily another edge in $E(\calx)$.
 We have that $i(ab) = i(b)$ and $t(ab) = t(a)$.
-We now work to construct a geometric realisation $\abs{\catx}$ of a scwol $\catx$, such that if $\catx$ is thin, then $\abs{\catx}$ matches the geometric realisation when considering $\catx$ as a poset.
+We now work to construct a geometric realisation $\abs{\calx}$ of a scwol $\calx$, such that if $\calx$ is thin, then $\abs{\calx}$ matches the geometric realisation when considering $\calx$ as a poset.
 
-Let $E^{(n)}(\catx)$ denote the set of all $n$--tuples of composable edges in $\catx$,
-i.e.~if $(a_1, a_2, \ldots, a_n) \in E^{(n)}(\catx)$, then
+Let $E^{(n)}(\calx)$ denote the set of all $n$--tuples of composable edges in $\calx$,
+i.e.~if $(a_1, a_2, \ldots, a_n) \in E^{(n)}(\calx)$, then
 \[
 	\begin{tikzcd}
 		x_1 \ar[r, "a_1"] & x_2 \ar[r, "a_2"] & {} \ar[r, phantom, "\cdots"] & {} \ar[r, "a_n"] & x_{n+1}
 	\end{tikzcd}
 \]
-is a composable set of edges in $\catx$.
-Since all the $a_i$ are in $E(\catx)$, none are identity morphisms.
-By convention, $E^{(0)}(\catx) = V(\catx)$.
-We define the following maps, $\partial_i \colon E^{(n)}(\catx) \to E^{(n-1)}(\catx)$ on composable tuples, where
+is a composable set of edges in $\calx$.
+Since all the $a_i$ are in $E(\calx)$, none are identity morphisms.
+By convention, $E^{(0)}(\calx) = V(\calx)$.
+We define the following maps, $\partial_i \colon E^{(n)}(\calx) \to E^{(n-1)}(\calx)$ on composable tuples, where
 \begin{align*}
 	\partial_0(a_1,\ldots,a_n) & = (a_2,\ldots,a_n)                                          \\
 	\partial_i(a_1,\ldots,a_n) & = (a_1, \ldots, a_ia_{i+1}, \ldots, a_n) \quad 1 \leq i < k \\
@@ -131,24 +131,24 @@ And maps, $d_i \colon \Delta^{k-1} \to \Delta^k$ on simplices, where
 	.\]
 
 \begin{definition}
-	Given a scwol $\catx$, the geometric realisation, $\abs{\catx}$ is a simplicial complex defined as
+	Given a scwol $\calx$, the geometric realisation, $\abs{\calx}$ is a simplicial complex defined as
 	\[
-		\abs{\catx} \coloneq \bigsqcup_k \left( \Delta^k \times E^{(k)}(\catx) \right) / \sim
+		\abs{\calx} \coloneq \bigsqcup_k \left( \Delta^k \times E^{(k)}(\calx) \right) / \sim
 		.\]
 	Where $\sim$ is the transitive closure of the relations
 	\[
 		(d_i(x),t) \sim (x, \partial_i(t))
 	\]
-	across all tuples $t \in E^{(k)}(\catx)$.
+	across all tuples $t \in E^{(k)}(\calx)$.
 \end{definition}
 In this definition, we had to take more care than with the geometric realisation of a poset.
 This is because, in a poset, a composable tuple is completely determined by its vertices (the chain), so the combinatorial face maps always corresponded to taking subsets of those vertices.
 But in a scwol, we need to account for potentially multiple edges between two vertices, so we must enumerate simplices using edges, rather than vertices.
 
-For those interested, the above construction of $\abs{\catx}$ corresponds to the standard geometric realisation of the nerve (which corresponds to the union of all of our $E^{(k)}(\catx)$) of $\catx$.
+For those interested, the above construction of $\abs{\calx}$ corresponds to the standard geometric realisation of the nerve (which corresponds to the union of all of our $E^{(k)}(\calx)$) of $\calx$.
 See \cite{goerss_simplicial_2009}.
 
-Given a scwol $\catx$, the dimension of  $\catx $ is the dimension of $\abs{\catx}$, this is the largest  $k$ such that  $E^{(k)}(\catx) \neq \emptyset$.
+Given a scwol $\calx$, the dimension of  $\calx $ is the dimension of $\abs{\calx}$, this is the largest  $k$ such that  $E^{(k)}(\calx) \neq \emptyset$.
 
 \begin{example}
 	The following scwol has geometric realisation $S^1$, constructed by identifying the ends of two 1--simplices.
@@ -165,7 +165,7 @@ Given a scwol $\catx$, the dimension of  $\catx $ is the dimension of $\abs{\cat
 \end{example}
 
 \begin{example}
-	Any polygon can be realised as the geometric realisation of a scwol $\catx$ in the following way:
+	Any polygon can be realised as the geometric realisation of a scwol $\calx$ in the following way:
 	Consider the polygon as a polygonal complex.
 	Make a vertex for at the centre of each polygon in the complex.
 	There is an edge from centres of polygons to centres of faces of that polygon.
@@ -238,12 +238,12 @@ Given a scwol $\catx$, the dimension of  $\catx $ is the dimension of $\abs{\cat
 \end{example}
 
 \begin{definition}
-	Morphisms of scwols are exactly functors $F \colon \catx \to \caty$ where the source and target categories are scwols..
-	We say that a morphism of scwols $F \colon \catx \to \caty$ is a non-degenerate if $F$ maps $E(\catx)$ to  $E(\caty)$, and for all $v \in V(\catx)$, the restriction of  $F$ to $\Set{a \in E(\catx) \given i(a) = v}$ is a bijection on that set of edges.
+	Morphisms of scwols are exactly functors $F \colon \calx \to \caly$ where the source and target categories are scwols..
+	We say that a morphism of scwols $F \colon \calx \to \caly$ is a non-degenerate if $F$ maps $E(\calx)$ to  $E(\caly)$, and for all $v \in V(\calx)$, the restriction of  $F$ to $\Set{a \in E(\calx) \given i(a) = v}$ is a bijection on that set of edges.
 \end{definition}
 
 
-The requirement that $E(\catx)$ maps to $E(\caty)$ means that non-identity morphisms must be mapped to non-identity morphisms.
+The requirement that $E(\calx)$ maps to $E(\caly)$ means that non-identity morphisms must be mapped to non-identity morphisms.
 A morphism of scwols $F$ induces a map on the geometric realisations, we denote this $\abs{F}$.
 This acts on each simplex $\Delta$ by the linear map determined by the image of the vertices of $\Delta$.
 Non-degenerate maps are important because they do not reduce the length of compositions of non-identity maps, thus they preserve dimension.
@@ -251,18 +251,18 @@ The importance of the second condition is that if a group acts by non-degenerate
 In this way, this condition guarantees that stabilisers respect the category structure.
 The importance of this will become apparent when we define complexes of groups.
 
-(Non-degenerate) automorphisms of a scwols are (non-degenerate) invertible morphisms $F \colon \catx \to \catx$.
+(Non-degenerate) automorphisms of a scwols are (non-degenerate) invertible morphisms $F \colon \calx \to \calx$.
 
 \begin{definition}
-	An action of a group $G$ on a scwol $\catx$ is a homomorphism from $G$ to the group of non-degenerate automorphisms of $\catx$ such that the following two conditions are met.
+	An action of a group $G$ on a scwol $\calx$ is a homomorphism from $G$ to the group of non-degenerate automorphisms of $\calx$ such that the following two conditions are met.
 	\begin{enumerate}
-		\item For all $a \in E(\catx)$ and $g \in G$, we have  $g \cdot i(a) \neq t(a)$.
-		\item For all $a \in E(\catx)$ and $g \in G$, if  $g\cdot i(a)=i(a)$, then  $g\cdot a = a$.
+		\item For all $a \in E(\calx)$ and $g \in G$, we have  $g \cdot i(a) \neq t(a)$.
+		\item For all $a \in E(\calx)$ and $g \in G$, if  $g\cdot i(a)=i(a)$, then  $g\cdot a = a$.
 	\end{enumerate}
 	\label{def:action_of_groups_on_scwols}
 \end{definition}
 
-If $\catx$ is finite dimensional, then the first condition is guaranteed.
+If $\calx$ is finite dimensional, then the first condition is guaranteed.
 For example, in the following scwol, if $\sigma$ was mapped to  $\tau$, then $\tau$ is mapped to $\mu$ and there is nowhere for $a$ to map to.
 
 \begin{center}
@@ -283,18 +283,18 @@ For example, in the following scwol, if $\sigma$ was mapped to  $\tau$, then $\t
 
 However, if we consider the action of the group $\Z$ on the poset $\Z$, we see that  the first condition is not vacuous.
 
-For each $g \in G$, denote the induced action on  $\abs{\catx}$ as $\abs{g}$.
-The second condition means that if for some $\sigma \in V(\catx)$, we have $g \cdot \sigma = \sigma$, then $\abs{g}$ fixes pointwise any $k$-simplex corresponding to a composable tuple $(a_1,  \ldots, a_k)$ with $i(a_1)=\sigma$.
+For each $g \in G$, denote the induced action on  $\abs{\calx}$ as $\abs{g}$.
+The second condition means that if for some $\sigma \in V(\calx)$, we have $g \cdot \sigma = \sigma$, then $\abs{g}$ fixes pointwise any $k$-simplex corresponding to a composable tuple $(a_1,  \ldots, a_k)$ with $i(a_1)=\sigma$.
 This in particular implies that if $\abs{g}$ fixes a simplex setwise, then it also fixes it pointwise.
 This is important because we want to be able to quotient by this group action and for the quotient map to be simplicial on $\abs{X}$.
 Note that these restrictions mean that many group actions that geometrically look like rotations about a point, or reflections, are not possible.
 For instance, there is no non-trivial group action on the scwol given in \cref{eg:scwol_for_square}.
 However, there is an action of the cyclic group of order 3 on the scwol given in \cref{eg:K3_scwol}.
 
-Given a scwol $\catx$, a group $G$, and an action as defined in \cref{def:action_of_groups_on_scwols}, we can define the quotient scwol $G \backslash \catx$ in the following way.
-The vertices of $G\backslash \catx$ are $G\backslash V(\catx)$, similarly the edges of $G \backslash \catx$ are $G\backslash E(\catx)$.
-Let $p \colon \catx \to G \backslash \catx$ be the quotient map.
-We make $G \backslash \catx$ in to a scwol by defining $i(p(a)) \coloneq p(i(a))$, $t(p(a)) \coloneq p(t(a))$, and where defined, $p(b)p(a)\coloneq p(ba)$.
+Given a scwol $\calx$, a group $G$, and an action as defined in \cref{def:action_of_groups_on_scwols}, we can define the quotient scwol $G \backslash \calx$ in the following way.
+The vertices of $G\backslash \calx$ are $G\backslash V(\calx)$, similarly the edges of $G \backslash \calx$ are $G\backslash E(\calx)$.
+Let $p \colon \calx \to G \backslash \calx$ be the quotient map.
+We make $G \backslash \calx$ in to a scwol by defining $i(p(a)) \coloneq p(i(a))$, $t(p(a)) \coloneq p(t(a))$, and where defined, $p(b)p(a)\coloneq p(ba)$.
 Condition (1) of \cref{def:action_of_groups_on_scwols} ensures that a quotient  of a scwol is also a scwol.
 Condition (2) ensures that $p$ is a non-degenerate morphism of scwols.
 
