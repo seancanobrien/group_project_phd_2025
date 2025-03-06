@@ -3,3 +3,22 @@ We have already discussed how to create spaces from scwols.
 In fact, we may view scwols as a discrete model of such spaces.
 We now work to define a space related to a complex of groups.
 The fundamental group of this space can be computed directly from the algebraic structure of the complex of groups.
+
+Given a scwol $\catx$, homotopy in $\abs{\catx}$ is well modelled by the category structure in $\catx$.
+Let  $E^{\pm}(\catx)$ denote abstract symbols, that should be thought of as \emph{oriented edge paths} in $\catx$.
+We set $i(a^+) = i(a)$, $t(a^+) = t(a)$, $i(a^-) = t(a)$ and $t(a^-)= i(a)$.
+For example, we may think of $a^-$ as the isometric embedding $\gamma \colon [0,1] \to a \subseteq \abs{\catx}$ such that  $\gamma(0) = t(a)$ and $\gamma(1) = i(a)$.
+We should also think of $(\_)^\pm$ as a map $E^\pm(\catx) \to E^\pm(\catx)$ in the obvious way, where  $(a^-)^-= a^+$ etc.
+An edge path from $\sigma$ to  $\tau$ in $\abs{\catx}$ is a tuple $(e_1, \ldots, e_n) \in \left(E^\pm(\catx)\right)^n$ such that $i(e_1)=\sigma$,  $t(e_n)=\tau$ and  $t(e_i) = i(e_{i+1})$ for all  $1 \leq i < n$.
+We can define homotopy of such edge paths in the following way.
+Given an edge path $(e_1, \ldots, e_n) \in \left(E^\pm(\catx)\right)^n$, we may do the following replacements:
+\begin{enumerate}
+	\item Any adjacent subpath $(e_i,e_{i+1})$, where $e_i=e_{i+1}^-$ can be deleted.
+	\item Any adjacent subpath $(e_i,e_{i+1})$, where $e_i = b^+$ and  $e_{i+1}=a^+$ can be replaced by the subpath $((ab)^+)$, which is guaranteed to exist.
+	      Similarly, if $e_i = b^-$ and  $e_{i+1}=a^-$, we can replace $(e_i,e_{i+1})$ with  $((ba)^-)$.
+\end{enumerate}
+A homotopy of edge paths is a sequence of such edge path replacements, and their inverses.
+We can then define the fundamental group of $\catx$,  $\pi_1(\catx,\sigma_0)$, to be the homotopy class of edge paths that start and end at  $\sigma_0$.
+This is isomorphic to the usual $\pi_1(\abs{\catx}, \sigma_0)$ by \cite[Corollary 4.12]{hatcher_algebraic_2001}.
+
+We now define a category
