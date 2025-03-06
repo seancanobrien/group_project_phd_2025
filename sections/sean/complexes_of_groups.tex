@@ -8,7 +8,7 @@ We will first give the abstract definition of a complex of groups, then, to moti
 Given a group $G$, let $\ad(g) \colon G \to G$ denote conjugation, $\ad(g)(h) = g^{-1}hg$.
 
 \begin{definition}
-	Given a scwol $\catx$, A complex of groups $G(\catx)$ = $(G_\sigma, \phi_a, g_{a,b})$ over $\catx$ consists of the following data.
+	Given a scwol $\catx$, A complex of groups $\calg$ = $(G_\sigma, \phi_a, g_{a,b})$ over $\catx$ consists of the following data.
 	\begin{enumerate}
 		\item A group $G_\sigma$ for each $\sigma \in V(\catx)$.
 		\item An injective homomorphism $\phi_a \colon G_{i(a)} \to G_{t(a)}$ for each $a \in E(\catx)$.
@@ -25,7 +25,7 @@ Given a group $G$, let $\ad(g) \colon G \to G$ denote conjugation, $\ad(g)(h) = 
 	\label{def:complex_of_groups}
 \end{definition}
 
-In this notation, the $G$ in $G(\catx)$ is not associated to any specific group, just that the structure of a complex of groups has been associated to the scwol $\catx$.
+In this notation, the $G$ in $\calg$ is not associated to any specific group, just that the structure of a complex of groups has been associated to the scwol $\catx$.
 Note that compatibility condition (1) is vacuous if the dimension of $\catx$ is less than 2.
 Compatibility condition (2) is vacuous if the dimension of  $\catx$ is less than 3.
 Compatibility condition (1) states that, up to conjugation by a twisting element, we can compose homomorphisms along composable edges in the obvious way.
@@ -56,14 +56,14 @@ See REF for more details.
 	Suppose we have $\catx$, $G$, $G \backslash \catx$ and $p \colon G \to G \backslash \catx$ as described after \cref{def:action_of_groups_on_scwols}.
 	Denote the scwol $G \backslash \catx$ by $\caty$.
 	Let $s \colon V(\caty) \to V(\catx)$ be a section (as sets) of $p|_{V(\catx)}$.
-	The complex of groups over the scwol $\caty$ associated to the action of $G$, denoted $G(\caty)$ is defined as follows.
-	We define the local groups of $G(\caty)$ as the stabilisers under this section, $G_\sigma \coloneq \stab(s(\sigma))$.
+	The complex of groups $\calh = (G_\sigma, \phi_a, g_{a,b})$ over the scwol $\caty$ associated to the action of $G$.
+	We define the local groups of $\calh$ as the stabilisers under this section, $G_\sigma \coloneq \stab(s(\sigma))$.
 	Since $p$ is non-degenerate, for each $a \in E(\caty)$ with $i(a) = \sigma$, there exists a unique $\tilde{a} \in E(\catx)$ such that $i(\tilde{a}) = s(\sigma)$ and $p(\tilde{a}) = a$.
 	However, there is no guarantee that $t(\tilde{a}) = s(t(a))$.
 	Choose some $h_a \in G$ such that $h_a \cdot t(\tilde{a}) = s(t(a))$.
 	Do this for every edge in $E(\caty)$.
-	We define the edge homomorphisms of $G(\caty)$ to be $\phi_a \coloneq \ad(h_a^{-1})$.
-	We define the twisting elements of $G(\caty)$ to be $g_{a,b} \coloneq h_ah_bh_{ab}^{-1}$.
+	We define the edge homomorphisms of $\calh$ to be $\phi_a \coloneq \ad(h_a^{-1})$.
+	We define the twisting elements of $\calh$ to be $g_{a,b} \coloneq h_ah_bh_{ab}^{-1}$.
 	\label{def:complex_of_groups_from_action}
 \end{definition}
 
@@ -78,7 +78,7 @@ We see that $h_a^{-1}$ is exactly the correct element to conjugate by to account
 
 In the context above, given a well-chosen $h_a$ and some $h \in G_{i(a)}$, we see that $h^\prime_a = h_ah$, would also serve the function of $h_a$.
 So, there is ambiguity in that choice.
-The $g_{a,b}$ account for the fact that we if we were to compare the two guaranteed possible paths along a composable edge, then we may have (sometimes, inevitably) choosen our $h_a$ inconsistently.
+The $g_{a,b}$ account for the fact that we if we were to compare the two guaranteed possible paths along a composable edge, then we may have (sometimes, inevitably) chosen our $h_a$ inconsistently.
 This is shown in the diagram below.
 
 \begin{center}
@@ -216,7 +216,7 @@ This is shown in the diagram below.
 
 		\end{tikzpicture}
 	\end{center}
-	In the resulting complex of groups $G(\caty)$, the local groups of the red vertices are $G$ and the other local groups are trivial.
+	In the resulting complex of groups $\calh$, the local groups of the red vertices are $G$ and the other local groups are trivial.
 	All the injective homomorphisms are determined by these groups and all the twisting elements are trivial.
 \end{example}
 
@@ -230,11 +230,11 @@ Given these two conditions, the quotient scwol realises the quotient polyhedral 
 The stabiliser of a cell is automatically a subgroup of the stabilisers of each of its faces, and we get a complex of groups in this way.
 
 \begin{definition}
-	Let $\catx$ and $\catx^\prime$ be two scwols, and let $G(\catx) = (G_\sigma, \phi_a, g_{a,b})$ and  $G(\catx^\prime) = (G^\prime_\sigma, \phi^\prime_a, g^\prime_{a,b})$ be two complexes of groups, neither of which are necessarily associated to a group action.
-	Given a possibly degenerate morphism of scwols $f \colon \catx \to \catx^\prime$, a morphism of complexes of groups over $f$ is some $\psi  \colon G(\catx) \to G(\catx^\prime)$ which consists of the following data:
+	Let $\catx$ and $\catx^\prime$ be two scwols, and let $\calg = (G_\sigma, \phi_a, g_{a,b})$ and  $\calg^\prime = (G^\prime_\sigma, \phi^\prime_a, g^\prime_{a,b})$ be two complexes of groups, neither of which are necessarily associated to a group action.
+	Given a possibly degenerate morphism of scwols $f \colon \catx \to \catx^\prime$, a morphism of complexes of groups over $f$ is some $\psi  \colon \calg \to \calg^\prime$ which consists of the following data:
 	\begin{enumerate}
-		\item A homomorphism $\psi_\sigma \colon G_\sigma \to G_{f(\sigma)}$ for all $\sigma \in V(\catx) $.
-		\item An element $\theta \in G_{t(f(a))}$ for all $a \in E(\catx)$ such that:
+		\item A homomorphism $\psi_\sigma \colon G_\sigma \to G^\prime_{f(\sigma)}$ for all $\sigma \in V(\catx) $.
+		\item An element $\theta \in G^\prime_{t(f(a))}$ for all $a \in E(\catx)$ such that:
 		      \begin{enumerate}[(i)]
 			      \item $\ad(\theta_a)\phi'_{f(a)}\psi_{i(a)}=\psi_{t(a)}\phi_a$ for all $a \in E(\catx)$.
 			      \item $\psi_{t(a)}(g_{a,b}) = \theta_a\phi_{f(a)}(\theta_b)g_{f(a),f(b)}\theta_{ab}^{-1}$ for all $(b,a) \in E^{(2)}(\catx)$.
@@ -268,7 +268,7 @@ Condition (ii) says that, bearing in mind how squares like \eqref{eq:commuativit
 
 We will go through the computation that shows this.
 If we apply condition (i) to the composition $\psi_\nu \phi_{ab}$, we get $\psi_\nu\phi_{ab} = \ad(\theta_{ab})\phi^\prime_{f(ab)}\psi_\sigma$.
-Since $G(\catx)$ is a complex of groups, we have $\ad(g_{a,b})\phi_{ab} = \phi_a\phi_b$.
+Since $\calg$ is a complex of groups, we have $\ad(g_{a,b})\phi_{ab} = \phi_a\phi_b$.
 Putting these together, we get
 \begin{align*}
 	\ad(\psi_\nu(g_{a,b})\theta_{ab})\phi^\prime_{f(ab)}\psi_\sigma
@@ -285,7 +285,7 @@ Then, applying the condition (i) twice
 	 & = \ad(\theta_a\phi^\prime_{f(a)}(\theta_b))\phi^\prime_{f(a)}\phi^\prime_{f(b)}\psi_\sigma
 	.
 \end{align*}
-Then, since $G(\catx^\prime)$ is a complex of groups, we have $\ad(g^\prime_{f(a),f(b)})\phi^\prime_{f(a)f(b)} = \phi^\prime_{f(b)}\phi^\prime_{f(a)}$.
+Then, since $\calg^\prime$ is a complex of groups, we have $\ad(g^\prime_{f(a),f(b)})\phi^\prime_{f(a)f(b)} = \phi^\prime_{f(b)}\phi^\prime_{f(a)}$.
 All together, we have
 \begin{align*}
 	\ad(\psi_\nu(g_{a,b})\theta_{ab})\phi^\prime_{f(ab)}\psi_\sigma = \ad(\theta_a\phi^\prime_{f(a)}(\theta_b)g^\prime_{f(a),f(b)})\phi^\prime_{f(a)f(b)}\psi_\sigma
@@ -310,10 +310,10 @@ A group $G$ can be realised as a complex of groups over the trivial scwol, consi
 In this way, the following definition is a specific case of \cref{def:morhpism_of_complexes_of_groups}.
 
 \begin{definition}
-	A morphism from a complex of groups $G(\catx) = (G_\sigma, \phi_a, g_{a,b})$ to a group $G$ consists of the following data.
+	A morphism from a complex of groups $\calg = (G_\sigma, \phi_a, g_{a,b})$ to a group $G$ consists of the following data.
 	\begin{enumerate}
-		\item A homomorphism $\psi \colon G_\sigma \to G$ for all $\sigma \in V(G(\catx))$.
-		\item An element $\theta_a \in G$ for all $a \in E(G(\catx))$ such that:
+		\item A homomorphism $\psi \colon G_\sigma \to G$ for all $\sigma \in V(\calg)$.
+		\item An element $\theta_a \in G$ for all $a \in E(\calg)$ such that:
 		      \begin{enumerate}[(i)]
 			      \item $\psi_{t(a)}\phi_a = \ad(\theta_a)\psi_{i(a)}$
 			      \item $\psi_{t(a)}(g_{a,b}) = \theta_a\theta_b\theta_{ab}^{-1}$.
