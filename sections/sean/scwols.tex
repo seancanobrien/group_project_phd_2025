@@ -124,8 +124,8 @@ We define the following maps, $\partial_i \colon E^{(n)}(\calx) \to E^{(n-1)}(\c
 	\partial_i(a_1,\ldots,a_n) & = (a_1, \ldots, a_ia_{i+1}, \ldots, a_n) \quad 1 \leq i < k \\
 	\partial_n(a_1,\ldots,a_n) & = (a_1, \ldots, a_{n-1})
 	.\end{align*}
-
-And maps, $d_i \colon \Delta^{k-1} \to \Delta^k$ on simplices, where
+We define $\partial_0(a)=i(a)$, and $\partial_1(a)=t(a)$.
+We also define maps, $d_i \colon \Delta^{k-1} \to \Delta^k$ on simplices, where
 \[
 	d_i(t_0, \ldots, t_{k-1}) = (t_0, \ldots, t_{i-1}, 0, t_i, \ldots, t_{k-1}) \quad 0 \leq i < k
 	.\]
@@ -140,6 +140,7 @@ And maps, $d_i \colon \Delta^{k-1} \to \Delta^k$ on simplices, where
 		(d_i(x),t) \sim (x, \partial_i(t))
 	\]
 	across all tuples $t \in E^{(k)}(\calx)$.
+	\label{def:geometric_realisation_of_scwol}
 \end{definition}
 In this definition, we had to take more care than with the geometric realisation of a poset.
 This is because, in a poset, a composable tuple is completely determined by its vertices (the chain), so the combinatorial face maps always corresponded to taking subsets of those vertices.
