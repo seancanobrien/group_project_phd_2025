@@ -3,7 +3,7 @@
 In this section we will discuss a class metric spaces called $\mathbb{R}$-trees, which admit interesting group actions. These actions arise in proofs across the field of geometric group theory, in areas from hyperbolic groups to \textcolor{red}{something else??}. We will give an introduction to these spaces and the groups which act on them, followed by an overview of some of their applications. We also aim to highlight different ways in which Bass-Serre theory fails for $\mathbb{R}$-trees. Much of this section follows \cite{Bestvina_trees}.
 \subsection{Definition and Basic Examples}
 \begin{definition}
-    A metric space $(X,d)$ is an \textnormal{$\mathbb{R}$-tree} if for every pair of points $x,y\in X$ there is a unique geodesic from $x$ to $y$.
+    A metric space $(X,d)$ is an \emph{$\mathbb{R}$-tree} if for every pair of points $x,y\in X$ there is a unique geodesic from $x$ to $y$.
 \end{definition}
 
 The following follows immediately from the definition, and is sometimes used as an alternative characterisation:
@@ -31,23 +31,23 @@ Bass-Serre Theory gives a convenient way to study groups acting on simplicial tr
 
 Isometries of $\mathbb{R}$-trees have a classification analogous to that of isometries of hyperbolic space. 
 \begin{definition}
-    Let $G$ be a group acting by isometries on an $\mathbb{R}$-tree $T$. The \textnormal{translation length} of $g\in G$ is \[\lVert g\rVert=\underset{x\in T}{\text{inf}}d(x,g(x)).\]
+    Let $G$ be a group acting by isometries on an $\mathbb{R}$-tree $T$. The \emph{translation length} of $g\in G$ is \[\lVert g\rVert=\underset{x\in T}{\text{inf}}d(x,g(x)).\]
     \begin{itemize}
-        \item If $\lVert g\rVert=0$, $g$ is \textnormal{elliptic},
-        \item If $\lVert g\rVert>0$, $g$ is \textnormal{hyperbolic}.
+        \item If $\lVert g\rVert=0$, $g$ is \emph{elliptic},
+        \item If $\lVert g\rVert>0$, $g$ is \emph{hyperbolic}.
     \end{itemize}
 \end{definition}
 
 It is often useful to classify these isometries in terms of their invariant sets.
 \begin{definition}
-    Let $g$ be an isometry of an $\mathbb{R}$-tree $T$. Its \textnormal{characteristic set} is \[C_g = \{x\in T:d(x,g(x))=\lVert g \rVert\}.\]
+    Let $g$ be an isometry of an $\mathbb{R}$-tree $T$. Its \emph{characteristic set} is \[C_g = \{x\in T:d(x,g(x))=\lVert g \rVert\}.\]
 \end{definition}
 The proof of the following follows the same argument as the proof outline given in \cite{CullerMorgan}.
 \begin{proposition}
     Let $g$ be an isometry of an $\mathbb{R}$-tree $T$. Then $C_g$ is invariant under the action of $g$ and is a closed, non-empty subtree of $T$. Also,
     \begin{itemize}
         \item if $g$ is elliptic, $C_g$ is fixed by $g$,
-        \item if $g$ is hyperbolic, $C_g$ is isometric to $\mathbb{R}$, and is called the \textnormal{axis} of $g$. $g$ acts on its axis by translation by $\lVert g\rVert$.
+        \item if $g$ is hyperbolic, $C_g$ is isometric to $\mathbb{R}$, and is called the \emph{axis} of $g$. $g$ acts on its axis by translation by $\lVert g\rVert$.
     \end{itemize}
 \end{proposition}
 \begin{proof}
@@ -60,27 +60,27 @@ The proof of the following follows the same argument as the proof outline given 
 
 We will mostly be concerned with \textit{non-trivial} group actions:
 \begin{definition}
-    The action of a group $G$ on an $\mathbb{R}$-tree by isometries is \textnormal{non-trivial} if no point in $T$ is fixed by every element of $G$.
+    The action of a group $G$ on an $\mathbb{R}$-tree by isometries is \emph{non-trivial} if no point in $T$ is fixed by every element of $G$.
 \end{definition}
 
 Also of interest are \textit{stable} actions:
 \begin{definition}
-    The action of a group $G$ on an $\mathbb{R}$-tree by isometries is \textnormal{minimal} if it has no proper $G$-invariant subtree.
+    The action of a group $G$ on an $\mathbb{R}$-tree by isometries is \emph{minimal} if it has no proper $G$-invariant subtree.
 \end{definition}
 
 \begin{definition}
-    Let $G$ be a group acting by isometries on an $\mathbb{R}$-tree $T$. A  non-degenerate subtree $S$ of $T$ (i.e. a subtree which is non-empty and not a single point) is \textnormal{stable} if for every subtree $S'\subset S$, \[\text{Fix}(S')=\text{Fix}(S)\] where Fix($S$) denotes the pointwise stabiliser of $S$. The action of $G$ is \textnormal{stable} if it is non-trivial, minimal, and every non-degenerate tree $T$ has a stable subtree.
+    Let $G$ be a group acting by isometries on an $\mathbb{R}$-tree $T$. A  non-degenerate subtree $S$ of $T$ (i.e. a subtree which is non-empty and not a single point) is \emph{stable} if for every subtree $S'\subset S$, \[\text{Fix}(S')=\text{Fix}(S)\] where Fix($S$) denotes the pointwise stabiliser of $S$. The action of $G$ is \emph{stable} if it is non-trivial, minimal, and every non-degenerate tree $T$ has a stable subtree.
 \end{definition}
 
 An important example of when $\mathbb{R}$-trees arise is as limits of hyperbolic metric spaces. To find a limit of spaces, we first need to define an underlying metric. This subsection is covered in more detail in \cite{BridsonSwarup}
 
 \begin{definition}
-    An $\epsilon$\textnormal{-approximation} between two metric spaces $X$ and $Y$ is a set $R\subseteq X\times Y$ such that:
+    An $\epsilon$\emph{-approximation} between two metric spaces $X$ and $Y$ is a set $R\subseteq X\times Y$ such that:
     \begin{itemize}
         \item Every point in $X$ any $Y$ appears in some element of $R$, and
         \item If $(x,y),(x',y')\in R$ then \[\lvert d_X(x,x')-d_Y(y,y')\rvert<\epsilon.\]
     \end{itemize}
-    If there exists an $\epsilon$-approximation between $X$ and $Y$, write $X\sim_\epsilon Y$. The \textnormal{Hausdorff-Gromov distance} between $X$ and $Y$ is \[D_H(X,Y)=\inf\{\epsilon:X\sim_\epsilon Y\}\] (and is infinite if no such $\epsilon$ exists).
+    If there exists an $\epsilon$-approximation between $X$ and $Y$, write $X\sim_\epsilon Y$. The \emph{Hausdorff-Gromov distance} between $X$ and $Y$ is \[D_H(X,Y)=\inf\{\epsilon:X\sim_\epsilon Y\}\] (and is infinite if no such $\epsilon$ exists).
 \end{definition}
 
 \begin{theorem}\label{limittrees}
@@ -108,17 +108,30 @@ Actions of groups on $\mathbb{R}-trees$ are usually studied through band complex
 
 We start with a series of definitions.
 \begin{definition}
-    A \textnormal{band} is a space $B=b\times I$ where $b$ is a closed interval. A band is equipped with a \textnormal{dual map} $\delta_B$ which is the reflection of $B$ in the line $(b,\frac{1}{2}$. $b$ and $\delta_B(b)$ are called \textnormal{bases} of $B$, and any subset of the form $\{x\}\times I$ is called a \textnormal{leaf} of $B$.
+    A \emph{band} is a space $B=b\times I$ where $b$ is a closed interval. A band is equipped with a \emph{dual map} $\delta_B$ which is the reflection of $B$ in the line $(b,\frac{1}{2})$. $b$ and $\delta_B(b)$ are called \emph{bases} of $B$, and a subset of the form $\{x\}\times I$ is called a \emph{vertical fibre}. See Figure \ref{band}.
 \end{definition}
-\textcolor{red}{picture}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{sections/lorna/Band.png}
+    \caption{A band}
+    \label{band}
+\end{figure}
 
 \begin{definition}
-    Let $\Gamma$ be a metric graph and $\mathcal{B}$ be a finite collection of bands. For each base $b$ of a band $B\in \mathcal{B}$ let $f_b:b\rightarrow\Gamma$ be an isometry such that $b$ is mapped into an edge of $\Gamma$ ($f_b(b)$ may be the whole edge or just part of it). A \textnormal{union of bands} is a space \[Y=\Gamma\cup\underset{B\in\mathcal{B}}{\bigsqcup}B/b \sim f_b(b).\] 
+    Let $\Gamma$ be a metric graph and $\mathcal{B}$ be a finite collection of bands. For each base $b$ of a band $B\in \mathcal{B}$ let $f_b:b\rightarrow\Gamma$ be an isometry such that $b$ is mapped into an edge of $\Gamma$ ($f_b(b)$ may be the whole edge or just part of it). A \emph{union of bands} is a space \[Y=\Gamma\cup\underset{B\in\mathcal{B}}{\bigsqcup}B/b \sim f_b(b).\] A \emph{leaf} of $Y$ is an equivalence class of points in $Y$ where two points are equivalent if they are in the same vertical fibre of a band in $Y$. See Figure \ref{unionofbands}.
 \end{definition}
-\textcolor{red}{picture!}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{sections/lorna/Union of Bands.png}
+    \caption{A union of bands. The underlying graph is shown in bold.}
+    \label{unionofbands}
+\end{figure}
+
+In some sources, the decomposition of a band complex $Y$ into leaves is called a \textit{foliation}.
 
 \begin{definition}
-    A measure $\mu$ on a metric space $X$ is \textnormal{transverse} to a measurable subset $S\subset X$ if 
+    A measure $\mu$ on a metric space $X$ is \emph{transverse} to a measurable subset $S\subset X$ if 
     \begin{itemize}
         \item There is some compact subset $K$ of $V$ such that $0<\mu(K)<\infty$, and
         \item $\mu(v+S)=0$ for all $v\in V$.
@@ -134,13 +147,21 @@ We start with a series of definitions.
 
 
 \begin{definition}
-    Let $Y$ be a union of bands over a metric graph $\Gamma$. A \textnormal{band complex} $X$ is a relative CW 2-complex based on $Y$ such that:
+    Let $Y$ be a union of bands over a metric graph $\Gamma$. A \emph{band complex} $X$ is a relative CW 2-complex based on $Y$ such that:
     \begin{itemize}
         \item The 1-cells of $X$ are contained in $\Gamma$,
         \item The 2-cells meet $\Gamma$ at discrete sets, and
         \item The 2-cells intersect the bands along vertical sets.
     \end{itemize}
+    See Figure \ref{bandcplx}.
 \end{definition}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{sections/lorna/Band Complex.png}
+    \caption{A band complex. There are two bands (unshaded), two 1-cells (in bold), and one 2-cell (shaded).}
+    \label{bandcplx}
+\end{figure}
 
 \begin{lemma}
     Let $X$ be a band complex. Then $X$ admits a transverse measure. 
@@ -154,13 +175,12 @@ Let $X$ be a band complex. The leaves of $X$ are again defined as equivalence cl
 Two points $\tilde{x}$ and $\tilde{y}$ in the universal cover $\tilde{X}$ of $X$ are in the same leaf if there is a path from $\tilde{x}$ to $\tilde{y}$ which projects to a path of measure 0 in $X$. 
 
 \begin{definition}
-    Let $G$ be a finitely generated group acting on an $\mathbb{R}$-tree $T$. A \textnormal{resolution} of the action is a band complex $X$ with $G$ as its fundamental group, and a $G$-equivariant map \[f:\tilde{X}\rightarrow T\] such that 
+    Let $G$ be a finitely generated group acting on an $\mathbb{R}$-tree $T$. A \emph{resolution} of the action is a band complex $X$ with $G$ as its fundamental group, and a $G$-equivariant map \[f:\tilde{X}\rightarrow T\] such that 
     \begin{itemize}
         \item The image of a leaf of $\tilde{X}$ is a point, and
         \item each base can be broken into finitely many subintervals whose lifts $f$ embed isometrically into $T$.
     \end{itemize}
 \end{definition}
-\textcolor{red}{picture!!!!}
 
 
 \begin{theorem}
@@ -185,10 +205,10 @@ The Rips Machine starts by repeatedly applying these moves to transform a connec
 \begin{theorem}
     \textbf{Rips' theorem:} Let $G$ be a finitely generated torsion free group acting by isometries on an $\mathbb{R}$-tree $T$. Then applying the Rips Machine to a resolving band complex $X$ for the action, a band complex $X'$ is obtained which can be split into disjoint components $X'_i$ such that each $X'_i$ is of one of the following types:
     \begin{itemize}
-        \item \textnormal{Simplicial} - Every leaf of the underlying union of bands of $X'_i$ is compact,
-        \item \textnormal{Surface type} - $X'_i$ is a compact surface with negative Euler characteristic,
-        \item \textnormal{Toral type} - $X'_i$ is the 2-skeleton of the torus,
-        \item \textnormal{Thin type} - $X'_i$ is not of one of the above types.
+        \item \emph{Simplicial} - Every leaf of the underlying union of bands of $X'_i$ is compact,
+        \item \emph{Surface type} - $X'_i$ is a compact surface with negative Euler characteristic,
+        \item \emph{Toral type} - $X'_i$ is the 2-skeleton of the torus,
+        \item \emph{Thin type} - $X'_i$ is not of one of the above types.
     \end{itemize}
 \end{theorem}
 
@@ -215,10 +235,10 @@ This theorem allows us to classify finitely presented groups which act `nicely' 
 
 The next theorem tells us what happens in the slightly more general case of groups acting freely on $\mathbb{R}$-trees.
 \begin{definition}
-    A group $G$ is a \textnormal{closed surface group} if it is the fundamental group of a closed surface. For example the groups in case (1) of the previous theorem are closed surface groups.
+    A group $G$ is a \emph{closed surface group} if it is the fundamental group of a closed surface. For example the groups in case (1) of the previous theorem are closed surface groups.
 \end{definition}
 \begin{definition}
-    A group $G$ is \textnormal{freely indecomposable} if it is nontrivial and cannot be expressed as a free product of nontrivial groups.
+    A group $G$ is \emph{freely indecomposable} if it is nontrivial and cannot be expressed as a free product of nontrivial groups.
 \end{definition}
 
 \begin{theorem}
@@ -252,10 +272,10 @@ Now that we have a good understanding of groups which act (freely) on $\mathbb{R
 $\mathbb{R}$-trees are also instrumental in the study of Culler and Vogtmann's \textit{Outer Space}. We will give a brief overview of this subject. For more detail see section 2 of \cite{Shalen}.
 
 \begin{definition}
-    The action of a group $G$ on an $\mathbb{R}$-tree is \textnormal{polyhedral} if it is topologically equivalent to a simplicial action.
+    The action of a group $G$ on an $\mathbb{R}$-tree is \emph{polyhedral} if it is topologically equivalent to a simplicial action.
 \end{definition}
 \begin{definition}
-    For a group acting by isometries on an $\mathbb{R}$-tree, the function $l:G\rightarrow\mathbb{R}$ given by $l(g)=\lVert g\rVert$ is called the \textnormal{length function} associated to the action.
+    For a group acting by isometries on an $\mathbb{R}$-tree, the function $l:G\rightarrow\mathbb{R}$ given by $l(g)=\lVert g\rVert$ is called the \emph{length function} associated to the action.
 \end{definition}
 
 Let $\mathcal{L}(G)$ denote the set of all length functions for non-trivial actions of $G$ on $\mathbb{R}$-trees. Quotienting out by the obvious action of $\mathbb{R}$ gives the space $\mathcal{PL}(G)$ of \textit{projectivised length functions}. Let $F_n$ be the free group on $n$ generators, and $Y_n\subseteq \mathcal{PL}(F_n)$ the set of projectivised length functions defined by polyhedral actions. The space $Y_n$ is known as \textit{outer space}, as it admits a `nice' action of Out$(F_n)$. 
@@ -265,7 +285,7 @@ There is a theorem in Bass-Serre theory which states that a group is free if and
 
 We finish with another application to hyperbolic groups.
 \begin{definition}
-    A topological space $X$ is \textnormal{locally connected} at $x\in X$ if every open neighbourhood of $x$ contains a connected open neighbourhood of $x$. $X$ is locally connected if it is locally connected at all of its points.
+    A topological space $X$ is \emph{locally connected} at $x\in X$ if every open neighbourhood of $x$ contains a connected open neighbourhood of $x$. $X$ is locally connected if it is locally connected at all of its points.
 \end{definition}
 Note first that neither connected nor locally connected implies the other: the union of two disjoint intervals in $\mathbb{R}$ is locally connected but not connected, whereas the graph of $\sin(\frac{1}{x})$ is connected but not locally connected.
 
