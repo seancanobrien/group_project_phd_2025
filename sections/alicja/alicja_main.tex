@@ -25,6 +25,7 @@ Before we proceed, we should mention that examples of Hopfian groups include:
     \item simple groups;
     \item $(\mathbb{Q},+)$;
     \item finitely generated residually finite groups (by the theorem of Mal'cev), where we say that $G$ is residualy finite if for each $g \neq 1_G$ in $G$, there exists a finite group $F$ and a group homomorphism $\phi: G \to F$ such that $\phi(g) \neq 1_F$.
+    \todo{I was under the impression that Mal'cev's theorem was that linear groups are res. finite, and that res finite implies hopfian was `classical'}
     \item finitely generated free groups.
 \end{enumerate}
 
@@ -45,7 +46,7 @@ In this subsection we will follow the definitions and conventions from \cite[pag
 \end{definition}
 
 \begin{remark}
-    If $A$ is an abstract group isomorphic to both $A_1$, $A_2$, then instead of $G \ast _\phi$ we may write $G \ast _A$. We refer to $G \ast _A$ as a 'HNN extension of $G$ over $A$'.
+    If $A$ is an abstract group isomorphic to both $A_1$, $A_2$, then instead of $G \ast _\phi$ we may write $G \ast _A$. We refer to $G \ast _A$ as a `HNN extension of $G$ over $A$'.
 \end{remark}
 
 \begin{example}\label{BS as HNN}
@@ -100,16 +101,18 @@ Departing from being Hopfian, it is important to mention that groups $BS(1,n)$ a
 \subsection{Graphs of groups and $G$-trees}
 
 For the discussion in this subsection we will follow \cite[chapter I]{Ser80}.
-
+\todo{maybe graphs are a good thing to define in the introduction. Also some basic category definitions.}
 \begin{definition}
     A \emph{graph} $\Gamma$ consists of 
     \begin{itemize}
         \item a set $X = \:vert\:\Gamma$,
+        \todo{we should maybe agree on edge/vertex notation, i use $E(\Gamma)$ and $V(\Gamma)$}
         \item a set $Y = \:edge\:\Gamma$,
         \item $Y \to  X \times X$ with $ y \mapsto (o(y), t(y))$, and 
         \item $Y \to Y$ with $y \mapsto \overline{y}$
     \end{itemize}
      which satisfy the following condition: for each $y \in Y$ we have $\overline{\overline{y}} = y$, $\overline{y} \neq y$ and $o(y) = t(\overline{y})$.
+     \todo{we should agree on initial and terminal notation, i use $i(vertex)$ and $t(vertex)$}
 \end{definition}
 
 We call elements of $X$ \emph{vertices}, and elements of $Y$ \emph{(oriented) edges}. Given $y \in Y$, the edge $\overline{y}$ is said to be the \emph{inverse edge}. Note, that we can define a morphism of graphs by mapping vertices to vertices, and mapping an edge between two vertices to an edge between their images.
@@ -241,13 +244,15 @@ We have discussed the graph with fundamental group $BS(m,n)$, as well as, the tr
 
 \subsection{Generalised Baumslag-Solitar (GBS) groups}
 
-In the previous section we saw the connections certain trees and graphs of groups. It should then come as no surprise that we can define our group in terms of one or the other. Depending on what properties of $GBS$ groups one wants to explore, one of the following definitions might be preferable.
+\todo{fix sentence}
+In the previous section we saw the connections certain trees and graphs of groups. It should then come as no surprise that we can define our group in terms of one or the other. 
+Depending on what properties of $GBS$ groups one wants to explore, one of the following definitions might be preferable.
 
-\begin{definition}\cite{For03}
+\begin{definition}[\cite{For03}]
     A \emph{generalised Baumslag-Solitar tree} is a $G$-tree whose vertex and edge stabilisers are all infinite cyclic. The groups $G$ that arise this way are called \emph{generalised Baumslag-Solitar groups}.
 \end{definition}
 
-\begin{definition}\cite{Le07}\label{GBSgofg}
+\begin{definition}[\cite{Le07}]\label{GBSgofg}
     A \emph{generalised Baumslag-Solitar group} $G$ is the fundamental group of a finite graph of groups $\Gamma$ whose vertex and edge groups are all infinite cyclic.
 \end{definition}
 
@@ -316,7 +321,7 @@ Firstly let us remark on JSJ decompositions and then we will proceed to state so
     As shown in \cite[Proposition 24]{Ser80} if $\gamma$ is hyperbolic, then there is a $\gamma$-invariant path (or line) in $T$, on which $\gamma$ acts by translation. We call this path an \emph{axis} of $\gamma$.
 \end{remark}
 
-\begin{lemma} (\cite[2.5]{For03}, \cite[2.1]{Le07} combined)\label{ellipticcomm}
+\begin{lemma}[{\cite[2.5]{For03}, \cite[2.1]{Le07} combined}]\label{ellipticcomm}
     Let $T$ be a $G$-tree. If $\gamma \in G$ is hyperbolic then $Comm(\gamma)$ stabilises its axis. If additionally $T$ is a $GBS$ tree with $G$ non-elementary, then any two nontrivial elliptic elements $\gamma,\delta$ are commensurable, and the commensurator for an elliptic element $\gamma$ is the whole of $G$.
 \end{lemma}
 
@@ -393,7 +398,7 @@ In the sketch below we will be following an outline that was provided in \cite{W
         \item Due to the construction, the warping function depends on height change between vertices. Said height change can be seen as quantitative analogue of orientation.
         \item The classification of graphs of $\Z$s reduces to classifying coarsely oriented trees. This is by showing that being given a quasi-isometry between the graphs there is a quasi-isoetry coarsely respecting orientation between trees, and vice versa when given a coarsely orientation preserving quasi-isometry between Bass-Serre trees.
         \item Due to caring about coarsely orientation preserving quasi-isometries, we can consider a special type of trees and develop their classification.
-        \item The final quasi-isometries are by considering lines of "constant slope" and building quasi-isometries line by line
+        \item The final quasi-isometries are by considering lines of ``constant slope'' and building quasi-isometries line by line
     \end{itemize}
 The above are sufficient to classify graphs of $\Z$s up to quasi-isometry.
 \end{proof}

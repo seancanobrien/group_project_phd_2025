@@ -37,6 +37,10 @@ To see this, we will use the following diagram.
 		G_\sigma \ar[r, "\phi_c"] \ar[rr, bend left, "\phi_{bc}"] & G_\tau \ar[r, "\phi_b"] \ar[rr, bend right, "\phi_{ab}"'] & G_\mu \ar[r, "\phi_a"] & G_\nu
 	\end{tikzcd}
 	.\]
+Note that $\ad(g)$ commutes with any homomorphism $f$ in the following way
+\[
+f\ad(g) = \ad(f(g))f
+.\]
 We could compose $\phi_a\phi_b\phi_c$ as $(\phi_a\phi_b)\phi_c$ or $\phi_a(\phi_b\phi_c)$.
 Applying compatibility condition (1), the first composition is $(\ad(g_{a,b})\phi_{ab})\phi_c$ we then apply (1) again to get
 \[
@@ -323,6 +327,7 @@ In this way, the following definition is a specific case of \cref{def:morhpism_o
 	\label{def:morphism_of_complex_of_groups_to_group}
 \end{definition}
 
+\todo{some explanatory text here}
 \begin{theorem}[\hspace{1sp}{\cite[Chapter 3.\textrm{\ensuremath{\calc}}, Corollary 2.15]{BrHa11}}]
 	A complex of groups $\calg$ is developable if and only if there exists a group $G$ and a morphism $\psi \colon \calg \to G$ where each $\psi_\sigma \colon G_\sigma \to G$ is injective.
 \end{theorem}
