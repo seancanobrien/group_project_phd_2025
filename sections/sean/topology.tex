@@ -38,6 +38,10 @@ We now define a category whose topology (via the geometric realisation) encodes 
 Compatibility condition (2) in \cref{def:complex_of_groups} guarantees associativity of this composition in  $C\calg$.
 We can apply the construction of the geometric realisation of a scwol in \cref{def:geometric_realisation_of_scwol} to any category $\calc$.
 The only modification is that we consider non-identity endomorphisms in our composable tuples (which did not exist in the case of scwols).
+
+\begin{definition}
+	Given a complex of groups $\calg$, we define the \emph{classifying space} of  $\calg$ to be  $\abs{C\calg}$.
+\end{definition}
 For example, if we take $\calg$ to be the complex of groups of a group  $G$ over the trivial scwol, then the 2-skeleton of $\abs{C\calg}$  is the presentation complex of $G$ with generating set $G$.
 
 Let $G \sqcup H$ denote the free product of the groups $G$ and $H$.
@@ -122,7 +126,7 @@ Thus, to record an edge path in $F\calg$ up to homotopy, we should record exactl
 	\[
 		p = (g_0, e_1, g_1, \ldots ,e_n, g_n)
 	\]
-	where each $e_i \in E^\pm(\calx)$, $i(e_1) = \sigma$, $t(e_n)=\tau$, $g_0 \in \G_\sigma$, and each $g_i \in G_{t(e_i)}$ for  $i \neq 0$.
+	where each $e_i \in E^\pm(\calx)$, $i(e_1) = \sigma$, $t(e_n)=\tau$, $g_0 \in G_\sigma$, and each $g_i \in G_{t(e_i)}$ for  $i \neq 0$.
 	If $\sigma=\tau$, then this is a \emph{ $\calg$ loop} at  $\sigma$.
 	\label{def:paths_in_complexes_of_groups}
 \end{definition}
@@ -138,4 +142,12 @@ There is a projection $\pi$ from $\calg$ paths to $F\calg$ that acts as
 Two $\calg$ paths  $p$ and $q$ are defined to be homotopic if $\pi(p) = \pi(q)$ in $F\calg$.
 The fundamental group $\pi_1(\calg, \sigma_0)$ of $\calg$ at $\sigma_0$ is defined to be $\calg$ loops at  $\sigma_0$ up to homotopy, with concatenation as the group operation.
 In Haefliger's work, he \emph{defines} paths and homotopy in $\calg$ as in \cref{def:edge_path_in_scwol}.
-Although he does not make any explicit comparison to homotopy in $\abs{C\calg}$, by the discussion above, this correspondence is clear.
+The fact that this is encodes the usual notion of homotopy in the classifying space for $\calg$, is briefly mentioned in \cite[Section 3.1.a]{haefliger_complexes_1991}.
+Hopefully by the preceding discussion, the reason for this correspondence is clear.
+\begin{theorem}[\hspace{1sp}{\cite[Proposition 3.2]{haefliger_complexes_1991}}]
+	Given a complex of groups $\calg$ over a connected scwol  $\calx$, let $T$ be a spanning tree of  $\calx$.
+	The fundamental group  $\pi_1(\calg, \sigma_0)$ is isomorphic to $F\calg$ quotiented by the relations  $R_T$ where
+	\[
+		R_T = \Set{a^+ = 1 \given a \text{ is an edge in } T}
+		.\]
+\end{theorem}
