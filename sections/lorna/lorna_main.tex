@@ -2,7 +2,7 @@
 \label{sec:groups_acting_on_R_trees}
 \todo[color=green!40]{Hello Lorna, Talia here! I fixed a few tiny typos and punctuation things. For anything bigger, I will add comments in boxes. Take a look when you have a chance, and feel totally free to ignore any of my suggestions!}
 
-In this section we will discuss a class metric spaces called $\mathbb{R}$-trees, which admit interesting group actions. These actions arise in proofs across the field of geometric group theory, in areas from hyperbolic groups to \textcolor{red}{something else??}. We will give an introduction to these spaces and the groups which act on them, followed by an overview of some of their applications. We also aim to highlight different ways in which Bass-Serre theory fails for $\mathbb{R}$-trees. Much of this section follows \cite{Bestvina_trees}.
+In this section we will discuss a class metric spaces called $\mathbb{R}$-trees, which admit interesting group actions. These actions arise in proofs across the field of geometric group theory, in areas from hyperbolic groups to Culler-Vogtmann Outer Space. We will give an introduction to these spaces and the groups which act on them, followed by an overview of some of their applications. We also aim to highlight different ways in which Bass-Serre theory fails for $\mathbb{R}$-trees. Much of this section follows \cite{Bestvina_trees}.
 \subsection{Definition and Basic Examples}
 \begin{definition}
     A metric space $(X,d)$ is an \emph{$\mathbb{R}$-tree} if for every pair of points $x,y\in X$ there is a unique geodesic from $x$ to $y$.
@@ -214,7 +214,7 @@ The Rips Machine starts by repeatedly applying these moves to transform a connec
     \end{itemize}
 \end{theorem}
 
-This theorem allows us to classify finitely presented groups which act `nicely' on $\mathbb{R}$-trees.
+This theorem allows us to classify finitely presented groups which act `nicely' on $\mathbb{R}$-trees. Splittings of groups are defined in Section 4 (\textcolor{red}{?}).
 \begin{theorem}\label{rtreesclassification}
     Let $G$ be a finitely generated torsion-free group acting non-trivially by isometries on an $\mathbb{R}$-tree $T$. Suppose also that all arc stabilizers are trivial. Then one of the following holds:
     \begin{enumerate}
@@ -261,8 +261,9 @@ Finally, we see the case of stable actions. The proof of the following theorem c
 \end{theorem}
 
 \subsection{Applications of $\mathbb{R}$-Trees}
-Now that we have a good understanding of groups which act (freely) on $\mathbb{R}$-trees, we can use this to understand any group which can be shown to act in this way. In this section we will discuss some of these applications, starting with some to hyperbolic groups.
-
+Now that we have a good understanding of groups which act (freely) on $\mathbb{R}$-trees, we can use this to understand any group which can be shown to act in this way. In this section we will discuss some of these applications, starting with some to hyperbolic groups. There will be no full proofs here, just an idea of how $\mathbb{R}$-trees are used in each case, and directions to the whole proof.
+\subsubsection{} 
+In \cite{Bestvina_trees}, Bestvina describes a number of ways in which $\mathbb{R}$-trees are used to study automorphisms of hyperbolic groups. Amongst them are the following theorems.
 \begin{theorem}
     Let $G$ be a hyperbolic group such that Out$(G)$ is infinite. Then $G$ splits over a virtually cyclic subgroup.
 \end{theorem}
@@ -271,6 +272,14 @@ Now that we have a good understanding of groups which act (freely) on $\mathbb{R
     Since Out$(G)$ is infinite, we can find an infinite sequence of pairwise non-conjugate automorphisms $f_i$. Define an action $\rho_i$ of $G$ on its Cayley graph by $\rho_i(g)=f_i(g)$. \todo[color=green!40]{Perhaps you could add ``As the \(f_i\) are automorphisms,\dots,'' or something which justifies why it is easily seen.}It is easily seen that this is an action by isometries. Theorem \ref{limittrees} can then be used to show that there is a limit $\mathbb{R}$-tree on which $G$ acts by isometries. It can then be shown that this action is stable, and the theorem follows by Theorem \ref{stable}. See \cite{BridsonSwarup} for a more detailed proof.
 \end{proof}
 
+\begin{theorem}
+    Let $G$ be a torsion-free, freely indecomposable hyperbolic group. Then Inn$(G)$ has finite index in Aut$(G)$.
+\end{theorem}
+\begin{proof}
+    (sketch) Let $S=\{s_1,...,s_n\}$ be a generating set for $G$, and let $S^{-1}=\{s_1^{-1},...,s_n^{-1}\}$ for each $f\in \text{Aut}(G)$ define \[d(f)=\max_{S\cup S^{-1}}\lvert f(s_i)\rvert\] where $\lvert \ \rvert$
+\end{proof}
+
+\subsubsection{}
 $\mathbb{R}$-trees are also instrumental in the study of Culler and Vogtmann's \textit{Outer Space}. We will give a brief overview of this subject. For more detail see section 2 of \cite{Shalen}.
 
 \begin{definition}
@@ -284,18 +293,29 @@ Let $\mathcal{L}(G)$ denote the set of all length functions for non-trivial acti
 
 There is a theorem in Bass-Serre theory which states that a group is free if and only if it acts freely on a simplicial tree. The theory of outer space can be used to study free actions of free groups on $\mathbb{R}$-trees. In the $n=2$ case, it has been shown that the only free actions of $F_2$ on $\mathbb{R}$-trees are polyhedral, i.e. their length functions are in $Y_2$. For every $n\geq 3$ however, one can show that the set $\bar{Y}_n\backslash Y_n$ (where $\bar{Y}_n$ denotes the closure of $Y_n$ in $\mathcal{PL}(F_n)$) contains free actions. Therefore there are free actions of $F_n$ on $\mathbb{R}$-trees which are not polyhedral, sometimes referred to as \textit{exotic} actions. This demonstrates another key difference between simplicial trees and the slightly more general class of $\mathbb{R}$-trees.
 
-
-We finish with another application to hyperbolic groups.
+\subsubsection{}
+We finish with another application to hyperbolic groups, and a return to the discussion of ends of groups from Section 4. (\textcolor{red}{?})
 \begin{definition}
     A topological space $X$ is \emph{locally connected} at $x\in X$ if every open neighbourhood of $x$ contains a connected open neighbourhood of $x$. $X$ is locally connected if it is locally connected at all of its points.
 \end{definition}
 Note first that neither connected nor locally connected implies the other: the union of two disjoint intervals in $\mathbb{R}$ is locally connected but not connected, whereas the graph of $\sin(\frac{1}{x})$ is connected but not locally connected.
 
+The proof of this theorem (the part that uses $\mathbb{R}$-trees) can be found in \cite{Swarup}.
 \begin{theorem}
     Let $G$ be a hyperbolic group. Then if $G$ has one end, its Gromov boundary $\partial G$ is connected and locally connected.
 \end{theorem}
 
-The proof of this can be found in \textcolor{red}{???}. See the next section for more about ends of groups.\todo[color=green!40]{I think in the new order, your section will be the final one so just remember to take this out! Will go over the maths more carefully next week and leave some small comments hopefully on Monday.}
+\begin{proof}
+    (sketch) The proof that $\partial G$ is connected does not use $\mathbb{R}$-trees. Nor does that of the fact that if $\partial G$ contains no cut points, it is locally-connected. However, $\mathbb{R}$-trees are used to show that $\partial G$ never contains cut points. Note that here we mean cut points in the topological sense (points which, when removed, disconnect the space), not in the sense of Section 4. (\textcolor{red}{?})
+    
+    The proof is by contradiction. Supposing that $\partial G$ has a cut point, the action of $G$ on its boundary is used to construct an $\mathbb{R}$-tree on which $G$ acts with trivial arc stabilisers. Theorem \ref{stable} can then be used to conclude that $G$ splits over a 2-ended group. An inductive argument on the resulting graph of groups decomposition of $G$ and a result concerning the `complexity' of such a decomposition are then used to derive the contradiction.
+\end{proof}
+
+
+
+
+
+%See the next section for more about ends of groups.\todo[color=green!40]{I think in the new order, your section will be the final one so just remember to take this out! Will go over the maths more carefully next week and leave some small comments hopefully on Monday.}
 
 
 
