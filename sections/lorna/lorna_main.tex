@@ -204,7 +204,7 @@ Firstly, there are six moves $M0-M5$ on a band complex $X$ (based on a union of 
 
 The Rips Machine starts by repeatedly applying these moves to transform a connected component of a band complex $X$ into a minimal form. It then applies an infinite sequence of two `processes', and depending on which sequence is applied, information about the group can be determined. The following is Theorem 5.1 in \cite{Bestvina_trees}:
 
-\begin{theorem}
+\begin{theorem}\label{rips}
     \textbf{Rips' theorem:} Let $G$ be a finitely generated torsion free group acting by isometries on an $\mathbb{R}$-tree $T$. Then applying the Rips Machine to a resolving band complex $X$ for the action, a band complex $X'$ is obtained which can be split into disjoint components $X'_i$ such that each $X'_i$ is of one of the following types:
     \begin{itemize}
         \item \emph{Simplicial} - Every leaf of the underlying union of bands of $X'_i$ is compact,
@@ -264,7 +264,7 @@ Finally, we see the case of stable actions. The proof of the following theorem c
 Now that we have a good understanding of groups which act (freely) on $\mathbb{R}$-trees, we can use this to understand any group which can be shown to act in this way. In this section we will discuss some of these applications, starting with some to hyperbolic groups. There will be no full proofs here, just an idea of how $\mathbb{R}$-trees are used in each case, and directions to the whole proof.
 \subsubsection{} 
 In \cite{Bestvina_trees}, Bestvina describes a number of ways in which $\mathbb{R}$-trees are used to study automorphisms of hyperbolic groups. Amongst them are the following theorems.
-\begin{theorem}
+\begin{theorem}\label{hyperbolic_outer}
     Let $G$ be a hyperbolic group such that Out$(G)$ is infinite. Then $G$ splits over a virtually cyclic subgroup.
 \end{theorem}
 
@@ -276,7 +276,7 @@ In \cite{Bestvina_trees}, Bestvina describes a number of ways in which $\mathbb{
     Let $G$ be a torsion-free, freely indecomposable hyperbolic group. Then Inn$(G)$ has finite index in Aut$(G)$.
 \end{theorem}
 \begin{proof}
-    (sketch) Let $S=\{s_1,...,s_n\}$ be a generating set for $G$, and let $S^{-1}=\{s_1^{-1},...,s_n^{-1}\}$ for each $f\in \text{Aut}(G)$ define \[d(f)=\max_{S\cup S^{-1}}\lvert f(s_i)\rvert\] where $\lvert \ \rvert$
+    (sketch) Let $S=\{s_1,...,s_n\}$ be a generating set for $G$, and let $S^{-1}=\{s_1^{-1},...,s_n^{-1}\}$ for each $f\in \text{Aut}(G)$ define \[d(f)=\max_{S\cup S^{-1}}\lvert f(s_i)\rvert\] where $\lvert \cdot \rvert$ denotes word length. Choose as a coset representative for each coset of Inn$(G)$ in Aut$(G)$ an element $f$ with minimal $d(f)$, and suppose for a contradiction that there are infinitely many cosets. Then there is an infinite sequence $f_1,f_2,...$ of distinct such coset representatives. As in the proof of Theorem \ref{hyperbolic_outer}, the actions $\rho_i$ associated to the $f_i$ are used to construct a limit $\mathbb{R}$-tree. A resolving band complex $X$ for the limit action can be constructed and Theorem \ref{rips} applied. It can be shown (using the assumed properties of $G$) that all the components of $X$ must be of simplicial or surface type. In both of these cases, Rips and Sela describe a way to find coset representatives with smaller $d$-values than the $f_i$, thus reaching the desired contradiction.
 \end{proof}
 
 \subsubsection{}
