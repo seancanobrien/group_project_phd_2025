@@ -43,10 +43,22 @@
 
 % Talia's packages
 \usepackage{comment}
-\usepackage{stackengine} % I didn't end up using this one
-\stackMath
+\usepackage{overpic}
 \usepackage{multicol}
 \usepackage{nccmath}
+\usetikzlibrary{lindenmayersystems, shapes.geometric, graphs}
+\pgfdeclarelindenmayersystem{cayley}{
+  \rule{F -> F [ R [F] [+F] [-F] ]}
+  \symbol{R}{
+    \pgflsystemstep=0.5\pgflsystemstep
+  } 
+}
+\makeatletter
+\newcommand{\altqedhere}{%
+  \ifmeasuring@\else\sbox0{\popQED}\fi
+  \tag*{\qedsymbol}%
+}
+\makeatother
 
 % ----- Custom maths macros ----------------------------------------------------
 \usepackage{sty/my_macros}
@@ -86,6 +98,7 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{construction}[theorem]{Construction}
 \newtheorem{aside}[theorem]{Aside}  %Talia added this
+\newtheorem{caveat}[theorem]{Caveat}  %Talia added this
 
 \newtheorem*{sproof}{Sketch of proof}
 

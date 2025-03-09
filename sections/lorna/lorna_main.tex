@@ -1,4 +1,5 @@
 \section{Groups acting on $\mathbb{R}$-Trees}
+\todo[color=green!40]{Hello Lorna, Talia here! I fixed a few tiny typos and punctuation things. For anything bigger, I will add comments in boxes. Take a look when you have a chance, and feel totally free to ignore any of my suggestions!}
 
 In this section we will discuss a class metric spaces called $\mathbb{R}$-trees, which admit interesting group actions. These actions arise in proofs across the field of geometric group theory, in areas from hyperbolic groups to \textcolor{red}{something else??}. We will give an introduction to these spaces and the groups which act on them, followed by an overview of some of their applications. We also aim to highlight different ways in which Bass-Serre theory fails for $\mathbb{R}$-trees. Much of this section follows \cite{Bestvina_trees}.
 \subsection{Definition and Basic Examples}
@@ -23,7 +24,7 @@ We now give some simple examples of $\mathbb{R}$-trees.
 \end{example}
 
 \begin{example}\label{xtrains}
-    We can define a similar metric on $\mathbb{R}^2$ to that given in Example \ref{Paris} above by treating the $x$-axis and every vertical line as our train lines. Now the geodesic between two points must go \textit{via.} the $x$-axis. Note that there is no underlying simplicial graph for this $\mathbb{R}$-tree, so in particular we have shown that $\mathbb{R}$-trees are slightly more general than simplicial trees with metrics.
+    We can define a similar metric on $\mathbb{R}^2$ to that given in Example \ref{Paris} above by treating the $x$-axis and every vertical line as our train lines. Now the geodesic between two points must go \todo[color=green!40]{Changed this to a non-breaking space using \(\sim\) in LaTeX. Nice examples!}\textit{via.}~the $x$-axis. Note that there is no underlying simplicial graph for this $\mathbb{R}$-tree, so in particular we have shown that $\mathbb{R}$-trees are slightly more general than simplicial trees with metrics.
 \end{example}
 
 \subsection{Group Actions}
@@ -53,7 +54,7 @@ The proof of the following follows the same argument as the proof outline given 
 \begin{proof}
     In the elliptic case, $g$ clearly fixes $C_g$. We will show later that in this case $G_g$ is non-empty, (i.e. $g$ has a fixed point). Since $g$ is an isometry, if it fixes two points $x$ and $y\in T$, it must also fix the unique geodesic between them, so $C_g$ is connected. Similarly, if it fixes every point on a geodesic it must also fix the endpoints. Hence $C_g$ is a closed subtree as required.
 
-    Now suppose $g$ is hyperbolic. In particular it has no fixed points. Consider a point $x\in T$. There is a unique arc $\alpha$ from $x$ to $g(x)$, with subarcs $\alpha \cap g(\alpha)$ and $\alpha \cap g^{-1}(\alpha)$. Let $m$ be the midpoint of $\alpha$ and suppose that $m\in \alpha \cap g(\alpha)$. Then $g(m)$ is a point in $\alpha$ which is $\frac{\ell(\alpha)}{2}$ away from $g(x)$, so we have $g(m)=m$, a contradiction to the hyperbolicity of $g$. A similar argument gives $m\notin \alpha \cap g^{-1}(\alpha)$. Denote by $\beta$, the subarc of $\alpha$ connecting $g(\alpha)$ to $g^{-1}(\alpha)$. Since in particular $m\in \beta$, we know that $\beta$ has positive length. If a point $p$ has $p\in \beta \cap g(\beta)$, $p$ must be an endpoint of $\beta$, since \[\beta\cap g(\beta)\subseteq\alpha\cap g(\alpha)\subseteq g(\alpha)\] and $\beta\cap g(\alpha)$ is a single point. Similarly the only point where $\beta$ meets $g^{-1}(\beta)$ is at its other endpoint. Repeating this argument inductively shows that \[C=\underset{n\in\mathbb{Z}}{\bigcup}g^n(\beta)\] is an arc in $T$ which is isometric to $\mathbb{R}$. In particular this is a closed subtree, and $g$ acts on it by translation by $\ell(\beta)$, so it is also invariant under the action of $g$. To show that $C=C_g$, note that for any point $y\in T$, $y$ has a closest point in $C$, denoted $c$. We have $d(y,c)=d(g(y),g(c))$ (so $g$ is 'moved along' $C$ by the same amount as $c$), which implies that \[d(y,g(y))=d(y,c)+\ell(\beta)+d(g(c),g(y))=\ell(\beta)+2d(y,C).\] This means that $C=C_g$ and $\lVert g\rVert=\ell(\beta)$.
+    Now suppose $g$ is hyperbolic. In particular it has no fixed points. Consider a point $x\in T$. There is a unique arc $\alpha$ from $x$ to $g(x)$, with subarcs $\alpha \cap g(\alpha)$ and $\alpha \cap g^{-1}(\alpha)$. Let $m$ be the midpoint of $\alpha$ and suppose that $m\in \alpha \cap g(\alpha)$. Then $g(m)$ is a point in $\alpha$ which is $\frac{\ell(\alpha)}{2}$ away from $g(x)$, so we have $g(m)=m$, a contradiction to the hyperbolicity of $g$. A similar argument gives $m\notin \alpha \cap g^{-1}(\alpha)$. Denote by $\beta$, the subarc of $\alpha$ connecting $g(\alpha)$ to $g^{-1}(\alpha)$. Since in particular $m\in \beta$, we know that $\beta$ has positive length. If a point $p$ has $p\in \beta \cap g(\beta)$, $p$ must be an endpoint of $\beta$, since \[\beta\cap g(\beta)\subseteq\alpha\cap g(\alpha)\subseteq g(\alpha)\] and $\beta\cap g(\alpha)$ is a single point. Similarly the only point where $\beta$ meets $g^{-1}(\beta)$ is at its other endpoint. Repeating this argument inductively shows that \[C=\underset{n\in\mathbb{Z}}{\bigcup}g^n(\beta)\] is an arc in $T$ which is isometric to $\mathbb{R}$. In particular this is a closed subtree, and $g$ acts on it by translation by $\ell(\beta)$, so it is also invariant under the action of $g$. To show that $C=C_g$, note that for any point $y\in T$, $y$ has a closest point in $C$, denoted $c$. We have $d(y,c)=d(g(y),g(c))$ (so $g$ is `moved along' \todo[color=green!40]{Fixed the apostrophe (both were right-handed).} $C$ by the same amount as $c$), which implies that \[d(y,g(y))=d(y,c)+\ell(\beta)+d(g(c),g(y))=\ell(\beta)+2d(y,C).\] This means that $C=C_g$ and $\lVert g\rVert=\ell(\beta)$.
 
     Finally, since we have shown that if $g$ has no fixed points in $T$, then $\lVert g\rVert>0$, we can say that an elliptic element necessarily has a fixed point, and so $C_g$ is also non-empty in that case.
 \end{proof}
@@ -84,7 +85,7 @@ An important example of when $\mathbb{R}$-trees arise is as limits of hyperbolic
 \end{definition}
 
 \begin{theorem}\label{limittrees}
-    Let $X_i$ be a sequence of compact metric spaces such that $X_i\rightarrow X$ in the Hausdorff-Gromov metric.
+    Let $X_i$ be a sequence of compact metric spaces such that $X_i\rightarrow X$ in the Hausdorff--Gromov\todo[color=green!40]{Changed the hyphen to an en-dash using --.} metric.
     \begin{enumerate}
         \item If every $X_i$ is a geodesic metric space then so is $X$,
         \item If $X_i$ is $\delta_i$-hyperbolic for each $i$, and $\delta_i\rightarrow 0$, then $X$ is an $\mathbb{R}$-tree. 
@@ -108,7 +109,7 @@ Actions of groups on $\mathbb{R}-trees$ are usually studied through band complex
 
 We start with a series of definitions.
 \begin{definition}
-    A \emph{band} is a space $B=b\times I$ where $b$ is a closed interval. A band is equipped with a \emph{dual map} $\delta_B$ which is the reflection of $B$ in the line $(b,\frac{1}{2})$. $b$ and $\delta_B(b)$ are called \emph{bases} of $B$, and a subset of the form $\{x\}\times I$ is called a \emph{vertical fibre}. See Figure \ref{band}.
+    A \emph{band} is a space $B=b\times I$ where $b$ is a closed interval. A band is equipped with a \emph{dual map} $\delta_B$ which is the reflection of $B$ in the line $(b,\frac{1}{2})$. \todo[color=green!40]{Perhaps add a word or two here so the sentence doesn't start with maths.}$b$ and $\delta_B(b)$ are called \emph{bases} of $B$, and a subset of the form $\{x\}\times I$ is called a \emph{vertical fibre}. See Figure \ref{band}.
 \end{definition}
 
 \begin{figure}[h]
@@ -228,12 +229,12 @@ This theorem allows us to classify finitely presented groups which act `nicely' 
 
     If $X'$ has a component $X'_i$ of toral type, either \[G=\pi_1(X'_i)=\pi_1(\mathbb{T}_2)=\mathbb{Z}\times\mathbb{Z}\] which is a free abelian group, or a free product decomposition can be obtained using the boundary of $X'_i$. So either possibility (2) or (3) holds. 
 
-    If $X'$ has a component $X'_i$ of thin type, it can be shown that the Rips Machine subdivides some band repeatedly into thinner and thinner bands. Some of these bands will eventually be disjoint from any of the 2-cells of $X'$. These bands are called \textit{naked bands} and induce free product decompositions of $\pi_1(X')$ \textcolor{red}{could give more detail here?}. Hence possibility (3) holds.
+    If $X'$ has a component $X'_i$ of thin type, it can be shown that the Rips Machine subdivides some band repeatedly into thinner and thinner bands. Some of these bands will eventually be disjoint from any of the 2-cells of $X'$. These bands are called \textit{naked bands} and induce free product decompositions of $\pi_1(X')$ \textcolor{red}{could give more detail here?}\todo[color=green!40]{I don't think it's needed!}. Hence possibility (3) holds.
 
     Finally, if $X'$ has a simplicial component $X'_i$, an $\mathbb{R}$-tree \textit{dual} to $X'_i$ can be constructed, on which $G$ acts. Bass-Serre theory can then be used to show that $G$ splits as a non-trivial free product.
 \end{proof}
 
-The next theorem tells us what happens in the slightly more general case of groups acting freely on $\mathbb{R}$-trees.
+The next theorem tells us what happens in the slightly more general case of groups acting freely on $\mathbb{R}$-trees. \todo[color=green!40]{I would either move this to directly before the theorem. The reader could expect a theorem immediately ahead and be confused to see a definition!}
 \begin{definition}
     A group $G$ is a \emph{closed surface group} if it is the fundamental group of a closed surface. For example the groups in case (1) of the previous theorem are closed surface groups.
 \end{definition}
@@ -266,7 +267,7 @@ Now that we have a good understanding of groups which act (freely) on $\mathbb{R
 \end{theorem}
 
 \begin{proof} (sketch)
-    Since Out$(G)$ is infinite, we can find an infinite sequence of pairwise non-conjugate automorphisms $f_i$. Define an action $\rho_i$ of $G$ on its Cayley graph by $\rho_i(g)=f_i(g)$. It is easily seen that this is an action by isometries. Theorem \ref{limittrees} can then be used to show that there is a limit $\mathbb{R}$-tree on which $G$ acts by isometries. It can then be shown that this action is stable, and the theorem follows by Theorem \ref{stable}. See \cite{BridsonSwarup} for a more detailed proof.
+    Since Out$(G)$ is infinite, we can find an infinite sequence of pairwise non-conjugate automorphisms $f_i$. Define an action $\rho_i$ of $G$ on its Cayley graph by $\rho_i(g)=f_i(g)$. \todo[color=green!40]{Perhaps you could add ``As the \(f_i\) are automorphisms,\dots,'' or something which justifies why it is easily seen.}It is easily seen that this is an action by isometries. Theorem \ref{limittrees} can then be used to show that there is a limit $\mathbb{R}$-tree on which $G$ acts by isometries. It can then be shown that this action is stable, and the theorem follows by Theorem \ref{stable}. See \cite{BridsonSwarup} for a more detailed proof.
 \end{proof}
 
 $\mathbb{R}$-trees are also instrumental in the study of Culler and Vogtmann's \textit{Outer Space}. We will give a brief overview of this subject. For more detail see section 2 of \cite{Shalen}.
@@ -293,7 +294,7 @@ Note first that neither connected nor locally connected implies the other: the u
     Let $G$ be a hyperbolic group. Then if $G$ has one end, its Gromov boundary $\partial G$ is connected and locally connected.
 \end{theorem}
 
-The proof of this can be found in \textcolor{red}{???}. See the next section for more about ends of groups.
+The proof of this can be found in \textcolor{red}{???}. See the next section for more about ends of groups.\todo[color=green!40]{I think in the new order, your section will be the final one so just remember to take this out! Will go over the maths more carefully next week and leave some small comments hopefully on Monday.}
 
 
 
