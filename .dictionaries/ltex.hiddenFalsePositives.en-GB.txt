@@ -6,3 +6,4 @@
 {"rule":"MORFOLOGIK_RULE_EN_GB","sentence":"^\\QFSC=[circle, draw=black!50,fill=black!20,thick, inner sep=0pt,minimum size=1.5mm] light=[black!22!white]\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QWe should check that a number of things make sense.\\E$"}
 {"rule":"QUESTION_MARK","sentence":"^\\QHad we chosen different representatives \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, the resulting subgroup \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q would be conjugate to \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"COLLECTIVE_NOUN_VERB_AGREEMENT_VBP","sentence":"^\\QIn this way, none of the homomorphisms in a graph of groups are composable, as shown in the following diagram.\\E$"}

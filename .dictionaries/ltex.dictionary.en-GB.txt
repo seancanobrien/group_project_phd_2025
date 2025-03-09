@@ -28,3 +28,7 @@ subscwol
 subpath
 quotiented
 homotopies
+developability
+Bass-Serre
+Baumslag-Solitar
+non-Hopfian

@@ -39,8 +39,8 @@ To see this, we will use the following diagram.
 	.\]
 Note that $\ad(g)$ commutes with any homomorphism $f$ in the following way
 \[
-f\ad(g) = \ad(f(g))f
-.\]
+	f\ad(g) = \ad(f(g))f
+	.\]
 We could compose $\phi_a\phi_b\phi_c$ as $(\phi_a\phi_b)\phi_c$ or $\phi_a(\phi_b\phi_c)$.
 Applying compatibility condition (1), the first composition is $(\ad(g_{a,b})\phi_{ab})\phi_c$ we then apply (1) again to get
 \[
@@ -326,9 +326,48 @@ In this way, the following definition is a specific case of \cref{def:morhpism_o
 	\end{enumerate}
 	\label{def:morphism_of_complex_of_groups_to_group}
 \end{definition}
+Suppose we have a complex of groups $\calg = (G_\sigma, \phi_a, g_{a,b})$, which emerges from a group  $G$ acting on a scwol.
+There is a natural morphism from $\calg$ to $G$ which is injective on the local groups  $G_\sigma$.
 
-\todo{some explanatory text here}
+Now, we explore a way in complexes of groups diverge significantly from graphs of groups.
+A graph of groups always arises from an action of a group on a tree, however, this is not the case here.
 \begin{theorem}[\hspace{1sp}{\cite[Chapter 3.\textrm{\ensuremath{\calc}}, Corollary 2.15]{BrHa11}}]
-	A complex of groups $\calg$ is developable if and only if there exists a group $G$ and a morphism $\psi \colon \calg \to G$ where each $\psi_\sigma \colon G_\sigma \to G$ is injective.
+	A complex of groups $\calg$ over the scwol $\calx$, is developable if and only if there exists a group $G$ and a morphism $\psi \colon \calg \to G$ where each $\psi_\sigma \colon G_\sigma \to G$ is injective.
 \end{theorem}
+\begin{proof}[Sketch of proof]
+	One direction of the proof is given by our remarks above.
+	The other direction is proven constructively.
+	Given any such morphism, we can construct a scwol, which we will denote $\caly_\psi$.
+	There will be a natural $G$ action on $\caly_\psi$, where $G \backslash \caly_\psi$ is canonically isomorphic to $\calx$.
+
+	The vertices and edges of $\caly_\psi$ are associated to cosets of the local groups under the morphism.
+	\begin{align*}
+		V(\caly_\psi) & = \Set{(g\psi_\sigma(G_\sigma), \sigma) \given \sigma \in V(\calx), \; g\psi_\sigma(G_\sigma) \in G / \psi_\sigma(G_\sigma)} \\
+		E(\caly_\psi) & = \Set{(g\psi_{i(a)}(G_{i(a)}), a) \given a \in E(\calx), \; g\psi_{i(a)}(G_{i(a)}) \in G / \psi_{i(a)}(G_{i(a)})}
+	\end{align*}
+	with initial and terminal vertices
+	\begin{align*}
+		i(g\psi_{i(a)}(G_{i(a)}), a) & = (g\psi_{i(a)}(G_{i(a)}), i(a))              \\
+		t(g\psi_{i(a)}(G_{i(a)}), a) & = (g\theta_a^{-1}\psi_{t(a)}(G_{t(a)}), t(a))
+		.\end{align*}
+	Composition is defined as
+	\begin{align*}
+		(g\psi_{i(a)}(G_{i(a)}), a)(h\psi_{i(b)}(G_{i(b)}), b) = (h\psi_{i(b)}(G_{i(b)}, ab)
+	\end{align*}
+	where $g,h \in G$ and $i(h\psi_{i(b)}(G_{i(b)}), b) = t(g\psi_{i(a)}(G_{i(a)}), a)$.
+	We should check that $\caly_\psi$ is well-defined as a scwol, but we omit these checks.
+
+	There is a natural action of $G$ on  $\caly_\psi$, where
+	\[
+		h \cdot (g\psi_{i(a)}(G_{i(a)}), a) = (hg\psi_{i(a)}(G_{i(a)}), a)
+	\]
+	and similarly with vertices.
+	Since this action acts transitively on the cosets, we get a natural isomorphism between $G \backslash \caly_\psi$ and  $\calx$.
+	Let $p \colon \caly_\psi \to \calx$ be this projection.
+	When constructing the complex of groups associated to this action, we need to make choices of representatives with respect to $p$.
+	We make the natural choice of $(1_\sigma G_\sigma, \sigma)$ for each $\sigma \in V(\calx)$.
+	The natural choice for each  $h_a$ is $\theta_a$.
+	Given these choices, A
+	\todo{finish this}
+\end{proof}
 
