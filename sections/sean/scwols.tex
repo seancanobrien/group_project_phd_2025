@@ -86,6 +86,7 @@ Posets, and the construction $\abs{P}$, give a combinatorial description of cert
 However, not all complexes can be realised by this construction.
 For example, consider $S^1$ realised as two edges connected at their ends.
 This limitation is linked to the following observation.
+\todo[color=olive]{Maybe you could make "Observation" an environment to make the first $\frac{2}{3}$ of following paragraph stand out more}
 
 All the information of a poset $P$ is encoded exactly by the following category $\calc$:
 The objects of  $\calc$ are the elements of  $P$, and there is a morphism  $x \to y$ in  $\calc$ exactly when  $x \leq y$ in $P$.
@@ -96,6 +97,8 @@ Bearing this in mind, with the aim of being able to construct $S^1$ in a combina
 	A small category without loops (abbreviated scwol), is a small category $\calx$ such that for all composable morphisms $x_1 \to x_2 \to \cdots \to x_n$, if $x_1=x_n$, then $x_1=x_i$ for all $i$, and each morphism is $\id_{x_1}$.
 	\label{def:scwol}
 \end{definition}
+
+\todo[color=olive]{Is it assumed that readers know what "small" means in the context of categories?}
 
 Note that this definition means that no two distinct objects are isomorphic.
 It also means that the only morphism $x \to x$ is $\id_x$.
@@ -124,6 +127,8 @@ We define the following maps, $\partial_i \colon E^{(n)}(\calx) \to E^{(n-1)}(\c
 	\partial_i(a_1,\ldots,a_n) & = (a_1, \ldots, a_ia_{i+1}, \ldots, a_n) \quad 1 \leq i < k \\
 	\partial_n(a_1,\ldots,a_n) & = (a_1, \ldots, a_{n-1})
 	.\end{align*}
+
+\todo[color=olive]{It seems like $\partial_i$ has too many coordinates as outputs -  shouldn't it be $(a_1, \ldots, a_{i-1},a_{i+1},\ldots,a_n$? Also, shouldn't $i$ be in range $1 \le i <n$?}    
 We define $\partial_0(a)=i(a)$, and $\partial_1(a)=t(a)$.
 We also define maps, $d_i \colon \Delta^{k-1} \to \Delta^k$ on simplices, where
 \[
@@ -169,6 +174,7 @@ Given a scwol $\calx$, the dimension of  $\calx $ is the dimension of $\abs{\cal
 	Any polygon can be realised as the geometric realisation of a scwol $\calx$ in the following way:
 	Consider the polygon as a polygonal complex.
 	Make a vertex for at the centre of each polygon in the complex.
+    \todo[color=olive]{What is "for" doing in this sentence?}
 	There is an edge from centres of polygons to centres of faces of that polygon.
 	The below picture shows the scwol from this construction applied to a square.
 	\begin{center}
@@ -238,9 +244,11 @@ Given a scwol $\calx$, the dimension of  $\calx $ is the dimension of $\abs{\cal
 	\label{eg:K3_scwol}
 \end{example}
 
+\todo[color=olive]{A moral question: do we actually need scwols for the above example, i.e. the triangle? }
+
 \begin{definition}
-	Morphisms of scwols are exactly functors $F \colon \calx \to \caly$ where the source and target categories are scwols..
-	We say that a morphism of scwols $F \colon \calx \to \caly$ is a non-degenerate if $F$ maps $E(\calx)$ to  $E(\caly)$, and for all $v \in V(\calx)$, the restriction of  $F$ to $\Set{a \in E(\calx) \given i(a) = v}$ is a bijection on that set of edges.
+	Morphisms of scwols are exactly functors $F \colon \calx \to \caly$ where the source and target categories are scwols.
+	We say that a morphism of scwols $F \colon \calx \to \caly$ is non-degenerate if $F$ maps $E(\calx)$ to  $E(\caly)$, and for all $v \in V(\calx)$, the restriction of  $F$ to $\Set{a \in E(\calx) \given i(a) = v}$ is a bijection on that set of edges.
 \end{definition}
 
 
@@ -288,7 +296,7 @@ However, if we consider the action of the group $\Z$ on the poset $\Z$, we see t
 For each $g \in G$, denote the induced action on  $\abs{\calx}$ as $\abs{g}$.
 The second condition means that if for some $\sigma \in V(\calx)$, we have $g \cdot \sigma = \sigma$, then $\abs{g}$ fixes pointwise any $k$-simplex corresponding to a composable tuple $(a_1,  \ldots, a_k)$ with $i(a_1)=\sigma$.
 This in particular implies that if $\abs{g}$ fixes a simplex setwise, then it also fixes it pointwise.
-This is important because we want to be able to quotient by this group action and for the quotient map to be simplicial on $\abs{X}$.
+This is important because we want to be able to quotient by this group action and for the quotient map \todo[color=olive]{Is $X$ written in the right font? } to be simplicial on $\abs{X}$.
 Note that these restrictions mean that many group actions that geometrically look like rotations about a point, or reflections, are not possible.
 For instance, there is no non-trivial group action on the scwol given in \cref{eg:scwol_for_square}.
 However, there is an action of the cyclic group of order 3 on the scwol given in \cref{eg:K3_scwol}.
