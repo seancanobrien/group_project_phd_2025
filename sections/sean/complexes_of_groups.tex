@@ -61,7 +61,7 @@ See REF for more details.
 	Suppose we have $\calx$, $G$, $G \backslash \calx$ and $p \colon G \to G \backslash \calx$ as described after \cref{def:action_of_groups_on_scwols}.
 	Denote the scwol $G \backslash \calx$ by $\caly$.
 	Let $s \colon V(\caly) \to V(\calx)$ be a section (as sets) of $p|_{V(\calx)}$.
-	The complex of groups $\calh = (G_\sigma, \phi_a, g_{a,b})$ over the scwol $\caly$ associated to the action of $G$.
+	The complex of groups $\calh = (G_\sigma, \phi_a, g_{a,b})$ over the scwol $\caly$ associated to the action of $G$ is defined as follows.
 	We define the local groups of $\calh$ as the stabilisers under this section, $G_\sigma \coloneq \stab(s(\sigma))$.
 	Since $p$ is non-degenerate, for each $a \in E(\caly)$ with $i(a) = \sigma$, there exists a unique $\tilde{a} \in E(\calx)$ such that $i(\tilde{a}) = s(\sigma)$ and $p(\tilde{a}) = a$.
 	However, there is no guarantee that $t(\tilde{a}) = s(t(a))$.
@@ -240,12 +240,13 @@ The stabiliser of a cell is automatically a subgroup of the stabilisers of each 
 	Given a possibly degenerate morphism of scwols $f \colon \calx \to \calx^\prime$, a morphism of complexes of groups over $f$ is some $\psi  \colon \calg \to \calg^\prime$ which consists of the following data:
 	\begin{enumerate}
 		\item A homomorphism $\psi_\sigma \colon G_\sigma \to G^\prime_{f(\sigma)}$ for all $\sigma \in V(\calx) $.
-		\item An element $\theta \in G^\prime_{t(f(a))}$ for all $a \in E(\calx)$ such that:
+		\item An element $\theta_a \in G^\prime_{t(f(a))}$ for all $a \in E(\calx)$ such that:
 		      \begin{enumerate}[(i)]
 			      \item $\ad(\theta_a)\phi'_{f(a)}\psi_{i(a)}=\psi_{t(a)}\phi_a$ for all $a \in E(\calx)$.
 			      \item $\psi_{t(a)}(g_{a,b}) = \theta_a\phi_{f(a)}(\theta_b)g_{f(a),f(b)}\theta_{ab}^{-1}$ for all $(b,a) \in E^{(2)}(\calx)$.
 		      \end{enumerate}
 	\end{enumerate}
+	If  $f$ is degenerate, and  $f(a)$ is an identity morphism for some edge $a$, then $\phi^\prime_{f(a)}$ is the identity homomorphism by convention.
 	We say $\phi$ over $f$ is an isomorphism if $f$ is an isomorphism of scwols and each $\phi_\sigma$ is an isomorphism.
 	\label{def:morhpism_of_complexes_of_groups}
 \end{definition}
@@ -356,19 +357,32 @@ A graph of groups always arises from an action of a group on a tree, however, th
 		(g\psi_{i(a)}(G_{i(a)}), a)(h\psi_{i(b)}(G_{i(b)}), b) = (h\psi_{i(b)}(G_{i(b)}, ab)
 	\end{align*}
 	where $g,h \in G$ and $i(h\psi_{i(b)}(G_{i(b)}), b) = t(g\psi_{i(a)}(G_{i(a)}), a)$.
-	We should check that $\caly_\psi$ is well-defined as a scwol, but we omit these checks.
+	There are some checks which we will omit, and refer the reader to \cite[]{BrHa11} for these in full.
+	In particular, we should check that $t$ is a well-defined function, and that $\caly_\psi$ is well-defined as a scwol.
 
 	There is a natural action of $G$ on  $\caly_\psi$, where
 	\[
 		h \cdot (g\psi_{i(a)}(G_{i(a)}), a) = (hg\psi_{i(a)}(G_{i(a)}), a)
 	\]
 	and similarly with vertices.
-	Since this action acts transitively on the cosets, we get a natural isomorphism between $G \backslash \caly_\psi$ and  $\calx$.
+	Since this action acts transitively on the cosets, we get a natural isomorphism $\lambda$ between $G \backslash \caly_\psi$ and  $\calx$.
 	Let $p \colon \caly_\psi \to \calx$ be this projection.
-	When constructing the complex of groups associated to this action, we need to make choices of representatives with respect to $p$.
-	We make the natural choice of $(1_\sigma G_\sigma, \sigma)$ for each $\sigma \in V(\calx)$.
-	The natural choice for each  $h_a$ is $\theta_a$.
-	Given these choices, A
-	\todo{finish this}
+	When constructing the complex of groups associated to this action, we need to make choices of representatives with respect to $p$, i.e.~we need to choose a section $s$ of $p$.
+	We make the natural choice of $s(\sigma) = (1_\sigma \psi_\sigma(G_\sigma), \sigma)$ for each $\sigma \in V(\calx)$.
+	Then, the unique $\overline{a} \in \caly$ such that $p(\overline{a}) = \sigma$ and $i(\overline{a}) = s(\sigma)$ is the obvious one, $\overline{a} = (1_\sigma\psi_\sigma(G_\sigma), a)$.
+	For our choice of $h_a$, we require  $h_a \cdot t(\overline{a}) = s(t(a))$, so we need $h_a\theta_a^{-1}\psi_\sigma(G_\sigma) = 1_\sigma \psi_\sigma(G_\sigma)$.
+	The natural choice is $h_a = \theta_a$.
+
+	Given these choices, we have a complex of groups $\calg_\psi = (G^\prime_\sigma, \phi^\prime_a, g^\prime_{a,b})$.
+	The local groups $G^\prime_\sigma$ are naturally isomorphic to $\psi_\sigma(G_\sigma)$, the edge homomorphisms  $\phi^\prime_a$ are the restriction of $\ad(\theta_a)$ to $\psi_{i(a)}(G_{i(a)})$, and the twisting elements satisfy $g^\prime_{a,b} = \theta_a\theta_b\theta_{ab}^{-1}$.
+	If each $\psi_\sigma$ is injective, then there is a natural map $\omega \colon \calg^\prime \to \calg$ over $\lambda$, that identifies each $\psi_\sigma(G_\sigma)$ with $G_\sigma$.
+	Since  $\psi$ was a morphism of complexes of groups, the following square commutes for all edges $a$.
+	\[
+		\begin{tikzcd}
+			G_\sigma \ar[d, hook, "\psi_\sigma"'] \ar[rr, hook, "\phi_a"] && G_\tau \ar[d, hook, "\psi_\tau"] \\
+			\psi_\sigma(G_\sigma) \ar[rr, hook, "\ad(\theta_a)"] && \psi_\tau(G_\tau)
+		\end{tikzcd}
+	\]
+	Thus, $\omega$ does define a morphism of complexes of groups, and is thus an isomorphism.
 \end{proof}
 
