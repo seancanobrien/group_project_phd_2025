@@ -106,13 +106,12 @@ For the discussion in this subsection we will follow \cite[chapter I]{Ser80}.
     A \emph{graph} $\Gamma$ consists of 
     \begin{itemize}
         \item a set $X = \:vert\:\Gamma$,
-        \todo{we should maybe agree on edge/vertex notation, i use $E(\Gamma)$ and $V(\Gamma)$}
         \item a set $Y = \:edge\:\Gamma$,
         \item $Y \to  X \times X$ with $ y \mapsto (o(y), t(y))$, and 
         \item $Y \to Y$ with $y \mapsto \overline{y}$
     \end{itemize}
      which satisfy the following condition: for each $y \in Y$ we have $\overline{\overline{y}} = y$, $\overline{y} \neq y$ and $o(y) = t(\overline{y})$.
-     \todo{we should agree on initial and terminal notation, i use $i(vertex)$ and $t(vertex)$}
+     \todo{Let's talk with our supervisors about whether the notation conflict is an issue. I use $i(edge)$, $t(edge)$, $V(graph)$ (verts) and $E(graph)$ (edges). }
 \end{definition}
 
 We call elements of $X$ \emph{vertices}, and elements of $Y$ \emph{(oriented) edges}. Given $y \in Y$, the edge $\overline{y}$ is said to be the \emph{inverse edge}. Note, that we can define a morphism of graphs by mapping vertices to vertices, and mapping an edge between two vertices to an edge between their images.
