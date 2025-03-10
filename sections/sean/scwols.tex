@@ -128,7 +128,7 @@ We define the following maps, $\partial_i \colon E^{(n)}(\calx) \to E^{(n-1)}(\c
 	\partial_n(a_1,\ldots,a_n) & = (a_1, \ldots, a_{n-1})
 	.\end{align*}
 
-\todo[color=olive]{It seems like $\partial_i$ has too many coordinates as outputs -  shouldn't it be $(a_1, \ldots, a_{i-1},a_{i+1},\ldots,a_n$? Also, shouldn't $i$ be in range $1 \le i <n$?}    
+\todo[color=olive]{It seems like $\partial_i$ has too many coordinates as outputs -  shouldn't it be $(a_1, \ldots, a_{i-1},a_{i+1},\ldots,a_n$? Also, shouldn't $i$ be in range $1 \le i <n$?}
 We define $\partial_0(a)=i(a)$, and $\partial_1(a)=t(a)$.
 We also define maps, $d_i \colon \Delta^{k-1} \to \Delta^k$ on simplices, where
 \[
@@ -174,7 +174,7 @@ Given a scwol $\calx$, the dimension of  $\calx $ is the dimension of $\abs{\cal
 	Any polygon can be realised as the geometric realisation of a scwol $\calx$ in the following way:
 	Consider the polygon as a polygonal complex.
 	Make a vertex for at the centre of each polygon in the complex.
-    \todo[color=olive]{What is "for" doing in this sentence?}
+	\todo[color=olive]{What is "for" doing in this sentence?}
 	There is an edge from centres of polygons to centres of faces of that polygon.
 	The below picture shows the scwol from this construction applied to a square.
 	\begin{center}
@@ -244,7 +244,8 @@ Given a scwol $\calx$, the dimension of  $\calx $ is the dimension of $\abs{\cal
 	\label{eg:K3_scwol}
 \end{example}
 
-\todo[color=olive]{A moral question: do we actually need scwols for the above example, i.e. the triangle? }
+\todo[color=olive]{A moral question: do we actually need scwols for the above example, i.e.
+the triangle? }
 
 \begin{definition}
 	Morphisms of scwols are exactly functors $F \colon \calx \to \caly$ where the source and target categories are scwols.
@@ -296,7 +297,7 @@ However, if we consider the action of the group $\Z$ on the poset $\Z$, we see t
 For each $g \in G$, denote the induced action on  $\abs{\calx}$ as $\abs{g}$.
 The second condition means that if for some $\sigma \in V(\calx)$, we have $g \cdot \sigma = \sigma$, then $\abs{g}$ fixes pointwise any $k$-simplex corresponding to a composable tuple $(a_1,  \ldots, a_k)$ with $i(a_1)=\sigma$.
 This in particular implies that if $\abs{g}$ fixes a simplex setwise, then it also fixes it pointwise.
-This is important because we want to be able to quotient by this group action and for the quotient map \todo[color=olive]{Is $X$ written in the right font? } to be simplicial on $\abs{X}$.
+This is important because we want to be able to quotient by this group action and for the quotient map \todo[color=olive]{Is $\calx$ written in the right font? } to be simplicial on $\abs{X}$.
 Note that these restrictions mean that many group actions that geometrically look like rotations about a point, or reflections, are not possible.
 For instance, there is no non-trivial group action on the scwol given in \cref{eg:scwol_for_square}.
 However, there is an action of the cyclic group of order 3 on the scwol given in \cref{eg:K3_scwol}.
