@@ -185,7 +185,7 @@ Two points $\tilde{x}$ and $\tilde{y}$ in the universal cover $\tilde{X}$ of $X$
     Let $G$ be a finitely generated group acting on an $\mathbb{R}$-tree $T$. A \emph{resolution} of the action is a band complex $X$ with $G$ as its fundamental group, and a $G$-equivariant map \[f:\tilde{X}\rightarrow T\] such that 
     \begin{itemize}
         \item The image of a leaf of $\tilde{X}$ is a point, and
-        \item each base can be broken into finitely many subintervals whose lifts $f$ embed isometrically into $T$.
+        \item each base can be broken into finitely many subintervals whose lifts are embedded isometrically into $T$ by $f$.
     \end{itemize}
 \end{definition}
 
@@ -195,7 +195,7 @@ Two points $\tilde{x}$ and $\tilde{y}$ in the universal cover $\tilde{X}$ of $X$
 \end{theorem}
 See \cite{Wilton} for the proof of this. The idea is that since $G$ is finitely presented there is a simplicial 2-complex $X$ with fundamental group $G$. A band complex structure on $X$ satisfying the required conditions can then be constructed.
 
-\subsubsection{} In unpublished work in around 1991, Rips introduced an algorithm for determining certain properties of a group $G$ on an $\mathbb{R}$-tree from a resolving band complex for the action. This is now known as the \textit{Rips Machine}. We will give an outline of the process, followed by an idea of the consequences. More detailed descriptions are given in \cite{Wilton} and \cite{Bestvina_trees}.
+\subsubsection{} In unpublished work in around 1991, Rips introduced an algorithm for determining certain properties of a group $G$ on an $\mathbb{R}$-tree from a resolving band complex for the action. This is now known as the \textit{Rips Machine}. We will give an outline of the process, followed by some of the consequences. More detailed descriptions are given in \cite{Wilton} and \cite{Bestvina_trees}.
 
 Firstly, there are six moves $M0-M5$ on a band complex $X$ (based on a union of bands $Y$) which transform it into a band complex which resolves the same action but is minimal in some sense. These are:
 \begin{itemize}
@@ -244,8 +244,7 @@ See Figure \ref{machine}.
         \includegraphics[width=1\linewidth]{sections/lorna/M5.png}
         \caption{Move $(M5$).}
     \end{subfigure}
-    \label{machine}
-    \caption{The moves in the Rips Machine. The bands are the unshaded regions, and 2-cells are shaded.}
+    \caption{The moves in the Rips Machine. The bands are the unshaded regions, and 2-cells are shaded.}\label{machine}
 \end{figure}
 
 The Rips Machine starts by repeatedly applying these moves to transform a connected component of a band complex $X$ into a minimal form. It then applies an infinite sequence of two `processes', and depending on which sequence is applied, information about the group can be determined. The following is Theorem 5.1 in \cite{Bestvina_trees}:
@@ -253,15 +252,15 @@ The Rips Machine starts by repeatedly applying these moves to transform a connec
 \begin{theorem}\label{rips}
     \textbf{Rips' theorem:} Let $G$ be a finitely generated torsion free group acting by isometries on an $\mathbb{R}$-tree $T$. Then applying the Rips Machine to a resolving band complex $X$ for the action, a band complex $X'$ is obtained which can be split into disjoint components $X'_i$ such that each $X'_i$ is of one of the following types:
     \begin{itemize}
-        \item \emph{Simplicial} - Every leaf of the underlying union of bands of $X'_i$ is compact,
+        \item \emph{Simplicial type} - Every leaf of the underlying union of bands of $X'_i$ is compact,
         \item \emph{Surface type} - $X'_i$ is a compact surface with negative Euler characteristic,
-        \item \emph{Toral type} - $X'_i$ is the 2-skeleton of the torus,
+        \item \emph{Toral type} - $X'_i$ is the 2-skeleton of the torus $\mathbb{T}_2$,
         \item \emph{Thin type} - $X'_i$ is not of one of the above types.
     \end{itemize}
 \end{theorem}
 
-This theorem allows us to classify finitely presented groups which act `nicely' on $\mathbb{R}$-trees. Splittings of groups are defined in Section 4 (\textcolor{red}{?}).
-\begin{theorem}\label{rtreesclassification}
+This theorem allows us to classify finitely presented groups which act `nicely' on $\mathbb{R}$-trees. Splittings of groups are defined in Section 4.
+\begin{theorem}[\hspace{1sp}{\cite[Theorem 6.1]{Bestvina_trees}}]\label{rtreesclassification}
     Let $G$ be a finitely generated torsion-free group acting non-trivially by isometries on an $\mathbb{R}$-tree $T$. Suppose also that all arc stabilizers are trivial. Then one of the following holds:
     \begin{enumerate}
         \item $G$ is the fundamental group of a 2-complex $X$ which contains a compact surface $S$ of negative Euler characterisic,
@@ -276,12 +275,13 @@ This theorem allows us to classify finitely presented groups which act `nicely' 
 
     If $X'$ has a component $X'_i$ of toral type, either \[G=\pi_1(X'_i)=\pi_1(\mathbb{T}_2)=\mathbb{Z}\times\mathbb{Z}\] which is a free abelian group, or a free product decomposition can be obtained using the boundary of $X'_i$. So either possibility (2) or (3) holds. 
 
-    If $X'$ has a component $X'_i$ of thin type, it can be shown that the Rips Machine subdivides some band repeatedly into thinner and thinner bands. Some of these bands will eventually be disjoint from any of the 2-cells of $X'$. These bands are called \textit{naked bands} and induce free product decompositions of $\pi_1(X')$ \textcolor{red}{could give more detail here?}\todo[color=green!40]{I don't think it's needed!}. Hence possibility (3) holds.
+    If $X'$ has a component $X'_i$ of thin type, it can be shown that the Rips Machine subdivides some band repeatedly into thinner and thinner bands. Some of these bands will eventually be disjoint from any of the 2-cells of $X'$. These bands are called \textit{naked bands} and induce free product decompositions of $\pi_1(X')$. %\todo[color=green!40]{I don't think it's needed!}
+    Hence possibility (3) holds.
 
     Finally, if $X'$ has a simplicial component $X'_i$, an $\mathbb{R}$-tree \textit{dual} to $X'_i$ can be constructed, on which $G$ acts. Bass-Serre theory can then be used to show that $G$ splits as a non-trivial free product.
 \end{proof}
 
-The next theorem tells us what happens in the slightly more general case of groups acting freely on $\mathbb{R}$-trees. \todo[color=green!40]{I would either move this to directly before the theorem. The reader could expect a theorem immediately ahead and be confused to see a definition!}
+ %\todo[color=green!40]{I would either move this to directly before the theorem. The reader could expect a theorem immediately ahead and be confused to see a definition!}
 \begin{definition}
     A group $G$ is a \emph{closed surface group} if it is the fundamental group of a closed surface. For example the groups in case (1) of the previous theorem are closed surface groups.
 \end{definition}
@@ -289,16 +289,17 @@ The next theorem tells us what happens in the slightly more general case of grou
     A group $G$ is \emph{freely indecomposable} if it is nontrivial and cannot be expressed as a free product of nontrivial groups.
 \end{definition}
 
-\begin{theorem}
+The next theorem tells us what happens in the slightly more general case of groups acting freely on $\mathbb{R}$-trees.
+\begin{theorem}[\hspace{1sp}{\cite[Theorem 9.8]{Bestvina2}}]
     Let $G$ be a finitely presented group acting freely by isometries on an $\mathbb{R}$-tree $T$. Then $G$ is the free product of free abelian groups and closed surface groups.
 \end{theorem}
-\begin{proof}
-    $G$ can be written as the free product of a free group and a number of freely indecomposable factors. It can be shown that each of these factors satisfies the conditions of Theorem \ref{rtreesclassification}, and by assumption neither possibility (2) nor (3) holds, so each freely indecomposable factor must be a closed surface group. 
+\begin{proof} (Sketch)
+    We can write $G$ as the free product of a free group and a number of freely indecomposable factors. It can be shown that each of these factors satisfies the conditions of Theorem \ref{rtreesclassification}, and by assumption neither possibility (2) nor (3) holds, so each freely indecomposable factor must be a closed surface group. 
 \end{proof}
 
-Finally, we see the case of stable actions. The proof of the following theorem can be found in \cite{Bestvina2}.
+Finally, we see the case of stable actions.
 
-\begin{theorem}\label{stable}
+\begin{theorem}[\hspace{1sp}{\cite[Theorem 9.5]{Bestvina2}}]\label{stable}
     Let $G$ be a finitely presented group with a stable action on an $\mathbb{R}$-tree $T$. Then either
     \begin{itemize}
         \item $G$ splits over an $E$-by-cyclic extension where $E$ fixes some arc of $T$, or
@@ -307,22 +308,23 @@ Finally, we see the case of stable actions. The proof of the following theorem c
 \end{theorem}
 
 \subsection{Applications of $\mathbb{R}$-Trees}
-Now that we have a good understanding of groups which act (freely) on $\mathbb{R}$-trees, we can use this to understand any group which can be shown to act in this way. In this section we will discuss some of these applications, starting with some to hyperbolic groups. There will be no full proofs here, just an idea of how $\mathbb{R}$-trees are used in each case, and directions to the whole proof.
+Now that we have a good understanding of groups which act (in nice ways) on $\mathbb{R}$-trees, we can use this to understand any group which can be shown to act in this way. In this section we will discuss some of these applications, starting with some to hyperbolic groups. There will be no full proofs here, just an idea of how $\mathbb{R}$-trees are used in each case, and directions to where the whole proof may be found.
 \subsubsection{} 
 In \cite{Bestvina_trees}, Bestvina describes a number of ways in which $\mathbb{R}$-trees are used to study automorphisms of hyperbolic groups. Amongst them are the following theorems.
-\begin{theorem}\label{hyperbolic_outer}
+\begin{theorem}[\hspace{1sp}{\cite[Theorem 7.3]{Bestvina_trees}}]\label{hyperbolic_outer}
     Let $G$ be a hyperbolic group such that Out$(G)$ is infinite. Then $G$ splits over a virtually cyclic subgroup.
 \end{theorem}
 
-\begin{proof} (sketch)
-    Since Out$(G)$ is infinite, we can find an infinite sequence of pairwise non-conjugate automorphisms $f_i$. Define an action $\rho_i$ of $G$ on its Cayley graph by $\rho_i(g)=f_i(g)$. \todo[color=green!40]{Perhaps you could add ``As the \(f_i\) are automorphisms,\dots,'' or something which justifies why it is easily seen.}It is easily seen that this is an action by isometries. Theorem \ref{limittrees} can then be used to show that there is a limit $\mathbb{R}$-tree on which $G$ acts by isometries. It can then be shown that this action is stable, and the theorem follows by Theorem \ref{stable}. See \cite{BridsonSwarup} for a more detailed proof.
+\begin{proof} (Sketch)
+    Since Out$(G)$ is infinite, we can find an infinite sequence of pairwise non-conjugate automorphisms $f_i$. Define an action $\rho_i$ of $G$ on its Cayley graph by $\rho_i(g)=f_i(g)$. %\todo[color=green!40]{Perhaps you could add ``As the \(f_i\) are automorphisms,\dots,'' or something which justifies why it is easily seen.}
+    Since the $f_i$ are automorphisms, this is an action by isometries. Theorem \ref{limittrees} can then be used to show that there is a limit $\mathbb{R}$-tree on which $G$ acts by isometries. It can then be shown that this action is stable, and the theorem follows by Theorem \ref{stable}. See \cite{Bestvina_trees} for a more detailed proof.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[\hspace{1sp}{\cite[Theorem 6.14]{RipsSela}}]
     Let $G$ be a torsion-free, freely indecomposable hyperbolic group. Then Inn$(G)$ has finite index in Aut$(G)$.
 \end{theorem}
 \begin{proof}
-    (sketch) Let $S=\{s_1,...,s_n\}$ be a generating set for $G$, and let $S^{-1}=\{s_1^{-1},...,s_n^{-1}\}$ for each $f\in \text{Aut}(G)$ define \[d(f)=\max_{S\cup S^{-1}}\lvert f(s_i)\rvert\] where $\lvert \cdot \rvert$ denotes word length. Choose as a coset representative for each coset of Inn$(G)$ in Aut$(G)$ an element $f$ with minimal $d(f)$, and suppose for a contradiction that there are infinitely many cosets. Then there is an infinite sequence $f_1,f_2,...$ of distinct such coset representatives. As in the proof of Theorem \ref{hyperbolic_outer}, the actions $\rho_i$ associated to the $f_i$ are used to construct a limit $\mathbb{R}$-tree. A resolving band complex $X$ for the limit action can be constructed and Theorem \ref{rips} applied. It can be shown (using the assumed properties of $G$) that all the components of $X$ must be of simplicial or surface type. In both of these cases, Rips and Sela describe a way to find coset representatives with smaller $d$-values than the $f_i$, thus reaching the desired contradiction.
+    (Sketch) Let $S=\{s_1,...,s_n\}$ be a generating set for $G$, and let \[S^{-1}=\{s_1^{-1},...,s_n^{-1}\}.\] For each $f\in \text{Aut}(G)$ define \[d(f)=\max_{S\cup S^{-1}}\lvert f(s_i)\rvert\] where $\lvert \cdot \rvert$ denotes word length. Choose as a coset representative for each coset of Inn$(G)$ in Aut$(G)$ an element $f$ with minimal $d(f)$, and suppose for a contradiction that there are infinitely many cosets. Then there is an infinite sequence $f_1,f_2,...$ of distinct such coset representatives. As in the proof of Theorem \ref{hyperbolic_outer}, the actions $\rho_i$ associated to the $f_i$ are used to obtain a limit $\mathbb{R}$-tree. A resolving band complex $X$ for the limit action can be constructed and Theorem \ref{rips} applied. It can be shown (using the assumed properties of $G$) that all the components of $X$ must be of simplicial or surface type. In both of these cases, Rips and Sela describe a way to find coset representatives with smaller $d$-values than the $f_i$, thus reaching the desired contradiction.
 \end{proof}
 
 \subsubsection{}
@@ -340,19 +342,19 @@ Let $\mathcal{L}(G)$ denote the set of all length functions for non-trivial acti
 There is a theorem in Bass-Serre theory which states that a group is free if and only if it acts freely on a simplicial tree. The theory of outer space can be used to study free actions of free groups on $\mathbb{R}$-trees. In the $n=2$ case, it has been shown that the only free actions of $F_2$ on $\mathbb{R}$-trees are polyhedral, i.e. their length functions are in $Y_2$. For every $n\geq 3$ however, one can show that the set $\bar{Y}_n\backslash Y_n$ (where $\bar{Y}_n$ denotes the closure of $Y_n$ in $\mathcal{PL}(F_n)$) contains free actions. Therefore there are free actions of $F_n$ on $\mathbb{R}$-trees which are not polyhedral, sometimes referred to as \textit{exotic} actions. This demonstrates another key difference between simplicial trees and the slightly more general class of $\mathbb{R}$-trees.
 
 \subsubsection{}
-We finish with another application to hyperbolic groups, and a return to the discussion of ends of groups from Section 4. (\textcolor{red}{?})
+We finish with another application to hyperbolic groups, and a return to the discussion of ends of groups from Section 4.
 \begin{definition}
-    A topological space $X$ is \emph{locally connected} at $x\in X$ if every open neighbourhood of $x$ contains a connected open neighbourhood of $x$. $X$ is locally connected if it is locally connected at all of its points.
+    A topological space $X$ is \emph{locally connected} at $x\in X$ if every open neighbourhood of $x$ contains a connected open neighbourhood of $x$. The space $X$ is locally connected if it is locally connected at all of its points.
 \end{definition}
 Note first that neither connected nor locally connected implies the other: the union of two disjoint intervals in $\mathbb{R}$ is locally connected but not connected, whereas the graph of $\sin(\frac{1}{x})$ is connected but not locally connected.
 
 The proof of this theorem (the part that uses $\mathbb{R}$-trees) can be found in \cite{Swarup}.
-\begin{theorem}
+\begin{theorem}[\hspace{1sp}{\cite[Theorem 7.10]{Bestvina_trees}}]
     Let $G$ be a hyperbolic group. Then if $G$ has one end, its Gromov boundary $\partial G$ is connected and locally connected.
 \end{theorem}
 
 \begin{proof}
-    (sketch) The proof that $\partial G$ is connected does not use $\mathbb{R}$-trees. Nor does that of the fact that if $\partial G$ contains no cut points, it is locally-connected. However, $\mathbb{R}$-trees are used to show that $\partial G$ never contains cut points. Note that here we mean cut points in the topological sense (points which, when removed, disconnect the space), not in the sense of Section 4. (\textcolor{red}{?})
+    (Sketch) The proof that $\partial G$ is connected does not use $\mathbb{R}$-trees. Nor does that of the fact that if $\partial G$ contains no cut points, it is locally-connected. However, $\mathbb{R}$-trees are used to show that $\partial G$ never contains cut points. Note that here we mean cut points in the topological sense (points which, when removed, disconnect the space), not in the sense of Section 4. (\textcolor{red}{?})
     
     The proof is by contradiction. Supposing that $\partial G$ has a cut point, the action of $G$ on its boundary is used to construct an $\mathbb{R}$-tree on which $G$ acts with trivial arc stabilisers. Theorem \ref{stable} can then be used to conclude that $G$ splits over a 2-ended group. An inductive argument on the resulting graph of groups decomposition of $G$ and a result concerning the `complexity' of such a decomposition are then used to derive the contradiction.
 \end{proof}
