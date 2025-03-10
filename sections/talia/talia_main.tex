@@ -36,6 +36,7 @@ Loosely speaking, ends are objects which describe the connected components of a 
 \end{figure}
 
 Before defining ends of a group, we introduce some necessary terminology.
+\todo[color=pink]{Not a comment, I just think this picture is really cool!}
 \begin{definition}[Proper map]
     Let \(X, Y\) be topological spaces. A map \(f : X \to Y\) is \emph{proper} if for any compact set \(K \subset Y\), the pre-image \(f^{-1}(K) \subset X\) is compact.
 \end{definition}
@@ -141,7 +142,7 @@ In fact, the options for the number of ends of a group in the examples above are
 \end{theorem}
 
 \begin{corollary}
-    Finite groups have no ends. Equivalently, if \(G\) is an infinite finitely generated group, \(G\) has either one, two or infinitely many ends.
+    Finite groups have no ends. Equivalently,\todo[color=pink]{I'm not sure these statements are equivalent, maybe should put `furthermore' instead?} if \(G\) is an infinite finitely generated group, \(G\) has either one, two or infinitely many ends.
 \end{corollary}
 
 \begin{proof} % Roughly - will change if definition of ends changes
@@ -152,7 +153,7 @@ In fact, the options for the number of ends of a group in the examples above are
 Now that we have introduced some background on ends, we focus on proving the backward implication of our main result, Stallings' Structure Theorem (Theorem~\ref{thm:SST}). In other words, if a infinite finitely generated group \emph{splits}, then it has more than one end. Intuitively, splittings are ways to decompose or ``factorise'' the group, and we introduce the two main ways of doing so: through amalgams and HNN-extensions.
 
  \begin{definition}[Amalgamated free product]\label{defnamalgamatedproduct}
-     Let \(G,H\) be groups and \(A_1 < G\), \(A_2 < H\) be isomorphic proper subgroups. The amalgamated product with isomorphism \(\phi: A_1 \to A_2\) is 
+     Let \(G,H\) be groups and \(A_1 < G\), \(A_2 < H\) be isomorphic proper subgroups. The \emph{amalgamated product}\todo[color=pink]{I put an emph here} with isomorphism \(\phi: A_1 \to A_2\) is 
      \[
      G *_A H = \langle G,H \mid a = \phi(a), a \in A_1 \rangle .
      \]
@@ -510,7 +511,7 @@ With a few more definitions, we conclude this section by illustrating this const
 \end{lemma}
 \end{comment}
 
-\subsection{Application of Bass--Serre theory}
+\subsection{Links to Bass--Serre theory and generalisations}
 
 Stallings' structure theorem in the language of Bass--Serre theory gives the following useful corollary. 
 \begin{corollary}
