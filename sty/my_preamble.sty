@@ -52,15 +52,15 @@
 \usepackage{nccmath}
 \usetikzlibrary{lindenmayersystems, shapes.geometric, graphs}
 \pgfdeclarelindenmayersystem{cayley}{
-  \rule{F -> F [ R [F] [+F] [-F] ]}
-  \symbol{R}{
-    \pgflsystemstep=0.5\pgflsystemstep
-  } 
+	\rule{F -> F [ R [F] [+F] [-F] ]}
+	\symbol{R}{
+		\pgflsystemstep=0.5\pgflsystemstep
+	}
 }
 \makeatletter
 \newcommand{\altqedhere}{%
-  \ifmeasuring@\else\sbox0{\popQED}\fi
-  \tag*{\qedsymbol}%
+	\ifmeasuring@\else\sbox0{\popQED}\fi
+	\tag*{\qedsymbol}%
 }
 \makeatother
 
@@ -99,6 +99,7 @@
 
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{observation}[theorem]{Observation}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{construction}[theorem]{Construction}
 \newtheorem{aside}[theorem]{Aside}  %Talia added this
