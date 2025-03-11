@@ -119,6 +119,8 @@ i.e.~if $(a_1, a_2, \ldots, a_n) \in E^{(n)}(\calx)$, then
 	\end{tikzcd}
 \]
 is a composable set of edges in $\calx$.
+Note that here composition follows the tuple order.
+This is the opposite order to that used in \cite[Chapter 3.\textrm{\ensuremath{\calc}}]{BrHa11}.
 Since all the $a_i$ are in $E(\calx)$, none are identity morphisms.
 By convention, $E^{(0)}(\calx) = V(\calx)$.
 We define the following maps, $\partial_i \colon E^{(n)}(\calx) \to E^{(n-1)}(\calx)$ on composable tuples, where
@@ -128,7 +130,6 @@ We define the following maps, $\partial_i \colon E^{(n)}(\calx) \to E^{(n-1)}(\c
 	\partial_n(a_1,\ldots,a_n) & = (a_1, \ldots, a_{n-1})
 	.\end{align*}
 
-\todo[color=olive]{It seems like $\partial_i$ has too many coordinates as outputs -  shouldn't it be $(a_1, \ldots, a_{i-1},a_{i+1},\ldots,a_n$? Also, shouldn't $i$ be in range $1 \le i <n$?}
 We define $\partial_0(a)=i(a)$, and $\partial_1(a)=t(a)$.
 We also define maps, $d_i \colon \Delta^{k-1} \to \Delta^k$ on simplices, where
 \[
@@ -173,8 +174,7 @@ Given a scwol $\calx$, the dimension of  $\calx $ is the dimension of $\abs{\cal
 \begin{example}
 	Any polygon can be realised as the geometric realisation of a scwol $\calx$ in the following way:
 	Consider the polygon as a polygonal complex.
-	Make a vertex for at the centre of each polygon in the complex.
-	\todo[color=olive]{What is "for" doing in this sentence?}
+	Make a vertex at the centre of each polygon in the complex.
 	There is an edge from centres of polygons to centres of faces of that polygon.
 	The below picture shows the scwol from this construction applied to a square.
 	\begin{center}
@@ -271,8 +271,7 @@ The importance of this will become apparent when we define complexes of groups.
 	\end{enumerate}
 	\label{def:action_of_groups_on_scwols}
 \end{definition}
-\todo{compare this def to that of actions without inversions in graphs of groups}
-
+Compare this definition with \cref{def:graph_of_groups_action_without_inversion}.
 If $\calx$ is finite dimensional, then the first condition is guaranteed.
 For example, in the following scwol, if $\sigma$ was mapped to  $\tau$, then $\tau$ is mapped to $\mu$ and there is nowhere for $a$ to map to.
 
