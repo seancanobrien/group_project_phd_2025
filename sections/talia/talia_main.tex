@@ -3,7 +3,7 @@
 
 % Keep in mind Matt's recent feedback: (1) try to make links to wider topics in GGT to allow readers other avenues of interest, (2) clearly (and proudly!) state when a result is your own
 
-We now reach the topic of ends of groups. In this chapter, we explore the relationship between the number of ends of a finitely generated group and the algebraic structure of these groups as amalgams and HNN-extensions. An important result in this area is Stallings’ Structure Theorem \cite[p.~4]{S71}, which classifies finitely generated groups with more than one end:
+\todo[color=pink]{Hi Talia, I've had a read through this, fixed a couple of typos and added a few comments- please ignore these if they're wrong! -Lorna :)}We now reach the topic of ends of groups. In this chapter, we explore the relationship between the number of ends of a finitely generated group and the algebraic structure of these groups as amalgams and HNN-extensions. An important result in this area is Stallings’ Structure Theorem \cite[p.~4]{S71}, which classifies finitely generated groups with more than one end:
 
 \begin{theorem}[Stallings' Structure Theorem] 
 % Is (1) necessary or is (1) already included in (2) and (3)?
@@ -32,11 +32,11 @@ Loosely speaking, ends are objects which describe the connected components of a 
 \put(51,61){\(b\)}
 \put(51,37){\(b^{-1}\)}
 \end{overpic}
-\caption{In a Cayley graph for \(F_2\) with generating set \(\{a,b,a^{-1},b^{-1}\}\), the `points at infinity' are visualised in blue.}
+\caption{A Cayley graph for \(F_2\) with generating set \(\{a,b,a^{-1},b^{-1}\}\), where the `points at infinity' are visualised in blue.}
 \end{figure}
 
 Before defining ends of a group, we introduce some necessary terminology.
-\todo[color=pink]{Not a comment, I just think this picture is really cool!}
+\todo[color=pink]{Not a comment, I just think this picture is really cool! -Thank you!}
 \begin{definition}[Proper map]
     Let \(X, Y\) be topological spaces. A map \(f : X \to Y\) is \emph{proper} if for any compact set \(K \subset Y\), the pre-image \(f^{-1}(K) \subset X\) is compact.
 \end{definition}
@@ -142,7 +142,7 @@ In fact, the options for the number of ends of a group in the examples above are
 \end{theorem}
 
 \begin{corollary}
-    Finite groups have no ends. Equivalently,\todo[color=pink]{I'm not sure these statements are equivalent, maybe should put `furthermore' instead?} if \(G\) is an infinite finitely generated group, \(G\) has either one, two or infinitely many ends.
+    Finite groups have no ends. Equivalently, by Theorem~\ref{FH}, if \(G\) is an infinite finitely generated group, \(G\) has either one, two or infinitely many ends.
 \end{corollary}
 
 \begin{proof} % Roughly - will change if definition of ends changes
@@ -153,7 +153,7 @@ In fact, the options for the number of ends of a group in the examples above are
 Now that we have introduced some background on ends, we focus on proving the backward implication of our main result, Stallings' Structure Theorem (Theorem~\ref{thm:SST}). In other words, if a infinite finitely generated group \emph{splits}, then it has more than one end. Intuitively, splittings are ways to decompose or ``factorise'' the group, and we introduce the two main ways of doing so: through amalgams and HNN-extensions.
 
  \begin{definition}[Amalgamated free product]\label{defnamalgamatedproduct}
-     Let \(G,H\) be groups and \(A_1 < G\), \(A_2 < H\) be isomorphic proper subgroups. The \emph{amalgamated product}\todo[color=pink]{I put an emph here} with isomorphism \(\phi: A_1 \to A_2\) is 
+     Let \(G,H\) be groups and \(A_1 < G\), \(A_2 < H\) be isomorphic proper subgroups. The \emph{amalgamated product} with isomorphism \(\phi: A_1 \to A_2\) is 
      \[
      G *_A H = \langle G,H \mid a = \phi(a), a \in A_1 \rangle .
      \]
@@ -256,7 +256,7 @@ The Cayley graph of \(G\) with respect to \(S\) has more than one end if and onl
 Given a finitely generated group with multiple ends, we would now like to construct a decomposition of this group as a splitting. The method of Kr{\"o}n in \cite{K10} involves ``cutting up'' the Cayley graphs for these groups in a certain way. Throughout we take \(\Gamma\) to be a simple, undirected graph, with vertex set \(V(\Gamma)\) and edge set \(E(\Gamma)\).
 
 \begin{definition}[Edge boundary]
-    Let \(C,D \subset V(\Gamma)\). We denote the set of edges with one vertex in \(C\) and the other vertex in \(D\) by the set \(\delta(C,D)\). The \emph{boundary} of a subset \(C\) is defined by the set \(\delta C = \delta(C, \stcomp{C})\).
+    Let \(C,D \subset V(\Gamma)\). We denote the set of edges with one vertex in \(C\) and the other vertex in \(D\) by the set \(\partial(C,D)\). The \emph{boundary} of a subset \(C\) is defined by the set \(\partial C = \partial(C, \stcomp{C})\).
 \end{definition}
 
 Recall that in a graph \(\Gamma\), a ray is an infinite sequence of vertices such that each consecutive pair are endpoints of an edge in \(E(\Gamma)\) and each vertex in \(V(\Gamma)\) appears at most once in the sequence.
@@ -282,13 +282,13 @@ Ends are then defined similarly to Definition~\ref{def:endsofgraph}, taking the 
 
 \begin{proof}
     Let \(C\) be a cut containing \(R\). Suppose \(R'\) is a ray equivalent to \(R\) such that \(R'\) is not contained in \(C\).
-    Since \(R\) and \(R'\) are equivalent, there is no finite set of edges which separates \(R\) and \(R'\). For a contradiction, it suffices to show the existence of such a set. For this we take the edge boundary \(\delta C\) --- it is finite (since \(C\) is a cut) and separates \(R\) and \(R'\) (since \(R'\) is not contained in \(C\)). 
+    Since \(R\) and \(R'\) are equivalent, there is no finite set of edges which separates \(R\) and \(R'\). For a contradiction, it suffices to show the existence of such a set. For this we take the edge boundary \(\partial C\) --- it is finite (since \(C\) is a cut) and separates \(R\) and \(R'\) (since \(R'\) is not contained in \(C\)). 
 \end{proof}
 
 \begin{definition}[Minimal cut]
     A cut \(C\) is \emph{minimal} if 
-    \(|\delta C| = \inf_{C' \subset V(\Gamma)}{|\delta C'|}\), or in other words,
-    the cardinality of the edge boundary \(\delta C\) is minimal over all cuts.
+    \(|\partial C| = \inf_{C' \subset V(\Gamma)}{|\partial C'|}\), or in other words,
+    the cardinality of the edge boundary \(\partial C\) is minimal over all cuts.
 \end{definition}
 \begin{lemma}
      If \(\Gamma\) is connected and has more than one end then there is a minimal cut.
@@ -298,9 +298,7 @@ Ends are then defined similarly to Definition~\ref{def:endsofgraph}, taking the 
     If \(\Gamma\) has a single end, then by Proposition~\ref{prop:ray}, \(\Gamma\) does not admit any cut. Suppose otherwise, and that \(\Gamma\) admits a cut \(C\). Then \(C\) would contain a ray and by the proposition all equivalent rays. In this case, all rays are equivalent, and hence it is not possible that both \(C\) and \(\stcomp{C}\) contain a ray.
 
     Next, suppose \(\Gamma\) has more than one end. It suffices to show that there exists a cut, since if there exists at least one cut, then there is a minimal cut by well-ordering. As \(\Gamma\) has more than one end, then there exist rays \(R, R'\) which are not equivalent. Let \(C\) consist of the vertex set of \(R\). Then, \(C\) contains the ray \(R\), and \(\stcomp{C}\) contains the ray \(R'\). 
-    It remains to show that \(|\delta(C)|\) is finite, and that \(C\) and \(\stcomp{C}\) are connected.
-    
-    It remains to show that the edge boundary is finite and cut is connected.
+    It remains to show that \(|\partial(C)|\) is finite, and that \(C\) and \(\stcomp{C}\) are connected.
 \end{proof}
 
 \begin{lemma}
@@ -310,8 +308,8 @@ they are minimal cuts.
 \end{lemma}
 
 \begin{proof}
-    Let \(\kappa>0\) be the cardinality of a minimal cut. As \(C, D\) are minimal by assumption, \(\kappa = |\delta C| = |\delta D|\).
-    We aim to show \(\kappa = |\delta(C \cap D)| = |\delta(\stcomp{C} \cap \stcomp{D})|\).
+    Let \(\kappa>0\) be the cardinality of a minimal cut. As \(C, D\) are minimal by assumption, \(\kappa = |\partial C| = |\partial D|\).
+    We aim to show \(\kappa = |\partial(C \cap D)| = |\partial(\stcomp{C} \cap \stcomp{D})|\).
     The diagram below relates the edge boundaries of these four sets (which we call \emph{corners}) and can be used to make the following calculation.
 
     \begin{figure}[h]
@@ -335,28 +333,28 @@ they are minimal cuts.
 
     Let 
     \begin{align*}
-        a &= |\delta(C \cap D, \stcomp{C} \cap D)|, & d &= |\delta(\stcomp{C} \cap D, \stcomp{C} \cap \stcomp{D})|, \\
-        b &= |\delta(C \cap D, C \cap \stcomp{D})|, & e &= |\delta(C \cap D, \stcomp{C} \cap \stcomp{D})|, \\
-        c &= |\delta(C \cap \stcomp{D}, \stcomp{C} \cap \stcomp{D})|, & f &= |\delta(C \cap \stcomp{D}, \stcomp{C} \cap D)|.
+        a &= |\partial(C \cap D, \stcomp{C} \cap D)|, & d &= |\partial(\stcomp{C} \cap D, \stcomp{C} \cap \stcomp{D})|, \\
+        b &= |\partial(C \cap D, C \cap \stcomp{D})|, & e &= |\partial(C \cap D, \stcomp{C} \cap \stcomp{D})|, \\
+        c &= |\partial(C \cap \stcomp{D}, \stcomp{C} \cap \stcomp{D})|, & f &= |\partial(C \cap \stcomp{D}, \stcomp{C} \cap D)|.
     \end{align*}
 
     Then, 
 
     \begin{align*}
-    \kappa &= |\delta(C)| \\
-           &= |\delta(C, \stcomp{C})| \\
-           &= |\delta(C, \stcomp{C} \cap D)| + |\delta(C, \stcomp{C} \cap \stcomp{D})| \\
-           &= |\delta(C \cap D, \stcomp{C} \cap D)| + |\delta(C \cap \stcomp{D}, \stcomp{C} \cap D)| \\
-           &\quad + |\delta(C \cap D, \stcomp{C} \cap \stcomp{D})| + |\delta(C \cap \stcomp{D}, \stcomp{C} \cap \stcomp{D})| \\
+    \kappa &= |\partial(C)| \\
+           &= |\partial(C, \stcomp{C})| \\
+           &= |\partial(C, \stcomp{C} \cap D)| + |\partial(C, \stcomp{C} \cap \stcomp{D})| \\
+           &= |\partial(C \cap D, \stcomp{C} \cap D)| + |\partial(C \cap \stcomp{D}, \stcomp{C} \cap D)| \\
+           &\quad + |\partial(C \cap D, \stcomp{C} \cap \stcomp{D})| + |\partial(C \cap \stcomp{D}, \stcomp{C} \cap \stcomp{D})| \\
            &= a + f + e + c. && \text{(1)} \\
     \intertext{This corresponds exactly to the edges in the diagram emanating from \(C \cap D\) and \(C \cap \stcomp{D}\). Similarly,}
-    \kappa &= |\delta(D)| = b + f + e + d. && \text{(2)} 
+    \kappa &= |\partial(D)| = b + f + e + d. && \text{(2)} 
     \intertext{By (1) and (2),}
         2\kappa &= a + b + c + d + 2e + 2f. && \text{(3)} 
     \intertext{The sets \(C \cap D\) and \(\stcomp{C} \cap \stcomp{D}\) contain an end, %go over this part
-    so \(\delta(C \cap D) = a + e + b \geq \kappa\) and \(\delta(\stcomp{C} \cap \stcomp{D}) = c+e+d \geq \kappa\). It follows that the sum \(a+b+c+d+2e \geq 2\kappa\). By comparison with (3), we have that \(f = 0\). Finally,}
+    so \(\partial(C \cap D) = a + e + b \geq \kappa\) and \(\partial(\stcomp{C} \cap \stcomp{D}) = c+e+d \geq \kappa\). It follows that the sum \(a+b+c+d+2e \geq 2\kappa\). By comparison with (3), we have that \(f = 0\). Finally,}
     \kappa &= a + e + b = c + e + d.
-    \intertext{Therefore, \(\delta(C \cap D)\) and \(\delta(\stcomp{C} \cap \stcomp{D})\) are minimal as required.} \altqedhere
+    \intertext{Therefore, \(\partial(C \cap D)\) and \(\partial(\stcomp{C} \cap \stcomp{D})\) are minimal as required.} \altqedhere
 \end{align*} 
 \end{proof}
 
@@ -376,7 +374,7 @@ To start, note that if \(\Gamma\) is the Cayley graph of a group \(G\) with resp
     Alternatively, cuts are nested if there is one empty corner. Cuts \(C,D\) are said to be \emph{non-nested} if they are not nested.
 \end{definition}
 
-Structure trees are trees which are constructed from \emph{structure cuts}, which is a cut \(C\) such that for any automorphism \(g \in \mathrm{Aut}(\Gamma)\), \(C\) and \(g(C)\) are nested. Let \(\mathcal{C} := \{g(C) \mid g \in \mathrm{Aut}(\Gamma)\}\) be this collection of cuts. If \(G\) acts on its Cayley graph \(\Gamma\), and if \(\mathcal{C}\) is a \(G\)-invariant set of nested cuts, then the action of \(G\) on \(\Gamma\) induces an action of \(G\) on a subset of the elements of \(\mathcal{C}\), which are called \(\mathcal{C}\)-blocks. From these \(\mathcal{C}\)-blocks, we can construct a tree --- in which \(\mathcal{C}\)-blocks form the vertices and edges are given by intersecting pairs of \(\mathcal{C}\)-blocks. The resulting tree is denoted \(T(\mathcal{C})\) and is called the \emph{structure tree}. If the action is transitive on \(\Gamma\), then it is also transitive on \(T(\mathcal{C})\).
+Structure trees are trees which are constructed from \emph{structure cuts}, which are cuts \(C\) such that for any automorphism \(g \in \mathrm{Aut}(\Gamma)\), \(C\) and \(g(C)\) are nested. Let \(\mathcal{C} := \{g(C) \mid g \in \mathrm{Aut}(\Gamma)\}\) be this collection of cuts. If \(G\) acts on its Cayley graph \(\Gamma\), and if \(\mathcal{C}\) is a \(G\)-invariant set of nested cuts, then the action of \(G\) on \(\Gamma\) induces an action of \(G\) on a subset of the elements of \(\mathcal{C}\), which are called \(\mathcal{C}\)-blocks. From these \(\mathcal{C}\)-blocks, we can construct a tree --- in which \(\mathcal{C}\)-blocks form the vertices and edges are given by intersecting pairs of \(\mathcal{C}\)-blocks. The resulting tree is denoted \(T(\mathcal{C})\) and is called the \emph{structure tree}. If the action is transitive on \(\Gamma\), then it is also transitive on \(T(\mathcal{C})\).
 
 Now that we have a transitive action on a infinite tree, Kr\"{o}n uses Bass-Serre theory to deduce that the group \(G\) splits over the stabiliser of an edge. As the action of a tree on its Cayley graph is free, there is some work to be done to show that the edge stabilisers of \(T(\mathcal{C})\) are finite.
 In summary, this points to the following theorem:
@@ -511,14 +509,15 @@ With a few more definitions, we conclude this section by illustrating this const
 \end{lemma}
 \end{comment}
 
-\subsection{Links to Bass--Serre theory and generalisations}
-
+\subsection{Links to Bass--Serre theory and further questions}
+\subsubsection{Generalisations}
 Stallings' structure theorem in the language of Bass--Serre theory gives the following useful corollary. 
 \begin{corollary}
     A finitely generated group with more than one end has a non-trivial action on a tree with finite edge stabilisers.
 \end{corollary}
 
-\begin{theorem}
+Furthermore, from Stallings' structure theorem we can derive an even stronger classification.
+\begin{theorem}[Stalling's Structure Theorem II]
     Stallings' structure theorem (Theorem~\ref{thm:SST}) extends to the following classification: 
     \begin{itemize}
         \item (1) corresponds to the case in which \(G\) has exactly two ends,
@@ -529,8 +528,22 @@ Stallings' structure theorem in the language of Bass--Serre theory gives the fol
 
 It seems that there is no similar classification for one-ended groups. Since most finitely generated infinite groups are not virtually \(\mathbb{Z}\) and cannot be split over a finite subgroup, we can take away the conclusion that most infinite finitely generated groups are in fact one-ended.
 
-There is plenty more to be explored here --- for example, one may ask is if there exists a notion of ends of a group for an infinitely generated group?
-The answer is yes, and this gives rise to a generalisation of Stallings' theorem for any group \(G\). The definition of such an end and the theorem below is given in \cite{phdthesis} (originally \cite{D89}).
+\subsubsection{Further research}
+There is plenty more to be explored here and we give two possible directions for further investigation. 
+
+\textbf{1.} \textit{``If most finitely generated groups are one-ended, what are some other examples other than \(\mathbb{Z}^2\)?''} 
+
+In particular, a large class of hyperbolic groups are one-ended:
+
+\begin{theorem} \cite{S96}
+    A hyperbolic group is one-ended if its Gromov boundary is a non-empty connected space.
+\end{theorem}
+
+Hence, a set of examples would be the surface groups \(\pi_1(\Sigma_g)\) for \(g \geq 2\). One could look into similar theorems for small cancellation, Fuschian, or right-angled Artin groups.
+
+\vspace{1em}
+\textbf{2.} \textit{``Does there exist a notion of ends of a group for an infinitely generated group? Do Stallings' results generalise further in this direction?''}
+The answer to both of these questions is yes. The definition of such an end and the theorem below is given in \cite{phdthesis} (originally \cite{D89}).
 
 \begin{theorem}
      Let \(G\) be a group. The following are equivalent:

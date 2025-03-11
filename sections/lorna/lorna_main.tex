@@ -2,8 +2,9 @@
 \label{sec:groups_acting_on_R_trees}
 %\todo[color=green!40]{Hello Lorna, Talia here! I fixed a few tiny typos and punctuation things. For anything bigger, I will add comments in boxes. Take a look when you have a chance, and feel totally free to ignore any of my suggestions!}
 
-In this section we will discuss a class metric spaces called $\mathbb{R}$-trees, which admit interesting group actions. These actions arise in proofs across the field of geometric group theory, in areas from hyperbolic groups to Culler-Vogtmann Outer Space. We will give an introduction to these spaces and the groups which act on them, followed by an overview of some of their applications. We also aim to highlight different ways in which Bass-Serre theory fails for $\mathbb{R}$-trees. Much of this section follows \cite{Bestvina_trees}.
+In this section we will discuss a class metric spaces called $\mathbb{R}$-trees, which admit interesting group actions. These actions arise in proofs across the field of geometric group theory, in areas from hyperbolic groups to Culler-Vogtmann Outer Space. We will give an introduction to these spaces and the groups which act on them, followed by an overview of some of their applications. We also aim to highlight different ways in which Bass--Serre theory fails for $\mathbb{R}$-trees. Much of this section follows \cite{Bestvina_trees}.
 \subsection{Definition and Basic Examples}
+\subsubsection{}
 \begin{definition}
     A metric space $(X,d)$ is an \emph{$\mathbb{R}$-tree} if for every pair of points $x,y\in X$ there is a unique geodesic from $x$ to $y$.
 \end{definition}
@@ -14,7 +15,7 @@ The following follows immediately from the definition, and is sometimes used as 
     A metric space is an $\mathbb{R}$-tree if and only if it is 0-hyperbolic.
 \end{proposition}
 
-We now give some simple examples of $\mathbb{R}$-trees.
+\subsubsection{} We now give some simple examples of $\mathbb{R}$-trees.
 
 \begin{example}
     Any simplicial tree $T$ with the metric defined by identifying each edge with the interval $[0,1]$ is an $\mathbb{R}$-tree. These $\mathbb{R}$-trees are sometimes referred to as \emph{simplicial}.
@@ -29,8 +30,40 @@ We now give some simple examples of $\mathbb{R}$-trees.
     \textit{via.}~the $x$-axis. Note that there is no underlying simplicial graph for this $\mathbb{R}$-tree, so in particular we have shown that $\mathbb{R}$-trees are slightly more general than simplicial trees with metrics.
 \end{example}
 
+\subsubsection{} An important example of when $\mathbb{R}$-trees arise is as limits of hyperbolic metric spaces. To find a limit of spaces, we first need to define an underlying metric. This subsection is covered in more detail in \cite{BridsonSwarup}
+
+\begin{definition}
+    An $\epsilon$\emph{-approximation} between two metric spaces $X$ and $Y$ is a set $R\subseteq X\times Y$ such that:
+    \begin{itemize}
+        \item Every point in each of $X$ and $Y$ appears in some element of $R$, and
+        \item If $(x,y),(x',y')\in R$ then \[\lvert d_X(x,x')-d_Y(y,y')\rvert<\epsilon.\]
+    \end{itemize}
+    If there exists an $\epsilon$-approximation between $X$ and $Y$, write $X\sim_\epsilon Y$. The \emph{Hausdorff--Gromov distance} between $X$ and $Y$ is \[D_H(X,Y)=\inf\{\epsilon:X\sim_\epsilon Y\}\] (and is infinite if no such $\epsilon$ exists).
+\end{definition}
+
+\begin{theorem}[\hspace{1sp}{\cite[Proposition 1.9]{BridsonSwarup}}]\label{limittrees}
+    Let $X_i$ be a sequence of compact metric spaces such that $X_i\rightarrow X$ in the Hausdorff--Gromov %\todo[color=green!40]{Changed the hyphen to an en-dash using --.} 
+     metric.
+    \begin{enumerate}
+        \item If every $X_i$ is a geodesic metric space then so is $X$,
+        \item If $X_i$ is $\delta_i$-hyperbolic for each $i$, and $\delta_i\rightarrow 0$, then $X$ is an $\mathbb{R}$-tree. 
+    \end{enumerate}
+\end{theorem}
+
+The proof (given in \cite{BridsonSwarup}) is by simple hyperbolic geometry.
+%probably not worth proving here :(
+% \begin{proof}
+%     See \cite{} for the proof of (1).
+
+%     To prove (2), we first want to show that for every $x,y\in X$ there is a unique geodesic from $x$ to $y$. By (1) we know that there is at least one geodesic; denote this $[x,y]$, and suppose there is also some other geodesic. Let $z$ be the midpoint of this second geodesic, so we have a triangle with vertices $x,y$ and $z$. In the $X_i$ we have triangles which converge to this triangle, say with vertices $x_i,y_i$ and $z_i$. In this triangle in $X_i$, let $y_i'$ and $x_i'$ be the points on the edges $[x_i,z_i]$ and $[z_i,y_i]$ respectively which are at equal distance from $z_i$, and such that the remaining length of these edges sums to $d(x_i,y_i)$. Let $z_i'$ be the point on $[x_i,y_i]$ which divides it into this sum (see Figure \textcolor{red}{picture}). Then we have $d(x_i,z_i')=d(x_i,y_i')$, $d(y_i,z_i')=d(y_i,x_i')$, and $d(z_i,x_i')=d(z_i,y_i')$. Now $d(x_i',y_i'), d(y_i',z_i')$ and $d(x_i',z_i')$ are all less than $6\delta_i$:
+
+%     To show this for $d(y_i',z_i')$, first suppose there is some $t\in[x_i,z_i]$ such that $d(y_i',t)<\delta$, so \[d(x_i,t)+d(t,z_i')=d(x_i,z_i')=d(x_i,y_i')\leq d(x_i,t)+\delta\] and this is true in the case where $z_i'$ is $\delta$-close to $[x_i,y_i]$ by the same argument. Otherwise, there are $t_{y_i'}$ and $t_{z_i'}$ on $[y_i,z_i]$ such that $d(y_i',t_{y_i'}),\;d(z_i',t_{z_i'})<\delta.$ SO \textcolor{red}{finish this}
+
+    
+% \end{proof}
+
 \subsection{Group Actions}
-Bass-Serre Theory gives a convenient way to study groups acting on simplicial trees; in particular Theorem \ref{structuretheorem} says that a group $G$ acting on a tree $X$ can be viewed as the fundamental group of $G\backslash X$. However, this fails in general for $\mathbb{R}$-trees. For example, let $X$ be the $\mathbb{R}$-tree described in Example \ref{xtrains}, and let $G$ be the trivial group acting on $X$. Then the quotient $G\backslash X$ is $X$, which is not a simplicial tree. \cite{Levit_rtrees} gives construction which aims to generalise the theorem to $\mathbb{R}$-trees. Here we instead study group actions on $\mathbb{R}$-trees using other methods.
+Bass--Serre Theory gives a convenient way to study groups acting on simplicial trees; in particular Theorem \ref{structuretheorem} says that a group $G$ acting on a tree $X$ can be viewed as the fundamental group of $G\backslash X$. However, this fails in general for $\mathbb{R}$-trees. For example, let $X$ be the $\mathbb{R}$-tree described in Example \ref{xtrains}, and let $G$ be the trivial group acting on $X$. Then the quotient $G\backslash X$ is $X$, which is not a simplicial tree. \cite{Levit_rtrees} gives construction which aims to generalise the theorem to $\mathbb{R}$-trees. Here we instead study group actions on $\mathbb{R}$-trees using other methods.
 
 \subsubsection{} 
 Isometries of $\mathbb{R}$-trees have a classification analogous to that of isometries of hyperbolic space. 
@@ -76,38 +109,6 @@ Also of interest are \textit{stable} actions:
 \begin{definition}
     Let $G$ be a group acting by isometries on an $\mathbb{R}$-tree $T$. A  non-degenerate subtree $S$ of $T$ (i.e. a subtree which is non-empty and not a single point) is \emph{stable} if for every subtree $S'\subset S$, \[\text{Fix}(S')=\text{Fix}(S)\] where Fix($U$) denotes the pointwise stabiliser of $U$. The action of $G$ is \emph{stable} if it is non-trivial, minimal, and every non-degenerate tree $T$ has a stable subtree.
 \end{definition}
-
-\subsubsection{} An important example of when $\mathbb{R}$-trees arise is as limits of hyperbolic metric spaces. To find a limit of spaces, we first need to define an underlying metric. This subsection is covered in more detail in \cite{BridsonSwarup}
-
-\begin{definition}
-    An $\epsilon$\emph{-approximation} between two metric spaces $X$ and $Y$ is a set $R\subseteq X\times Y$ such that:
-    \begin{itemize}
-        \item Every point in each of $X$ and $Y$ appears in some element of $R$, and
-        \item If $(x,y),(x',y')\in R$ then \[\lvert d_X(x,x')-d_Y(y,y')\rvert<\epsilon.\]
-    \end{itemize}
-    If there exists an $\epsilon$-approximation between $X$ and $Y$, write $X\sim_\epsilon Y$. The \emph{Hausdorff--Gromov distance} between $X$ and $Y$ is \[D_H(X,Y)=\inf\{\epsilon:X\sim_\epsilon Y\}\] (and is infinite if no such $\epsilon$ exists).
-\end{definition}
-
-\begin{theorem}[\hspace{1sp}{\cite[Proposition 1.9]{BridsonSwarup}}]\label{limittrees}
-    Let $X_i$ be a sequence of compact metric spaces such that $X_i\rightarrow X$ in the Hausdorff--Gromov %\todo[color=green!40]{Changed the hyphen to an en-dash using --.} 
-     metric.
-    \begin{enumerate}
-        \item If every $X_i$ is a geodesic metric space then so is $X$,
-        \item If $X_i$ is $\delta_i$-hyperbolic for each $i$, and $\delta_i\rightarrow 0$, then $X$ is an $\mathbb{R}$-tree. 
-    \end{enumerate}
-\end{theorem}
-
-The proof (given in \cite{BridsonSwarup}) is by simple hyperbolic geometry.
-%probably not worth proving here :(
-% \begin{proof}
-%     See \cite{} for the proof of (1).
-
-%     To prove (2), we first want to show that for every $x,y\in X$ there is a unique geodesic from $x$ to $y$. By (1) we know that there is at least one geodesic; denote this $[x,y]$, and suppose there is also some other geodesic. Let $z$ be the midpoint of this second geodesic, so we have a triangle with vertices $x,y$ and $z$. In the $X_i$ we have triangles which converge to this triangle, say with vertices $x_i,y_i$ and $z_i$. In this triangle in $X_i$, let $y_i'$ and $x_i'$ be the points on the edges $[x_i,z_i]$ and $[z_i,y_i]$ respectively which are at equal distance from $z_i$, and such that the remaining length of these edges sums to $d(x_i,y_i)$. Let $z_i'$ be the point on $[x_i,y_i]$ which divides it into this sum (see Figure \textcolor{red}{picture}). Then we have $d(x_i,z_i')=d(x_i,y_i')$, $d(y_i,z_i')=d(y_i,x_i')$, and $d(z_i,x_i')=d(z_i,y_i')$. Now $d(x_i',y_i'), d(y_i',z_i')$ and $d(x_i',z_i')$ are all less than $6\delta_i$:
-
-%     To show this for $d(y_i',z_i')$, first suppose there is some $t\in[x_i,z_i]$ such that $d(y_i',t)<\delta$, so \[d(x_i,t)+d(t,z_i')=d(x_i,z_i')=d(x_i,y_i')\leq d(x_i,t)+\delta\] and this is true in the case where $z_i'$ is $\delta$-close to $[x_i,y_i]$ by the same argument. Otherwise, there are $t_{y_i'}$ and $t_{z_i'}$ on $[y_i,z_i]$ such that $d(y_i',t_{y_i'}),\;d(z_i',t_{z_i'})<\delta.$ SO \textcolor{red}{finish this}
-
-    
-% \end{proof}
 
 \subsection{Band Complexes and the Rips Machine}
 Actions of groups on $\mathbb{R}-trees$ are usually studied through band complexes. The majority of this section follows \cite{Wilton}.
@@ -278,7 +279,7 @@ This theorem allows us to classify finitely presented groups which act `nicely' 
     If $X'$ has a component $X'_i$ of thin type, it can be shown that the Rips Machine subdivides some band repeatedly into thinner and thinner bands. Some of these bands will eventually be disjoint from any of the 2-cells of $X'$. These bands are called \textit{naked bands} and induce free product decompositions of $\pi_1(X')$. %\todo[color=green!40]{I don't think it's needed!}
     Hence possibility (3) holds.
 
-    Finally, if $X'$ has a simplicial component $X'_i$, an $\mathbb{R}$-tree \textit{dual} to $X'_i$ can be constructed, on which $G$ acts. Bass-Serre theory can then be used to show that $G$ splits as a non-trivial free product.
+    Finally, if $X'$ has a simplicial component $X'_i$, an $\mathbb{R}$-tree \textit{dual} to $X'_i$ can be constructed, on which $G$ acts. Bass--Serre theory can then be used to show that $G$ splits as a non-trivial free product.
 \end{proof}
 
  %\todo[color=green!40]{I would either move this to directly before the theorem. The reader could expect a theorem immediately ahead and be confused to see a definition!}
@@ -339,7 +340,7 @@ $\mathbb{R}$-trees are also instrumental in the study of Culler and Vogtmann's \
 
 Let $\mathcal{L}(G)$ denote the set of all length functions for non-trivial actions of $G$ on $\mathbb{R}$-trees. Quotienting out by the obvious action of $\mathbb{R}$ gives the space $\mathcal{PL}(G)$ of \textit{projectivised length functions}. Let $F_n$ be the free group on $n$ generators, and $Y_n\subseteq \mathcal{PL}(F_n)$ the set of projectivised length functions defined by polyhedral actions. The space $Y_n$ is known as \textit{outer space}, as it admits a `nice' action of Out$(F_n)$. 
 
-There is a theorem in Bass-Serre theory which states that a group is free if and only if it acts freely on a simplicial tree. The theory of outer space can be used to study free actions of free groups on $\mathbb{R}$-trees. In the $n=2$ case, it has been shown that the only free actions of $F_2$ on $\mathbb{R}$-trees are polyhedral, i.e. their length functions are in $Y_2$. For every $n\geq 3$ however, one can show that the set $\bar{Y}_n\backslash Y_n$ (where $\bar{Y}_n$ denotes the closure of $Y_n$ in $\mathcal{PL}(F_n)$) contains free actions. Therefore there are free actions of $F_n$ on $\mathbb{R}$-trees which are not polyhedral, sometimes referred to as \textit{exotic} actions. This demonstrates another key difference between simplicial trees and the slightly more general class of $\mathbb{R}$-trees.
+There is a theorem in Bass--Serre theory which states that a group is free if and only if it acts freely on a simplicial tree. The theory of outer space can be used to study free actions of free groups on $\mathbb{R}$-trees. In the $n=2$ case, it has been shown that the only free actions of $F_2$ on $\mathbb{R}$-trees are polyhedral, i.e. their length functions are in $Y_2$. For every $n\geq 3$ however, one can show that the set $\bar{Y}_n\backslash Y_n$ (where $\bar{Y}_n$ denotes the closure of $Y_n$ in $\mathcal{PL}(F_n)$) contains free actions. Therefore there are free actions of $F_n$ on $\mathbb{R}$-trees which are not polyhedral, sometimes referred to as \textit{exotic} actions. This demonstrates another key difference between simplicial trees and the slightly more general class of $\mathbb{R}$-trees.
 
 \subsubsection{}
 We finish with another application to hyperbolic groups, and a return to the discussion of ends of groups from Section 4.
@@ -354,7 +355,7 @@ The proof of this theorem (the part that uses $\mathbb{R}$-trees) can be found i
 \end{theorem}
 
 \begin{proof}
-    (Sketch) The proof that $\partial G$ is connected does not use $\mathbb{R}$-trees. Nor does that of the fact that if $\partial G$ contains no cut points, it is locally-connected. However, $\mathbb{R}$-trees are used to show that $\partial G$ never contains cut points. Note that here we mean cut points in the topological sense (points which, when removed, disconnect the space), not in the sense of Section 4. (\textcolor{red}{?})
+    (Sketch) The proof that $\partial G$ is connected does not use $\mathbb{R}$-trees. Nor does that of the fact that if $\partial G$ contains no cut points, it is locally-connected. However, $\mathbb{R}$-trees are used to show that $\partial G$ never contains cut points. Note that here we mean cut points in the topological sense (points which, when removed, disconnect the space), not in the sense of Section 4.
     
     The proof is by contradiction. Supposing that $\partial G$ has a cut point, the action of $G$ on its boundary is used to construct an $\mathbb{R}$-tree on which $G$ acts with trivial arc stabilisers. Theorem \ref{stable} can then be used to conclude that $G$ splits over a 2-ended group. An inductive argument on the resulting graph of groups decomposition of $G$ and a result concerning the `complexity' of such a decomposition are then used to derive the contradiction.
 \end{proof}
