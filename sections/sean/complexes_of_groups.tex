@@ -54,9 +54,6 @@ Without any knowledge of the group $G_\nu$, in order to guarantee associativity 
 
 We now define a complex of groups associated to an action.
 In some sense, this is the natural context of complexes of groups and motivates  \cref{def:complex_of_groups}.
-It is in fact true that we can fully recover $G$, $\calx$ and the action from this information, but this is something we will not discuss.
-See REF for more details.
-\todo[color=olive]{Remember to add reference}
 \begin{definition}
 	Suppose we have $\calx$, $G$, $G \backslash \calx$ and $p \colon G \to G \backslash \calx$ as described after \cref{def:action_of_groups_on_scwols}.\todo[color=olive]{Is it clear that this section is a well defined function? - I guess so, if you are mentioning making a choice in the paragraph below}
 	Denote the scwol $G \backslash \calx$ by $\caly$.
@@ -337,8 +334,9 @@ Now, we explore a way in complexes of groups diverge significantly from graphs o
 A graph of groups always arises from an action of a group on a tree, however, this is not the case here.
 \begin{theorem}[\hspace{1sp}{\cite[Chapter 3.\textrm{\ensuremath{\calc}}, Corollary 2.15]{BrHa11}}]
 	A complex of groups $\calg$ over the scwol $\calx$, is developable if and only if there exists a group $G$ and a morphism $\psi \colon \calg \to G$ where each $\psi_\sigma \colon G_\sigma \to G$ is injective.
+	\label{thm:complex_of_groups_developable_iff_injective}
 \end{theorem}
-\begin{proof}[Sketch of proof]
+\begin{proof}
 	One direction of the proof is given by our remarks above.
 	The other direction is proven constructively.
 	Given any such morphism, we can construct a scwol, which we will denote $\caly_\psi$.
@@ -359,7 +357,7 @@ A graph of groups always arises from an action of a group on a tree, however, th
 		(g\psi_{i(a)}(G_{i(a)}), a)(h\psi_{i(b)}(G_{i(b)}), b) = (h\psi_{i(b)}(G_{i(b)}, ab)
 	\end{align*}
 	where $g,h \in G$ and $i(h\psi_{i(b)}(G_{i(b)}), b) = t(g\psi_{i(a)}(G_{i(a)}), a)$.
-	There are some checks which we will omit, and refer the reader to \cite[]{BrHa11} for these in full.
+	There are some checks which we will omit, and refer the reader to reference for this theorem for these in full.
 	In particular, we should check that $t$ is a well-defined function, and that $\caly_\psi$ is well-defined as a scwol.
 
 	There is a natural action of $G$ on  $\caly_\psi$, where
