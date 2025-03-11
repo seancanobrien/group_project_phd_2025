@@ -332,6 +332,7 @@ In this way, the following definition is a specific case of \cref{def:morhpism_o
 \end{definition}
 Suppose we have a complex of groups $\calg = (G_\sigma, \phi_a, g_{a,b})$, which emerges from a group  $G$ acting on a scwol.
 There is a natural morphism from $\calg$ to $G$ which is injective on the local groups  $G_\sigma$.
+\todo[color=olive]{Is that the one that you discuss in the theorem below (3.14)? Or is this the remark that proves this theorem in one direction?}
 
 Now, we explore a way in complexes of groups diverge significantly from graphs of groups.
 A graph of groups always arises from an action of a group on a tree, however, this is not the case here.
@@ -358,16 +359,18 @@ A graph of groups always arises from an action of a group on a tree, however, th
 	\begin{align*}
 		(g\psi_{i(a)}(G_{i(a)}), a)(h\psi_{i(b)}(G_{i(b)}), b) = (h\psi_{i(b)}(G_{i(b)}, ab)
 	\end{align*}
+    \todo[color=olive]{Missing bracket somewhere in the above line (at the end of the align)?}
 	where $g,h \in G$ and $i(h\psi_{i(b)}(G_{i(b)}), b) = t(g\psi_{i(a)}(G_{i(a)}), a)$.
-	There are some checks which we will omit, and refer the reader to \cite[]{BrHa11} for these in full.
+	There are some checks which we will omit, and refer the reader to \cite[]{BrHa11} for these in full. \todo[color=olive]{Remember to add content to [ ] in the cite}
 	In particular, we should check that $t$ is a well-defined function, and that $\caly_\psi$ is well-defined as a scwol.
+    \todo[color=olive]{By $t$ being a well-defined function, do you mean assigning the terminal vertex?}
 
 	There is a natural action of $G$ on  $\caly_\psi$, where
 	\[
 		h \cdot (g\psi_{i(a)}(G_{i(a)}), a) = (hg\psi_{i(a)}(G_{i(a)}), a)
 	\]
 	and similarly with vertices.
-	Since this action acts transitively on the cosets, we get a natural isomorphism $\lambda$ between $G \backslash \caly_\psi$ and  $\calx$.
+	Since this action acts transitively on the cosets, we get a natural isomorphism $\lambda$ between $G \backslash \caly_\psi$ and  $\calx$.\todo[color=olive]{Is "this projection" = $\lambda$(or its inverse) composed with a quotient map? Maybe it would be good to say that}
 	Let $p \colon \caly_\psi \to \calx$ be this projection.
 	When constructing the complex of groups associated to this action, we need to make choices of representatives with respect to $p$, i.e.~we need to choose a section $s$ of $p$.
 	We make the natural choice of $s(\sigma) = (1_\sigma \psi_\sigma(G_\sigma), \sigma)$ for each $\sigma \in V(\calx)$.
