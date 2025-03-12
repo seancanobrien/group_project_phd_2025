@@ -11,7 +11,7 @@ Given a group $G$, let $\ad(g) \colon G \to G$ denote conjugation, $\ad(g)(h) = 
 	Given a scwol $\calx$, A complex of groups $\calg$ = $(G_\sigma, \phi_a, g_{a,b})$ over $\calx$ consists of the following data.
 	\begin{enumerate}
 		\item A group $G_\sigma$ for each $\sigma \in V(\calx)$.
-		\item An injective homomorphism $\phi_a \colon G_{i(a)} \to G_{t(a)}$ for each $a \in E(\calx)$.
+		\item A monomorphism $\phi_a \colon G_{i(a)} \to G_{t(a)}$ for each $a \in E(\calx)$.
 		\item An element $g_{a,b} \in G_{t(a)}$ for each composable pair $(b,a) \in E^{(2)}(\calx)$.
 	\end{enumerate}
 	The groups $G_\sigma$ are called \emph{local groups}, and the $\phi_a$ are called \emph{edge homomorphisms}.
@@ -219,7 +219,7 @@ This is shown in the diagram below.
 		\end{tikzpicture}
 	\end{center}
 	In the resulting complex of groups $\calh$, the local groups of the red vertices are $G$ and the other local groups are trivial.
-	All the injective homomorphisms are determined by these groups and all the twisting elements are trivial.
+	All the monomorphisms are determined by these groups and all the twisting elements are trivial.
 \end{example}
 
 Given any polyhedral complex, we could construct such an example as above.
