@@ -94,7 +94,8 @@ Departing from being Hopfian, it is important to mention that the groups $BS(1,n
 \end{remark}
 
 \begin{proof}[Sketch proof of \ref{solv}]
-    First, suppose $1 \in \{|m|,|n|\}$. Note, that thanks to \ref{BSisom} we can without loss of generality consider $m = 1$. Then $G = BS(1,n) = \langle a,t \: | \: tat^{-1} = a^n \rangle$, and according to \cite{Gi79}, for $n \neq 0$ $\langle a,t \: | \: tat^{-1} = a^n \rangle \cong \Z[\frac{1}{n}]\rtimes \langle t \rangle$ where $t$ acts by multiplication by $n$. Note, that if $G = BS(1,0)$, then $G = \langle a,t \: | \: tat^{-1} = 1 \rangle = \langle a,t \: | \: a = 1 \rangle = \langle t \rangle \cong \Z$. As $\Z$ is abelian, it is soluble (just consider subnormal series $\Z \ge 1$). Thus we only consider $n \neq 0$, and note that, for a semidirect product $G = H \rtimes K$, $G/H \cong K$. Thus we get a subnormal series $BS(1,n) \cong \Z[\frac{1}{n}]\rtimes \langle t \rangle \ge \Z[\frac{1}{n}] \ge 1$ with abelian factors.
+    First, suppose $1 \in \{|m|,|n|\}$. Note, that thanks to \ref{BSisom} we can without loss of generality consider $m = 1$. Then $G = BS(1,n) = \langle a,t \: | \: tat^{-1} = a^n \rangle$, and according to \cite[Theorem 5]{Gi79}, for $n \neq 0$ $\langle a,t \: | \: tat^{-1} = a^n \rangle \cong \Z[\frac{1}{n}]\rtimes \langle t \rangle$
+    where $t$ acts by multiplication by $n$ (we should remark that the isomorphism is not easy to see and that by $\Z[1/n]$ we mean the underlying abelian group of the ring $\Z[1/n] = \{a_0 + \frac{a_1}{n} + \ldots + \frac{a_k}{n^k}\:|\:k \in \N, a_i \in \Z\}$). Note, that if $G = BS(1,0)$, then $G = \langle a,t \: | \: tat^{-1} = 1 \rangle = \langle a,t \: | \: a = 1 \rangle = \langle t \rangle \cong \Z$. As $\Z$ is abelian, it is soluble (just consider subnormal series $\Z \ge 1$). Thus we only consider $n \neq 0$, and note that, for a semidirect product $G = H \rtimes K$, $G/H \cong K$. Thus we get a subnormal series $BS(1,n) \cong \Z[\frac{1}{n}]\rtimes \langle t \rangle \ge \Z[\frac{1}{n}] \ge 1$ with abelian factors.
 \end{proof}
 
 \begin{remark}
@@ -107,6 +108,7 @@ Departing from being Hopfian, it is important to mention that the groups $BS(1,n
 
 For the discussion in this subsection we will follow \cite[chapter I]{serre_trees_1980}.
 \begin{definition}
+\label{def:graph}
     A \emph{graph} $\Gamma$ consists of 
     \begin{itemize}
         \item a set $X = \:V(\Gamma)$,
@@ -131,7 +133,6 @@ We are almost ready to define trees, which is a class of graphs that will be imp
     A tree is a connected non-empty graph with no circuits.
 \end{definition}
 
-\todo{We should agree on `monomorphism' vs `injective homomorphism'}
 \begin{definition}\label{grpgraph}
     A graph of groups $(G,\Gamma)$ consists of a graph $\Gamma$, a group $G_p$ for each $p \in V(\Gamma)$, and a group $G_y$ for each $y \in E(\Gamma)$, together with a monomorphism $G_y \to G_{t(y)}$ (denoted $a \mapsto a^y$). In addition, it is required that $G_y = G_{\overline{y}}$.
 \end{definition}
