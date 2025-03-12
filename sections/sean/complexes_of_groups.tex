@@ -54,7 +54,7 @@ Without any knowledge of the group $G_\nu$, in order to guarantee associativity 
 
 We now define a complex of groups associated to an action.
 In some sense, this is the natural context of complexes of groups and motivates  \cref{def:complex_of_groups}.
-\begin{definition}[Complex of groups associated to an action on a scwol]
+\begin{definition}
 	Suppose we have $\calx$, $G$, $G \backslash \calx$ and $p \colon G \to G \backslash \calx$ as described after \cref{def:action_of_groups_on_scwols}.
 	Denote the scwol $G \backslash \calx$ by $\caly$.
 	Let $s \colon V(\caly) \to V(\calx)$ be a choice of section (as sets) of $p|_{V(\calx)}$.
@@ -231,7 +231,9 @@ In this context, the geometric requirements on the action are as follows.
 Given these two conditions, the quotient scwol realises the quotient polyhedral complex (which is again a polyhedral complex, thanks to condition (2)).
 The stabiliser of a cell is automatically a subgroup of the stabilisers of each of its faces, and we get a complex of groups in this way.
 
-\begin{definition}[Morphisms of complexes of groups]
+We now define the appropriate notion of a \emph{morphism of complexes of groups}.
+
+\begin{definition}
 	Let $\calx$ and $\calx^\prime$ be two scwols, and let $\calg = (G_\sigma, \phi_a, g_{a,b})$ and  $\calg^\prime = (G^\prime_\sigma, \phi^\prime_a, g^\prime_{a,b})$ be two complexes of groups over $\calx$ and $\calx^\prime$ respectively.
 	Neither of these complexes of groups are necessarily associated to a group action.
 	Given a possibly degenerate morphism of scwols $f \colon \calx \to \calx^\prime$, a morphism of complexes of groups over $f$ is some $\psi  \colon \calg \to \calg^\prime$ which consists of the following data:
@@ -310,9 +312,9 @@ Condition (ii) ensures that $\psi_\nu\phi_{ab}$ unambiguously commutes in the fo
 \end{definition}
 
 \begin{remark}
-\label{rem:morphism_from_developed_cx_of_groups}
-    Suppose we have a complex of groups $\calg = (G_\sigma, \phi_a, g_{a,b})$, which emerges from a group  $G$ acting on a scwol.
-    There is a natural morphism from $\calg$ to $G$ which is injective on the local groups  $G_\sigma$.
+	\label{rem:morphism_from_developed_cx_of_groups}
+	Suppose we have a complex of groups $\calg = (G_\sigma, \phi_a, g_{a,b})$, which emerges from a group  $G$ acting on a scwol.
+	There is a natural morphism from $\calg$ to $G$ which is injective on the local groups  $G_\sigma$.
 \end{remark}
 We also emphasise the following important morphism of complexes of groups.
 A group $G$ can be realised as a complex of groups over the trivial scwol, consisting of one vertex and zero (non-identity) edges.
