@@ -20,7 +20,7 @@ The main aim of this section is to explore why Stallings' Theorem is true, which
 
 \subsection{Preliminaries}
 \subsubsection{Ends of groups and topological spaces}
-Throughout we assume all groups are finitely generated. In this preliminary section, we follow Bridson and Haefliger \cite[p.~144--148]{bridson_haefliger_metric_1999} to introduce ends of a group and summarise some of their properties. 
+Throughout we assume all groups are finitely generated. In this preliminary section, we follow Bridson and Haefliger \cite[p.~144--148]{BrHa11} to introduce ends of a group and summarise some of their properties. 
 
 Loosely speaking, ends are objects which describe the connected components of a topological space at infinity. In the context of ends of a group, these connected components arise from a Cayley graph of the group under a choice of finite generating set. 
 
@@ -36,11 +36,11 @@ Loosely speaking, ends are objects which describe the connected components of a 
 \end{figure}
 
 Before defining ends of a group, we introduce some necessary terminology.
-\begin{definition}[Proper map]
+\begin{definition}
     Let \(X, Y\) be topological spaces. A map \(f : X \to Y\) is \emph{proper} if for any compact set \(K \subset Y\), the pre-image \(f^{-1}(K) \subset X\) is compact.
 \end{definition}
 
-\begin{definition}[Ray]
+\begin{definition}
 \label{def:ray}
     A \emph{ray} in a topological space \(X\) is a proper continuous map \(r : [0,\infty) \to X\).
 \end{definition}
@@ -53,7 +53,7 @@ Before defining ends of a group, we introduce some necessary terminology.
 
 This idea holds for all topological spaces \(X\), and therefore we can construct a characterisation of rays by a ``point at infinity''. We formalise this in order to define ends. To do this, we use a notion of convergence of rays in \(X\). 
 
-\begin{definition}[Convergence of rays] 
+\begin{definition}
 \label{def:convergence}
     Let \(X\) be a topological space. If \(r_1, r_2 : [0,\infty) \to \mathcal{C}\) are rays, then \(r_1\) and \(r_2\) are said to \emph{converge} if for every compact \(K \subset X\) there exists \(N \in \mathbb{N}\) such that \(r_1[N,\infty)\) and \(r_2[N,\infty)\) are contained in the same path component of \(X \setminus K\).
 \end{definition}
@@ -67,7 +67,7 @@ This idea holds for all topological spaces \(X\), and therefore we can construct
 \end{proof}
 
 After showing that convergence in the same direction defines an equivalence relation on the set of rays, we can define ends to be the equivalence classes under this relation.
-\begin{definition}[Ends of a topological space]
+\begin{definition}
 \label{def:endsofgraph}
     An \emph{end} of \(X\) is an equivalence class under the relation of convergence of rays. The set of ends of \(X\) is written as \(\mathrm{Ends}(X)\).
 \end{definition}
@@ -77,7 +77,7 @@ After showing that convergence in the same direction defines an equivalence rela
     There are alternative definitions of ends, in particular there is a definition in terms of taking a nested sequence of connected components out to infinity. This is constructed by taking the a sequence of balls of increasing radius around a chosen basepoint, and selecting a connected component in the complement of each ball, if one exists (see Meier's book, \cite[p.~208]{M08}). From this we can see more clearly how to understand ends as connected components. For locally finite graphs (graphs in which all vertices have finite degree), it turns out that all definitions of ends are equivalent.
 \end{remark}
 
-\begin{definition}[Set of ends of a group]
+\begin{definition}
      The set of ends of a group is defined by the set of ends of the corresponding Cayley graph, where \(R\) is the set of rays in \(\mathrm{Cay}(G,S)\):
     \[
         \mathrm{Ends}((G,S)) := \mathrm{Ends}(\mathrm{Cay}(G,S)) = R/\sim.
@@ -86,14 +86,14 @@ After showing that convergence in the same direction defines an equivalence rela
 \end{definition}
 
 \begin{remark}
-    Moreover, \(\mathrm{Ends}(X)\) is a topological space, where a subset \(B \subset \mathrm{Ends}(X)\) is closed if all convergent sequences of ends in \(X\) have a limit point which is also in \(\mathrm{Ends}(X)\). For a formal definition of convergence of ends, see \cite[p.~144]{bridson_haefliger_metric_1999}.
+    Moreover, \(\mathrm{Ends}(X)\) is a topological space, where a subset \(B \subset \mathrm{Ends}(X)\) is closed if all convergent sequences of ends in \(X\) have a limit point which is also in \(\mathrm{Ends}(X)\). For a formal definition of convergence of ends, see \cite[p.~144]{BrHa11}.
 \end{remark}
 
 \begin{comment}
 Let \(E(r)\) be the equivalence class of \(r \in R\). For a sequence of rays \(\{r_n\}_{n \in \mathbb{N}} \in R\), convergence \(E(r_n) \to E(r)\) as \(n\) tends to infinity is defined by the following condition: for every compact set \(C \in X\), there exists a sequence of integers \(N_n\) such that \(r_n[N_n, \infty]\) and \(r[N_n, \infty]\) lie in the same path component of \(X \setminus C\) whenever \(n\) is sufficiently large. A subset \(B \subset \mathrm{Ends}(X)\) is defined to be closed if the following holds: if \(E(r_n) \in B\) for all \(n \in \mathbb{N}\), then \(E(r_n) \to E(r)\) implies \(E(r) \in B\).
 \end{comment}
 
-\begin{definition}[Number of ends]
+\begin{definition}
     The number of ends of a topological space \(X\) is 
     \[
         e(X) := |\mathrm{Ends}(X)|.
@@ -102,7 +102,7 @@ Let \(E(r)\) be the equivalence class of \(r \in R\). For a sequence of rays \(\
 
 The number of ends may be infinite, in which case we write \(e(X) = \infty\). The same notation extends to the number of ends of a finitely generated group (where \(S\) is a finite generating set) which we denote by \(e((G,S))\). A very useful result is that the number of ends is invariant under quasi-isometry, which is one of the main reasons that ends are an interesting object to study. 
 
-\begin{theorem}[Number of ends is a QI invariant] \cite[p.~145]{bridson_haefliger_metric_1999}
+\begin{theorem}[Number of ends is a QI invariant] \cite[p.~145]{BrHa11}
     Let \(G_1,G_2\) be groups with finite generating sets \(S_1,S_2\) respectively. If there exists a quasi-isometry \(f: (G_1, S_1) \to (G_2,S_2)\), then \(e((G_1,S_1)) = e((G_2,S_2))\).
 \end{theorem}
 
@@ -128,14 +128,14 @@ We can therefore denote the number of ends of a group by \(e(G)\).
         \item \(e(\mathbb{Z}/2\mathbb{Z} * \mathbb{Z}/2\mathbb{Z}) = e(D_{\infty}) = 2\)
         \item \(e(F_2) = \infty\)
         \item \(e(\mathbb{Z}^2 * \mathbb{Z}) = \infty\)
-        \item \(e(PSL(2,\mathbb{Z})) = \infty\)
+        \item \(e(\mathrm{PSL}(2,\mathbb{Z})) = \infty\)
     \end{itemize}
     \end{multicols}
 \end{example}
 
 In fact, the options for the number of ends of a group in the examples above are the only possibilities.
 
-\begin{theorem}[Freudenthal-Hopf Theorem] \cite[p.~146--147]{bridson_haefliger_metric_1999}
+\begin{theorem}[Freudenthal-Hopf Theorem] \cite[p.~146--147]{BrHa11}
 \label{FH}
     Every finitely generated group has either zero, one, two, or infinitely many ends.
 \end{theorem}
@@ -151,7 +151,7 @@ In fact, the options for the number of ends of a group in the examples above are
 \subsubsection{Splittings of groups}
 Now that we have introduced some background on ends, we focus on proving the backward implication of our main result, Stallings' Structure Theorem (Theorem~\ref{thm:SST}). In other words, if a infinite finitely generated group \emph{splits}, then it has more than one end. Intuitively, splittings are ways to decompose or ``factorise'' the group, and we introduce the two main ways of doing so: through amalgams and HNN-extensions.
 
- \begin{definition}[Amalgamated free product]\label{defnamalgamatedproduct}
+ \begin{definition}\label{defnamalgamatedproduct}
      Let \(G,H\) be groups and \(A_1 < G\), \(A_2 < H\) be isomorphic proper subgroups. The \emph{amalgamated product} with isomorphism \(\phi: A_1 \to A_2\) is 
      \[
      G *_A H = \langle G,H \mid a = \phi(a), a \in A_1 \rangle .
@@ -161,14 +161,14 @@ Now that we have introduced some background on ends, we focus on proving the bac
 
 For the definition of a HNN-extension, we recall Definition~\ref{HNN}.
 
- \begin{definition}[HNN extension]
+ \begin{definition}
      Let $G$ be a group, $\phi: A_1 \to A_2$ an isomorphism between two proper subgroups $A_1$,$A_2$ of $G$. An \emph{HNN extension of G} associated to that data is the quotient of $G \ast \langle t \rangle$ by the smallest normal subgroup containing $\{a^{-1}t\phi(a)t^{-1} \: | \: a \in A_1 \}$. Thus, we can represent that extension by a relative presentation 
     \[G \ast_\phi^{A_1} = \langle G,t \: | \: t^{-1}at = \phi(a), \forall a \in A_1 \rangle. \]
 
     The generator \(t\) is called the \emph{stable letter}.
  \end{definition}
 
-\begin{definition}[Normal form for amalgams]
+\begin{definition}
 \label{normalformamal}
     A \emph{normal form} for \(G *_A H\) is a sequence \((x_1, y_1, \dots,x_n, y_n, a)\), where \(x_i\) is a coset representative of a non-trivial left coset in \(G/A\), and \(y_i\) is a coset representative of a non-trivial left coset in \(H/A\).
 \end{definition}
@@ -179,14 +179,14 @@ For the definition of a HNN-extension, we recall Definition~\ref{HNN}.
 
 This property also applies to HNN-extensions, with the normal form defined as follows.
 
-\begin{definition}[Normal form for HNN-extensions]
+\begin{definition}
 \label{normalformhnn}
     A \emph{normal form} for \(G \ast_\phi^{A_1}\) is a sequence \((x_0, t^{\epsilon_0}, x_1, t^{\epsilon_1}, \dots, x_n, t^{\epsilon_n}, g)\) where \(g\) is an arbitrary element of \(G\), \(\epsilon_i \in \{-1, 1\}\), and the following two conditions hold. First, we require this sequence to be reduced, i.e. there is no consecutive subsequence of the form \(t^{-\epsilon}, 1, t^{\epsilon}\). Second, if \(\epsilon_i =1\) then \(x_i \in B\), and if \(\epsilon_i = -1\) then \(x_i \in A\).
 \end{definition}
 
 The fact that HNN-extensions can be expressed uniquely in this normal forms is known as \emph{Britton's lemma}. For a proof of this result, as well as the analogous result for amalgams, the interested reader may refer to \cite[p.7--8]{K10}. Using the above definitions, now we can define more formally what it means for a group to \emph{split}.
 
-\begin{definition}[Splitting]
+\begin{definition}
     A group \(G\) is said to \emph{split} over a subgroup \(H\) if \(G\) is a non-trivial free product with amalgamation over \(H\) or \(G\) is a HNN-extension of a group over \(H\). 
 \end{definition}
 
@@ -210,7 +210,7 @@ Using Bass--Serre theory, we can interpret what it means for a group to split in
   
   In the notation of Theorem~\ref{thm:SST}, we show (2) and (3) implies multiple-endedness. We assume condition (1) --- for a proof of this, one can refer to \cite[Chapter 11.6, Corollary 11.34]{M08}. First, we give a definition for rays in a graph.
 
-\begin{definition}[Rays in a graph]
+\begin{definition}
     In a graph \(\Gamma\), a \emph{ray} is an infinite sequence of vertices such that each consecutive pair are endpoints of an edge in \(E(\Gamma)\) and each vertex in \(V(\Gamma)\) appears at most once in the sequence. In particular, a ray contains neither loops nor backtracking segments.
 \end{definition}
 
@@ -254,23 +254,23 @@ The Cayley graph of \(G\) with respect to \(S\) has more than one end if and onl
 \subsubsection{Cuts and their properties}
 Given a finitely generated group with multiple ends, we would now like to construct a decomposition of this group as a splitting. The method of Kr{\"o}n in \cite{K10} involves ``cutting up'' the Cayley graphs for these groups in a certain way. Throughout we take \(\Gamma\) to be a simple, undirected graph, with vertex set \(V(\Gamma)\) and edge set \(E(\Gamma)\).
 
-\begin{definition}[Edge boundary]
+\begin{definition}
     Let \(C,D \subset V(\Gamma)\). We denote the set of edges with one vertex in \(C\) and the other vertex in \(D\) by the set \(\partial(C,D)\). The \emph{boundary} of a subset \(C\) is defined by the set \(\partial C = \partial(C, \stcomp{C})\).
 \end{definition}
 
 Recall that in a graph \(\Gamma\), a ray is an infinite sequence of vertices such that each consecutive pair are endpoints of an edge in \(E(\Gamma)\) and each vertex in \(V(\Gamma)\) appears at most once in the sequence.
 
-\begin{definition}[Separation of rays, equivalent rays]
+\begin{definition}
 Two rays are said to be \emph{separated} by a set of edges if this set of edges separates a pair of infinite subpaths, one from each of the rays. We call two rays \emph{equivalent} if they cannot be separated by a finite set of edges.
 \end{definition}
 
 Ends are then defined similarly to Definition~\ref{def:endsofgraph}, taking the equivalence relation to be equivalence as defined above. % Why can we do this?
 
-\begin{definition}[End of a graph]
+\begin{definition}
     An \emph{end} of \(X\) is an equivalence class under the relation of equivalence of rays.  
 \end{definition}
 
-\begin{definition}[Cut]
+\begin{definition}
  A \emph{cut} is a set of vertices \(C\) with finite edge boundary such that \(C\) and \(\stcomp{C}\) are both connected as subgraphs of \(\Gamma\) and contain (the vertices of) a ray.
 \end{definition}
 
@@ -284,7 +284,7 @@ Ends are then defined similarly to Definition~\ref{def:endsofgraph}, taking the 
     Since \(R\) and \(R'\) are equivalent, there is no finite set of edges which separates \(R\) and \(R'\). For a contradiction, it suffices to show the existence of such a set. For this we take the edge boundary \(\partial C\) --- it is finite (since \(C\) is a cut) and separates \(R\) and \(R'\) (since \(R'\) is not contained in \(C\)). 
 \end{proof}
 
-\begin{definition}[Minimal cut]
+\begin{definition}
     A cut \(C\) is \emph{minimal} if 
     \(|\partial C| = \inf_{C' \subset V(\Gamma)}{|\partial C'|}\), or in other words,
     the cardinality of the edge boundary \(\partial C\) is minimal over all cuts.
@@ -362,7 +362,7 @@ Our goal in this section is to shed light on how to construct \emph{structure tr
 
 To start, note that if \(\Gamma\) is the Cayley graph of a group \(G\) with respect to some finite generating set \(S \subseteq G\), then \(\Gamma\) is connected and the action of \(G\) on \(\Gamma\) is transitive (there is only one orbit of vertices).
 
-\begin{definition}[Nested]
+\begin{definition}
     Cuts of vertices \(C, D \subset V(\Gamma)\) are \emph{nested} if one of the following conditions hold:
     \begin{enumerate}
         \item \(C \subset D\)
@@ -538,7 +538,7 @@ In particular, a large class of hyperbolic groups are one-ended:
     A hyperbolic group is one-ended if its Gromov boundary is a non-empty connected space.
 \end{theorem}
 
-Hence, a set of examples would be the surface groups \(\pi_1(\Sigma_g)\) for \(g \geq 2\). One could look into similar theorems for small cancellation, Fuschian, or right-angled Artin groups.
+Hence, a set of examples would be the surface groups \(\pi_1(\Sigma_g)\) for \(g \geq 2\). One could look into similar theorems for small cancellation, Fuschian, or right-angled Artin groups. We return to discuss a related result in Section 5 (c.f. Theorem~\ref{twinning}). 
 
 \vspace{1em}
 \textbf{2.} \textit{``Does there exist a notion of ends of a group for an infinitely generated group? Do Stallings' results generalise further in this direction?''}

@@ -7,6 +7,10 @@ In this chapter we will explore a certain class of groups, which were initially 
 
 \subsection{Definition and first properties}
 
+\begin{remark}
+    In the discussion that will follow, we will use \emph{epimorphism} to mean a surjective group homomorphism and \emph{monomorphism} to mean an injective group homomorphism.
+\end{remark}
+
 \begin{definition}
     A \emph{Baumslag-Solitar group $BS(m,n)$} is a group given by the presentation \[BS(m,n) = \langle \: a, t\:|\:t(a^m)t^{-1} = a^n \: \rangle \] where $m,n \in \Z \setminus \{0\}$.
 \end{definition}
@@ -50,7 +54,7 @@ In this subsection we will follow the definitions and conventions from \cite[pag
 \end{remark}
 
 \begin{example}\label{BS as HNN}
-    $BS(m,n)$ is a HNN extension of $\Z  =\langle b \rangle$. To see this, we consider two subgroups of $\Z$, $m\Z = \{b^{mk}\: | \: k \in \Z\}$ and $n\Z = \{b^{nk}\: | \: k \in \Z\}$ with $m,n \in \Z \setminus \{0\}$. Note, that we are using multiplicative notation for the ease of the later argument, so $b^m$ means ``\emph{add $b$ to itself $m$ times}. Define $\phi: m\Z \to n\Z$, by $b^{mk} \mapsto b^{nk}$. Then, $\phi$ is an isomorphism, and we can consider $\Z\ast_\phi = (\Z,t \: | \: t^{-1}at = \phi(a), \forall a\in m\Z)$. It is not hard to see though, that because $\Z = \langle b \rangle$, $\Z\ast_\phi = ( b,t \: | \: t^{-1}((b^k)^m)t = \phi((b^k)^m), \: \forall b^k\in \Z ) = \langle b,t \: | \: t^{-1}(b^m)t = b^n\rangle $, which is exactly the presentation of $BS(m,n)$.
+    $BS(m,n)$ is a HNN extension of $\Z  =\langle b \rangle$. To see this, we consider two subgroups of $\Z$, $m\Z = \{b^{mk}\: | \: k \in \Z\}$ and $n\Z = \{b^{nk}\: | \: k \in \Z\}$ with $m,n \in \Z \setminus \{0\}$. Note, that we are using multiplicative notation for the ease of the later argument, so $b^m$ means ``\emph{add $b$ to itself $m$ times}. Define $\phi: m\Z \to n\Z$, by $b^{mk} \mapsto b^{nk}$. Then, $\phi$ is an isomorphism, and we can consider $\Z\ast_\phi = (\Z,t \: | \: t^{-1}at = \phi(a), \forall a\in m\Z)$. It is not hard to see though, that because $\Z = \langle b \rangle$, we have $\Z\ast_\phi = ( b,t \: | \: t^{-1}((b^k)^m)t = \phi((b^k)^m), \: \forall b^k\in \Z ) = \langle b,t \: | \: t^{-1}(b^m)t = b^n\rangle $, which is exactly the presentation of $BS(m,n)$.
 \end{example}
 
 %One of the reasons that HNN extensions are important is because together with free products with amalgamation they form the building blocks of graphs of groups (in the sense of Bass and Serre).
@@ -65,7 +69,7 @@ The next consideration that should come to mind is which of the groups $BS(m,n)$
 We will omit the proof in the interest of time, and instead go on to talk about how the behaviour of $BS(m,n)$ changes depending on $m,n$.
 
 \subsubsection{Properties depending on $m,n$}
-We will begin by briefly coming back to the notion of Hopficity, as well as, residual finiteness. Following the exposition in \cite[III.21]{Ha00}, and the results in \cite{CoLe83} we can state:
+We will begin by briefly coming back to the notions of Hopficity and residual finiteness. Following the exposition in \cite[III.21]{Ha00}, and the results in \cite{CoLe83} we can state:
 
 \begin{theorem}
     Consider the group $G = BS(m,n) = \langle a,t \: | \: ta^mt^{-1} = a^n \rangle$. Then the assertions below are true:
@@ -79,7 +83,7 @@ We will begin by briefly coming back to the notion of Hopficity, as well as, res
     In the theorem above we are not stating the result as introduced in \cite{BaSo62}, that is because it incorrectly stated that $BS(m,n)$ is Hopfian when $m$ or $n$ divides the other, even if their sets of prime divisors are not the same. The correction was made in the paper \cite{Me72} by Meskin.
 \end{remark}
 
-Departing from being Hopfian, it is important to mention that groups $BS(1,n)$ are widely referred to in the literature as \emph{the solvable Baumslag-Solitar groups} - see e.g. \cite{BoDePu2018}, \cite{FaMo98} or \cite{Gr96}. Indeed, the following holds:
+Departing from being Hopfian, it is important to mention that the groups $BS(1,n)$ are widely referred to in the literature as \emph{the solvable Baumslag-Solitar groups} - see e.g. \cite{BoDePu2018}, \cite{FaMo98} or \cite{Gr96}. Indeed, the following holds:
 
 \begin{proposition}\label{solv}
     The group $BS(m,n)$ is solvable if $1 \in \{|m|,|n|\}$.
