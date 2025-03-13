@@ -1,18 +1,18 @@
 \subsection{Algebraic topology associated to complexes of groups}
 We have already discussed how to create spaces from scwols.
-In some cases, we may view an action on a space as primary, and the role of the scwol is to give a discrete model of the space.
 We now work to define a space related to a complex of groups.
-The fundamental group of this space can be computed directly from the algebraic structure of the complex of groups.
+The fundamental group of this space can be computed directly from the algebraic structure of the complex of groups and is an important algebraic invariant of a complex of groups.
 
 Given a scwol $\calx$, homotopy in $\abs{\calx}$ is well modelled by the category structure in $\calx$.
-Let  $E^{\pm}(\calx) \supset E(\calx)$ denote oriented edges in $\abs{\calx}$.
+Let  $E_{\pm}(\calx) \supset E(\calx)$ denote oriented edges in $\abs{\calx}$.
 The $a \in E(\calx)$ are the edges oriented in the same way as the corresponding map in $\calx$.
 These are the positively oriented edges.
-We denote the edge oriented in the opposite orientation by $\bar{a} \in E_\pm(\calx)\setminus E(\calx)$.
-So $i(\bar{a}) = t(a)$ and $t(\bar{a}) = i(a)$.
+To each $a \in E(\calx)$, we denote the edge oriented in the opposite orientation by $\overline{a} \in E_\pm(\calx)\setminus E(\calx)$.
+So $i(\overline{a}) = t(a)$ and $t(\overline{a}) = i(a)$.
 These are the negatively oriented edges.
-As with \cref{def:graph}, we consider $\bar{(\_)}$ as a map $E_\pm(\calx) \to E_\pm(\calx)$ in the obvious way, where  $\bar{\bar{a}}= a$ etc.
-Unlike in \cref{def:graphs}, the negatively oriented edges do not exist in our scwol, but denote a path in the geometric realisation which goes in the opposite direction to the corresponding map.
+As with \cref{def:graph}, we consider $e \mapsto \overline{e}$ as a map $E_\pm(\calx) \to E_\pm(\calx)$ which acts in the obvious way, where  $\overline{\overline{a}}= a$ etc.
+Unlike in \cref{def:graph}, the negatively oriented edges do not really exist in our scwol.
+This notation is just used to denote a path along an edge in the geometric realisation which goes in the opposite direction to the corresponding map.
 \begin{definition}
 	An edge path from $\sigma$ to  $\tau$ in $\abs{\calx}$ is a tuple $(e_1, \ldots, e_n) \in \left(E_\pm(\calx)\right)^n$ such that $i(e_1)=\sigma$,  $t(e_n)=\tau$ and  $t(e_i) = i(e_{i+1})$ for all  $1 \leq i < n$.
 	\label{def:edge_path_in_scwol}
@@ -20,9 +20,9 @@ Unlike in \cref{def:graphs}, the negatively oriented edges do not exist in our s
 We can define homotopy of such edge paths in the following way.
 Given an edge path $(e_1, \ldots, e_n) \in \left(E_\pm(\calx)\right)^n$, we may do the following replacements:
 \begin{enumerate}
-	\item Any adjacent subpath $(e_i,e_{i+1})$, where $e_i=\bar{e}_{i+1}$ can be deleted.
+	\item Any adjacent subpath $(e_i,e_{i+1})$, where $e_i=\overline{e}_{i+1}$ can be deleted.
 	\item Any adjacent subpath $(e_i,e_{i+1})$, where $e_i = b$ and  $e_{i+1}=a$ are both positively oriented can be replaced by the subpath $(ab)$, which is guaranteed to exist.
-	      Similarly, if $e_i = \bar{b}$ and  $e_{i+1}=\bar{a}$ are both negatively oriented, we can replace $(e_i,e_{i+1})$ with  $(\bar{ba})$.
+	      Similarly, if $e_i = \overline{b}$ and  $e_{i+1}=\overline{a}$ are both negatively oriented, we can replace $(e_i,e_{i+1})$ with  $(\overline{ba})$.
 \end{enumerate}
 A homotopy of edge paths is a sequence of such edge path replacements, and their inverses.
 We can then define the fundamental group of $\calx$,  $\pi_1(\calx,\sigma_0)$, to be the homotopy class of edge paths that start and end at  $\sigma_0$.
@@ -40,8 +40,10 @@ We now define a category whose topology (via the geometric realisation) encodes 
 	For this definition, we take $\phi_{\alpha}$ to be $\id_{G_\sigma}$ if $\alpha = \id_\sigma$, and $g_{\alpha,\beta}$ to be the identity in $G_{t(\alpha)}$ if either of $\alpha$ or  $\beta$ are identity morphisms.
 \end{definition}
 Compatibility condition (2) in \cref{def:complex_of_groups} guarantees associativity of this composition in  $C\calg$.
+
 We can apply the construction of the geometric realisation of a scwol in \cref{def:geometric_realisation_of_scwol} to any category $\calc$.
 The only modification is that we consider non-identity endomorphisms in our composable tuples (which did not exist in the case of scwols).
+As with \cref{def:geometric_realisation_of_scwol}, given a category $\calc$, we denote this geometric realisation $\abs{\calc}$.
 
 \begin{definition}
 	Given a complex of groups $\calg$, we define the \emph{classifying space} of  $\calg$ to be  $\abs{C\calg}$.
@@ -50,18 +52,19 @@ The only modification is that we consider non-identity endomorphisms in our comp
 For example, if we take $\calg$ to be the complex of groups of a group  $G$ over the trivial scwol, then $\abs{C\calg}$ is the classifying space for $G$ as defined in \cite[Example 1B.7]{hatcher_algebraic_2001}.
 In particular, the 2-skeleton of $\abs{C\calg}$ is the presentation complex of $G$ with generating set $G$.
 
-Let $F_S$ denote the free group generated by the set $S$.
 \begin{definition}
-	Given a complex of groups $\calg = (G_\sigma, \phi_a, g_{a,b})$ over the scwol $\calx$, let $\widetilde{F\calg}$ denote the following free product of groups.
+	Given a complex of groups $\calg = (G_\sigma, \phi_a, g_{a,b})$ over the scwol $\calx$, let $\Delta$ denote the free product over all the groups in the following set.
 	\[
-		\widetilde{F\calg} =  F_{E_\pm(\calx)} \ast \left( \bigast_{\sigma \in V(\calx)} G_\sigma \right)
+		\Set{F_{E_\pm(\calx)}} \sqcup \bigsqcup_{\sigma \in V(\calx)}\Set{G_\sigma}
 		.\]
-	We then define the \emph{universal group} $F\calg$ associated to $\calg$ to be the quotient of $\widetilde{F\calg}$ subject to the relations  $R$, where
+	Where $F_{E_\pm(\calx)}$ is the free group with basis  $E_\pm(\calx)$.
+
+	We then define the \emph{universal group} $F\calg$ associated to $\calg$ to be the quotient of $\Delta$ subject to the relations  $R$, where
 	\[
 		R = \left\{
 		\begin{array}{l}
-			a^{-1}   = \bar{a}     \\
-			ab(\bar{ab}) = g_{a,b} \\
+			a^{-1}   = \overline{a}     \\
+			ab(\overline{ab}) = g_{a,b} \\
 			\phi_a(g)    = aga^{-1}
 		\end{array}
 		\right\}
@@ -122,8 +125,8 @@ The edge paths will be in the category $C\calg$, and we consider homotopies in $
 		\end{tikzpicture}
 	\]
 \end{example}
-From the previous example, we see that any edge path in $F\calg$ is homotopic to a path which moves between vertices via the relevant identity element, and possibly completes some loop at each vertex.
-Thus, to record an edge path in $F\calg$ up to homotopy, we should record exactly this information.
+From the previous example, we see that any edge path in $\abs{C\calg}$ is homotopic to a path which moves between vertices via the relevant identity element, and possibly completes some loop at each vertex.
+Thus, to record an edge path in $\abs{C\calg}$ up to homotopy, we should record exactly this information.
 
 \begin{definition}
 	Let $\calg$ be some complex of groups over the scwol $\calx$.
@@ -146,8 +149,8 @@ There is a projection $\pi$ from $\calg$ paths to $F\calg$ that acts as
 	.\]
 Two $\calg$ paths  $p$ and $q$ are defined to be homotopic if $\pi(p) = \pi(q)$ in $F\calg$.
 The fundamental group $\pi_1(\calg, \sigma_0)$ of $\calg$ at $\sigma_0$ is defined to be $\calg$ loops at  $\sigma_0$ up to homotopy, with concatenation as the group operation.
-In Haefliger's work, he \emph{defines} paths and homotopy in $\calg$ as in \cref{def:edge_path_in_scwol}.
-The fact that this is encodes the usual notion of homotopy in the classifying space for $\calg$, is briefly mentioned in \cite[Section 3.1.a]{haefliger_complexes_1991}.
+In Haefliger's work, he \emph{defines} paths and homotopy in $\calg$ in this purely algebraic way, using $F\calg$.
+The fact this also encodes the usual notion of homotopy in the classifying space for $\calg$, is briefly mentioned in \cite[Section 3.1.a]{haefliger_complexes_1991}.
 Hopefully by the preceding discussion, the reason for this correspondence is clear.
 \begin{theorem}[\hspace{1sp}{\cite[Proposition 3.2]{haefliger_complexes_1991}}]
 	Given a complex of groups $\calg$ over a connected scwol  $\calx$, let $T$ be a spanning tree of  $\calx$.
@@ -156,6 +159,7 @@ Hopefully by the preceding discussion, the reason for this correspondence is cle
 		R_T = \Set{a = 1 \given a \text{ is an edge in } T}
 		.\]
 \end{theorem}
+Compare this with \cref{def:graph_of_groups_fund_group}.
 For complex of groups $\calg$ over a connected scwol $\calx$, there is a projection $\rho \colon F\calg \to \pi_1(\calg,\sigma_0)$.
 By the above theorem, $\rho$ is injective on the local groups $G_\sigma \leq F\calg$.
 Thus, we can make \cref{thm:complex_of_groups_developable_iff_injective} more specific.
@@ -163,11 +167,10 @@ Let $i \colon G_\sigma \to F\calg$ be the inclusion of local groups as discussed
 \begin{theorem}[\hspace{1sp}{\cite[Chapter 3.\textrm{\ensuremath{\calc}}, Proposition 3.9]{BrHa11}}]
 	A complex of groups $\calg$ over a connected scwol  $\calx$ is developable if and only if the map $i \colon G_\sigma \to F\calg$, or equivalently $\rho \circ i \colon G_\sigma \to \pi_1(\calg, \sigma_0)$ is injective on each local group $G_\sigma$.
 \end{theorem}
-Compare this with \cref{def:graph_of_groups_fund_group}.
 With the definition of the fundamental group of a complex of groups, we have generalised many aspects in the theory of graphs of groups.
-In this context, it is also prove some important results in that theory, such as the developability of any graph of groups, realised as a 1-dimensional complex of groups.
+In this context, we can also prove some important results in that theory, such as the developability of any graph of groups, realised as a 1-dimensional complex of groups.
 
 There are results, discussed in \cite[Section 6]{haefliger_complexes_1991}, that relate non-positive curvature properties on the geometric realisation of the scwol to the developability of any complex of groups over that scwol.
-In \cite{charney_davis_kpi_1995}, the authors use complexes of groups to define what they call \emph{modified Deligne complex} and \emph{modified Coxeter complex}, where some of the tools developed here, especially the geometric realisation $C\calg$ play a vital role.
+In \cite{charney_davis_kpi_1995}, the authors use complexes of groups to define what they call \emph{modified Deligne complex} and \emph{modified Coxeter complex}, where some of the tools developed here, especially the construction of the classifying space, play a vital role.
 
 Overall, complexes of groups provide a very useful context in which to understand and leverage group actions on complexes.

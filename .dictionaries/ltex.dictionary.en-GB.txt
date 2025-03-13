@@ -32,3 +32,4 @@ developability
 Bass-Serre
 Baumslag-Solitar
 non-Hopfian
+Deligne

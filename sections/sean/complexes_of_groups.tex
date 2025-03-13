@@ -21,11 +21,10 @@ Given a group $G$, let $\ad(g) \colon G \to G$ denote conjugation, $\ad(g)(h) = 
 		\item $\ad(g_{a,b}) \phi_{ab} = \phi_a \phi_b$.
 		\item $\phi_a(g_{b,c})g_{a,bc} = g_{a,b}g_{ab,c}$.
 	\end{enumerate}
-	We call a complex of groups \emph{simple} if all the twisting elements are the identity.
+	We call a complex of groups \emph{simple} if all the twisting elements are the identity element of the relevant local group.
 	\label{def:complex_of_groups}
 \end{definition}
 
-In this notation, the $G$ in $\calg$ is not associated to any specific group, just that the structure of a complex of groups has been associated to the scwol $\calx$.
 Note that compatibility condition (1) is vacuous if the dimension of $\calx$ is less than 2.
 Compatibility condition (2) is vacuous if the dimension of  $\calx$ is less than 3.
 Compatibility condition (1) states that, up to conjugation by a twisting element, we can compose homomorphisms along composable edges in the obvious way.
@@ -58,7 +57,7 @@ In some sense, this is the natural context of complexes of groups and motivates 
 	Suppose we have $\calx$, $G$, $G \backslash \calx$ and $p \colon G \to G \backslash \calx$ as described after \cref{def:action_of_groups_on_scwols}.
 	Denote the scwol $G \backslash \calx$ by $\caly$.
 	Let $s \colon V(\caly) \to V(\calx)$ be a choice of section (as sets) of $p|_{V(\calx)}$.
-	The complex of groups $\calh = (G_\sigma, \phi_a, g_{a,b})$ over the scwol $\caly$ associated to the action of $G$ is defined as follows.
+	The complex of groups $\calh = (G_\sigma, \phi_a, g_{a,b})$ over the scwol $\caly$ associated to the action of $G$ is defined as follows:
 	We define the local groups of $\calh$ as the stabilisers under this section, $G_\sigma \coloneq \stab(s(\sigma))$.
 	Since $p$ is non-degenerate, for each $a \in E(\caly)$ with $i(a) = \sigma$, there exists a unique $\tilde{a} \in E(\calx)$ such that $i(\tilde{a}) = s(\sigma)$ and $p(\tilde{a}) = a$.
 	However, there is no guarantee that $t(\tilde{a}) = s(t(a))$.
@@ -76,7 +75,7 @@ We now check that, if $g \in G_{i(a)}$, then  $\phi_a(g) \in G_{t(a)}$ as requir
 Observe that $h_a^{-1} \cdot s(t(a)) = t(\tilde{a})$ by construction.
 Then, because $g \in G_{i(a)} = \stab(i(\tilde{a}))$, and because  $g$ acts non-degenerately,  $g \in \stab(t(\tilde{a}))$.
 So  $gh_a^{-1} \cdot s(t(a)) = t(\tilde{a})$, so $\phi_a(g) \cdot s(t(a)) = s(t(a))$ and  $\phi_a(g) \in G_{t(a)}$.
-We see that $h_a$ is exactly the correct element to conjugate by to account for the (sometimes inevitable) fact that the section $s$ is discontinuous and maps in to multiple fundamental domains of $\calx$.
+We see that $h_a$ is a good choice of element to conjugate by to account for the (sometimes inevitable) fact that the section $s$ is discontinuous and maps in to multiple fundamental domains of $\calx$.
 
 In the context above, given a well-chosen $h_a$ and some $h \in G_{i(a)}$, we see that $h^\prime_a = h_ah$, would also serve the function of $h_a$.
 So, there is ambiguity in that choice.
@@ -372,8 +371,8 @@ A graph of groups always arises from an action of a group on a tree, however, th
 	Let $p \colon \caly_\psi \to \calx$ be the projection $\caly_\psi \to G \backslash \caly_\psi$ composed with $\lambda$.
 	When constructing the complex of groups associated to this action, we need to make choices of representatives with respect to $p$, i.e.~we need to choose a section $s$ of $p$.
 	We make the natural choice of $s(\sigma) = (1_\sigma \psi_\sigma(G_\sigma), \sigma)$ for each $\sigma \in V(\calx)$.
-	Then, the unique $\overline{a} \in \caly$ such that $p(\overline{a}) = \sigma$ and $i(\overline{a}) = s(\sigma)$ is the obvious one, $\overline{a} = (1_\sigma\psi_\sigma(G_\sigma), a)$.
-	For our choice of $h_a$, we require  $h_a \cdot t(\overline{a}) = s(t(a))$, so we need $h_a\theta_a^{-1}\psi_\sigma(G_\sigma) = 1_\sigma \psi_\sigma(G_\sigma)$.
+	Then, the unique $\tilde{a} \in \caly$ such that $p(\tilde{a}) = \sigma$ and $i(\tilde{a}) = s(\sigma)$ is the obvious one, $\tilde{a} = (1_\sigma\psi_\sigma(G_\sigma), a)$.
+	For our choice of $h_a$, we require  $h_a \cdot t(\tilde{a}) = s(t(a))$, so we need $h_a\theta_a^{-1}\psi_\sigma(G_\sigma) = 1_\sigma \psi_\sigma(G_\sigma)$.
 	The natural choice is $h_a = \theta_a$.
 
 	Given these choices, we have a complex of groups $\calg_\psi = (G^\prime_\sigma, \phi^\prime_a, g^\prime_{a,b})$ over $G \backslash \caly_\psi$.

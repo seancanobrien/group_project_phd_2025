@@ -85,15 +85,15 @@ Two tetrahedrons, on the left half of the picture, share a face, and all three t
 Posets, and the construction $\abs{P}$, give a combinatorial description of certain simplicial complexes.
 However, not all complexes can be realised by this construction.
 For example, consider $S^1$ realised as two edges connected at their ends.
-This limitation is linked to the following.
+This limitation is related to the following observation.
 
 \begin{observation}
 	All the information of a poset $P$ is encoded exactly by the following category $\calc$:
 	The objects of  $\calc$ are the elements of  $P$, and there is a morphism  $x \to y$ in  $\calc$ exactly when  $x \leq y$ in $P$.
-	The category $\calc$ is \emph{thin}, meaning that for all  $x,y \in \ob(\calc)$, there is at most one morphism  $x \to y$.
+	The category $\calc$ is \emph{thin}, meaning that for all objects $x,y$ in  $\calc$, there is at most one morphism  $x \to y$.
 \end{observation}
 Bearing this in mind, with the aim of being able to construct $S^1$ in a combinatorial way, we give the following definition.
-We say a category $\calc$ is small if the collection of morphisms of $\calc$ fits in to a set.
+We say a category $\calc$ is \emph{small} if the collection of morphisms of $\calc$ fits in to a set.
 
 \begin{definition}
 	A small category without loops (abbreviated scwol), is a small category $\calx$ such that for all composable morphisms $x_1 \to x_2 \to \cdots \to x_n$, if $x_1=x_n$, then $x_1=x_i$ for all $i$, and each morphism is $\id_{x_1}$.
@@ -106,6 +106,7 @@ Conversely, if a small category satisfies both of these properties, then it is a
 
 With geometry in mind, we call the objects of a scwol $\calx$ \emph{vertices} and denote the set of vertices by $V(\calx)$.
 We call the non--identity morphisms of  $\calx$ \emph{edges} and denote the set of edges by $E(\calx)$.
+The morphisms give each edge a natural orientation, which is why we denote the edges $E(\calx)$ not $E_\pm(\calx)$, c.f.~\cref{def:graph}.
 Given some $a \in E(\calx)$, we denote the initial (source) and terminal (target) vertices by $i(a)$ and $t(a)$ respectively.
 If two edges $b$ and $a$ satisfy $t(b)=i(a)$, then we say that $a$ and $b$ are composable and denote their composition $ab$, which is necessarily another edge in $E(\calx)$.
 We have that $i(ab) = i(b)$ and $t(ab) = t(a)$.
@@ -253,10 +254,10 @@ Given a scwol $\calx$, the dimension of  $\calx $ is the dimension of $\abs{\cal
 \end{definition}
 
 
-The requirement that $E(\calx)$ maps to $E(\caly)$ means that non-identity morphisms must be mapped to non-identity morphisms.
+The requirement that a non-degenerate morphism maps $E(\calx)$ to $E(\caly)$ means that non-identity morphisms must be mapped to non-identity morphisms.
 A morphism of scwols $F$ induces a map on the geometric realisations, we denote this $\abs{F}$.
 This acts on each simplex $\Delta$ by the linear map determined by the image of the vertices of $\Delta$.
-Non-degenerate maps are important because they do not reduce the length of compositions of non-identity maps, thus they preserve dimension.
+Non-degenerate maps are important because they do not reduce the length of compositions of non-identity maps, thus they preserve dimension and restrict to homeomorphisms on cells.
 The importance of the second condition is that if a group acts by non-degenerate morphisms, then the stabiliser of $i(a)$ is contained in the stabiliser of $a$, which is contained in the stabiliser of $t(a)$ by virtue of $F$  being a functor.
 In this way, this condition guarantees that stabilisers respect the category structure.
 The importance of this will become apparent when we define complexes of groups.
