@@ -215,31 +215,31 @@ See Figure \ref{machine}.
         \includegraphics[width=1.1\textwidth]{sections/lorna/M0.png}
         \caption{Move $(M0)$.}
     \end{subfigure}
-    \hfill
+    \hspace{0.1\textwidth}%
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=1.1\textwidth]{sections/lorna/M1.png}
         \caption{Move $(M1)$.}
     \end{subfigure}
-    \hfill
+    \hspace{0.1\textwidth}%
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=1.1\textwidth]{sections/lorna/M2.png}
         \caption{Move $(M2)$.}
     \end{subfigure}
-    \hfill
+    \hspace{0.1\textwidth}%
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=1.1\textwidth]{sections/lorna/M3.png}
         \caption{Move $(M3)$.}
     \end{subfigure}
-    \hfill
+    \hspace{0.1\textwidth}%
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=1.1\textwidth]{sections/lorna/M4.png}
         \caption{Move $(M4)$.}
     \end{subfigure}
-    \hfill
+    \hspace{0.1\textwidth}%
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=1.1\textwidth]{sections/lorna/M5.png}
@@ -260,7 +260,7 @@ The Rips Machine starts by repeatedly applying these moves to transform a connec
     \end{itemize}
 \end{theorem}
 
-This theorem allows us to classify finitely presented groups which act `nicely' on $\mathbb{R}$-trees. Splittings of groups are defined in Section 4.
+This theorem allows us to classify finitely presented groups which act `nicely' on $\mathbb{R}$-trees. Splittings of groups were defined in Section 4 (Theorem~\ref{split}).
 \begin{theorem}[\hspace{1sp}{\cite[Theorem 6.1]{Bestvina_trees}}]\label{rtreesclassification}
     Let $G$ be a finitely generated torsion-free group acting non-trivially by isometries on an $\mathbb{R}$-tree $T$. Suppose also that all arc stabilizers are trivial. Then one of the following holds:
     \begin{enumerate}
@@ -317,8 +317,8 @@ In \cite{Bestvina_trees}, Bestvina describes a number of ways in which $\mathbb{
 \end{theorem}
 
 \begin{proof} (Sketch)
-    Since Out$(G)$ is infinite, we can find an infinite sequence of pairwise non-conjugate automorphisms $f_i$. Define an action $\rho_i$ of $G$ on its Cayley graph by $\rho_i(g)=f_i(g)$. %\todo[color=green!40]{Perhaps you could add ``As the \(f_i\) are automorphisms,\dots,'' or something which justifies why it is easily seen.}
-    Since the $f_i$ are automorphisms, this is an action by isometries. Theorem \ref{limittrees} can then be used to show that there is a limit $\mathbb{R}$-tree on which $G$ acts by isometries. It can then be shown that this action is stable, and the theorem follows by Theorem \ref{stable}. See \cite{Bestvina_trees} for a more detailed proof.
+    Since Out$(G)$ is infinite, we can find an infinite sequence of pairwise non-conjugate automorphisms $f_i$. Define actions $\rho_i$ of $G$ on its Cayley graph by $\rho_i(g)=f_i(g)$. %\todo[color=green!40]{Perhaps you could add ``As the \(f_i\) are automorphisms,\dots,'' or something which justifies why it is easily seen.}
+    Since the $f_i$ are automorphisms, these are actions by isometries. Theorem \ref{limittrees} can then be used to show that there is a limit $\mathbb{R}$-tree on which $G$ acts by isometries. It can then be shown that this action is stable, and the theorem follows by Theorem \ref{stable}. See \cite{Bestvina_trees} for a more detailed proof.
 \end{proof}
 
 \begin{theorem}[\hspace{1sp}{\cite[Theorem 6.14]{RipsSela}}]
@@ -338,7 +338,7 @@ $\mathbb{R}$-trees are also instrumental in the study of Culler and Vogtmann's \
     For a group acting by isometries on an $\mathbb{R}$-tree, the function $l:G\rightarrow\mathbb{R}$ given by $l(g)=\lVert g\rVert$ is called the \emph{length function} associated to the action.
 \end{definition}
 
-Let $\mathcal{L}(G)$ denote the set of all length functions for non-trivial actions of $G$ on $\mathbb{R}$-trees. Quotienting out by the obvious action of $\mathbb{R}$ gives the space $\mathcal{PL}(G)$ of \textit{projectivised length functions}. Let $F_n$ be the free group on $n$ generators, and $Y_n\subseteq \mathcal{PL}(F_n)$ the set of projectivised length functions defined by polyhedral actions. The space $Y_n$ is known as \textit{outer space}, as it admits a `nice' action of Out$(F_n)$. 
+Let $\mathcal{L}(G)$ denote the set of all length functions for non-trivial actions of $G$ on $\mathbb{R}$-trees. Quotienting out by the multiplicative action of $\mathbb{R}$ gives the space $\mathcal{PL}(G)$ of \textit{projectivised length functions}. Let $F_n$ be the free group on $n$ generators, and $Y_n\subseteq \mathcal{PL}(F_n)$ the set of projectivised length functions defined by polyhedral actions. The space $Y_n$ is known as \textit{outer space}, as it admits a `nice' action of Out$(F_n)$. 
 
 There is a theorem in Bass--Serre theory which states that a group is free if and only if it acts freely on a simplicial tree. The theory of outer space can be used to study free actions of free groups on $\mathbb{R}$-trees. In the $n=2$ case, it has been shown that the only free actions of $F_2$ on $\mathbb{R}$-trees are polyhedral, i.e. their length functions are in $Y_2$. For every $n\geq 3$ however, one can show that the set $\bar{Y}_n\backslash Y_n$ (where $\bar{Y}_n$ denotes the closure of $Y_n$ in $\mathcal{PL}(F_n)$) contains free actions. Therefore there are free actions of $F_n$ on $\mathbb{R}$-trees which are not polyhedral, sometimes referred to as \textit{exotic} actions. This demonstrates another key difference between simplicial trees and the slightly more general class of $\mathbb{R}$-trees.
 
@@ -356,7 +356,7 @@ The proof of this theorem (the part that uses $\mathbb{R}$-trees) can be found i
 \end{theorem}
 
 \begin{proof}
-    (Sketch) The proof that $\partial G$ is connected does not use $\mathbb{R}$-trees. Nor does that of the fact that if $\partial G$ contains no cut points, it is locally-connected. However, $\mathbb{R}$-trees are used to show that $\partial G$ never contains cut points. Note that here we mean cut points in the topological sense (points which, when removed, disconnect the space), not in the sense of Section 4.
+    (Sketch) The proof that $\partial G$ is connected does not use $\mathbb{R}$-trees. Nor does that of the fact that if $\partial G$ contains no cut points, it is locally-connected. However, $\mathbb{R}$-trees are used to show that $\partial G$ never contains cut points. Note that here we mean cut points in the topological sense (points which, when removed, disconnect the space).
     
     The proof is by contradiction. Supposing that $\partial G$ has a cut point, the action of $G$ on its boundary is used to construct an $\mathbb{R}$-tree on which $G$ acts with trivial arc stabilisers. Theorem \ref{stable} can then be used to conclude that $G$ splits over a 2-ended group. An inductive argument on the resulting graph of groups decomposition of $G$ and a result concerning the `complexity' of such a decomposition are then used to derive the contradiction.
 \end{proof}
